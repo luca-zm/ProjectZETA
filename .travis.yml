@@ -6,7 +6,7 @@ addons:
     sonarcloud:
      organization: "luca-zm1"
      token:
-        secure: "travis encrypt cfd7a6e7d54167269adc92c857f7b7f4606fe19e"
+        secure: "cfd7a6e7d54167269adc92c857f7b7f4606fe19e"
 
 script:
 - ant build

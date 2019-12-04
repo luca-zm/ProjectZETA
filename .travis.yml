@@ -1,15 +1,5 @@
-dist: xenial
 language: java
-jdk:
--openjdk13
-addons:
-  apt:
-    packages:
-      - ant 
-  sonarcloud:
-    organization: <nome> 
-    token:      
-      secure: "<token>"
-script:
-- ant build
-- sonar-scanner
+jdk: 
+    -openjdk8
+script: ant build
+

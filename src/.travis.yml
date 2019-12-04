@@ -1,6 +1,4 @@
 dist: trusty
-jdk: 
-    -openjdk8
 
 addons:
     sonarcloud:

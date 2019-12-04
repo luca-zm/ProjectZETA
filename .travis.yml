@@ -1,4 +1,4 @@
-language: java
+dist: trusty
 jdk: 
     -openjdk8
 
@@ -6,7 +6,7 @@ addons:
     sonarcloud:
      organization: "luca-zm1"
      token:
-        secure: "bN3sC6WWubxY0DZyFAA+3ogOWFoUziUnyHR/e3UVIRtesLmB9sSeB5lCTUO25luObz7/9SCxlCojRVryomzL0MZXNKcXPcAE34SQkoFUX2ir+OShsYUc7T9sh6h75LTCrwFCLHyPRYUUjhdIVjG2HCLQUR23Oxgsyows9kaZxTzDONJ1yDMQw2u/ovxdLQzzMFayGrzCwG2ohrNqDMxxzfigi+OhSpByuZHV2yr7zFztEPxkhTvLCf8RXL+6aA/3OcSY4wC7uaFKRkU1Xc8APHBNbZ37cyyUqq56QmJ5TRxEdI3hxKh/AVUv/RvYKA6VqPFpXar5ImUqHSruwR1AElz3ee34jjFisgSubL2pUkCM5b0vRly0DhR7z78UvOSZnATGzTpfVsmv8FdQidJrWryMv+/9iQO/sLlrOQcu8cEziW9GqO/LHUy4dYFgSsq2h1WHDWVkgYx+jbQn6FAmDBii1uxaxFldvIXrXdOiejIUcDmE1UUleChBOViJBwWFaJ+FXYLn//yCe026SonGgv3fEfJEHh1D+H7AF0h5Crl92l9imhURJmIPbRydK7OG1ryeaLlWzXVF1PDdcVSXZIT4GEswi5x+lrLD27vemiGR7dVs+K9VRZkAeDh/DUvniku92VotcOxTfu+02Kn4Q/nr/eyRfJ9GN7xU0qtr3ug="
+        secure: "2a230fcdd4b854350f08accc463717425b390b13"
 
 script:
 - ant build

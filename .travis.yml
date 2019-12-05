@@ -7,7 +7,7 @@ addons:
     sonarcloud:
      organization: "luca-zm"
      token:
-        secure: "6d9b291d5687d1465320d95b2e166fffc2738c41"
+        secure: "5a1f8f6260853ceae464c5b4aedb1f333f15b0de"
 
 script:
 - ant build

@@ -1,10 +1,13 @@
-dist: trusty
+language: java
+
+jdk: 
+    -openjdk8
 
 addons:
     sonarcloud:
      organization: "luca-zm1"
      token:
-        secure: "2a230fcdd4b854350f08accc463717425b390b13"
+        secure: "rsyjNA7ErZsUfLWBRd48uQ"
 
 script:
 - ant build

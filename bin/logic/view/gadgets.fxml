@@ -19,7 +19,7 @@
             <Button mnemonicParsing="false" text="Carrello" />
          </items>
       </ToolBar>
-      <Button fx:id="login" layoutX="645.0" layoutY="12.0" mnemonicParsing="false" text="Login\Register" />
+      <Button fx:id="login" layoutX="645.0" layoutY="12.0" onAction="#next" mnemonicParsing="false" text="Login\Register" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ccd0d5" height="158.0" layoutX="182.0" layoutY="91.0" stroke="#d2d1d1" strokeLineCap="ROUND" strokeLineJoin="BEVEL" strokeType="INSIDE" width="169.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ccd0d5" height="158.0" layoutX="455.0" layoutY="91.0" stroke="#d2d1d1" strokeLineCap="ROUND" strokeLineJoin="BEVEL" strokeType="INSIDE" width="169.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ccd0d5" height="158.0" layoutX="182.0" layoutY="306.0" stroke="#d2d1d1" strokeLineCap="ROUND" strokeLineJoin="BEVEL" strokeType="INSIDE" width="169.0" />

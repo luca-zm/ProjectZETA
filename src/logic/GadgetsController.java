@@ -45,18 +45,17 @@ public class GadgetsController extends Application {
     }
 
     /**
-     * @FXML
-     * public void openHome() throws IOException{
-     * Stage gadhetsWin = new Stage();
-     * homeWin.setTitle("Homepage");
-     * //aprir l'homepage in base ai permessi
-     * Parent root = FXMLLoader.load(getClass().getResource("gadgets.fxml"));
-     * Scene scene = new Scene(root);
-     * homeWin.setScene(scene);
-     * homeWin.show();
-     * sg.saveScene(scene);
-     * }
-     */
+    @FXML
+    public void openHome() throws IOException{
+    	Stage gadhetsWin = new Stage();
+    	homeWin.setTitle("Homepage");
+     	//aprir l'homepage in base ai permessi
+    	Parent root = FXMLLoader.load(getClass().getResource("gadgets.fxml"));
+    	Scene scene = new Scene(root);
+    	homeWin.setScene(scene);
+    	homeWin.show();
+    	sg.saveScene(scene);
+   }*/
 
     @FXML
     private void next(ActionEvent event) throws IOException {

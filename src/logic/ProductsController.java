@@ -30,13 +30,13 @@ import javafx.stage.WindowEvent;
 
 import javax.swing.*;
 
-public class GadgetsController extends Application {
+public class ProductsController extends Application {
 
     @FXML
     public Button login;
 
 
-    public GadgetsController() {
+    public ProductsController() {
 
     }
 

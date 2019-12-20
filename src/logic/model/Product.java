@@ -1,11 +1,11 @@
 package logic.model;
 
-public class Gadget {
+public class Product {
 		
 		private String gadgetName;
 		private int value;
 		
-		public Gadget(String gadgetName, int value) {
+		public Product(String gadgetName, int value) {
 			
 			this.gadgetName = gadgetName;
 			this.value = value;

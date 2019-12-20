@@ -14,16 +14,10 @@ import javafx.stage.Stage;
 public class winNext {
 
 	
-	public void next(ActionEvent event) throws IOException {
-		openWin("");
-        Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        oldWin.close();
-    }
-	
 	public void openWin(String neWin) throws IOException{
 		Stage currentWin = new Stage();
-        currentWin.setTitle("Homepage");
-        Parent root = FXMLLoader.load(getClass().getResource(neWin+".xml"));
+        currentWin.setTitle("EcoClean");
+        Parent root = FXMLLoader.load(getClass().getResource(neWin));
         Scene scene = new Scene(root);
         currentWin.setScene(scene);
         currentWin.show();

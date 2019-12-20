@@ -11,14 +11,14 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
     	//Luca
-        Parent root = FXMLLoader.load(getClass().getResource("view/productsPage.fxml"));
-        primaryStage.setTitle("Gadgets");
-        primaryStage.setScene(new Scene(root, 770, 550));
+        //Parent root = FXMLLoader.load(getClass().getResource("view/login_registerPage.fxml"));
+        //primaryStage.setTitle("Gadgets");
+        //primaryStage.setScene(new Scene(root, 770, 550));
         
     	//Davide
-        //Parent root = FXMLLoader.load(getClass().getResource("view/userprofile.fxml"));
-        //primaryStage.setTitle("User Profile");
-        //primaryStage.setScene(new Scene(root, 770, 550));
+        Parent root = FXMLLoader.load(getClass().getResource("view/userProfilePage.fxml"));
+        primaryStage.setTitle("User Profile");
+        primaryStage.setScene(new Scene(root, 770, 550));
         
         //Stefano
         //Parent root = FXMLLoader.load(getClass().getResource("view/shoppingcart.fxml"));

@@ -2,42 +2,31 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?scenebuilder-stylesheet fextile.css?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.ProductsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="754.0" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.ProductsController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="771.0" layoutX="313.0" layoutY="-88.0" stroke="WHITE" strokeType="INSIDE" width="18.0" />
-      <PasswordField layoutX="47.0" layoutY="211.0" prefHeight="34.0" prefWidth="213.0" />
-      <TextField layoutX="47.0" layoutY="132.0" prefHeight="34.0" prefWidth="214.0" />
-      <Label layoutX="107.0" layoutY="61.0" prefHeight="42.0" prefWidth="94.0" text="Login:" textFill="#48aa77">
-         <font>
-            <Font name="System Bold" size="31.0" />
-         </font>
-      </Label>
-      <Label layoutX="463.0" layoutY="61.0" prefHeight="46.0" prefWidth="146.0" text="Register:" textFill="#48aa77">
-         <font>
-            <Font name="System Bold" size="31.0" />
-         </font>
-      </Label>
-      <TextField layoutX="404.0" layoutY="132.0" prefHeight="34.0" prefWidth="214.0" />
-      <TextField layoutX="404.0" layoutY="211.0" prefHeight="34.0" prefWidth="214.0" />
-      <TextField layoutX="404.0" layoutY="280.0" prefHeight="34.0" prefWidth="214.0" />
-      <CheckBox layoutX="395.0" layoutY="352.0" mnemonicParsing="false" text="Accept terms and condition to continue" />
+      <PasswordField layoutX="47.0" layoutY="211.0" prefHeight="34.0" prefWidth="213.0" styleClass="text-area" />
+      <TextField layoutX="47.0" layoutY="132.0" prefHeight="34.0" prefWidth="214.0" styleClass="text-area" />
+      <TextField layoutX="404.0" layoutY="132.0" prefHeight="34.0" prefWidth="214.0" styleClass="text-area" />
+      <TextField layoutX="404.0" layoutY="211.0" prefHeight="34.0" prefWidth="214.0" styleClass="text-area" />
+      <TextField layoutX="404.0" layoutY="280.0" prefHeight="34.0" prefWidth="214.0" styleClass="text-area" />
+      <CheckBox layoutX="431.0" layoutY="354.0" mnemonicParsing="false" text="Accept terms and&#10;condition to continue" />
       <Text layoutX="51.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
       <Text layoutX="51.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
       <Text layoutX="404.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
       <Text layoutX="405.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
       <Text layoutX="405.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm password:" />
-      <Button layoutX="129.0" layoutY="284.0" mnemonicParsing="false" text="Login!" />
-      <Button layoutX="481.0" layoutY="399.0" mnemonicParsing="false" text="Confirm" />
-      <Button layoutX="47.0" layoutY="475.0" mnemonicParsing="false" text="Back" />
+      <Button layoutX="129.0" layoutY="284.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Login!" />
+      <Button layoutX="482.0" layoutY="411.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Confirm" />
+      <Button layoutX="47.0" layoutY="475.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Back" />
       <Polygon fill="#48a875af" layoutX="643.0" layoutY="141.0" points="25.5, -86.99999237060547, 0.4000244140625, 7.399993896484375, 136.0, -98.20000457763672" stroke="#48aa77" strokeWidth="0.0" />
       <Polygon fill="#47a673d9" layoutX="628.0" layoutY="182.0" points="65.0001220703125, -108.20001220703125, 0.4000244140625, 7.399993896484375, 191.699951171875, 100.60000610351562" stroke="#48aa77" strokeWidth="0.0" />
       <Polygon fill="#49a67468" layoutX="609.0" layoutY="427.0" points="25.5, -86.99999237060547, 147.2000732421875, 179.4000244140625, 196.800048828125, -131.80001831054688" stroke="#48aa77" strokeWidth="0.0" />
@@ -48,5 +37,7 @@
       <Polygon fill="#48a875af" layoutX="655.0" layoutY="610.0" points="25.5, -86.99999237060547, 0.4000244140625, 7.399993896484375, 136.0, -98.20000457763672" stroke="#48aa77" strokeWidth="0.0" />
       <Polygon fill="#47a67344" layoutX="655.0" layoutY="146.0" points="60.4000244140625, -215.70001220703125, 0.4000244140625, 7.399993896484375, 136.0, -98.20000457763672" stroke="#48aa77" strokeWidth="0.0" />
       <Polygon fill="#49a6742f" layoutX="696.0" layoutY="316.0" points="-27.0999755859375, -55.0, 128.0, -7.899993896484375, 136.0, -98.20000457763672" stroke="#48aa77" strokeWidth="0.0" />
+      <Text layoutX="114.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="LOGIN" wrappingWidth="79.897705078125" />
+      <Text layoutX="458.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="REGISTER" wrappingWidth="106.40000000000009" />
    </children>
 </AnchorPane>

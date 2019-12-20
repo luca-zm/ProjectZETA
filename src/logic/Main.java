@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
     	//Luca
-        Parent root = FXMLLoader.load(getClass().getResource("view/login_registerPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/productsPage.fxml"));
         primaryStage.setTitle("Gadgets");
         primaryStage.setScene(new Scene(root, 770, 550));
         

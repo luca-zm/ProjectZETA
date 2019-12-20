@@ -25,6 +25,8 @@ public class HomepageController implements Initializable{
 		
     	myplayer.setAutoPlay(true);
     	myvideo.setMediaPlayer(myplayer);
+    	myplayer.setMute(true);
+        myplayer.setCycleCount(MediaPlayer.INDEFINITE);
 		
 	}
 }

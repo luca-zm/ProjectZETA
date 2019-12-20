@@ -30,14 +30,13 @@ import javafx.stage.WindowEvent;
 
 import javax.swing.*;
 
-public class ProductsController extends Application {
+public class HomepageController extends Application {
 
     @FXML
     public Button login;
 
 
-    public ProductsController() {
-
+    public HomepageController() {
     }
 
     @Override
@@ -52,6 +51,4 @@ public class ProductsController extends Application {
         oldWin.close();
     }
 }
-
-
 

@@ -25,26 +25,26 @@ public class UserProfileController extends Application {
 		
 	}
 
+	//setto l'avatar a forma di cerchio
     @FXML
     public void initialize() {
         // set a clip to apply rounded border to the original image.
-    	Circle clip = new Circle(60, 60, 60);
+    	//NON TOCCARE LE DIMENSIONI
+    	Circle clip = new Circle(95, 82, 80);
         avatarImage.setClip(clip);
     }
 	
 	@FXML
     private void next(ActionEvent event) throws IOException {
         winNext a = new winNext();
-        a.openWin();
-        //chiudo la schermata del login
+        a.openWin("");
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         oldWin.close();
     }
 
 	@Override
-	public void start(Stage arg0) throws Exception {
+	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
-		
 	}
 
 }

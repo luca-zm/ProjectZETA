@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="754.0" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.ProductsController">
+   <children>
+      <MediaView fitHeight="200.0" fitWidth="200.0" layoutX="277.0" layoutY="178.0" opacity="0.5" />
+      <ToolBar prefHeight="51.0" prefWidth="862.0" />
+      <Button fx:id="login" layoutX="631.0" layoutY="10.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Login\Register" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49a67399" height="498.0" layoutX="3.0" layoutY="54.0" stroke="#49a674" strokeType="INSIDE" strokeWidth="0.0" width="747.0" />
+      <Button fx:id="login1" layoutX="59.0" layoutY="220.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: white;" text="Visit shop!" textFill="#edeaea" />
+      <Text fill="WHITE" layoutX="59.0" layoutY="152.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Search for your Eco-Product!" wrappingWidth="209.51686096191406">
+         <font>
+            <Font size="30.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Text>
+   </children>
+</AnchorPane>

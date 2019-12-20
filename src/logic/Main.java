@@ -16,8 +16,8 @@ public class Main extends Application {
         //primaryStage.setScene(new Scene(root, 770, 550));
         
     	//Davide
-        Parent root = FXMLLoader.load(getClass().getResource("view/userProfilePage.fxml"));
-        primaryStage.setTitle("User Profile");
+        Parent root = FXMLLoader.load(getClass().getResource("view/homePage.fxml"));
+        primaryStage.setTitle("Homepage");
         primaryStage.setScene(new Scene(root, 770, 550));
         
         //Stefano

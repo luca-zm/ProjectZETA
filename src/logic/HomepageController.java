@@ -1,54 +1,31 @@
 package logic;
 
-import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollBar;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import javafx.fxml.Initializable;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 
-import java.io.File;
-import java.io.IOException;
 
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-
-import javax.swing.*;
-
-public class HomepageController extends Application {
+public class HomepageController implements Initializable{
 
     @FXML
-    public Button login;
-
-
-    public HomepageController() {
-    }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-    }
-
+    public MediaView myvideo;
+    
     @FXML
-    private void next(ActionEvent event) throws IOException {
-        winNext a = new winNext();
-        a.openWin("");
-        Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        oldWin.close();
-    }
+    public MediaPlayer myplayer;
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+
+		myplayer= new MediaPlayer(new Media(this.getClass().getResource("view/images/video.mp4").toExternalForm()));
+		
+    	myplayer.setAutoPlay(true);
+    	myvideo.setMediaPlayer(myplayer);
+		
+	}
 }
 

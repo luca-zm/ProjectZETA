@@ -1,4 +1,4 @@
-package Model;
+package logic.Model;
 
 public class CollectionPointMan extends AbstractUser {
 	
@@ -11,9 +11,9 @@ public class CollectionPointMan extends AbstractUser {
 	@Override
 	public String toString() {
 		return "CollectionPointMan [name=" + name + ", username=" + username + ", pass=" + pass + ", role=" + role
-				+ ", mail=" + mail + ", cart=" + cart + ", getRole()=" + getRole() + ", getClass()=" + getClass()
-				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+				+ ", mail=" + mail + "]";
 	}
+
 	
 	
 

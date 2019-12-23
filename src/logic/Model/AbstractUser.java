@@ -1,4 +1,4 @@
-package Model;
+package logic.Model;
 
 public abstract class AbstractUser {
 	
@@ -8,8 +8,7 @@ public abstract class AbstractUser {
 	protected String pass;
 	protected int role;
 	protected String mail;
-	protected ShopCart cart;
-	//protected PurchaseHistory history;
+
 	
 	
 	

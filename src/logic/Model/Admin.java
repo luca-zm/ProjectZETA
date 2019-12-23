@@ -1,4 +1,4 @@
-package Model;
+package logic.Model;
 
 public class Admin extends AbstractUser {
 	
@@ -11,9 +11,10 @@ public class Admin extends AbstractUser {
 	@Override
 	public String toString() {
 		return "Admin [name=" + name + ", username=" + username + ", pass=" + pass + ", role=" + role + ", mail=" + mail
-				+ ", cart=" + cart + ", getRole()=" + getRole() + ", getClass()=" + getClass() + ", hashCode()="
-				+ hashCode() + ", toString()=" + super.toString() + "]";
+				+ "]";
 	}
+
+	
 	
 	
 

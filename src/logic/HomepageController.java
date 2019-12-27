@@ -47,6 +47,10 @@ public class HomepageController extends Application implements Initializable{
 	@FXML
     private void nextLog(ActionEvent event) throws IOException {
         winNext a = new winNext();
+        String eventClicked = event.getSource().toString();
+        if (eventClicked == "Button[id=log, styleClass=button]'Login or Register'") {
+        	
+        }
         a.openWin("view/login_registerPage.fxml");
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         oldWin.close();

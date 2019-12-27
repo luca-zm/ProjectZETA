@@ -17,9 +17,9 @@
             <Rectangle2D />
          </viewport></MediaView>
       <ToolBar prefHeight="51.0" prefWidth="862.0" />
-      <Button id="log" onAction="#nextLog" layoutX="631.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Login\Register" />
+      <Button id="log" layoutX="617.0" layoutY="10.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Login or Register" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49a6736b" height="566.0" layoutX="-41.0" layoutY="51.0" stroke="#49a674" strokeType="INSIDE" strokeWidth="0.0" width="862.0" />
-      <Button id="shop" onAction="#nextShop" layoutX="59.0" layoutY="220.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Visit shop!" textFill="#edeaea" />
+      <Button id="shop" layoutX="59.0" layoutY="220.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: white;" text="Visit shop!" textFill="#edeaea" />
       <Text fill="WHITE" layoutX="59.0" layoutY="152.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Search for your Eco-Product!" wrappingWidth="209.51686096191406">
          <font>
             <Font size="30.0" />

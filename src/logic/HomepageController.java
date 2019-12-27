@@ -45,20 +45,19 @@ public class HomepageController extends Application implements Initializable{
 	}
 	
 	@FXML
-    private void nextLog(ActionEvent event) throws IOException {
+    private void next(ActionEvent event) throws IOException {
         winNext a = new winNext();
+        
+        //in 'eventclicked' ci sarà una stringa evento che serve per la scelta dell'if
         String eventClicked = event.getSource().toString();
-        if (eventClicked == "Button[id=log, styleClass=button]'Login or Register'") {
-        	
+        System.out.println(eventClicked);
+        //in base al bottone cliccato, apro la propria pagina
+        if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login or Register'")) {
+        	a.openWin("view/login_registerPage.fxml");
         }
-        a.openWin("view/login_registerPage.fxml");
-        Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        oldWin.close();
-    }
-	@FXML
-    private void nextShop(ActionEvent event) throws IOException {
-        winNext a = new winNext();
-        a.openWin("view/productsPage.fxml");
+        if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Visit shop!'")) {
+        	a.openWin("view/productsPage.fxml");
+        }
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         oldWin.close();
     }

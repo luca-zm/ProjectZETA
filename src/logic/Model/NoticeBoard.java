@@ -10,6 +10,27 @@ public class NoticeBoard {
 		this.list = list;
 	}
 	
+	public Boolean addMessage(Message message) {
+		if(message == null) {
+			return false;
+		}
+		list.add(message);
+		return true;
+	}
 	
+	public Boolean deleteMessage(Message message) {
+		if(list.remove(message)){
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	public void clear() {
+		list.clear();
+	}
+	
+	public ArrayList<Message> getList() {return list;}
 
 }

@@ -39,9 +39,6 @@ public class LoginController extends Application {
     @FXML
     public Button back;
 
-    Singleton sg = Singleton.getInstance();
-
-
     public LoginController() {
 
     }

@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Text?>
 <?scenebuilder-stylesheet fextile.css?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="754.0" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.ProductsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="754.0" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.LoginController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="771.0" layoutX="313.0" layoutY="-88.0" stroke="WHITE" strokeType="INSIDE" width="18.0" />
       <PasswordField layoutX="47.0" layoutY="211.0" prefHeight="34.0" prefWidth="213.0" styleClass="text-area" />
@@ -24,9 +24,9 @@
       <Text layoutX="404.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
       <Text layoutX="405.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
       <Text layoutX="405.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm password:" />
-      <Button layoutX="129.0" layoutY="284.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Login!" />
-      <Button layoutX="482.0" layoutY="411.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Confirm" />
-      <Button layoutX="47.0" layoutY="475.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Back" />
+      <Button id="log" onAction="#next" layoutX="129.0" layoutY="284.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Login!" />
+      <Button id="conf" onAction="#next" layoutX="482.0" layoutY="411.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Confirm" />
+      <Button id="back" onAction="#next" layoutX="47.0" layoutY="475.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Back" />
       <Polygon fill="#48a875af" layoutX="643.0" layoutY="141.0" points="25.5, -86.99999237060547, 0.4000244140625, 7.399993896484375, 136.0, -98.20000457763672" stroke="#48aa77" strokeWidth="0.0" />
       <Polygon fill="#47a673d9" layoutX="628.0" layoutY="182.0" points="65.0001220703125, -108.20001220703125, 0.4000244140625, 7.399993896484375, 191.699951171875, 100.60000610351562" stroke="#48aa77" strokeWidth="0.0" />
       <Polygon fill="#49a67468" layoutX="609.0" layoutY="427.0" points="25.5, -86.99999237060547, 147.2000732421875, 179.4000244140625, 196.800048828125, -131.80001831054688" stroke="#48aa77" strokeWidth="0.0" />

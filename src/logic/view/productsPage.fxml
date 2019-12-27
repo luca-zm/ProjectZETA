@@ -64,5 +64,6 @@
       <Button layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: white" text="Link2" />
       <Button layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: white" text="Link3" />
       <Button layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: white" text="Link4" />
+      <Button layoutX="23.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="38.0" styleClass="hbox" stylesheets="@fextile.css" />
    </children>
 </AnchorPane>

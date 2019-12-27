@@ -29,6 +29,7 @@ public class HomepageController extends Application implements Initializable{
     @FXML
     public Button log, shop;
 
+    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		myplayer= new MediaPlayer(new Media(this.getClass().getResource("view/images/video.mp4").toExternalForm()));
@@ -55,9 +56,11 @@ public class HomepageController extends Application implements Initializable{
         if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login or Register'")) {
         	a.openWin("view/login_registerPage.fxml");
         }
+        
         if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Visit shop!'")) {
         	a.openWin("view/productsPage.fxml");
         }
+        
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         oldWin.close();
     }

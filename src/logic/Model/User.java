@@ -1,28 +1,43 @@
 package logic.Model;
 
+
+import logic.Model.Roles;
+import static logic.Model.Roles.USER;
+
+import java.util.ArrayList;
+
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+
 public class User extends AbstractUser {
 	private ShopCart cart;
 	private History history;
 	private NoticeBoard boards;
 	private int greenCoin;
+	private ArrayList<Roles> roles;
+	private Roles type;
 	
 	
 	public User(String name, String username, String pass, String mail, ShopCart cart, int greenCoin, History history, NoticeBoard boards) {
-		super(name, username, pass, mail);
+		super();
 		this.cart = cart;
 		this.boards = boards;
 		this.history = history;
-		this.greenCoin = greenCoin;
-		this.role = 3;	
+		this.greenCoin = greenCoin;	
 	}
+	
+	public User() {
+		super();
+	}
+	public Roles getType() {return USER;}
+	
+	
 
 	@Override
 	public String toString() {
-		return "User [cart=" + cart + ", history=" + history + ", greenCoin=" + greenCoin + ", name=" + name
-				+ ", username=" + username + ", pass=" + pass + ", role=" + role + ", mail=" + mail + "]";
+		return "User [cart=" + cart + ", history=" + history + ", boards=" + boards + ", greenCoin=" + greenCoin + "]";
 	}
-	
-	
+
+
 	// Gain greenCoin
 	public void addGreenCoin(int coin) {
 		this.greenCoin += coin;

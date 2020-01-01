@@ -14,7 +14,7 @@ public abstract class AbstractUser {
 	protected String mail;
 	private ArrayList<Roles> roles;
 	private Roles type;
-	
+	private boolean valid;
 	
 	public AbstractUser() {
 	}
@@ -63,6 +63,14 @@ public abstract class AbstractUser {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
+	
+	public boolean isValid() {
+        return valid;
+    }
+
+    public void setValid(boolean valid) {
+        this.valid = valid;
+    }
 
 
 	public String getMail() {
@@ -84,7 +92,4 @@ public abstract class AbstractUser {
 	
 	
 	
-	
-	
-
 }

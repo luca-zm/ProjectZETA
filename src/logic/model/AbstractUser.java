@@ -12,26 +12,21 @@ public abstract class AbstractUser {
 	protected String username;
 	protected String pass;
 	protected String mail;
-	private ArrayList<Roles> roles;
 	private Roles type;
-	private boolean valid;
-	
-	public AbstractUser() {
-	}
 
+
+	public AbstractUser(String name, String username, String pass, String mail, Roles type) {
+		this.name = name;
+		this.username = username;
+		this.pass = pass;
+		this.mail = mail;
+		this.type = type;
+	} 
+	
 	public abstract Roles getType();
 	
 	public void setType(Roles type) {
         this.type = type;
-    }
-	
-	
-	public ArrayList<Roles> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(ArrayList<Roles> roles) {
-        this.roles = roles;
     }
 	
 	
@@ -64,15 +59,6 @@ public abstract class AbstractUser {
 		this.pass = pass;
 	}
 	
-	public boolean isValid() {
-        return valid;
-    }
-
-    public void setValid(boolean valid) {
-        this.valid = valid;
-    }
-
-
 	public String getMail() {
 		return mail;
 	}

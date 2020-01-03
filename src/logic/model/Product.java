@@ -23,4 +23,12 @@ public class Product {
 	public int getPrice() {return price;}
 
 	public String getImage() {return image;}
+
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", image=" + image + "]";
+	}
+	
+
 }

@@ -8,7 +8,13 @@ public class History {
 	public History(ArrayList<Transaction> tranList) {
 		this.tranList = tranList;
 	}
-    
+	
+	//Default constructor create an empty list
+	public History() {
+		this.tranList = new ArrayList<Transaction>();
+	}
+
+
 	//Add new LEARN Transaction. ProductId and ProductName are set to default 
 	public void AddLearnTran(String date, int value) {
 		this.tranList.add(new Transaction (date, 0, null, value, TranType.LEARN));
@@ -31,4 +37,11 @@ public class History {
 	public void clear() {
 		tranList.clear();
 	}
+
+	@Override
+	public String toString() {
+		return "History [tranList=" + tranList + "]";
+	}
+	
+	
 }

@@ -11,6 +11,15 @@ public class ShopCart {
 		this.totalPrice = totalPrice;
 	}
 	
+	
+	//Default constructor create an empty list 
+	public ShopCart() {
+		this.productList = new ArrayList<Product>();
+		this.totalPrice = 0;
+	}
+
+
+
 	public ArrayList<Product> getProductList() {return productList;}
 
 	public int getTotalPrice() {return totalPrice;}

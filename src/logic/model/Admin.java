@@ -5,10 +5,7 @@ import static logic.Model.Roles.ADMIN;
 public class Admin extends AbstractUser {
 
     public Admin(String name, String username, String mail, String pass)  {
-    }
-    
-    public Admin() {
-
+    	super(name, username, mail, pass, Roles.ADMIN);
     }
 
     @Override

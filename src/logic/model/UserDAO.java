@@ -1,4 +1,4 @@
-package logic.Model;
+package logic.model;
 
 
 import logic.Model.Guest;

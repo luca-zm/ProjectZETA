@@ -1,4 +1,4 @@
-package logic;
+package logic.graphicController;
 
 import java.awt.Color;
 import java.io.IOException;

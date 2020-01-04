@@ -1,4 +1,4 @@
-package logic;
+package logic.graphicController;
 
 
 import javafx.application.Application;
@@ -54,11 +54,11 @@ public class HomepageController extends Application implements Initializable{
         //System.out.println(eventClicked); <-- usare per prelevare la stringa
         //in base al bottone cliccato, apro la propria pagina
         if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login or Register'")) {
-        	a.openWin("view/login_registerPage.fxml");
+        	a.openWin("logic/view/login_registerPage.fxml");
         }
         
         if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Visit shop!'")) {
-        	a.openWin("view/productsPage.fxml");
+        	a.openWin("logic/view/productsPage.fxml");
         }
         
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();

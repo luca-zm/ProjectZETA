@@ -1,4 +1,4 @@
-package logic;
+package logic.graphicController;
 
 
 import java.io.IOException;
@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import logic.model.Singleton;
 
 public class winNext{
 

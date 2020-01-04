@@ -1,9 +1,9 @@
-package logic.Model;
+package logic.model;
 
 import java.util.ArrayList;
 
-import logic.Model.Roles;
 
+import logic.enums.Roles;
 
 
 public abstract class AbstractUser {

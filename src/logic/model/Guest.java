@@ -1,6 +1,8 @@
-package logic.Model;
+package logic.model;
 
-import static logic.Model.Roles.GUEST;
+import static logic.enums.Roles.GUEST;
+
+import logic.enums.Roles;
 
 public class Guest extends AbstractUser{
 	
@@ -18,6 +20,11 @@ public class Guest extends AbstractUser{
 	@Override
 	public String toString() {
 		return "Guest [name=" + name + ", username=" + username + ", pass=" + pass + ", mail=" + mail + "]";
+	}
+
+	public void setValid(boolean b) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

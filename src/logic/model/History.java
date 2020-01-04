@@ -1,6 +1,8 @@
-package logic.Model;
+package logic.model;
 
 import java.util.ArrayList;
+
+import logic.enums.TranType;
 
 public class History {
 	private ArrayList<Transaction> tranList;

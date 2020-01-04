@@ -1,4 +1,5 @@
-package logic.Model;
+package logic.model;
+import logic.enums.MesType;
 
 public class Message {
 	

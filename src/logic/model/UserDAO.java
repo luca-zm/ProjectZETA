@@ -1,7 +1,7 @@
 package logic.model;
 
 
-import logic.Model.Guest;
+import logic.enums.Roles;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -35,7 +35,7 @@ public class UserDAO {
 
         try {
             //connect to DB
-            currentCon = DataSource.getConnection();
+            //currentCon = DataSource.getConnection();
             stmt = currentCon.createStatement();
             rs = stmt.executeQuery(searchQuery);
             boolean more = rs.next();

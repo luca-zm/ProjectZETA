@@ -1,4 +1,6 @@
-package logic.Model;
+package logic.model;
+
+import logic.enums.TranType;
 
 public class Transaction {
 	private String date;

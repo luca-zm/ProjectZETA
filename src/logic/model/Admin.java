@@ -1,7 +1,7 @@
-package logic.Model;
+package logic.model;
 
-import static logic.Model.Roles.ADMIN;
-
+import static logic.enums.Roles.ADMIN;
+import logic.enums.Roles;
 public class Admin extends AbstractUser {
 
     public Admin(String name, String username, String mail, String pass)  {

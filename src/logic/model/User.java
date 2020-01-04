@@ -1,8 +1,8 @@
-package logic.Model;
+package logic.model;
+import logic.enums.Roles;
 
+import static logic.enums.Roles.USER;
 
-import logic.Model.Roles;
-import static logic.Model.Roles.USER;
 public class User extends AbstractUser {
 	private ShopCart cart;
 	private History history;

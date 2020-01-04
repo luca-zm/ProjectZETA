@@ -1,12 +1,13 @@
-package test.model;
+/**package test.model;
 
 import static org.junit.Assert.*;
 
+
 import org.junit.Test;
-import logic.Model.History;
-import logic.Model.NoticeBoard;
-import logic.Model.ShopCart;
-import logic.Model.User;
+import logic.model.History;
+import logic.model.NoticeBoard;
+import logic.model.ShopCart;
+import logic.model.User;
 
 public class testUser {
 
@@ -38,3 +39,4 @@ public class testUser {
 	}
 
 }
+**/

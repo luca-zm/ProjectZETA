@@ -1,6 +1,7 @@
-package logic.Model;
+package logic.model;
 
-import static logic.Model.Roles.COLLECTIONPOINTMAN;;
+import static logic.enums.Roles.COLLECTIONPOINTMAN;
+import logic.enums.Roles;
 
 public class CollectionPointMan extends AbstractUser {
 

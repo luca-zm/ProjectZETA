@@ -30,18 +30,16 @@ import javafx.stage.WindowEvent;
 
 import javax.swing.*;
 
-public class ProductsController extends Application {
+public class InfoProductController extends Application {
 
     @FXML
-    public Button user_p;
-
-    @FXML
-    public Button user_p_link;
+    public Button back, cart, wish;
     
-    @FXML
-    public Button wishlist, xxxx;
+    public winNext a;
     
-    public ProductsController() {
+    public InfoProductController() {
+    	
+    	a = new winNext();
 
     }
 
@@ -51,41 +49,25 @@ public class ProductsController extends Application {
 
     @FXML
     private void next(ActionEvent event) throws IOException {
-        winNext a = new winNext();
+        //winNext a = new winNext();
         
         String eventClicked = event.getSource().toString();
-        System.out.println(eventClicked);
-        if (eventClicked.contentEquals("Button[id=user_p, styleClass=button hbox]''")) {
-        	a.openWin("view/userprofilePage.fxml");
-        }
-        if (eventClicked.contentEquals("Button[id=..., styleClass=button]'carrello'")) {
+        
+        if (eventClicked.contentEquals("Button[id=cart, styleClass=button]'Add to cart'")) {
         	a.openWin("view/shoppingcartPage.fxml");
         }
-        if (eventClicked.contentEquals("Button[id=wishlist, styleClass=button]'Wishlist'")) {
+        if (eventClicked.contentEquals("Button[id=wish, styleClass=button]'Add to wishlist'")) {
         	a.openWin("view/wishlistPage.fxml");
         }
-        if (eventClicked.contentEquals("Button[id=user_p_link, styleClass=button]'Link1'")) {
-        	a.openWin("view/userprofilePage.fxml");
-        }
-        if (eventClicked.contentEquals("Button[id=..., styleClass=button]'Link2'")) {
-        	a.openWin("...");
-        }
-        if (eventClicked.contentEquals("Button[id=..., styleClass=button]'Link3'")) {
-        	a.openWin("...");
-        }
-        if (eventClicked.contentEquals("Button[id=..., styleClass=button]'Link4'")) {
-        	a.openWin("...");
-        }
-        
-        //per immagini
-        if (eventClicked.contentEquals("Button[id=xxxx, styleClass=button]''")) {
-        	a.openWin("view/info.fxml");
+        if (eventClicked.contentEquals("Button[id=back, styleClass=button]'Back'")) {
+        	a.goBack(event);
         }
        
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         oldWin.close();
     }
 }
+
 
 
 

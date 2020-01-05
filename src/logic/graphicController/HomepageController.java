@@ -2,6 +2,7 @@ package logic.graphicController;
 
 
 import javafx.application.Application;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -49,7 +50,7 @@ public class HomepageController extends Application implements Initializable{
     private void next(ActionEvent event) throws IOException {
         winNext a = new winNext();
         
-        //in 'eventclicked' ci sarà una stringa evento che serve per la scelta dell'if
+        //in 'eventclicked' ci sarï¿½ una stringa evento che serve per la scelta dell'if
         String eventClicked = event.getSource().toString();
         //System.out.println(eventClicked); <-- usare per prelevare la stringa
         //in base al bottone cliccato, apro la propria pagina

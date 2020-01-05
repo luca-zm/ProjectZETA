@@ -1,7 +1,6 @@
 package logic.model;
 
 
-import logic.enums.Roles;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

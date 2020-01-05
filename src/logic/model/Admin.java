@@ -12,6 +12,7 @@ public class Admin extends AbstractUser {
 	public Roles getType() {
 		return ADMIN;
 	}
+    
 
 	@Override
 	public String toString() {

@@ -38,6 +38,11 @@ public class Transaction {
 	public TranType getType() {
 		return type;
 	}
+	
+	
+	public void setType(TranType type) {
+		this.type = type;
+	}
 
 
 	@Override

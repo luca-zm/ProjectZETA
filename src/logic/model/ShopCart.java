@@ -35,14 +35,12 @@ public class ShopCart {
 		return true;
 	}
 	
-	i
 	
 	public Boolean deleteProduct(Product product) {
 		if(this.productList.remove(product)) {
-			this.totalPrice -= product.getPrice();
+			this.totalPrice = product.getPrice();
 			return true;
 		}
-		
 		return false;
 	}
 	

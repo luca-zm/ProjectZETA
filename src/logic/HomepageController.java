@@ -17,7 +17,6 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
-import logic.graphicController.winNext;
 
 
 public class HomepageController extends Application implements Initializable{
@@ -35,6 +34,7 @@ public class HomepageController extends Application implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		myplayer= new MediaPlayer(new Media(this.getClass().getResource("view/images/video.mp4").toExternalForm()));
+
     	myplayer.setAutoPlay(true);
     	myvideo.setMediaPlayer(myplayer);
     	myplayer.setMute(true);
@@ -51,16 +51,16 @@ public class HomepageController extends Application implements Initializable{
     private void next(ActionEvent event) throws IOException {
         winNext a = new winNext();
         
-        //in 'eventclicked' ci sar� una stringa evento che serve per la scelta dell'if
+        //in 'eventclicked' ci sara una stringa evento che serve per la scelta dell'if
         String eventClicked = event.getSource().toString();
         //System.out.println(eventClicked); <-- usare per prelevare la stringa
         //in base al bottone cliccato, apro la propria pagina
         if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login or Register'")) {
-        	a.openWin("logic/view/login_registerPage.fxml");
+        	a.openWin("view/login_registerPage.fxml");
         }
         
         if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Visit shop!'")) {
-        	a.openWin("logic/view/productsPage.fxml");
+        	a.openWin("view/productsPage.fxml");
         }
         
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();

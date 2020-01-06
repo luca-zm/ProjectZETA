@@ -18,18 +18,17 @@
    <children>
       <ToolBar prefHeight="51.0" prefWidth="862.0">
          <items>
-            <Circle fill="#1fffb6" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Welcome Back" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="*USER*" />
-            <Button mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Carrello" />
+            <Button id="shop" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Shopcart" />
+            <Button id="wish" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Wishlist" />
          </items>
       </ToolBar>
-      <Button fx:id="login" layoutX="631.0" layoutY="10.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Login\Register" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="634.0" layoutX="-2.0" layoutY="51.0" stroke="WHITE" strokeType="INSIDE" width="120.0" />
-      <Button layoutX="-8.0" layoutY="79.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: white" text="Link1" />
-      <Button layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: white" text="Link2" />
-      <Button layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: white" text="Link3" />
-      <Button layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: white" text="Link4" />
+      <Button id="user_p_link" layoutX="-8.0" layoutY="79.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="User Profile" />
+      <Button id="map_link" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
+      <Button id="a_code_link" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
+      <Button id="prod_link" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
       <Circle fill="#9ee4bf" layoutX="259.0" layoutY="174.0" radius="82.0" stroke="BLACK" strokeType="INSIDE" />
       <Text layoutX="394.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username : " wrappingWidth="79.73290770873427" />
       <Text layoutX="473.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Franco" wrappingWidth="57.10400390625" />
@@ -54,6 +53,6 @@
             <Image url="@images/cane.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="login1" layoutX="568.0" layoutY="119.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Activate your code!" />
+      <Button fx:id="a_code_link" layoutX="568.0" layoutY="119.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Activate your code!" />
    </children>
 </AnchorPane>

@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Text?>
 <?scenebuilder-stylesheet fextile.css?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="754.0" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="754.0" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.InfoProductController">
    <children>
       <Button id="back" layoutX="49.0" layoutY="451.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Back" />
       <Polygon fill="#48a875af" layoutX="643.0" layoutY="141.0" points="25.5, -86.99999237060547, 0.4000244140625, 7.399993896484375, 136.0, -98.20000457763672" stroke="#48aa77" strokeWidth="0.0" />

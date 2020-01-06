@@ -56,10 +56,10 @@ public class LoginController extends Application {
         	a.openWin("view/productsPage.fxml");
         }
         if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login!'")) {
-        	a.openWin("view/productsPage.fxml");
+        	//metodo verifica credenziali, imposta flag, fa aprire schermata prodotti, admin, moderatore in base al flag 
         }
         if (eventClicked.contentEquals("Button[id=conf, styleClass=button]'Confirm'")) {
-        	a.openWin("view/productsPage.fxml");
+        	//metodo registra
         }
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         oldWin.close();

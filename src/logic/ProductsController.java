@@ -33,13 +33,13 @@ import javax.swing.*;
 public class ProductsController extends Application {
 
     @FXML
-    public Button user_p;
+    public Button user_p, wishlist, shop, log;
 
     @FXML
-    public Button user_p_link;
+    public Button map, a_code_link, prod_link, user_p_link;
     
     @FXML
-    public Button wishlist, xxxx;
+    public Button img_b;
     
     public ProductsController() {
 
@@ -56,29 +56,40 @@ public class ProductsController extends Application {
         String eventClicked = event.getSource().toString();
         System.out.println(eventClicked);
         if (eventClicked.contentEquals("Button[id=user_p, styleClass=button hbox]''")) {
+        	//pagina profilo utente da icona
         	a.openWin("view/userprofilePage.fxml");
         }
-        if (eventClicked.contentEquals("Button[id=..., styleClass=button]'carrello'")) {
+        if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
+        	//pagina carrello
         	a.openWin("view/shoppingcartPage.fxml");
         }
         if (eventClicked.contentEquals("Button[id=wishlist, styleClass=button]'Wishlist'")) {
+        	//pagina wishlist
         	a.openWin("view/wishlistPage.fxml");
         }
-        if (eventClicked.contentEquals("Button[id=user_p_link, styleClass=button]'Link1'")) {
+        if (eventClicked.contentEquals("Button[id=user_p_link, styleClass=button]'User Profile'")) {
+        	//pagina del profilo utente
         	a.openWin("view/userprofilePage.fxml");
         }
-        if (eventClicked.contentEquals("Button[id=..., styleClass=button]'Link2'")) {
-        	a.openWin("...");
+        if (eventClicked.contentEquals("Button[id=map_link, styleClass=button]'Map'")) {
+        	//pagina mappe
+        	a.openWin("view/mapPage.fxml");
         }
-        if (eventClicked.contentEquals("Button[id=..., styleClass=button]'Link3'")) {
-        	a.openWin("...");
+        if (eventClicked.contentEquals("Button[id=a_code_link, styleClass=button]'Activation Code'")) {
+        	//pagina activation code
+        	a.openWin("activationcodePage.fxml");
         }
-        if (eventClicked.contentEquals("Button[id=..., styleClass=button]'Link4'")) {
-        	a.openWin("...");
+        if (eventClicked.contentEquals("Button[id=prod_link, styleClass=button]'Products'")) {
+        	//pagina attuale
+        }
+        
+        if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login or Register'")) {
+            //pagina login
+        	a.openWin("view/login_registerPage.fxml");
         }
         
         //per immagini
-        if (eventClicked.contentEquals("Button[id=xxxx, styleClass=button]''")) {
+        if (eventClicked.contentEquals("Button[id=img_b, styleClass=button]''")) {
         	a.openWin("view/info.fxml");
         }
        

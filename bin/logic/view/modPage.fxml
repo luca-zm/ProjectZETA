@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+<?scenebuilder-stylesheet fextile.css?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="754.0" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.LoginController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="771.0" layoutX="5.0" layoutY="-102.0" stroke="WHITE" strokeType="INSIDE" width="18.0" />
+      <TextField layoutX="209.0" layoutY="142.0" prefHeight="34.0" prefWidth="95.0" promptText="Coordinate X" styleClass="text-area" />
+      <Button id="conf" layoutX="68.0" layoutY="284.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Confirm" />
+      <Text layoutX="45.0" layoutY="60.0" stroke="#aaa8a8" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h1" text="MODERATOR" wrappingWidth="239.1999267578126">
+         <effect>
+            <DropShadow color="#48aa77" height="44.83" radius="33.235" spread="0.73" width="90.11" />
+         </effect></Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="771.0" layoutX="731.0" layoutY="-108.0" stroke="WHITE" strokeType="INSIDE" width="18.0" />
+      <Text layoutX="53.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h5" text="Add new EcoPoint:" />
+      <Text layoutX="53.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h5" text="Delete EcoPoint::" />
+      <ComboBox layoutX="209.0" layoutY="216.0" prefWidth="150.0" promptText="Select EcoPoint" styleClass="text-area" />
+      <TextField layoutX="318.0" layoutY="141.0" prefHeight="34.0" prefWidth="95.0" promptText="Coordinate Y" styleClass="text-area" />
+   </children>
+</AnchorPane>

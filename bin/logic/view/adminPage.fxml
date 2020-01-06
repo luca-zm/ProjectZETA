@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+<?scenebuilder-stylesheet fextile.css?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="754.0" style="-fx-border-color: #48aa77;" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.LoginController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="771.0" layoutX="5.0" layoutY="-102.0" stroke="WHITE" strokeType="INSIDE" width="18.0" />
+      <TextField layoutX="191.0" layoutY="124.0" prefHeight="34.0" prefWidth="185.0" promptText="Product name" styleClass="text-area" />
+      <Button id="conf" layoutX="56.0" layoutY="268.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Confirm" />
+      <Text layoutX="45.0" layoutY="53.0" stroke="#aaa8a8" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h1" text="ADMIN" wrappingWidth="119.19992675781259">
+         <effect>
+            <DropShadow color="#48aa77" height="44.83" radius="33.235" spread="0.73" width="90.11" />
+         </effect></Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="771.0" layoutX="731.0" layoutY="-108.0" stroke="WHITE" strokeType="INSIDE" width="18.0" />
+      <Text layoutX="45.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="Products setting:" wrappingWidth="178.3998779296876" />
+      <Text layoutX="45.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="Users setting:" wrappingWidth="148.7999023437501" />
+      <Text layoutX="55.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h5" text="Add new product:" />
+      <ComboBox layoutX="387.0" layoutY="126.0" prefWidth="150.0" promptText="Select an image" styleClass="text-area" />
+      <TextField layoutX="547.0" layoutY="124.0" prefHeight="34.0" prefWidth="74.0" promptText="Greencoin" styleClass="text-area" />
+      <Text layoutX="53.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h5" text="Delete product:" />
+      <ComboBox layoutX="191.0" layoutY="178.0" prefWidth="150.0" promptText="Select product" styleClass="text-area" />
+      <Text layoutX="53.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h5" text="Edit product:" />
+      <ComboBox layoutX="191.0" layoutY="223.0" prefWidth="150.0" promptText="Select product" styleClass="text-area" />
+      <TextField layoutX="527.0" layoutY="221.0" prefHeight="34.0" prefWidth="74.0" promptText="Greencoin" styleClass="text-area" />
+      <ComboBox layoutX="359.0" layoutY="223.0" prefWidth="150.0" promptText="Select an image" styleClass="text-area" />
+      <Text layoutX="54.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="________________________________________________________________" wrappingWidth="645.5999816894532" />
+      <Text layoutX="51.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h5" text="Remove user:" />
+      <ComboBox layoutX="191.0" layoutY="389.0" prefWidth="150.0" promptText="Select an user" styleClass="text-area" />
+      <Button id="conf" layoutX="56.0" layoutY="492.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Confirm" />
+      <Text layoutX="51.0" layoutY="459.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h5" text="Edit user greencoin:" />
+      <ComboBox layoutX="191.0" layoutY="439.0" prefWidth="150.0" promptText="Select an user" styleClass="text-area" />
+      <TextField layoutX="359.0" layoutY="437.0" prefHeight="34.0" prefWidth="74.0" promptText="Greencoin" styleClass="text-area" />
+   </children>
+</AnchorPane>

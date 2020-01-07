@@ -17,16 +17,16 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Welcome Back" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="*USER*" />
             <Button id="shop" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Shopcart" />
-            <Button id="wishlist" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Wishlist" />
+            <Button id="wish" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Wishlist" />
          </items>
       </ToolBar>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="634.0" layoutX="-2.0" layoutY="51.0" stroke="WHITE" strokeType="INSIDE" width="120.0" />
       <Button id="user_p_link" layoutX="-8.0" layoutY="79.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="User Profile" />
       <Button id="map_link" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
-      <Button id="a_code_link" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
-      <Button id="prod_link" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
+      <Button id="a_code_link" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
+      <Button id="prod_link" onAction="#next" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
       <Button id="user_p" layoutX="23.0" layoutY="5.0" mnemonicParsing="false" onAction="#next" prefHeight="40.0" prefWidth="38.0" styleClass="hbox" stylesheets="@fextile.css" />
-      <Button id="log" layoutX="625.0" layoutY="262.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="OK" />
+      <Button id="confirm" layoutX="625.0" layoutY="262.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="OK" />
       <TextField layoutX="251.0" layoutY="252.0" prefHeight="51.0" prefWidth="359.0" styleClass="text-area" />
       <Text layoutX="277.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="Please, insert here your code:" />
       <TextArea editable="false" layoutX="496.0" layoutY="111.0" prefHeight="40.0" prefWidth="164.0" styleClass="text-area" />

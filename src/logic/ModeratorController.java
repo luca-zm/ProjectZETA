@@ -31,26 +31,16 @@ import logic.model.Singleton;
 
 import javax.swing.*;
 
-public class LoginController extends Application {
+public class ModeratorController extends Application {
 
     @FXML
-    public Button log, conf, back;
+    public Button conf;
+    //@FXML
+    //public TextField usr, psw;
     
-    @FXML
-    public TextField usr, psw;
     
-    Singleton sg = Singleton.getInstance(); 
-
-    private int flag;
-
-    /**
-    flag = 0 UTENTE
-    flag = 1 ADMIN
-    flag = 2 MODERATORE
-     */
-    public LoginController() {
+    public ModeratorController() {
     	
-    	flag = -1;
     }
 
     @Override
@@ -61,27 +51,10 @@ public class LoginController extends Application {
     private void next(ActionEvent event) throws IOException {
         winNext a = new winNext();
         String eventClicked = event.getSource().toString();
-        if (eventClicked.contentEquals("Button[id=back, styleClass=button]'Continue without signing in'")) {
-        	a.openWin("view/productsPage.fxml");
-        }
-        if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login!'")) {
-        	//metodo verifica credenziali, imposta flag, fa aprire schermata prodotti, admin, moderatore in base al flag 
-        	if (usr.getText().contentEquals("admin") && psw.getText().contentEquals("admin")) {
-        		flag = 1;
-        		sg.logAS(flag);
-        		a.openWin("view/adminPage.fxml");
-        	}
-        	if (usr.getText().contentEquals("moderator") && psw.getText().contentEquals("moderator")) {
-        		flag = 2;
-        		sg.logAS(flag);
-        		a.openWin("view/modPage.fxml");
-        	}
-        	
-        	//System.out.println(usr.getText());
-        }
         if (eventClicked.contentEquals("Button[id=conf, styleClass=button]'Confirm'")) {
-        	//metodo registra
+        	//metodo opzioni ecopoint
         }
+        
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         oldWin.close();
     }

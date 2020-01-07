@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="754.0" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.ProductsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="754.0" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.WishlistController">
    <children>
       <Circle fill="#4aa8766d" layoutX="61.0" layoutY="398.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
       <Circle fill="#4aa8766d" layoutX="142.0" layoutY="125.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
@@ -50,14 +50,14 @@
                   <TextArea editable="false" layoutX="205.0" layoutY="212.0" prefHeight="40.0" prefWidth="249.0" />
                   <TextArea editable="false" layoutX="205.0" layoutY="387.0" prefHeight="40.0" prefWidth="249.0" />
                   <TextArea editable="false" layoutX="205.0" layoutY="538.0" prefHeight="40.0" prefWidth="249.0" />
-                  <Button layoutX="208.0" layoutY="87.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Buy" />
-                  <Button layoutX="282.0" layoutY="87.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Remove from whislist" />
-                  <Button layoutX="205.0" layoutY="270.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Buy" />
-                  <Button layoutX="279.0" layoutY="270.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Remove from whislist" />
-                  <Button layoutX="205.0" layoutY="447.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Buy" />
-                  <Button layoutX="279.0" layoutY="447.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Remove from whislist" />
-                  <Button layoutX="205.0" layoutY="587.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Buy" />
-                  <Button layoutX="279.0" layoutY="587.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Remove from whislist" />
+                  <Button id="buy" onAction="#next" layoutX="208.0" layoutY="87.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Buy" />
+                  <Button id="del" onAction="#next" layoutX="282.0" layoutY="87.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Remove from whislist" />
+                  <Button id="buy" onAction="#next" layoutX="205.0" layoutY="270.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Buy" />
+                  <Button id="del" onAction="#next" layoutX="279.0" layoutY="270.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Remove from whislist" />
+                  <Button id="buy" onAction="#next" layoutX="205.0" layoutY="447.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Buy" />
+                  <Button id="del" onAction="#next" layoutX="279.0" layoutY="447.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Remove from whislist" />
+                  <Button id="buy" onAction="#next" layoutX="205.0" layoutY="587.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Buy" />
+                  <Button id="del" onAction="#next" layoutX="279.0" layoutY="587.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Remove from whislist" />
                </children>
             </AnchorPane>
         </content>
@@ -67,15 +67,15 @@
             <Circle fill="#1fffb6" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Welcome Back" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="*USER*" />
-            <Button mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Shopcart" />
-            <Button id="wishlist" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Wishlist" />
+            <Button id="shop" onAction="#next" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Shopcart" />
+            <Button id="wish" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Wishlist" />
          </items>
       </ToolBar>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="634.0" layoutX="-2.0" layoutY="51.0" stroke="WHITE" strokeType="INSIDE" width="120.0" />
       <Button id="user_p_link" layoutX="-8.0" layoutY="79.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="User Profile" />
-      <Button layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
-      <Button layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
-      <Button layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
-      <Button id="user_p" layoutX="23.0" layoutY="5.0" mnemonicParsing="false" onAction="#next" prefHeight="40.0" prefWidth="38.0" styleClass="hbox" stylesheets="@fextile.css" />
+      <Button id="map_link" onAction="#next" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
+      <Button id="a_code_link" onAction="#next" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
+      <Button id="prod_link" onAction="#next" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
+      <Button id="user_p_link" layoutX="23.0" layoutY="5.0" mnemonicParsing="false" onAction="#next" prefHeight="40.0" prefWidth="38.0" styleClass="hbox" stylesheets="@fextile.css" />
    </children>
 </AnchorPane>

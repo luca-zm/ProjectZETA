@@ -30,19 +30,19 @@ import javafx.stage.WindowEvent;
 
 import javax.swing.*;
 
-public class ActivationCodeController extends Application {
+public class WishlistController extends Application {
 
     @FXML
-    public Button confirm, shop, wish;
+    public Button shop;
+
+    @FXML
+    public Button map_link, a_code_link, prod_link, user_p_link;
     
     @FXML
-    public Button map, a_code_link, prod_link, user_p_link;
+    public Button buy, del;
     
-    public winNext a;
     
-    public ActivationCodeController() {
-    	
-    	a = new winNext();
+    public WishlistController() {
 
     }
 
@@ -52,24 +52,28 @@ public class ActivationCodeController extends Application {
 
     @FXML
     private void next(ActionEvent event) throws IOException {
-        //winNext a = new winNext();
+        winNext a = new winNext();
         
         String eventClicked = event.getSource().toString();
+        System.out.println(eventClicked);
         
-        if (eventClicked.contentEquals("Button[id=confirm, styleClass=button]'OK'")) {
-        	//METODO che filtra i punti di raccolta
+        //Barra ----------------------
+        if (eventClicked.contentEquals("Button[id=user_p_link, styleClass=button hbox]''")) {
+        	//pagina profilo utente da icona
+        	a.openWin("view/userprofilePage.fxml");
         }
-        
         if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
         	//pagina carrello
         	a.openWin("view/shoppingcartPage.fxml");
         }
-        if (eventClicked.contentEquals("Button[id=wish, styleClass=button]'Wishlist'")) {
-        	//pagina wishlist
-        	a.openWin("view/wishlistPage.fxml");
-        }
+        //Barra ----------------------
+
         
-      //hyperlink----------------
+        //Hyperlink ------------------
+        if (eventClicked.contentEquals("Button[id=user_p_link, styleClass=button]'User Profile'")) {
+        	//pagina del profilo utente
+        	a.openWin("view/userprofilePage.fxml");
+        }
         if (eventClicked.contentEquals("Button[id=map_link, styleClass=button]'Map'")) {
         	//pagina mappe
         	a.openWin("view/mapPage.fxml");
@@ -79,15 +83,18 @@ public class ActivationCodeController extends Application {
         	a.openWin("view/activationcodePage.fxml");
         }
         if (eventClicked.contentEquals("Button[id=prod_link, styleClass=button]'Products'")) {
-        	//pagina prodotti
         	a.openWin("view/productsPage.fxml");
         }
-        if (eventClicked.contentEquals("Button[id=user_p_link, styleClass=button]'User Profile'")) {
-        	//pagina prodotti
-        	a.openWin("view/userprofilePage.fxml");
+        //Hyper link ------------------
+
+        //methods buy and remove from Wishlist ----------
+        if (eventClicked.contentEquals("Button[id=buy, styleClass=button]'Buy'")) {
+        	//metodo buy, aggiunge al carrello da wishlist
         }
-        //hyperlink----------------
-        
+        if (eventClicked.contentEquals("Button[id=del, styleClass=button]'Remove from wishlist'")) {
+        	//metodo remove from wishlist, rimuove elemento da wishlist
+        }
+      //methods buy and remove from Wishlist ----------
         
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         oldWin.close();

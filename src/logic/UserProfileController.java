@@ -50,7 +50,7 @@ public class UserProfileController extends Application {
         
         if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
         	//pagina carrello
-        	a.openWin("view/shoppingcartPage.fxml");
+        	a.openWin("view/shopcartPage.fxml");
         }
         if (eventClicked.contentEquals("Button[id=wish, styleClass=button]'Wishlist'")) {
         	//pagina wishlist

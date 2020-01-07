@@ -61,7 +61,7 @@ public class ProductsController extends Application {
         }
         if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
         	//pagina carrello
-        	a.openWin("view/shoppingcartPage.fxml");
+        	a.openWin("view/shopcartPage.fxml");
         }
         if (eventClicked.contentEquals("Button[id=wishlist, styleClass=button]'Wishlist'")) {
         	//pagina wishlist

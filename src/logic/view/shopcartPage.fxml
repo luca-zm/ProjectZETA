@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="754.0" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.ShopcartController">
+   <children>
+      <Circle fill="#4aa8766d" layoutX="742.0" layoutY="272.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fill="#4aa8766d" layoutX="431.0" layoutY="14.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fill="#4ca67534" layoutX="105.0" layoutY="368.0" radius="63.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fill="#4aa8766d" layoutX="559.0" layoutY="555.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fill="#4ba675db" layoutX="228.0" layoutY="553.0" radius="63.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fill="#4ba675db" layoutX="168.0" layoutY="157.0" radius="63.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <ScrollPane layoutX="174.0" layoutY="87.0" prefHeight="415.0" prefWidth="325.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="404.0" prefWidth="313.0">
+               <children>
+                  <ImageView fitHeight="51.0" fitWidth="58.0" layoutX="27.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/cane.jpg" />
+                     </image></ImageView>
+                  <TextArea fx:id="text1" editable="false" layoutX="118.0" layoutY="22.0" prefHeight="51.0" prefWidth="126.0" />
+                  <ImageView fitHeight="51.0" fitWidth="58.0" layoutX="27.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/cane.jpg" />
+                     </image>
+                  </ImageView>
+                  <TextArea fx:id="text2" editable="false" layoutX="118.0" layoutY="118.0" prefHeight="51.0" prefWidth="126.0" />
+                  <TextArea fx:id="text3" editable="false" layoutX="118.0" layoutY="211.0" prefHeight="51.0" prefWidth="126.0" />
+                  <ImageView fitHeight="51.0" fitWidth="58.0" layoutX="27.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/cane.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="51.0" fitWidth="58.0" layoutX="27.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/cane.jpg" />
+                     </image>
+                  </ImageView>
+                  <TextArea fx:id="text4" editable="false" layoutX="118.0" layoutY="300.0" prefHeight="51.0" prefWidth="126.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <ToolBar prefHeight="51.0" prefWidth="862.0">
+         <items>
+            <Circle fill="#1fffb6" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Welcome Back" />
+            <Text fx:id="usr_tab" strokeType="OUTSIDE" strokeWidth="0.0" text="*USER*" />
+            <Button id="shop" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Shopcart" />
+            <Button id="wish" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Wishlist" />
+         </items>
+      </ToolBar>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="634.0" layoutX="-2.0" layoutY="51.0" stroke="WHITE" strokeType="INSIDE" width="120.0" />
+      <Button id="user_p_link" layoutX="-8.0" layoutY="79.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="User Profile" />
+      <Button id="map_link" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
+      <Button id="a_code_link" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
+      <Button id="prod_link" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
+      <Button id="user_p_link" layoutX="23.0" layoutY="5.0" mnemonicParsing="false" onAction="#next" prefHeight="40.0" prefWidth="38.0" styleClass="hbox" stylesheets="@fextile.css" />
+      <Button id="consume_gcoin" layoutX="522.0" layoutY="415.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Consume your greencoin" />
+      <Circle fill="#4ba675db" layoutX="685.0" layoutY="541.0" radius="63.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fill="#4ca67534" layoutX="766.0" layoutY="431.0" radius="63.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <TextArea fx:id="price_text" editable="false" layoutX="534.0" layoutY="125.0" prefHeight="273.0" prefWidth="154.0" styleClass="text-area" text="Product1 price:&#10;xxxx&#10;&#10;Product2 price:&#10;yyyy&#10;&#10;....&#10;&#10;Total: 999 Greencoin&#10;&#10;" />
+      <TextArea fx:id="gcoin_text" editable="false" layoutX="595.0" layoutY="70.0" prefHeight="40.0" prefWidth="94.0" styleClass="text-success" text="55555">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </TextArea>
+      <Text layoutX="534.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h6" text="Your greencoin" wrappingWidth="55.96563720703125" />
+   </children>
+</AnchorPane>

@@ -64,7 +64,7 @@ public class WishlistController extends Application {
         }
         if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
         	//pagina carrello
-        	a.openWin("view/shoppingcartPage.fxml");
+        	a.openWin("view/shopcartPage.fxml");
         }
         //Barra ----------------------
 

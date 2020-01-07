@@ -54,7 +54,7 @@ public class InfoProductController extends Application {
         String eventClicked = event.getSource().toString();
         
         if (eventClicked.contentEquals("Button[id=cart, styleClass=button]'Add to cart'")) {
-        	a.openWin("view/shoppingcartPage.fxml");
+        	a.openWin("view/shopcartPage.fxml");
         }
         if (eventClicked.contentEquals("Button[id=wish, styleClass=button]'Add to wishlist'")) {
         	a.openWin("view/wishlistPage.fxml");

@@ -13,9 +13,9 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="754.0" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.LoginController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="771.0" layoutX="313.0" layoutY="-88.0" stroke="WHITE" strokeType="INSIDE" width="18.0" />
-      <PasswordField layoutX="47.0" layoutY="211.0" prefHeight="34.0" prefWidth="213.0" styleClass="text-area" />
-      <TextField id="usr" onAction="#next" layoutX="47.0" layoutY="132.0" prefHeight="34.0" prefWidth="214.0" styleClass="text-area" />
-      <TextField id="psw" onAction="#next" layoutX="404.0" layoutY="132.0" prefHeight="34.0" prefWidth="214.0" styleClass="text-area" />
+      <PasswordField fx:id="psw" onAction="#next" layoutX="47.0" layoutY="211.0" prefHeight="34.0" prefWidth="213.0" styleClass="text-area" />
+      <TextField fx:id="usr" onAction="#next" layoutX="47.0" layoutY="132.0" prefHeight="34.0" prefWidth="214.0" styleClass="text-area" />
+      <TextField layoutX="404.0" layoutY="132.0" prefHeight="34.0" prefWidth="214.0" styleClass="text-area" />
       <TextField layoutX="404.0" layoutY="211.0" prefHeight="34.0" prefWidth="214.0" styleClass="text-area" />
       <TextField layoutX="404.0" layoutY="280.0" prefHeight="34.0" prefWidth="214.0" styleClass="text-area" />
       <CheckBox layoutX="431.0" layoutY="354.0" mnemonicParsing="false" text="Accept terms and&#10;condition to continue" />

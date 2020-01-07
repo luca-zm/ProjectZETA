@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -37,20 +38,21 @@ public class LoginController extends Application {
     public Button log, conf, back;
     
     @FXML
-    public TextField usr, psw;
+    public TextField usr;
+    
+    @FXML
+    public PasswordField psw;
     
     Singleton sg = Singleton.getInstance(); 
 
     private int flag;
 
     /**
-    flag = 0 UTENTE
-    flag = 1 ADMIN
-    flag = 2 MODERATORE
+    flag = 0 UTENTE NON LOGGATO
+    flag = 1 UTENTE LOGGATO
      */
     public LoginController() {
     	
-    	flag = -1;
     }
 
     @Override
@@ -60,6 +62,7 @@ public class LoginController extends Application {
     @FXML
     private void next(ActionEvent event) throws IOException {
         winNext a = new winNext();
+
         String eventClicked = event.getSource().toString();
         if (eventClicked.contentEquals("Button[id=back, styleClass=button]'Continue without signing in'")) {
         	a.openWin("view/productsPage.fxml");
@@ -67,17 +70,14 @@ public class LoginController extends Application {
         if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login!'")) {
         	//metodo verifica credenziali, imposta flag, fa aprire schermata prodotti, admin, moderatore in base al flag 
         	if (usr.getText().contentEquals("admin") && psw.getText().contentEquals("admin")) {
-        		flag = 1;
-        		sg.logAS(flag);
         		a.openWin("view/adminPage.fxml");
         	}
         	if (usr.getText().contentEquals("moderator") && psw.getText().contentEquals("moderator")) {
-        		flag = 2;
-        		sg.logAS(flag);
         		a.openWin("view/modPage.fxml");
         	}
+        	//verifyUser(); --> flag = 1; sg.logAS(flag);
+        	//METODO che verifica se l'utente si e' loggato o meno, mposta 1 se è loggato
         	
-        	//System.out.println(usr.getText());
         }
         if (eventClicked.contentEquals("Button[id=conf, styleClass=button]'Confirm'")) {
         	//metodo registra

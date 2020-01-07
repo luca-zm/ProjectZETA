@@ -15,6 +15,7 @@ public class Singleton {
     }
 
     private Singleton() {
+    	flag = 0;
     }
 
     

@@ -77,7 +77,7 @@ public class ProductsController extends Application {
         }
         if (eventClicked.contentEquals("Button[id=a_code_link, styleClass=button]'Activation Code'")) {
         	//pagina activation code
-        	a.openWin("activationcodePage.fxml");
+        	a.openWin("view/activationcodePage.fxml");
         }
         if (eventClicked.contentEquals("Button[id=prod_link, styleClass=button]'Products'")) {
         	//pagina attuale

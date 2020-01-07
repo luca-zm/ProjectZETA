@@ -1,81 +1,73 @@
 package logic.model;
 
-import java.util.Calendar;
+
 import java.util.List;
 
-public class Shipment {
+import logic.enums.DeliveryStatus;
 
-	private int id;
-	
-	private Calendar shipmentdate;
-	
-	private Calendar deliverydate;
-	
-	private String tracking;
-	
-	private String courierservice;
+public class Shipment extends Transaction{
+
+	private String tackingNumber;
+	private Product product;
+	private int price;
+	private  DeliveryStatus deliveryStatus;
 	
 	
-	//private List<orderInfo> orderInfo;
-
-	public Shipment() {
+	public Shipment(int id, String date, String tackingNumber, Product product, int price,
+			DeliveryStatus deliveryStatus) {
+		super(id, date);
+		this.tackingNumber = tackingNumber;
+		this.product = product;
+		this.price = price;
+		this.deliveryStatus = deliveryStatus;
 	}
 
-	public Shipment(int idshipment, Calendar shipmentdate, Calendar deliverydate, String tracking) {
-		this.id = idshipment;
-		this.shipmentdate = shipmentdate;
-		this.deliverydate = deliverydate;
-		this.tracking = tracking;
+
+	public String getTackingNumber() {
+		return tackingNumber;
 	}
 
-	public int getId() {
-		return id;
+
+	public void setTackingNumber(String tackingNumber) {
+		this.tackingNumber = tackingNumber;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+
+	public Product getProduct() {
+		return product;
 	}
 
-	public Calendar getShipmentdate() {
-		return shipmentdate;
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
-	public void setShipmentdate(Calendar shipmentdate) {
-		this.shipmentdate = shipmentdate;
+
+	public int getPrice() {
+		return price;
 	}
 
-	public Calendar getDeliverydate() {
-		return deliverydate;
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
-	public void setDeliverydate(Calendar deliverydate) {
-		this.deliverydate = deliverydate;
+
+	public DeliveryStatus getDeliveryStatus() {
+		return deliveryStatus;
 	}
 
-	public String getTracking() {
-		return tracking;
+
+	public void setDeliveryStatus(DeliveryStatus deliveryStatus) {
+		this.deliveryStatus = deliveryStatus;
 	}
 
-	public void setTracking(String tracking) {
-		this.tracking = tracking;
-	}
 
-	public String getCourierservice() {
-		return courierservice;
+	@Override
+	public String toString() {
+		return "Shipment [tackingNumber=" + tackingNumber + ", product=" + product + ", price=" + price + "]";
 	}
-
-	public void setCourierservice(String courierservice) {
-		this.courierservice = courierservice;
-	}
-
-	/**public List<orderInfo> getOrderInfo() {
-		return orderInfo;
-	}
-
-	public void setOrderInfo(List<orderInfo> orderInfo) {
-		this.orderInfo = orderInfo;
-	}**/
 
 	
-
+	
 }

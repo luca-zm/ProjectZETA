@@ -1,54 +1,31 @@
 package logic.model;
 
-import logic.enums.TranType;
-
 public class Transaction {
-	private String date;
-	private int productId;
-	private String productName;
-	private int value;
-	private TranType type;
+	protected int id;
+	protected String date;
 	
-	//Normal Constructor
-	public Transaction(String date, int productId, String productName, int value, TranType type) {
+	
+	public Transaction(int id, String date) {
+		super();
+		this.id = id;
 		this.date = date;
-		this.productId = productId;
-		this.productName = productName;
-		this.value = value;
-		this.type = type;
 	}
-		
-
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getDate() {
 		return date;
 	}
-
-	public int getProductId() {
-		return productId;
+	public void setDate(String date) {
+		this.date = date;
 	}
-
-	public String getProductName() {
-		return productName;
-	}
-
-	public int getValue() {
-		return value;
-	}
-
-	public TranType getType() {
-		return type;
-	}
-	
-	
-	public void setType(TranType type) {
-		this.type = type;
-	}
-
-
 	@Override
 	public String toString() {
-		return "Transaction [date=" + date + ", productId=" + productId + ", productName=" + productName + ", value="
-				+ value + "]";
+		return "Transaction [id=" + id + ", date=" + date + "]";
 	}
 	
 	

@@ -8,8 +8,8 @@ public class Guest extends AbstractUser{
 	
 
 
-    public Guest(String name, String username, String pass, String mail) {
-		super(name, username, pass, mail, Roles.GUEST);
+    public Guest(String mail, String name, String username, String pass) {
+		super(mail, name, username, pass, Roles.GUEST);
 	}
 
 	@Override

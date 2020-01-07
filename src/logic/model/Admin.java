@@ -4,8 +4,8 @@ import static logic.enums.Roles.ADMIN;
 import logic.enums.Roles;
 public class Admin extends AbstractUser {
 
-    public Admin(String name, String username, String mail, String pass)  {
-    	super(name, username, mail, pass, Roles.ADMIN);
+    public Admin(String mail, String name, String username, String pass)  {
+    	super(mail, name, username, pass, Roles.ADMIN);
     }
 
     @Override

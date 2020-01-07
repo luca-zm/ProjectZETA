@@ -2,8 +2,6 @@ package logic.model;
 
 import java.util.ArrayList;
 
-import logic.enums.TranType;
-
 public class History {
 	private ArrayList<Transaction> tranList;
 
@@ -17,21 +15,11 @@ public class History {
 	}
 
 
-	//Add new LEARN Transaction. ProductId and ProductName are set to default 
-	public void AddLearnTran(String date, int value) {
-		this.tranList.add(new Transaction (date, 0, null, value, TranType.LEARN));
+	public void addTransaction(Transaction tran)
+	{
+		tranList.add(tran);
 	}
-	
-	//Add new SPEND Transaction.
-	public void AddSpendTran(String date, Product product) {
-		this.tranList.add(new Transaction (date, product.getId(), product.getName(), product.getPrice(), TranType.SPEND));
-	}
-	
-	//Add new BONUS Transaction. ProductId and ProductName are set to default 
-	public void AddBonusTran(String date, int value) {
-		this.tranList.add(new Transaction (date, 0, null, value, TranType.BONUS));
-	}
-	
+
 	
 	// Needed by Graphic Observer in View
 	public ArrayList<Transaction> getList(){return tranList;}

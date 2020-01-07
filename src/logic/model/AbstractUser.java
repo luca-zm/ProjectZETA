@@ -7,7 +7,6 @@ import logic.enums.Roles;
 
 
 public abstract class AbstractUser {
-	
 	protected String name;
 	protected String username;
 	protected String pass;
@@ -15,7 +14,7 @@ public abstract class AbstractUser {
 	private Roles type;
 
 
-	public AbstractUser(String name, String username, String pass, String mail, Roles type) {
+	public AbstractUser(String mail, String name, String username, String pass,  Roles type) {
 		this.name = name;
 		this.username = username;
 		this.pass = pass;

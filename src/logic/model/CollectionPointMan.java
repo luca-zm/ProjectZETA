@@ -5,8 +5,8 @@ import logic.enums.Roles;
 
 public class CollectionPointMan extends AbstractUser {
 
-	public CollectionPointMan(String name, String username, String mail, String pass)  {
-    	super(name, username, mail, pass, Roles.COLLECTIONPOINTMAN);
+	public CollectionPointMan(String mail, String name, String username, String pass)  {
+    	super(mail, name, username, pass, Roles.COLLECTIONPOINTMAN);
     }
 
 

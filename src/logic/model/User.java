@@ -9,8 +9,8 @@ public class User extends AbstractUser {
 	private NoticeBoard boards;
 	private int greenCoin;
 	
-	public User(String name, String username, String pass, String mail, int greenCoin, ShopCart cart, History history, NoticeBoard boards) {
-		super(name, username, pass, mail, Roles.USER);
+	public User(String mail, String name, String username, String pass, int greenCoin, ShopCart cart, History history, NoticeBoard boards) {
+		super(mail, name, username, pass, Roles.USER);
 		this.cart = cart;
 		this.boards = boards;
 		this.history = history;
@@ -71,7 +71,7 @@ public class User extends AbstractUser {
 	// Gain greenCoin
 	public void addGreenCoin(int coin) {
 		this.greenCoin += coin;
-	    this.history.AddLearnTran("00/00/0000", coin);
+
 	}
 
 
@@ -84,7 +84,6 @@ public class User extends AbstractUser {
 		
 		// ADD some code to send the product bought by user
 		this.greenCoin -= product.getPrice();
-		this.history.AddSpendTran("00/00/0000", product);
 		return true;
 	}
 	
@@ -97,9 +96,7 @@ public class User extends AbstractUser {
 		}
 		for(Product product: this.cart.getProductList()) {
 			this.greenCoin -= product.getPrice();
-			this.history.AddSpendTran("00/00/0000", product);
 		}
-		this.cart.clear();
 		return true;
 	}
 	

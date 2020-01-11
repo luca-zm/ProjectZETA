@@ -1,20 +1,20 @@
 package logic.model;
 
 
-/**public class FactoryUsers {
+public class FactoryUsers {
 
-    public static AbstractUser get(String type) {
+    public static AbstractUser get(String mail, String name, String username, String pass, String type) {
 
         switch (type) {
 
-            case "C":
-                return new CollectionPointMan();
-            case "U":
-                return new User();
-            case "A":
-                return new Admin();
+            case "COLLECTIONPOINTMAN":
+                return new CollectionPointMan(name, pass, username, pass);
+            case "USER":
+                return new User(name, pass, username, pass);
+            case "ADMIN":
+                return new Admin(name, pass, username, pass);
             default:
-                return new Guest();
+                return new Guest(name, pass, username, pass);
         }
     }
-}**/
+}

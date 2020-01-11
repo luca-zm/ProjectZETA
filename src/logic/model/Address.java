@@ -4,6 +4,7 @@ package logic.model;
 
 public class Address {
 
+	private int id;
 	private String address;
 	private String city;
 	private String postalCode;
@@ -12,6 +13,34 @@ public class Address {
 	private String country;
 	private String zone;
 
+	
+
+
+
+	public Address(int id, String address, String city, String postalCode, String telephone, String state,
+			String country, String zone) {
+		super();
+		this.id = id;
+		this.address = address;
+		this.city = city;
+		this.postalCode = postalCode;
+		this.telephone = telephone;
+		this.state = state;
+		this.country = country;
+		this.zone = zone;
+	}
+	
+	
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 
 
@@ -70,6 +99,16 @@ public class Address {
 	public String getTelephone() {
 		return telephone;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "Address [id=" + id + ", address=" + address + ", city=" + city + ", postalCode=" + postalCode
+				+ ", telephone=" + telephone + ", state=" + state + ", country=" + country + ", zone=" + zone + "]";
+	}
+	
+	
 	
 	
 }

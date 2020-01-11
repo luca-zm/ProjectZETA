@@ -1,73 +1,29 @@
 package logic.model;
 import logic.enums.Roles;
 
+import static logic.enums.Roles.ADMIN;
 import static logic.enums.Roles.USER;
 
 public class User extends AbstractUser {
-	private ShopCart cart;
-	private History history;
-	private NoticeBoard boards;
-	private int greenCoin;
-	
-	public User(String mail, String name, String username, String pass, int greenCoin, ShopCart cart, History history, NoticeBoard boards) {
-		super(mail, name, username, pass, Roles.USER);
-		this.cart = cart;
-		this.boards = boards;
-		this.history = history;
-		this.greenCoin = greenCoin;	
+
+	public User(String mail, String name, String username, String pass) {
+		super(mail, name, username, pass, Roles.USER);	
 	}
 	
-	
-	public Roles getType() {return USER;}
-	
-	
-
-	public ShopCart getCart() {
-		return cart;
+	@Override
+	public Roles getType() {
+		return USER;
 	}
-
-
-	public void setCart(ShopCart cart) {
-		this.cart = cart;
-	}
-
-
-	public History getHistory() {
-		return history;
-	}
-
-
-	public void setHistory(History history) {
-		this.history = history;
-	}
-
-
-	public NoticeBoard getBoards() {
-		return boards;
-	}
-
-
-	public void setBoards(NoticeBoard boards) {
-		this.boards = boards;
-	}
-
-
-	public int getGreenCoin() {
-		return greenCoin;
-	}
-
-
-	public void setGreenCoin(int greenCoin) {
-		this.greenCoin = greenCoin;
-	}
-
 
 	@Override
 	public String toString() {
-		return "User [cart=" + cart + ", history=" + history + ", boards=" + boards + ", greenCoin=" + greenCoin + "]";
+		return "User [name=" + name + ", surname=" + surname + ", pass=" + pass + ", mail=" + mail + ", type=" + type
+				+ ", cart=" + cart + ", history=" + history + ", boards=" + boards + ", greenCoin=" + greenCoin + "]";
 	}
+	
 
 
+/**
 	// Gain greenCoin
 	public void addGreenCoin(int coin) {
 		this.greenCoin += coin;
@@ -98,7 +54,7 @@ public class User extends AbstractUser {
 			this.greenCoin -= product.getPrice();
 		}
 		return true;
-	}
+	}**/
 	
 
 }

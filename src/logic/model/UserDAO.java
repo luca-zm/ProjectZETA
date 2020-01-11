@@ -6,50 +6,50 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import javax.activation.DataSource;
+import logic.enums.Roles;
+
 
 public class UserDAO {
     private static Connection currentCon = null;
     private static ResultSet rs = null;
+    private AbstractUser user = null;
 
 
-    public static Guest login(Guest user) {
+
+    public static AbstractUser login(String mail, String pass) {
 
         //preparing some objects for connection
         Statement stmt = null;
 
-        String username = user.getUsername();
-        String password = user.getPass();
-
         String searchQuery =
-                "select * from users where Username='"
-                        + username
-                        + "' AND Password='"
-                        + password
+                "select * from user where mail='"
+                        + mail
+                        + "' AND pass='"
+                        + pass
                         + "'";
 
         // "System.out.println" prints in the console; Normally used to trace the process
         System.out.println("Query: " + searchQuery);
 
+        AbstractUser user = null;
 
         try {
             //connect to DB
-            //currentCon = DataSource.getConnection();
+            currentCon = DataSource.getConnection();
             stmt = currentCon.createStatement();
             rs = stmt.executeQuery(searchQuery);
-            boolean more = rs.next();
 
             // if user does not exist set the isValid variable to false
-            if (!more) {
+            if (!rs.next()) {
                 System.out.println("Sorry, you are not a registered user! Please sign up first");
-                user.setValid(false);
             } else {
                 //if user exists set the isValid variable to true
-                String firstName = rs.getString("Name");
-                String lastName = rs.getString("Surname");
-
-                System.out.println("Welcome " + firstName + " " + lastName);
-                user.setValid(true);
+                String name = rs.getString("name");
+                String surname = rs.getString("surname");
+                String type = rs.getString("type");
+                
+                user = FactoryUsers.get(name, surname, mail, pass, type);
+                System.out.println("Welcome " + name + " " + surname);
             }
         } catch (Exception ex) {
             System.out.println("Log In failed: An Exception has occurred! " + ex);

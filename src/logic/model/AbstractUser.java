@@ -8,19 +8,29 @@ import logic.enums.Roles;
 
 public abstract class AbstractUser {
 	protected String name;
-	protected String username;
+	protected String surname;
 	protected String pass;
 	protected String mail;
-	private Roles type;
+	protected Roles type;
+	protected ShopCart cart;
+	protected History history;
+	protected NoticeBoard boards;
+	protected int greenCoin;
 
 
 	public AbstractUser(String mail, String name, String username, String pass,  Roles type) {
 		this.name = name;
-		this.username = username;
+		this.surname = username;
 		this.pass = pass;
 		this.mail = mail;
 		this.type = type;
+		this.cart = null;
+		this.history = null;
+		this.boards = null;
+		this.greenCoin = 0;
 	} 
+	
+	
 	
 	public abstract Roles getType();
 	
@@ -40,12 +50,12 @@ public abstract class AbstractUser {
 
 
 	public String getUsername() {
-		return username;
+		return surname;
 	}
 
 
 	public void setUsername(String username) {
-		this.username = username;
+		this.surname = username;
 	}
 
 
@@ -68,12 +78,82 @@ public abstract class AbstractUser {
 	}
 
 
-	public void update(Guest toUpdate) {
+
+	public String getSurname() {
+		return surname;
+	}
+
+
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+
+
+	public ShopCart getCart() {
+		return cart;
+	}
+
+
+
+	public void setCart(ShopCart cart) {
+		this.cart = cart;
+	}
+
+
+
+	public History getHistory() {
+		return history;
+	}
+
+
+
+	public void setHistory(History history) {
+		this.history = history;
+	}
+
+
+
+	public NoticeBoard getBoards() {
+		return boards;
+	}
+
+
+
+	public void setBoards(NoticeBoard boards) {
+		this.boards = boards;
+	}
+
+
+
+	public int getGreenCoin() {
+		return greenCoin;
+	}
+
+
+
+	public void setGreenCoin(int greenCoin) {
+		this.greenCoin = greenCoin;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "AbstractUser [name=" + name + ", surname=" + surname + ", pass=" + pass + ", mail=" + mail + ", type="
+				+ type + ", cart=" + cart + ", history=" + history + ", boards=" + boards + ", greenCoin=" + greenCoin
+				+ "]";
+	}
+
+	
+
+	/**public void update(Guest toUpdate) {
 	        this.name = toUpdate.getName();
-	        this.username = toUpdate.getUsername();
+	        this.surname = toUpdate.getUsername();
 	        this.pass = toUpdate.getPass();
 	        this.mail = toUpdate.getMail();
-	    }
+	    }**/
 	
 	
 	

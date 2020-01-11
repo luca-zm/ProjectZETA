@@ -6,7 +6,7 @@ import java.sql.*;
 public class DataSource {
 
     private static final String JDBC_CONNECTION_URL =
-            "jdbc:mysql://localhost/mydb"; //DA MODIFICARE
+            "jdbc:mysql://localhost:3306/database"; 
 
     private static Connection connection = null;
 
@@ -14,9 +14,9 @@ public class DataSource {
         if (connection != null)
             return connection;
         try {
-            Class.forName("com.mysql.jdbc.Driver"); //DA MODIFICARE
+            Class.forName("com.mysql.jdbc.Driver"); 
             String user = "root";
-            String password = "pass";
+            String password = "";
             connection = DriverManager.getConnection(JDBC_CONNECTION_URL, user, password);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -24,7 +24,7 @@ public class DataSource {
         return connection;
     }
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
         for (int i = 0; i < 20; i++)
             getConnection();
     }

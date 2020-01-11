@@ -8,8 +8,11 @@ public class Guest extends AbstractUser{
 	
 
 
-    public Guest(String mail, String name, String username, String pass) {
+
+
+	public Guest(String mail, String name, String username, String pass) {
 		super(mail, name, username, pass, Roles.GUEST);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -17,9 +20,12 @@ public class Guest extends AbstractUser{
         return GUEST;
     }
 
+	
+
 	@Override
 	public String toString() {
-		return "Guest [name=" + name + ", username=" + username + ", pass=" + pass + ", mail=" + mail + "]";
+		return "Guest [name=" + name + ", surname=" + surname + ", pass=" + pass + ", mail=" + mail + ", type=" + type
+				+ ", cart=" + cart + ", history=" + history + ", boards=" + boards + ", greenCoin=" + greenCoin + "]";
 	}
 
 	public void setValid(boolean b) {

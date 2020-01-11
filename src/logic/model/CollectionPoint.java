@@ -1,5 +1,81 @@
 package logic.model;
 
 public class CollectionPoint {
-
+	private int id;
+	private String name;
+	private long longitude;
+	private long latitude;
+	private int address;
+	private int openingTime;
+	private int closingTime;
+	private Boolean isAvailable;
+	
+	public CollectionPoint(int id, String name, long longitude, long latitude, int address, int openingTime,
+			int closingTime, Boolean isAvailable) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.longitude = longitude;
+		this.latitude = latitude;
+		this.address = address;
+		this.openingTime = openingTime;
+		this.closingTime = closingTime;
+		this.isAvailable = isAvailable;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public long getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(long longitude) {
+		this.longitude = longitude;
+	}
+	public long getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(long latitude) {
+		this.latitude = latitude;
+	}
+	public int getAddress() {
+		return address;
+	}
+	public void setAddress(int address) {
+		this.address = address;
+	}
+	public int getOpeningTime() {
+		return openingTime;
+	}
+	public void setOpeningTime(int openingTime) {
+		this.openingTime = openingTime;
+	}
+	public int getClosingTime() {
+		return closingTime;
+	}
+	public void setClosingTime(int closingTime) {
+		this.closingTime = closingTime;
+	}
+	public Boolean getIsAvailable() {
+		return isAvailable;
+	}
+	public void setIsAvailable(Boolean isAvailable) {
+		this.isAvailable = isAvailable;
+	}
+	@Override
+	public String toString() {
+		return "CollectionPoint [id=" + id + ", name=" + name + ", longitude=" + longitude + ", latitude=" + latitude
+				+ ", address=" + address + ", openingTime=" + openingTime + ", closingTime=" + closingTime
+				+ ", isAvailable=" + isAvailable + "]";
+	}
+	
+	
 }

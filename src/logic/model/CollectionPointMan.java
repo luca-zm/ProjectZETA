@@ -15,11 +15,15 @@ public class CollectionPointMan extends AbstractUser {
 		return COLLECTIONPOINTMAN;
 	}
 
+
 	@Override
 	public String toString() {
-		return "CollectionPointMan [name=" + name + ", username=" + username + ", pass=" + pass + ", mail=" + mail
-				+ ", getType()=" + getType() + "]";
+		return "CollectionPointMan [name=" + name + ", surname=" + surname + ", pass=" + pass + ", mail=" + mail
+				+ ", type=" + type + ", cart=" + cart + ", history=" + history + ", boards=" + boards + ", greenCoin="
+				+ greenCoin + "]";
 	}
+
+	
     
     
     

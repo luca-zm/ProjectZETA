@@ -9,16 +9,14 @@ public class Shipment extends Transaction{
 
 	private String tackingNumber;
 	private Product product;
-	private int price;
 	private  DeliveryStatus deliveryStatus;
 	
 	
-	public Shipment(int id, String date, String tackingNumber, Product product, int price,
+	public Shipment(int id, String date, String tackingNumber, Product product,
 			DeliveryStatus deliveryStatus) {
 		super(id, date);
 		this.tackingNumber = tackingNumber;
 		this.product = product;
-		this.price = price;
 		this.deliveryStatus = deliveryStatus;
 	}
 
@@ -43,16 +41,6 @@ public class Shipment extends Transaction{
 	}
 
 
-	public int getPrice() {
-		return price;
-	}
-
-
-	public void setPrice(int price) {
-		this.price = price;
-	}
-
-
 	public DeliveryStatus getDeliveryStatus() {
 		return deliveryStatus;
 	}
@@ -65,9 +53,12 @@ public class Shipment extends Transaction{
 
 	@Override
 	public String toString() {
-		return "Shipment [tackingNumber=" + tackingNumber + ", product=" + product + ", price=" + price + "]";
+		return "Shipment [tackingNumber=" + tackingNumber + ", product=" + product + ", deliveryStatus="
+				+ deliveryStatus + "]";
 	}
 
+
+	
 	
 	
 }

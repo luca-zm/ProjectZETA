@@ -8,14 +8,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import logic.enums.DeliveryStatus;
 import logic.model.AbstractUser;
-import logic.model.ActivationCodeDAO;
-import logic.model.AddressDAO;
-import logic.model.CollectionPointDAO;
-import logic.model.MessageDAO;
-import logic.model.ProductDAO;
-import logic.model.ShipmentDAO;
-import logic.model.UserDAO;
-import logic.model.WishListDAO;
+import logic.persistence.ActivationCodeDAO;
+import logic.persistence.AddressDAO;
+import logic.persistence.CollectionPointDAO;
+import logic.persistence.MessageDAO;
+import logic.persistence.ProductDAO;
+import logic.persistence.ShipmentDAO;
+import logic.persistence.UserDAO;
+import logic.persistence.WishListDAO;
 
 
 
@@ -42,7 +42,8 @@ public class Main extends Application {
 //WishListDAO.insert(1, 12345);
 //ActivationCodeDAO.insert(123456789, 100);
 //MessageDAO.insert(currentTime, "title", "bodymessage", "type", 10); 
-AddressDAO.insert("Via del Quadraro 72", "Roma", "00179", "+393334455666", "Italy" , "Italy" , "Quadraro");
+//AddressDAO.insert("Via del Quadraro 72", "Roma", "00179", "+393334455666", "Italy" , "Italy" , "Quadraro");
+//UserDAO.deleteUserById(1);
 /**AbstractUser user = UserDAO.login("stefano@gmail.com", "stefano123");
 System.out.println(user.getHistory());
 System.out.println(user.getType());**/ 
@@ -60,5 +61,4 @@ java.text.SimpleDateFormat sdf =
 String currentTime = sdf.format(dt);
 
 
-
-MessageDAO.insert(currentTime, "title", "bodymessage", "type", 10); **/
+ **/

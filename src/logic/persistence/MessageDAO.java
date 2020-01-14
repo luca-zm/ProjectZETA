@@ -1,16 +1,17 @@
-package logic.model;
+package logic.persistence;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 import logic.enums.MesType;
+import logic.model.DataSource;
 
 public class MessageDAO {
 	private static Connection currentCon = null;
 
 
-    public static void insert(String date, String title, String bodymessage, String type, int userId) {
+    public static void insertMessage(String date, String title, String bodymessage, String type, int userId) {
 
         //preparing some objects for connection
         Statement stmt = null;

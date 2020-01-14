@@ -5,14 +5,14 @@ import java.util.List;
 
 import logic.enums.DeliveryStatus;
 
-public class Shipment extends Transaction{
+public class ShipmentTran extends Transaction{
 
 	private String tackingNumber;
 	private Product product;
 	private  DeliveryStatus deliveryStatus;
 	
 	
-	public Shipment(int id, String date, String tackingNumber, Product product,
+	public ShipmentTran(int id, String date, String tackingNumber, Product product,
 			DeliveryStatus deliveryStatus) {
 		super(id, date);
 		this.tackingNumber = tackingNumber;

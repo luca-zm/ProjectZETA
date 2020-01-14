@@ -1,15 +1,17 @@
-package logic.model;
+package logic.persistence;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import logic.model.DataSource;
 
-public class AddressDAO { 
+
+public class ActivationCodeDAO { //INSERIMENTO DI ACTIVATION CODE DA PARTE DI ADMIN, DA RIVEDERE LA GESTIONE
 	private static Connection currentCon = null;
 
 
-    public static void insert(String address, String city, String postalCode, String telephone, String state, String country, String zone) {
+    public static void insertActivationCode(int activationCode, int greenCoinAdded) {
 
         //preparing some objects for connection
         Statement stmt = null;
@@ -17,22 +19,11 @@ public class AddressDAO {
 
         
         String searchQuery =
-                "insert into address ( address, city, postalCode, telephone, state, country, zone) values ('"
-                		+ address
-        				+ "','"
-                        + city
+                "insert into activationcode (activationCode, greenCoinAdded) values ('"
+                        + activationCode
                         + "','"
-                        + postalCode
-                        + "','"
-                        + telephone
-                        + "','"
-                        + state
-                        + "','"
-                        + country
-                        + "','"
-                        + zone
+                        + greenCoinAdded
                         + "');";                  
-            
 
         // "System.out.println" prints in the console; Normally used to trace the process
         System.out.println("Query: " + searchQuery);

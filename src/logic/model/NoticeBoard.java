@@ -3,20 +3,26 @@ package logic.model;
 import java.util.ArrayList;
 
 public class NoticeBoard {
-	
+	private int id;
 	private ArrayList<Message> list;
 
-	public NoticeBoard(ArrayList<Message> list) {
+	public NoticeBoard(int id, ArrayList<Message> list) {
+		super();
+		this.id = id;
 		this.list = list;
 	}
-	
-	
-	//Default constructor create an empty list
-	public NoticeBoard() {
-		this.list = new ArrayList<Message>();
+
+	public int getId() {
+		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
 
+	public void setList(ArrayList<Message> list) {
+		this.list = list;
+	}
 
 	public Boolean addMessage(Message message) {
 		if(message == null) {
@@ -43,8 +49,10 @@ public class NoticeBoard {
 
 	@Override
 	public String toString() {
-		return "NoticeBoard [list=" + list + "]";
+		return "NoticeBoard [id=" + id + ", list=" + list + "]";
 	}
+
+
 	
 	
 

@@ -3,15 +3,33 @@ package logic.model;
 import java.util.ArrayList;
 
 public class History {
+	private int id;
 	private ArrayList<Transaction> tranList;
-
-	public History(ArrayList<Transaction> tranList) {
+	
+	public History(int id, ArrayList<Transaction> tranList) {
+		super();
+		this.id = id;
 		this.tranList = tranList;
 	}
-	
-	//Default constructor create an empty list
-	public History() {
-		this.tranList = new ArrayList<Transaction>();
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public ArrayList<Transaction> getTranList() {
+		return tranList;
+	}
+
+
+	public void setTranList(ArrayList<Transaction> tranList) {
+		this.tranList = tranList;
 	}
 
 
@@ -28,10 +46,11 @@ public class History {
 		tranList.clear();
 	}
 
+
 	@Override
 	public String toString() {
-		return "History [tranList=" + tranList + "]";
+		return "History [id=" + id + ", tranList=" + tranList + "]";
 	}
-	
+
 	
 }

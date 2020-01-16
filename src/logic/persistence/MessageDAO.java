@@ -1,70 +1,57 @@
 package logic.persistence;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import logic.enums.MesType;
-import logic.model.DataSource;
+import logic.model.AbstractUser;
+import logic.persistence.DataSource;
+import logic.model.Message;
 
 public class MessageDAO {
 	private static Connection currentCon = null;
 
 
-    public static void insertMessage(String date, String title, String bodymessage, String type, int userId) {
-
-        //preparing some objects for connection
-        Statement stmt = null;
-
-
-        
-        String searchQuery =
-                "insert into message (date, title, bodymessage, type, userId) values ('"
-                        + date
-                        + "','"
-                        + title
-                        + "','"
-                        + bodymessage
-                        + "','"
-                        + type
-                        + "','"
-                        + userId
-                        + "');";                  
-
-        // "System.out.println" prints in the console; Normally used to trace the process
-        System.out.println("Query: " + searchQuery);
-
-        try {
-            //connect to DB
-            currentCon = DataSource.getConnection();
-            stmt = currentCon.createStatement();
-            stmt.execute(searchQuery);
+    public static Boolean insertMessage(Message message, AbstractUser user) {
+        try {        
+            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_MESSAGE , Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, message.getDate());
+            preparedStatement.setString(2, message.getTitle());
+            preparedStatement.setString(3, message.getBodymessage());
+            preparedStatement.setString(4, String.valueOf(message.getType()));
+            preparedStatement.setInt(5, user.getId());
             
-        } catch (Exception ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
-        }
-
-        //some exception handling
-        finally {
-
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Statement close");
-                }
+            int resultSet = preparedStatement.executeUpdate();
+            if (resultSet > 0) {
+            	ResultSet keys = preparedStatement.getGeneratedKeys();    
+            	keys.next();  
+            	message.setId(keys.getInt(1));
+            	return true;
             }
-
-            if (currentCon != null) {
-                try {
-                    currentCon.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Connection close");
-
-                }
-                currentCon = null;
-            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
+        return false;
     }
+    
+    
+    public static Boolean deleteMessage(Message message) {
+        try {        
+            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.DELETE_MESSAGE);
+            preparedStatement.setInt(1, message.getId());
+            
+            int resultSet = preparedStatement.executeUpdate();
+            if (resultSet > 0) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+    
 }

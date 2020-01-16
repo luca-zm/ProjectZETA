@@ -1,17 +1,17 @@
 package logic.model;
 
 public class ActivationCodeTran extends Transaction{
-	private String activationCode;
+	private int activationCode;
 	private int greenCoinAdded;
-	public ActivationCodeTran(int id, String date, String activationCode, int greenCoinAdded) {
+	public ActivationCodeTran(int id, String date, int activationCode, int greenCoinAdded) {
 		super(id, date);
 		this.activationCode = activationCode;
 		this.greenCoinAdded = greenCoinAdded;
 	}
-	public String getActivationCode() {
+	public int getActivationCode() {
 		return activationCode;
 	}
-	public void setActivationCode(String activationCode) {
+	public void setActivationCode(int activationCode) {
 		this.activationCode = activationCode;
 	}
 	public int getGreenCoinAdded() {

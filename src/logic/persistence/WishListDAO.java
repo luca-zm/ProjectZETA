@@ -1,111 +1,47 @@
 package logic.persistence;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
-import logic.model.DataSource;
+import logic.model.AbstractUser;
+import logic.persistence.DataSource;
+import logic.model.Product;
 
 
 public class WishListDAO { 
 	private static Connection currentCon = null;
-
-
-    public static void insert(int userId, int productId) {
-
-        //preparing some objects for connection
-        Statement stmt = null;
-
-
-        
-        String searchQuery =
-                "insert into wishlist (userId, productId) values ('"
-                        + userId
-                        + "','"
-                        + productId
-                        + "');";                  
-
-        // "System.out.println" prints in the console; Normally used to trace the process
-        System.out.println("Query: " + searchQuery);
-
-        try {
-            //connect to DB
-            currentCon = DataSource.getConnection();
-            stmt = currentCon.createStatement();
-            stmt.execute(searchQuery);
+	
+    public static Boolean insert(AbstractUser user, Product product) {                    
+        try {        
+            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_WISHLIST);
+            preparedStatement.setInt(1, user.getId());
+            preparedStatement.setInt(2, product.getId());
             
-        } catch (Exception ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
-        }
-
-        //some exception handling
-        finally {
-
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Statement close");
-                }
+            int resultSet = preparedStatement.executeUpdate();
+            if (resultSet > 0) {
+                return true;
             }
-
-            if (currentCon != null) {
-                try {
-                    currentCon.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Connection close");
-
-                }
-                currentCon = null;
-            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
-    }
-    
-    public static void deleteDesiredProductFromWishListById(int id) {
-
-        //preparing some objects for connection
-        Statement stmt = null;
-
-
-        
-        String searchQuery =
-                "delete from wishlist where id =" + id;
-
-        // "System.out.println" prints in the console; Normally used to trace the process
-        System.out.println("Query: " + searchQuery);
-
-        try {
-            //connect to DB
-            currentCon = DataSource.getConnection();
-            stmt = currentCon.createStatement();
-            stmt.executeUpdate(searchQuery);
-            
-        } catch (Exception ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
-        }
-
-        //some exception handling
-        finally {
-
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Statement close");
-                }
-            }
-
-            if (currentCon != null) {
-                try {
-                    currentCon.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Connection close");
-
-                }
-                currentCon = null;
-            }
-        }
+        return false;
     }
 
+    public static Boolean delete(AbstractUser user, Product product) {                    
+        try {        
+            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.DELETE_WISHLIST);
+            preparedStatement.setInt(1, user.getId());
+            preparedStatement.setInt(2, product.getId());
+            int resultSet = preparedStatement.executeUpdate();
+            if (resultSet > 0) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

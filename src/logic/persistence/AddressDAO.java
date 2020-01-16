@@ -1,122 +1,55 @@
 package logic.persistence;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
-import logic.model.DataSource;
+import logic.model.Address;
+import logic.persistence.DataSource;
 
 
 public class AddressDAO { 
 	private static Connection currentCon = null;
 
 
-    public static void insertAddress(String address, String city, String postalCode, String telephone, String state, String country, String zone) {
+    public static Boolean insertAddress(Address address) {                 
+        try {        
+            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_ADDRESS, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, address.getAddress());
+            preparedStatement.setString(2, address.getCity());
+            preparedStatement.setString(3, address.getPostalCode());
+            preparedStatement.setString(4, address.getTelephone());
+            preparedStatement.setString(5, address.getState());
+            preparedStatement.setString(6, address.getCountry());
+            preparedStatement.setString(7, address.getZone());
 
-        //preparing some objects for connection
-        Statement stmt = null;
-
-
-        
-        String searchQuery =
-                "insert into address ( address, city, postalCode, telephone, state, country, zone) values ('"
-                		+ address
-        				+ "','"
-                        + city
-                        + "','"
-                        + postalCode
-                        + "','"
-                        + telephone
-                        + "','"
-                        + state
-                        + "','"
-                        + country
-                        + "','"
-                        + zone
-                        + "');";                  
             
-
-        // "System.out.println" prints in the console; Normally used to trace the process
-        System.out.println("Query: " + searchQuery);
-
-        try {
-            //connect to DB
-            currentCon = DataSource.getConnection();
-            stmt = currentCon.createStatement();
-            stmt.execute(searchQuery);
-            
-        } catch (Exception ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
-        }
-
-        //some exception handling
-        finally {
-
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Statement close");
-                }
+            int resultSet = preparedStatement.executeUpdate();
+            if (resultSet > 0) {
+            	ResultSet keys = preparedStatement.getGeneratedKeys();    
+            	keys.next();  
+            	address.setId(keys.getInt(1));
+            	return true;
             }
-
-            if (currentCon != null) {
-                try {
-                    currentCon.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Connection close");
-
-                }
-                currentCon = null;
-            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
+        return false;
     }
     
-    
-    public static void deleteAddressById(int id) {
-
-        //preparing some objects for connection
-        Statement stmt = null;
-
-
-        
-        String searchQuery =
-                "delete from address where id =" + id;
-
-        // "System.out.println" prints in the console; Normally used to trace the process
-        System.out.println("Query: " + searchQuery);
-
-        try {
-            //connect to DB
-            currentCon = DataSource.getConnection();
-            stmt = currentCon.createStatement();
-            stmt.executeUpdate(searchQuery);
-            
-        } catch (Exception ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
-        }
-
-        //some exception handling
-        finally {
-
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Statement close");
-                }
+    public static Boolean deleteAddress(Address address) {                 
+        try {        
+            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.DELETE_ADDRESS);
+            preparedStatement.setInt(1, address.getId()); 
+            int resultSet = preparedStatement.executeUpdate();
+            if (resultSet > 0) {
+            	return true;
             }
-
-            if (currentCon != null) {
-                try {
-                    currentCon.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Connection close");
-
-                }
-                currentCon = null;
-            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+        return false;
     }
-}
+    

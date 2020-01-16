@@ -1,124 +1,56 @@
 package logic.persistence;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import logic.model.AbstractUser;
-import logic.model.DataSource;
+import logic.model.Address;
+import logic.model.CollectionPoint;
+import logic.persistence.DataSource;
 
 public class CollectionPointDAO {
 	private static Connection currentCon = null;
 
 
-    public static void insertCollectionPoint(String name,double longitude, double latitude, int address, int openingTime, int closingTime, int isAvailable) {
+    public static Boolean insertCollectionPoint(CollectionPoint collPoint){                 
+            try {        
+                PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_COLLECTIONPOINT, Statement.RETURN_GENERATED_KEYS);
+                preparedStatement.setString(1, collPoint.getName());
+                preparedStatement.setDouble(2, collPoint.getLongitude());
+                preparedStatement.setDouble(3, collPoint.getLatitude());
+                preparedStatement.setInt(4, collPoint.getAddress());
+                preparedStatement.setInt(5, collPoint.getOpeningTime());
+                preparedStatement.setInt(6, collPoint.getClosingTime());
+                preparedStatement.setBoolean(7, collPoint.getIsAvailable());
 
-        //preparing some objects for connection
-        Statement stmt = null;
-
-
-        
-        String searchQuery =
-                "insert into collectionpoint (name, longitude, latitude, address, openingTime, closingTime, isAvailable) values ('"
-        				+ name
-        				+ "','"
-                        + longitude
-                        + "','"
-                        + latitude
-                        + "','"
-                        + address
-                        + "','"
-                        + openingTime
-                        + "','"
-                        + closingTime
-                        + "','"
-                        + isAvailable
-                        + "');";                  
-
-        // "System.out.println" prints in the console; Normally used to trace the process
-        System.out.println("Query: " + searchQuery);
-
-        try {
-            //connect to DB
-            currentCon = DataSource.getConnection();
-            stmt = currentCon.createStatement();
-            stmt.execute(searchQuery);
-            
-        } catch (Exception ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
-        }
-
-        //some exception handling
-        finally {
-
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Statement close");
+                
+                int resultSet = preparedStatement.executeUpdate();
+                if (resultSet > 0) {
+                	ResultSet keys = preparedStatement.getGeneratedKeys();    
+                	keys.next();  
+                	collPoint.setId(keys.getInt(1));
+                	return true;
                 }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-
-            if (currentCon != null) {
-                try {
-                    currentCon.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Connection close");
-
-                }
-                currentCon = null;
-            }
+            return false;
         }
-
-    }
     
-    public static void deleteCollectionPointById(int id) {
-
-        //preparing some objects for connection
-        Statement stmt = null;
-
-
-        
-        String searchQuery =
-                "delete from collectionpoint where id =" + id;
-
-        // "System.out.println" prints in the console; Normally used to trace the process
-        System.out.println("Query: " + searchQuery);
-
-        try {
-            //connect to DB
-            currentCon = DataSource.getConnection();
-            stmt = currentCon.createStatement();
-            stmt.execute(searchQuery);
-            
-        } catch (Exception ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
-        }
-
-        //some exception handling
-        finally {
-
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Statement close");
-                }
+    public static Boolean deleteCollectionPoint(CollectionPoint collPoint){                 
+        try {        
+            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.DELETE_COLLECTIONPOINT);
+            preparedStatement.setInt(1, collPoint.getId());
+            int resultSet = preparedStatement.executeUpdate();
+            if (resultSet > 0) {
+                return true;
             }
-
-            if (currentCon != null) {
-                try {
-                    currentCon.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Connection close");
-
-                }
-                currentCon = null;
-            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        
-        
+        return false;
     }
-    
 }
-    

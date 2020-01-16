@@ -1,10 +1,10 @@
-package logic.model;
+package logic.persistence;
 
-import java.sql.*;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class DataSource {
-
     private static final String JDBC_CONNECTION_URL =
             "jdbc:mysql://localhost:3306/database"; 
 
@@ -28,5 +28,4 @@ public class DataSource {
         for (int i = 0; i < 20; i++)
             getConnection();
     }
-
 }

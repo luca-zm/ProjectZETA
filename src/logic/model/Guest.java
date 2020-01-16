@@ -10,8 +10,8 @@ public class Guest extends AbstractUser{
 
 
 
-	public Guest(String mail, String name, String username, String pass) {
-		super(mail, name, username, pass, Roles.GUEST);
+	public Guest(int id, String mail, String name, String username, String pass) {
+		super(id, mail, name, username, pass, Roles.GUEST);
 		// TODO Auto-generated constructor stub
 	}
 

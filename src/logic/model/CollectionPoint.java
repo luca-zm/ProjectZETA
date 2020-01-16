@@ -3,14 +3,14 @@ package logic.model;
 public class CollectionPoint {
 	private int id;
 	private String name;
-	private long longitude;
-	private long latitude;
+	private double longitude;
+	private double latitude;
 	private int address;
 	private int openingTime;
 	private int closingTime;
 	private Boolean isAvailable;
 	
-	public CollectionPoint(int id, String name, long longitude, long latitude, int address, int openingTime,
+	public CollectionPoint(int id, String name, double longitude, double latitude, int address, int openingTime,
 			int closingTime, Boolean isAvailable) {
 		super();
 		this.id = id;
@@ -34,16 +34,16 @@ public class CollectionPoint {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public long getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(long longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
-	public long getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(long latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 	public int getAddress() {

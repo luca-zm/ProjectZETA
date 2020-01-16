@@ -6,8 +6,8 @@ import static logic.enums.Roles.USER;
 
 public class User extends AbstractUser {
 
-	public User(String mail, String name, String username, String pass) {
-		super(mail, name, username, pass, Roles.USER);	
+	public User(int id, String mail, String name, String username, String pass) {
+		super(id, mail, name, username, pass, Roles.USER);	
 	}
 	
 	@Override

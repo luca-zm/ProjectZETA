@@ -3,27 +3,48 @@ package logic.model;
 import java.util.ArrayList;
 
 public class ShopCart {
+	private int id;
 	private ArrayList<Product> productList;
 	private int totalPrice;
 	
-	public ShopCart(ArrayList<Product> productList, int totalPrice) {
+	
+
+	public ShopCart(int id, ArrayList<Product> productList, int totalPrice) {
+		super();
+		this.id = id;
 		this.productList = productList;
 		this.totalPrice = totalPrice;
 	}
-	
-	
-	//Default constructor create an empty list 
-	public ShopCart() {
-		this.productList = new ArrayList<Product>();
-		this.totalPrice = 0;
+
+
+	public int getId() {
+		return id;
 	}
 
 
+	public void setId(int id) {
+		this.id = id;
+	}
 
-	public ArrayList<Product> getProductList() {return productList;}
 
-	public int getTotalPrice() {return totalPrice;}
+	public ArrayList<Product> getProductList() {
+		return productList;
+	}
 
+
+	public void setProductList(ArrayList<Product> productList) {
+		this.productList = productList;
+	}
+
+
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
+	}
 
 
 	public Boolean addProduct(Product product) {
@@ -48,4 +69,12 @@ public class ShopCart {
 		this.productList.clear();
 		this.totalPrice = 0;
 	}
+
+
+	@Override
+	public String toString() {
+		return "ShopCart [id=" + id + ", productList=" + productList + ", totalPrice=" + totalPrice + "]";
+	}
+	
+	
 }

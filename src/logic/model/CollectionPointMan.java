@@ -5,12 +5,12 @@ import logic.enums.Roles;
 
 public class CollectionPointMan extends AbstractUser {
 
-	public CollectionPointMan(String mail, String name, String username, String pass)  {
-    	super(mail, name, username, pass, Roles.COLLECTIONPOINTMAN);
-    }
+    public CollectionPointMan(int id, String mail, String name, String username, String pass) {
+		super(id, mail, name, username, pass, Roles.COLLECTIONPOINTMAN);
+		// TODO Auto-generated constructor stub
+	}
 
-
-    @Override
+	@Override
 	public Roles getType() {
 		return COLLECTIONPOINTMAN;
 	}

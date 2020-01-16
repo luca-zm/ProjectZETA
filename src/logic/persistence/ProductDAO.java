@@ -1,123 +1,58 @@
 package logic.persistence;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import logic.enums.MesType;
-import logic.model.DataSource;
+import logic.persistence.DataSource;
+import logic.model.Product;
 
 public class ProductDAO {
 	private static Connection currentCon = null;
+//	 String.valueOf(roles) 
 
-
-    public static void insertProduct(int id, String name, int price, int discountPercentage, String category, String image, String description, int availability ) {
-
-        //preparing some objects for connection
-        Statement stmt = null;
-
-
-        
-        String searchQuery =
-                "insert into product (id, name, price, discountPercentage, category, image, description, availability) values ('"
-                        + id
-                        + "','"
-                        + name
-                        + "','"
-                        + price
-                        + "','"
-                        + discountPercentage
-                        + "','"
-                        + category
-                        + "','"
-                        + image
-                        + "','"
-                        + description
-                        + "','"
-                        + availability
-                        + "');";                  
-
-        // "System.out.println" prints in the console; Normally used to trace the process
-        System.out.println("Query: " + searchQuery);
-
-        try {
-            //connect to DB
-            currentCon = DataSource.getConnection();
-            stmt = currentCon.createStatement();
-            stmt.execute(searchQuery);
+    public static Boolean insertProduct(Product product) {      
+        try {        
+            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_PRODUCT, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, product.getName());
+            preparedStatement.setInt(2, product.getPrice());
+            preparedStatement.setInt(3, product.getDiscountPercentage());
+            preparedStatement.setString(4, String.valueOf(product.getCategory()));
+            preparedStatement.setString(5, product.getImage());
+            preparedStatement.setString(6, product.getDescription());
+            preparedStatement.setBoolean(7, product.isAvailability()); ///verificare boolean se combacia con tinyint
             
-        } catch (Exception ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
-        }
-
-        //some exception handling
-        finally {
-
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Statement close");
-                }
+            int resultSet = preparedStatement.executeUpdate();
+            if (resultSet > 0) {
+            	ResultSet keys = preparedStatement.getGeneratedKeys();    
+            	keys.next();  
+            	product.setId(keys.getInt(1));
+            	return true;
             }
-
-            if (currentCon != null) {
-                try {
-                    currentCon.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Connection close");
-
-                }
-                currentCon = null;
-            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
+        return false;
     }
+
     
-    public static void deleteProductById(int id) {
+    
+    public static Boolean deleteProduct(Product product) {      
+        try {        
+            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.DELETE_PRODUCT);
+            preparedStatement.setInt(1, product.getId());
 
-        //preparing some objects for connection
-        Statement stmt = null;
-
-
-        
-        String searchQuery =
-                "delete from product where id =" + id;
-
-        // "System.out.println" prints in the console; Normally used to trace the process
-        System.out.println("Query: " + searchQuery);
-
-        try {
-            //connect to DB
-            currentCon = DataSource.getConnection();
-            stmt = currentCon.createStatement();
-            stmt.executeUpdate(searchQuery);
-            
-        } catch (Exception ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
-        }
-
-        //some exception handling
-        finally {
-
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Statement close");
-                }
+            int resultSet = preparedStatement.executeUpdate();
+            if (resultSet > 0) {
+                return true;
             }
-
-            if (currentCon != null) {
-                try {
-                    currentCon.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Connection close");
-
-                }
-                currentCon = null;
-            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
+        return false;
     }
+
 }

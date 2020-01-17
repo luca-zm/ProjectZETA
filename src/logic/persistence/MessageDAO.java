@@ -5,9 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import logic.enums.MesType;
 import logic.model.AbstractUser;
+import logic.model.CollectionPoint;
 import logic.persistence.DataSource;
 import logic.model.Message;
 
@@ -15,7 +17,7 @@ public class MessageDAO {
 	private static Connection currentCon = null;
 
 
-    public static Boolean insertMessage(Message message, AbstractUser user) {
+    public static Boolean insert(Message message, AbstractUser user) {
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_MESSAGE , Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, message.getDate());
@@ -38,7 +40,7 @@ public class MessageDAO {
     }
     
     
-    public static Boolean deleteMessage(Message message) {
+    public static Boolean delete(Message message) {
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.DELETE_MESSAGE);
             preparedStatement.setInt(1, message.getId());
@@ -51,6 +53,28 @@ public class MessageDAO {
             e.printStackTrace();
         }
         return false;
+    }
+    
+    public static ArrayList<Message> select(AbstractUser user) throws SQLException {
+
+    	ArrayList<Message> list = new ArrayList<Message>();
+        //preparing some objects for connection
+    	try {        
+            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_MESSAGE); 
+            preparedStatement.setInt(1, user.getId());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) { ;
+            	String date = resultSet.getString("date");
+            	String title = resultSet.getString("title");
+            	String bodymessage = resultSet.getString("bodymessage");
+            	String type = resultSet.getString("type");
+            	MesType mesType = MesType.valueOf(type);
+            	list.add(new Message(user.getId(), date, title, bodymessage, mesType));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
     
     

@@ -18,7 +18,7 @@ public class Query {
 	
 	public static final String INSERT_ACTCODETRAN = "INSERT INTO activationcodetran(date, activationCode, greenCoinAdded, userId) VALUES (?,?,?,?)";
 	
-	public static final String INSERT_SHIPMENT = "INSERT INTO shipment(date, trackingNumber, product, price, deliveryStatus, userId) VALUES (?,?,?,?,?,?)";
+	public static final String INSERT_SHIPMENT = "INSERT INTO shipment(date, trackingNumber, product, deliveryStatus, userId) VALUES (?,?,?,?,?)";
 	
 	public static final String INSERT_USER = "INSERT INTO user(mail, name, surname, pass, type, cart, history, boards, greenCoin, address) VALUES (?,?,?,?,?,?,?,?,?,?)";
 	
@@ -45,46 +45,38 @@ public class Query {
 	public static final String DELETE_WISHLIST = "DELETE FROM wishlist WHERE userId = ? AND productId = ?";
 	
 	
-	/** dal progetto di MAURO
-	 * 
-	 * 
-	 * public static final String RETRIEVE_CATEGORIES = "SELECT * FROM categories";
+	public static final String SELECT_ACTCODE = "SELECT * from activationcode WHERE activationCode = ?";
 
-    public static final String FIND_REGISTERED_USER = "SELECT * FROM users WHERE Mail = ? and password = ?";
-
-    public static final String FIND_USER_BY_EMAIL = "SELECT * FROM users WHERE Mail = ?";
-
-    public static final String SEARCH_PRODUCTS_BY_NAME = "SELECT * " +
-            "FROM products " +
-            "WHERE Availability = 1 AND products.ProductName LIKE ?";
-
-    public static final String SEARCH_PRODUCT = "SELECT * " +
-            "FROM products";
-
-    public static final String SEARCH_PRDUCT_BY_ID = "SELECT * " +
-            "FROM products " +
-            "WHERE products.ProductID = ?";
-
-    public static final String INSERT_PRODUCT = "INSERT INTO Products (ProducerEmail, Category, ProductName, " +
-            "ProductDescription, Picture, Price, Manufacturer, isCharitable, DiscountPercentage, " +
-            "ShipmentCost) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-    public static final String UPDATE_PRODUCT = "UPDATE products SET ProductName=?, ProductDescription=?, Price=?, DiscountPercentage=? WHERE ProductID=?";
-
-    public static final String DELETE_PRODUCT = "DELETE FROM products WHERE ProductID = ?";
-
-    public static final String ADD_REVIEW = "INSERT INTO reviews(productId, username, rating, comment) VALUES (?,?,?,?)";
-
-    public static final String FIND_REVIEWS_BY_PRODUCT_ID = "SELECT * FROM reviews WHERE productId = ?";
-
-    public static final String FIND_REVIEWS_BY_USERNAME = "SELECT * FROM reviews WHERE username = ?";
-
-    public static final String FIND_SHIPMENT_STATUS = "SELECT * FROM shipments WHERE ShipmentTrack = ?"; //Creato da Richard
-
-    public static final String FIND_USER_BY_USERNAME = "SELECT * FROM users WHERE Username = ?"; //Creato da Richard
-
-    public static final String INSERT_USER = "INSERT INTO users (Username, Mail, Password, Name, Surname, Address1, Address2, City, State, PostalCode, Country, Phone, Website, PayPalAccount, Type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; //Creato da Richard
-**/
+	public static final String SELECT_ADDRESS = "SELECT * from address WHERE id = ?";
 	
+	public static final String SELECT_COLLECTIONPOINT = "SELECT * from collectionpoint";
+	
+	public static final String SELECT_MESSAGE = "SELECT * from message WHERE userid = ?";
+	
+	public static final String SELECT_PRODUCTS = "SELECT * from product";
+	
+	public static final String SELECT_PRODUCT = "SELECT * from product WHERE id = ?";
+
+	public static final String SELECT_BONUSTRAN = "SELECT * from bonustran WHERE userid = ?";
+	
+	public static final String SELECT_ACTCODETRAN = "SELECT * from activationcodetran WHERE userid = ?";
+	
+	public static final String SELECT_SHIPMENT = "SELECT * from shipment WHERE userid = ?";
+	
+	public static final String SELECT_REGISTEREDUSER = "SELECT * from user WHERE mail = ? AND pass = ?";
+	
+	public static final String SELECT_USERBYID = "SELECT * from user WHERE id = ?";
+	
+	public static final String SELECT_WISHLIST = "SELECT * from wishlist WHERE userid = ?";
+	
+//    public static final String UPDATE_PRODUCT = "UPDATE products SET ProductName=?, ProductDescription=?, Price=?, DiscountPercentage=? WHERE ProductID=?";
+
+	public static final String UPDATE_ADDRESS = "UPDATE address SET address = ?, city = ?, postalCode = ?, telephone = ?, state = ?, country = ?, zone = ?";
+	
+	public static final String UPDATE_COLLECTIONPOINT = "UPDATE collectionpoint SET name = ?, longitude = ?, latitude = ?, address = ?, openingTime = ?, closingTime = ?, isAvailable = ?";
+	
+	public static final String UPDATE_PRODUCT = "UPDATE product SET name = ?, price = ?, discountPercentage = ?, category = ?, image = ?, description = ?, availability = ?";
+	
+	public static final String UPDATE_USER = "UPDATE user SET mail = ?, name = ?, surname = ?, pass = ?, type = ?, cart = ?, history = ?, boards = ?, greenCoin = ?, address = ?";
 	
 }

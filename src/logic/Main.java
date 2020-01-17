@@ -9,11 +9,13 @@ import javafx.stage.Stage;
 import logic.enums.Category;
 import logic.enums.DeliveryStatus;
 import logic.enums.MesType;
+import logic.enums.Roles;
 import logic.model.AbstractUser;
 import logic.model.ActivationCode;
 import logic.model.CollectionPoint;
 import logic.model.Message;
 import logic.model.Product;
+import logic.model.User;
 import logic.persistence.ActivationCodeDAO;
 import logic.persistence.AddressDAO;
 import logic.persistence.CollectionPointDAO;
@@ -30,9 +32,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{ 
-    	CollectionPoint collPoint = new CollectionPoint(0, "nuovo", 1, 1, 1, 1, 1, true);
-    	System.out.println(CollectionPointDAO.insertCollectionPoint(collPoint));
-    	System.out.println(CollectionPointDAO.deleteCollectionPoint(collPoint));
+
         Parent root = FXMLLoader.load(getClass().getResource("view/homePage.fxml"));
         primaryStage.setTitle("EcoClean");
         primaryStage.setScene(new Scene(root, 770, 550));
@@ -53,6 +53,13 @@ public class Main extends Application {
 //MessageDAO.insert(currentTime, "title", "bodymessage", "type", 10); 
 //AddressDAO.insert("Via del Quadraro 72", "Roma", "00179", "+393334455666", "Italy" , "Italy" , "Quadraro");
 //UserDAO.deleteUserById(1);
+//    	System.out.println(ProductDAO.insertProduct(new Product(1, "default1", 0, 0, Category.Default , "default1" , "default1", true)));
+//    	System.out.println(ProductDAO.insertProduct(new Product(2, "default2", 0, 0, Category.Default , "default2" , "default2", true)));
+//    	System.out.println(ProductDAO.insertProduct(new Product(3, "default3", 0, 0, Category.Default , "default3" , "default3", true)));
+//    	System.out.println(WishListDAO.insert(new User(1, "default", "default", "default", "default"), new Product(9, "default1", 0, 0, Category.Default , "default1" , "default1", true)));
+//    	System.out.println(WishListDAO.insert(new User(1, "default", "default", "default", "default"), new Product(10, "default2", 0, 0, Category.Default , "default2" , "default2", true)));
+//    	System.out.println(WishListDAO.insert(new User(2, "default", "default", "default", "default"), new Product(11, "default3", 0, 0, Category.Default , "default3" , "default3", true)));
+//    	System.out.println(WishListDAO.select(1));
 /**AbstractUser user = UserDAO.login("stefano@gmail.com", "stefano123");
 System.out.println(user.getHistory());
 System.out.println(user.getType());
@@ -61,6 +68,10 @@ Message message = new Message(10, "default", "default", "default", MesType.PRODU
 System.out.println(message.getType().toString());
  Product prod2 = new Product(1, "default2", 0, 0, Category.Default , "default2" , "default2", true);
  System.out.println(ProductDAO.insertProduct(prod2));
+ CollectionPoint collPoint = new CollectionPoint(0, "nuovo", 1, 1, 1, 1, 1, true);
+ System.out.println(CollectionPointDAO.insertCollectionPoint(collPoint));
+ System.out.println(CollectionPointDAO.deleteCollectionPoint(collPoint));
+ System.out.println(MessageDAO.insertMessage(new Message(0, currentTime, "default", "default", MesType.COLLPOINT), new User(1, "default", "default", "default", "default")));
 **/ 
 
 }

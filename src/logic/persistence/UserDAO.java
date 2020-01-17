@@ -7,19 +7,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
+import logic.enums.DeliveryStatus;
 import logic.enums.Roles;
 import logic.model.AbstractUser;
 import logic.persistence.DataSource;
 import logic.model.FactoryUsers;
+import logic.model.Product;
+import logic.model.ShipmentTran;
 
 
 public class UserDAO {
-    private static Connection currentCon = null;
-    private static ResultSet rs = null;
-    private AbstractUser user = null;
-
-
    public static Boolean insert(AbstractUser user) {
 	   try {        
 		   
@@ -61,264 +60,77 @@ public class UserDAO {
            e.printStackTrace();
        }
        return false;
-   }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   }  
     
     public static AbstractUser findRegisteredUser(String mail, String pass) {
-
-        //preparing some objects for connection
-        Statement stmt = null;
-
-        String searchQuery =
-                "select * from user where mail='"
-                        + mail
-                        + "' AND pass='"
-                        + pass
-                        + "'";
-
-        // "System.out.println" prints in the console; Normally used to trace the process
-        System.out.println("Query: " + searchQuery);
-
-        AbstractUser user = null;
-
-        try {
-            //connect to DB
-            currentCon = DataSource.getConnection();
-            stmt = currentCon.createStatement();
-            rs = stmt.executeQuery(searchQuery);
-
-            // if user does not exist set the isValid variable to false
-            if (!rs.next()) {
-                System.out.println("Sorry, you are not a registered user! Please sign up first");
-            } else {
-                //if user exists set the isValid variable to true
-                String name = rs.getString("name");
-                String surname = rs.getString("surname");
-                String type = rs.getString("type");
-                
-                user = FactoryUsers.get(name, surname, mail, pass, type);
-                System.out.println("Welcome " + name + " " + surname);
+ 
+    	try {        
+            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_REGISTEREDUSER);
+            preparedStatement.setString(1, mail);
+            preparedStatement.setString(1, pass);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) { 
+            	int id = resultSet.getInt("id");
+            	String name = resultSet.getString("name");
+                String surname = resultSet.getString("surname");
+                String type = resultSet.getString("type");               
+                AbstractUser user = FactoryUsers.get(id, name, surname, mail, pass, type);
+                return user;
             }
-        } catch (Exception ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
-        //some exception handling
-        finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in ResultSet close");
-                }
-                rs = null;
-            }
-
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Statement close");
-                }
-            }
-
-            if (currentCon != null) {
-                try {
-                    currentCon.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Connection close");
-
-                }
-                currentCon = null;
-            }
-        }
-
-        return user;
-
+        return null;
     }
     
-    public static AbstractUser findUserByMail(String mail) {
 
-        //preparing some objects for connection
-        Statement stmt = null;
+        
 
-        String searchQuery =
-                "select * from user where mail='"
-                        + mail;
 
-        // "System.out.println" prints in the console; Normally used to trace the process
-        System.out.println("Query: " + searchQuery);
-
-        AbstractUser user = null;
-
-        try {
-            //connect to DB
-            currentCon = DataSource.getConnection();
-            stmt = currentCon.createStatement();
-            rs = stmt.executeQuery(searchQuery);
-
-        } catch (Exception ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
+    
+    public static AbstractUser findUserById(int id) {
+    	 
+    	try {        
+            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_USERBYID);
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) { 
+            	String name = resultSet.getString("name");
+                String surname = resultSet.getString("surname");
+                String type = resultSet.getString("type");       
+                String mail = resultSet.getString("mail");
+                String pass = resultSet.getString("pass");
+                AbstractUser user = FactoryUsers.get(id, name, surname, mail, pass, type);
+                return user;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
-        //some exception handling
-        finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in ResultSet close");
-                }
-                rs = null;
-            }
-
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Statement close");
-                }
-            }
-
-            if (currentCon != null) {
-                try {
-                    currentCon.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Connection close");
-
-                }
-                currentCon = null;
-            }
-        }
-		return user;
+        return null;
     }
     
-    /**public static AbstractUser modifyUserById(int id) {
-
-        //preparing some objects for connection
-        Statement stmt = null;
-
-        String searchQuery =
-                "delete from user where id=" + id;
-                       
-
-        // "System.out.println" prints in the console; Normally used to trace the process
-        System.out.println("Query: " + searchQuery);
-
-        try {
-            //connect to DB
-            currentCon = DataSource.getConnection();
-            stmt = currentCon.createStatement();
-            stmt.execute(searchQuery);
-
-        } catch (Exception ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
+    public static Boolean update(AbstractUser user) {
+ 	   try {        
+ 		   
+ 		   /////////mail, name, surname, pass, type, cart, history, boards, greenCoin, address) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.UPDATE_USER);
+            preparedStatement.setString(1, user.getMail());
+            preparedStatement.setString(2, user.getName());
+            preparedStatement.setString(3, user.getSurname());
+            preparedStatement.setString(4, user.getPass());
+            preparedStatement.setString(5, String.valueOf(user.getType()));
+            preparedStatement.setInt(6, user.getGreenCoin());
+            preparedStatement.setInt(6, user.getAddress().getId());
+            
+            int resultSet = preparedStatement.executeUpdate();
+            if (resultSet > 0) {
+            	return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
-        //some exception handling
-        finally {
-            if (rs != null) 
-                try {
-                    rs.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in ResultSet close");
-                }
-                rs = null;
-            }
-
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Statement close");
-                }
-            }
-
-            if (currentCon != null) {
-                try {
-                    currentCon.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Connection close");
-
-                }
-                currentCon = null;
-            }
-        
-		return null;
-    }**/
-
-    
-    public static AbstractUser deleteUserById(int id) {
-
-        //preparing some objects for connection
-        Statement stmt = null;
-
-        String searchQuery =
-                "delete from user where id=" + id;
-                       
-
-        // "System.out.println" prints in the console; Normally used to trace the process
-        System.out.println("Query: " + searchQuery);
-
-        try {
-            //connect to DB
-            currentCon = DataSource.getConnection();
-            stmt = currentCon.createStatement();
-            stmt.executeUpdate(searchQuery);
-
-        } catch (Exception ex) {
-            System.out.println("Log In failed: An Exception has occurred! " + ex);
-        }
-
-        //some exception handling
-        finally {
-            if (rs != null) 
-                try {
-                    rs.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in ResultSet close");
-                }
-                rs = null;
-            }
-
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Statement close");
-                }
-            }
-
-            if (currentCon != null) {
-                try {
-                    currentCon.close();
-                } catch (Exception e) {
-                    System.out.println("Exception in Connection close");
-
-                }
-                currentCon = null;
-            }
-        
-		return null;
+        return false;
     }
 }
+    
         

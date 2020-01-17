@@ -5,8 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import logic.model.AbstractUser;
+import logic.model.FactoryUsers;
 import logic.persistence.DataSource;
 import logic.model.Product;
 
@@ -43,5 +45,22 @@ public class WishListDAO {
             e.printStackTrace();
         }
         return false;
+    }
+    
+    public static ArrayList<Product> select(int userId) {
+    	ArrayList<Product> list = new ArrayList<Product>();
+    	try {        
+            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_WISHLIST);
+            preparedStatement.setInt(1, userId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) { 
+            	int productId = resultSet.getInt("productId");
+            	Product product = ProductDAO.selectProduct(productId);
+            	list.add(product);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }

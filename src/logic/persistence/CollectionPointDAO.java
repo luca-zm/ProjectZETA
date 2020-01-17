@@ -16,7 +16,7 @@ public class CollectionPointDAO {
 	private static Connection currentCon = null;
 
 
-    public static Boolean insert(CollectionPoint collPoint){                 
+    public static Boolean insert(CollectionPoint collPoint)throws SQLException{                 
             try {        
                 PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_COLLECTIONPOINT, Statement.RETURN_GENERATED_KEYS);
                 preparedStatement.setString(1, collPoint.getName());
@@ -41,7 +41,7 @@ public class CollectionPointDAO {
             return false;
         }
     
-    public static Boolean delete(CollectionPoint collPoint){                 
+    public static Boolean delete(CollectionPoint collPoint)throws SQLException{                 
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.DELETE_COLLECTIONPOINT);
             preparedStatement.setInt(1, collPoint.getId());
@@ -80,7 +80,7 @@ public class CollectionPointDAO {
     }
     
     
-    public static Boolean update(CollectionPoint collPoint){                 
+    public static Boolean update(CollectionPoint collPoint)throws SQLException{                 
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.UPDATE_COLLECTIONPOINT);
             preparedStatement.setString(1, collPoint.getName());

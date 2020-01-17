@@ -3,25 +3,11 @@ package logic.model;
 import java.util.ArrayList;
 
 public class History {
-	private int id;
 	private ArrayList<Transaction> tranList;
 	
-	public History(int id, ArrayList<Transaction> tranList) {
-		super();
-		this.id = id;
+	public History(ArrayList<Transaction> tranList) {
 		this.tranList = tranList;
 	}
-
-
-	public int getId() {
-		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 
 	public ArrayList<Transaction> getTranList() {
 		return tranList;
@@ -49,7 +35,7 @@ public class History {
 
 	@Override
 	public String toString() {
-		return "History [id=" + id + ", tranList=" + tranList + "]";
+		return "History [tranList=" + tranList + "]";
 	}
 
 	

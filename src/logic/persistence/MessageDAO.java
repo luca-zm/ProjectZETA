@@ -17,7 +17,7 @@ public class MessageDAO {
 	private static Connection currentCon = null;
 
 
-    public static Boolean insert(Message message, AbstractUser user) {
+    public static Boolean insert(Message message, AbstractUser user)throws SQLException {
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_MESSAGE , Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, message.getDate());
@@ -40,7 +40,7 @@ public class MessageDAO {
     }
     
     
-    public static Boolean delete(Message message) {
+    public static Boolean delete(Message message) throws SQLException{
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.DELETE_MESSAGE);
             preparedStatement.setInt(1, message.getId());

@@ -19,7 +19,7 @@ import logic.model.ShipmentTran;
 
 
 public class UserDAO {
-   public static Boolean insert(AbstractUser user) {
+   public static Boolean insert(AbstractUser user)throws SQLException {
 	   try {        
 		   
 		   /////////mail, name, surname, pass, type, cart, history, boards, greenCoin, address) VALUES (?,?,?,?,?,?,?,?,?,?)";
@@ -46,7 +46,7 @@ public class UserDAO {
    }
    
    
-   public static Boolean delete(AbstractUser user) {
+   public static Boolean delete(AbstractUser user) throws SQLException{
 	   try {        
 		   
 		   /////////mail, name, surname, pass, type, cart, history, boards, greenCoin, address) VALUES (?,?,?,?,?,?,?,?,?,?)";
@@ -62,7 +62,7 @@ public class UserDAO {
        return false;
    }  
     
-    public static AbstractUser findRegisteredUser(String mail, String pass) {
+    public static AbstractUser findRegisteredUser(String mail, String pass) throws SQLException{
  
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_REGISTEREDUSER);
@@ -88,7 +88,7 @@ public class UserDAO {
 
 
     
-    public static AbstractUser findUserById(int id) {
+    public static AbstractUser findUserById(int id) throws SQLException{
     	 
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_USERBYID);
@@ -109,7 +109,7 @@ public class UserDAO {
         return null;
     }
     
-    public static Boolean update(AbstractUser user) {
+    public static Boolean update(AbstractUser user) throws SQLException{
  	   try {        
  		   
  		   /////////mail, name, surname, pass, type, cart, history, boards, greenCoin, address) VALUES (?,?,?,?,?,?,?,?,?,?)";

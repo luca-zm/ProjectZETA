@@ -16,7 +16,7 @@ import logic.model.Product;
 public class WishListDAO { 
 	private static Connection currentCon = null;
 	
-    public static Boolean insert(AbstractUser user, Product product) {                    
+    public static Boolean insert(AbstractUser user, Product product) throws SQLException {                    
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_WISHLIST);
             preparedStatement.setInt(1, user.getId());
@@ -32,7 +32,7 @@ public class WishListDAO {
         return false;
     }
 
-    public static Boolean delete(AbstractUser user, Product product) {                    
+    public static Boolean delete(AbstractUser user, Product product) throws SQLException {                    
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.DELETE_WISHLIST);
             preparedStatement.setInt(1, user.getId());
@@ -47,11 +47,11 @@ public class WishListDAO {
         return false;
     }
     
-    public static ArrayList<Product> select(int userId) {
+    public static ArrayList<Product> select(AbstractUser user) throws SQLException {
     	ArrayList<Product> list = new ArrayList<Product>();
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_WISHLIST);
-            preparedStatement.setInt(1, userId);
+            preparedStatement.setInt(1, user.getId());
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) { 
             	int productId = resultSet.getInt("productId");

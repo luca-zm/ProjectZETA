@@ -18,7 +18,7 @@ public class ProductDAO {
 	private static Connection currentCon = null;
 //	 String.valueOf(roles) 
 
-    public static Boolean insert(Product product) {      
+    public static Boolean insert(Product product) throws SQLException{      
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_PRODUCT, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, product.getName());
@@ -44,7 +44,7 @@ public class ProductDAO {
 
     
     
-    public static Boolean delete(Product product) {      
+    public static Boolean delete(Product product) throws SQLException{      
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.DELETE_PRODUCT);
             preparedStatement.setInt(1, product.getId());
@@ -113,7 +113,7 @@ public class ProductDAO {
         return null;
     }
 
-    public static Boolean update(Product product) {      
+    public static Boolean update(Product product) throws SQLException{      
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.UPDATE_PRODUCT);
             preparedStatement.setString(1, product.getName());

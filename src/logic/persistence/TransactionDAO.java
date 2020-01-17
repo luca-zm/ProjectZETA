@@ -20,7 +20,7 @@ public class TransactionDAO {
 	private static Connection currentCon = null;
 
 
-	public static Boolean insertActivationCodeTran(ActivationCodeTran actCodeTran, AbstractUser user) {
+	public static Boolean insertActivationCodeTran(ActivationCodeTran actCodeTran, AbstractUser user) throws SQLException{
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_ACTCODETRAN , Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, actCodeTran.getDate());
@@ -42,7 +42,7 @@ public class TransactionDAO {
     }
     
     
-    public static Boolean deleteActivationCodeTran(ActivationCodeTran actCodeTran) {
+    public static Boolean deleteActivationCodeTran(ActivationCodeTran actCodeTran) throws SQLException{
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.DELETE_ACTCODETRAN);
             preparedStatement.setInt(1, actCodeTran.getId());
@@ -79,7 +79,7 @@ public class TransactionDAO {
         return list;
     }
 
-    public static Boolean insertBonusTran(BonusTran bonusTran, AbstractUser user) {
+    public static Boolean insertBonusTran(BonusTran bonusTran, AbstractUser user) throws SQLException{
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_BONUSTRAN , Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, bonusTran.getDate());
@@ -102,7 +102,7 @@ public class TransactionDAO {
     
     
     
-    public static Boolean deleteBonusTran(BonusTran bonusTran) {
+    public static Boolean deleteBonusTran(BonusTran bonusTran) throws SQLException{
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.DELETE_BONUSTRAN);
             preparedStatement.setInt(1, bonusTran.getId());            
@@ -138,7 +138,7 @@ public class TransactionDAO {
         return list;
     }
     
-    public static Boolean insertShipment(ShipmentTran shipmentTran, AbstractUser user) {                
+    public static Boolean insertShipment(ShipmentTran shipmentTran, AbstractUser user)throws SQLException {                
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_SHIPMENT, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, shipmentTran.getDate());
@@ -160,7 +160,7 @@ public class TransactionDAO {
         return false;
     }
     
-    public static Boolean deleteShipment(ShipmentTran shipmentTran) {                
+    public static Boolean deleteShipment(ShipmentTran shipmentTran) throws SQLException{                
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.DELETE_SHIPMENT);
             preparedStatement.setInt(1, shipmentTran.getId());

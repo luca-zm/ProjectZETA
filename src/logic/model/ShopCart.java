@@ -3,30 +3,14 @@ package logic.model;
 import java.util.ArrayList;
 
 public class ShopCart {
-	private int id;
 	private ArrayList<Product> productList;
 	private int totalPrice;
 	
+	public ShopCart() {
+		this.productList = new ArrayList<Product>();
+		this.totalPrice = 0;
+	}
 	
-
-	public ShopCart(int id, ArrayList<Product> productList, int totalPrice) {
-		super();
-		this.id = id;
-		this.productList = productList;
-		this.totalPrice = totalPrice;
-	}
-
-
-	public int getId() {
-		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
 	public ArrayList<Product> getProductList() {
 		return productList;
 	}

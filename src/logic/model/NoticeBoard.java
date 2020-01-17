@@ -3,22 +3,14 @@ package logic.model;
 import java.util.ArrayList;
 
 public class NoticeBoard {
-	private int id;
+
 	private ArrayList<Message> list;
 
-	public NoticeBoard(int id, ArrayList<Message> list) {
-		super();
-		this.id = id;
+	public NoticeBoard(ArrayList<Message> list) {
+
 		this.list = list;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public void setList(ArrayList<Message> list) {
 		this.list = list;
@@ -49,7 +41,7 @@ public class NoticeBoard {
 
 	@Override
 	public String toString() {
-		return "NoticeBoard [id=" + id + ", list=" + list + "]";
+		return "NoticeBoard [list=" + list + "]";
 	}
 
 

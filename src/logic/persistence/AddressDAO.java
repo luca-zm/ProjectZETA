@@ -16,7 +16,7 @@ public class AddressDAO {
 	private static Connection currentCon = null;
 
 
-    public static Boolean insert(Address address) {                 
+    public static Boolean insert(Address address) throws SQLException{                 
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_ADDRESS, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, address.getAddress());
@@ -41,7 +41,7 @@ public class AddressDAO {
         return false;
     }
     
-    public static Boolean delete(Address address) {                 
+    public static Boolean delete(Address address) throws SQLException{                 
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.DELETE_ADDRESS);
             preparedStatement.setInt(1, address.getId()); 
@@ -80,7 +80,7 @@ public class AddressDAO {
         return null;
     }
     
-    public static Boolean update(Address address) {                 
+    public static Boolean update(Address address) throws SQLException{                 
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.UPDATE_ADDRESS);
             preparedStatement.setString(1, address.getAddress());

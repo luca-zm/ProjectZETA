@@ -3,22 +3,11 @@ package logic.model;
 import java.util.ArrayList;
 
 public class WishList {
-	private int id;
 	private ArrayList<Product> list;
 
 
-	public WishList(int id, ArrayList<Product> list) {
-		super();
-		this.id = id;
+	public WishList(ArrayList<Product> list) {
 		this.list = list;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public ArrayList<Product> getList() {
@@ -31,7 +20,7 @@ public class WishList {
 	
 	@Override
 	public String toString() {
-		return "WishList [id=" + id + ", list=" + list + "]";
+		return "WishList [list=" + list + "]";
 	}
 
 	public void addProduct(Product product) {

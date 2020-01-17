@@ -44,7 +44,6 @@ public class Query {
 	
 	public static final String DELETE_WISHLIST = "DELETE FROM wishlist WHERE userId = ? AND productId = ?";
 	
-	
 	public static final String SELECT_ACTCODE = "SELECT * from activationcode WHERE activationCode = ?";
 
 	public static final String SELECT_ADDRESS = "SELECT * from address WHERE id = ?";
@@ -69,8 +68,6 @@ public class Query {
 	
 	public static final String SELECT_WISHLIST = "SELECT * from wishlist WHERE userid = ?";
 	
-//    public static final String UPDATE_PRODUCT = "UPDATE products SET ProductName=?, ProductDescription=?, Price=?, DiscountPercentage=? WHERE ProductID=?";
-
 	public static final String UPDATE_ADDRESS = "UPDATE address SET address = ?, city = ?, postalCode = ?, telephone = ?, state = ?, country = ?, zone = ?";
 	
 	public static final String UPDATE_COLLECTIONPOINT = "UPDATE collectionpoint SET name = ?, longitude = ?, latitude = ?, address = ?, openingTime = ?, closingTime = ?, isAvailable = ?";

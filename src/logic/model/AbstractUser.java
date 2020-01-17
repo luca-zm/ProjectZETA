@@ -14,6 +14,7 @@ public abstract class AbstractUser {
 	protected String mail;
 	protected Roles type;
 	protected ShopCart cart;
+	protected WishList wishList;
 	protected History history;
 	protected NoticeBoard boards;
 	protected int greenCoin;
@@ -26,7 +27,8 @@ public abstract class AbstractUser {
 		this.pass = pass;
 		this.mail = mail;
 		this.type = type;
-		this.cart = null;
+		this.cart = new ShopCart();
+		this.wishList = null;
 		this.history = null;
 		this.boards = null;
 		this.greenCoin = 0;
@@ -115,6 +117,20 @@ public abstract class AbstractUser {
 	public void setCart(ShopCart cart) {
 		this.cart = cart;
 	}
+	
+	
+
+
+
+	public WishList getWishList() {
+		return wishList;
+	}
+
+
+
+	public void setWishList(WishList wishList) {
+		this.wishList = wishList;
+	}
 
 
 
@@ -169,9 +185,12 @@ public abstract class AbstractUser {
 	@Override
 	public String toString() {
 		return "AbstractUser [id=" + id + ", name=" + name + ", surname=" + surname + ", pass=" + pass + ", mail="
-				+ mail + ", type=" + type + ", cart=" + cart + ", history=" + history + ", boards=" + boards
-				+ ", greenCoin=" + greenCoin + ", address=" + address + "]";
+				+ mail + ", type=" + type + ", cart=" + cart + ", wishList=" + wishList + ", history=" + history
+				+ ", boards=" + boards + ", greenCoin=" + greenCoin + ", address=" + address + "]";
 	}
+
+
+
 
 
 

@@ -25,7 +25,9 @@ import logic.persistence.WishListDAO;
 
 public class ControllerLogin {
 	Singleton singleton = Singleton.getInstance();
+	
 	public Boolean login(UserBean userBean) throws SQLException {
+		
 		String mail = userBean.getMail();
 		String pass = userBean.getPass();
 		AbstractUser user = UserDAO.findRegisteredUser(mail, pass);

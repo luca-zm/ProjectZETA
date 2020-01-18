@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -32,18 +33,25 @@ import logic.model.Singleton;
 
 import javax.swing.*;
 
+import bean.UserBean;
+import controller.ControllerLogin;
+
 public class LoginController extends Application {
 
     @FXML
     public Button log, conf, back;
     
     @FXML
-    public TextField usr;
+    public TextField usr, pass_r, pass2_r, mail_r, add_r, sur_r, name_r;
     
     @FXML
     public PasswordField psw;
     
     Singleton sg = Singleton.getInstance(); 
+    
+    ControllerLogin cl = new ControllerLogin();
+    
+    
 
     private int flag;
 
@@ -60,7 +68,7 @@ public class LoginController extends Application {
     }
 
     @FXML
-    private void next(ActionEvent event) throws IOException {
+    private void next(ActionEvent event) throws IOException, SQLException {
         winNext a = new winNext();
 
         String eventClicked = event.getSource().toString();
@@ -68,6 +76,10 @@ public class LoginController extends Application {
         	a.openWin("view/productsPage.fxml");
         }
         if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login!'")) {
+        	
+        	
+        	UserBean ub = new UserBean(usr.getText(), null, psw.getText(), null, null);
+        	
         	//metodo verifica credenziali, imposta flag, fa aprire schermata prodotti, admin, moderatore in base al flag 
         	if (usr.getText().contentEquals("admin") && psw.getText().contentEquals("admin")) {
         		a.openWin("view/adminPage.fxml");
@@ -75,8 +87,13 @@ public class LoginController extends Application {
         	if (usr.getText().contentEquals("moderator") && psw.getText().contentEquals("moderator")) {
         		a.openWin("view/modPage.fxml");
         	}
-        	//verifyUser(); --> flag = 1; sg.logAS(flag);
         	//METODO che verifica se l'utente si e' loggato o meno, mposta 1 se è loggato
+        	if(cl.login(ub)) {
+        		flag = 1;
+        		sg.logAS(flag);
+        		a.openWin("view/productsPage.fxml");
+        	}
+        	
         	
         }
         if (eventClicked.contentEquals("Button[id=conf, styleClass=button]'Confirm'")) {

@@ -78,7 +78,7 @@ public class LoginController extends Application {
         if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login!'")) {
         	
         	
-        	UserBean ub = new UserBean(usr.getText(), null, psw.getText(), null, null);
+        	UserBean ub = new UserBean(null, null, psw.getText(), usr.getText(), null);
         	
         	//metodo verifica credenziali, imposta flag, fa aprire schermata prodotti, admin, moderatore in base al flag 
         	if (usr.getText().contentEquals("admin") && psw.getText().contentEquals("admin")) {
@@ -87,13 +87,16 @@ public class LoginController extends Application {
         	if (usr.getText().contentEquals("moderator") && psw.getText().contentEquals("moderator")) {
         		a.openWin("view/modPage.fxml");
         	}
-        	//METODO che verifica se l'utente si e' loggato o meno, mposta 1 se è loggato
+        	//METODO che verifica se l'utente si e' loggato o meno, mposta 1 se ï¿½ loggato
         	if(cl.login(ub)) {
+        		System.out.println("ciao");
         		flag = 1;
         		sg.logAS(flag);
         		a.openWin("view/productsPage.fxml");
         	}
-        	
+        	//System.out.println(ub);
+        	//System.out.println(cl.login(ub));
+
         	
         }
         if (eventClicked.contentEquals("Button[id=conf, styleClass=button]'Confirm'")) {

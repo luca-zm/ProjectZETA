@@ -1,5 +1,7 @@
 package logic;
 
+import java.sql.SQLException;
+
 import javafx.application.Application;
 
 import javafx.fxml.FXMLLoader;
@@ -40,7 +42,7 @@ public class Main extends Application {
 
     }
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
     	
         launch(args);
     
@@ -60,6 +62,7 @@ public class Main extends Application {
 //    	System.out.println(WishListDAO.insert(new User(1, "default", "default", "default", "default"), new Product(10, "default2", 0, 0, Category.Default , "default2" , "default2", true)));
 //    	System.out.println(WishListDAO.insert(new User(2, "default", "default", "default", "default"), new Product(11, "default3", 0, 0, Category.Default , "default3" , "default3", true)));
 //    	System.out.println(WishListDAO.select(1));
+        //System.out.println(UserDAO.findRegisteredUser("mauro", "trulla"));
 /**AbstractUser user = UserDAO.login("stefano@gmail.com", "stefano123");
 System.out.println(user.getHistory());
 System.out.println(user.getType());

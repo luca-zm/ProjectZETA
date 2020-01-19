@@ -61,7 +61,7 @@ public class AddressDAO {
         //preparing some objects for connection
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_ADDRESS);
-            preparedStatement.setInt(1, user.getAddress().getId());            
+            preparedStatement.setInt(1, user.getAddress().getId());
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {         	
             	String address = resultSet.getString("address");

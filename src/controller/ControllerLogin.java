@@ -52,8 +52,8 @@ public class ControllerLogin {
 		NoticeBoard noticeBoard = new NoticeBoard(messageList);
 		user.setBoards(noticeBoard);
 
-		Address address = AddressDAO.select(user);
-		user.setAddress(address);
+		//Address address = AddressDAO.select(user);
+		//user.setAddress(address);
 		
 		singleton.setUser(user);
 		

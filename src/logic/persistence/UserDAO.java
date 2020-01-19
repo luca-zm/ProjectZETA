@@ -67,13 +67,13 @@ public class UserDAO {
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_REGISTEREDUSER);
             preparedStatement.setString(1, mail);
-            preparedStatement.setString(1, pass);
+            preparedStatement.setString(2, pass);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) { 
             	int id = resultSet.getInt("id");
             	String name = resultSet.getString("name");
                 String surname = resultSet.getString("surname");
-                String type = resultSet.getString("type");               
+                String type = resultSet.getString("type"); 
                 AbstractUser user = FactoryUsers.get(id, name, surname, mail, pass, type);
                 return user;
             }

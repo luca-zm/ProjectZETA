@@ -27,7 +27,7 @@ public class ProductDAO {
             preparedStatement.setString(4, String.valueOf(product.getCategory()));
             preparedStatement.setString(5, product.getImage());
             preparedStatement.setString(6, product.getDescription());
-            preparedStatement.setBoolean(7, product.isAvailability()); ///verificare boolean se combacia con tinyint
+            preparedStatement.setBoolean(7, product.isAvailability()); 
             
             int resultSet = preparedStatement.executeUpdate();
             if (resultSet > 0) {

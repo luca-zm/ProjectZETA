@@ -7,19 +7,30 @@ import logic.model.NoticeBoard;
 import logic.model.ShopCart;
 
 public class UserBean {
+	protected int id;
 	protected String name;
 	protected String surname;
 	protected String pass;
 	protected String mail;
     protected AddressBean address;
-	public UserBean(String name, String surname, String pass, String mail, AddressBean address) {
+	public UserBean(int id, String name, String surname, String pass, String mail, AddressBean address) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.surname = surname;
 		this.pass = pass;
 		this.mail = mail;
 		this.address = address;
 	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -50,11 +61,13 @@ public class UserBean {
 	public void setAddress(AddressBean address) {
 		this.address = address;
 	}
+
 	@Override
 	public String toString() {
-		return "UserBean [name=" + name + ", surname=" + surname + ", pass=" + pass + ", mail=" + mail + ", address="
-				+ address + "]";
+		return "UserBean [id=" + id + ", name=" + name + ", surname=" + surname + ", pass=" + pass + ", mail=" + mail
+				+ ", address=" + address + "]";
 	}
+	
 	
 }
     

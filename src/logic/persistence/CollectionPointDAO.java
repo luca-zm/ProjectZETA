@@ -22,7 +22,7 @@ public class CollectionPointDAO {
                 preparedStatement.setString(1, collPoint.getName());
                 preparedStatement.setDouble(2, collPoint.getLongitude());
                 preparedStatement.setDouble(3, collPoint.getLatitude());
-                preparedStatement.setInt(4, collPoint.getAddress());
+                preparedStatement.setInt(4, collPoint.getAddress().getId());
                 preparedStatement.setInt(5, collPoint.getOpeningTime());
                 preparedStatement.setInt(6, collPoint.getClosingTime());
                 preparedStatement.setBoolean(7, collPoint.getIsAvailable());
@@ -41,10 +41,10 @@ public class CollectionPointDAO {
             return false;
         }
     
-    public static Boolean delete(CollectionPoint collPoint)throws SQLException{                 
+    public static Boolean delete(int id)throws SQLException{                 
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.DELETE_COLLECTIONPOINT);
-            preparedStatement.setInt(1, collPoint.getId());
+            preparedStatement.setInt(1, id);
             int resultSet = preparedStatement.executeUpdate();
             if (resultSet > 0) {
                 return true;
@@ -68,10 +68,11 @@ public class CollectionPointDAO {
             	double lon = resultSet.getDouble("longitude");
             	double lat = resultSet.getDouble("latitude");
             	int addr = resultSet.getInt("address");
+            	Address address = AddressDAO.select(addr);
             	int opTime = resultSet.getInt("openingTime");
             	int clTime = resultSet.getInt("closingTime");
             	Boolean available = resultSet.getBoolean("isAvailable");
-            	list.add(new CollectionPoint(id, name, lon, lat, addr, opTime, clTime, available));
+            	list.add(new CollectionPoint(id, name, lon, lat, address, opTime, clTime, available));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -86,7 +87,7 @@ public class CollectionPointDAO {
             preparedStatement.setString(1, collPoint.getName());
             preparedStatement.setDouble(2, collPoint.getLongitude());
             preparedStatement.setDouble(3, collPoint.getLatitude());
-            preparedStatement.setInt(4, collPoint.getAddress());
+            preparedStatement.setInt(4, collPoint.getAddress().getId());
             preparedStatement.setInt(5, collPoint.getOpeningTime());
             preparedStatement.setInt(6, collPoint.getClosingTime());
             preparedStatement.setBoolean(7, collPoint.getIsAvailable());

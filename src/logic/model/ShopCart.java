@@ -43,7 +43,7 @@ public class ShopCart {
 	
 	public Boolean deleteProduct(Product product) {
 		if(this.productList.remove(product)) {
-			this.totalPrice = product.getPrice();
+			this.totalPrice -= product.getPrice();
 			return true;
 		}
 		return false;
@@ -57,7 +57,7 @@ public class ShopCart {
 
 	@Override
 	public String toString() {
-		return "ShopCart [id=" + id + ", productList=" + productList + ", totalPrice=" + totalPrice + "]";
+		return "ShopCart [productList=" + productList + ", totalPrice=" + totalPrice + "]";
 	}
 	
 	

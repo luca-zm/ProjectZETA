@@ -1,16 +1,17 @@
-package logic.model;
+package bean;
 
-public class CollectionPoint {
+public class CollectionPointBean {
 	private int id;
 	private String name;
 	private double longitude;
 	private double latitude;
-	private Address address;
+	private AddressBean address;
 	private int openingTime;
 	private int closingTime;
 	private Boolean isAvailable;
 	
-	public CollectionPoint(int id, String name, double longitude, double latitude, Address address, int openingTime,
+	
+	public CollectionPointBean(int id, String name, double longitude, double latitude, AddressBean address, int openingTime,
 			int closingTime, Boolean isAvailable) {
 		super();
 		this.id = id;
@@ -46,10 +47,10 @@ public class CollectionPoint {
 	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
-	public Address getAddress() {
+	public AddressBean getAddress() {
 		return address;
 	}
-	public void setAddress(Address address) {
+	public void setAddress(AddressBean address) {
 		this.address = address;
 	}
 	public int getOpeningTime() {
@@ -72,10 +73,12 @@ public class CollectionPoint {
 	}
 	@Override
 	public String toString() {
-		return "CollectionPoint [id=" + id + ", name=" + name + ", longitude=" + longitude + ", latitude=" + latitude
-				+ ", address=" + address + ", openingTime=" + openingTime + ", closingTime=" + closingTime
+		return "CollectionPointBean [id=" + id + ", name=" + name + ", longitude=" + longitude + ", latitude="
+				+ latitude + ", address=" + address + ", openingTime=" + openingTime + ", closingTime=" + closingTime
 				+ ", isAvailable=" + isAvailable + "]";
 	}
+	
+	
 	
 	
 }

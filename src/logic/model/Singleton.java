@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 public class Singleton {
 	
     private static Singleton istance = new Singleton();
-    private AbstractUser user;
+    private AbstractUser user = null;
     public int flag;
     public Scene myscene;
 

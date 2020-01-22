@@ -44,10 +44,10 @@ public class ProductDAO {
 
     
     
-    public static Boolean delete(Product product) throws SQLException{      
+    public static Boolean delete(int id) throws SQLException{      
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.DELETE_PRODUCT);
-            preparedStatement.setInt(1, product.getId());
+            preparedStatement.setInt(1, id);
 
             int resultSet = preparedStatement.executeUpdate();
             if (resultSet > 0) {

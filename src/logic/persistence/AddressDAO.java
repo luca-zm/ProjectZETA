@@ -61,7 +61,7 @@ public class AddressDAO {
         //preparing some objects for connection
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_ADDRESS);
-            preparedStatement.setInt(1, user.getAddress().getId());
+            preparedStatement.setInt(1, user.getId());
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {         	
             	String address = resultSet.getString("address");
@@ -71,7 +71,7 @@ public class AddressDAO {
             	String state = resultSet.getString("state");
             	String country = resultSet.getString("country");
             	String zone = resultSet.getString("zone");
-            	Address addr = new Address(user.getAddress().getId(), address, city, postalCode, telephone, state, country, zone);
+            	Address addr = new Address(user.getId(), address, city, postalCode, telephone, state, country, zone);
             	return addr;
             }
         } catch (SQLException e) {

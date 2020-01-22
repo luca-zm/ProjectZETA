@@ -13,6 +13,7 @@ import logic.model.Message;
 import logic.model.NoticeBoard;
 import logic.model.Product;
 import logic.model.ShipmentTran;
+import logic.model.ShopCart;
 import logic.model.Singleton;
 import logic.model.Transaction;
 import logic.model.WishList;
@@ -34,6 +35,8 @@ public class ControllerLogin {
 		if (user == null) {
 			return false;
 		}
+		
+		ShopCart shopcart = new ShopCart();
 		ArrayList<Product> productList = WishListDAO.select(user);
 		WishList wishList = new WishList(productList);
 		user.setWishList(wishList);
@@ -52,8 +55,8 @@ public class ControllerLogin {
 		NoticeBoard noticeBoard = new NoticeBoard(messageList);
 		user.setBoards(noticeBoard);
 
-		//Address address = AddressDAO.select(user);
-		//user.setAddress(address);
+		Address address = AddressDAO.select(user);
+		user.setAddress(address);
 		
 		singleton.setUser(user);
 		

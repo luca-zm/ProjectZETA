@@ -25,8 +25,10 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import logic.model.Singleton;
 
 import javax.swing.*;
 
@@ -36,12 +38,16 @@ public class WishlistController extends Application {
     public Button shop;
 
     @FXML
-    public Button map_link, a_code_link, prod_link, user_p_link;
+    public Button map_link, a_code_link, prod_link, user_p_link, wish;
     
     @FXML
     public Button buy, del;
     
+    @FXML
+    public Text wb;
     
+    Singleton sg = Singleton.getInstance(); 
+
     public WishlistController() {
 
     }
@@ -49,6 +55,12 @@ public class WishlistController extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
     }
+    
+    @FXML
+	public void initialize() {
+		wish.setDisable(true);
+
+	}
 
     @FXML
     private void next(ActionEvent event) throws IOException {
@@ -58,10 +70,6 @@ public class WishlistController extends Application {
         System.out.println(eventClicked);
         
         //Barra ----------------------
-        if (eventClicked.contentEquals("Button[id=user_p_link, styleClass=button hbox]''")) {
-        	//pagina profilo utente da icona
-        	a.openWin("view/userprofilePage.fxml");
-        }
         if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
         	//pagina carrello
         	a.openWin("view/shopcartPage.fxml");

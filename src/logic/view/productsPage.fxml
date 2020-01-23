@@ -58,19 +58,17 @@
       </ScrollPane>
       <ToolBar prefHeight="51.0" prefWidth="862.0">
          <items>
-            <Circle fill="#1fffb6" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Welcome Back" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="*USER*" />
-            <Button id="shop" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Shopcart" />
-            <Button id="wishlist" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Wishlist" />
+            <Text fx:id="wb" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back!			" />
+            <Button fx:id="shop" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Shopcart" />
+            <Button fx:id="wishlist" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Wishlist" />
          </items>
       </ToolBar>
-      <Button id="log" layoutX="615.0" layoutY="10.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Login or Register" />
+      <Button fx:id="log" layoutX="615.0" layoutY="10.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Login or Register" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="634.0" layoutX="-2.0" layoutY="51.0" stroke="WHITE" strokeType="INSIDE" width="120.0" />
-      <Button id="user_p_link" layoutX="-8.0" layoutY="79.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="User Profile" />
-      <Button id="map_link" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
-      <Button id="a_code_link" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
-      <Button id="prod_link" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
-      <Button id="user_p" layoutX="23.0" layoutY="5.0" mnemonicParsing="false" onAction="#next" prefHeight="40.0" prefWidth="38.0" styleClass="hbox" stylesheets="@fextile.css" />
+      <Button fx:id="user_p_link" layoutX="-8.0" layoutY="79.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="User Profile" />
+      <Button fx:id="map_link" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
+      <Button fx:id="a_code_link" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
+      <Button fx:id="prod_link" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
+      <Button fx:id="user_p" layoutX="23.0" layoutY="5.0" mnemonicParsing="false" onAction="#next" prefHeight="40.0" prefWidth="38.0" styleClass="hbox" stylesheets="@fextile.css" />
    </children>
 </AnchorPane>

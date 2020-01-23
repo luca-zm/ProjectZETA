@@ -35,6 +35,8 @@ public class UserProfileController extends Application {
 	//setto l'avatar a forma di cerchio
     @FXML
     public void initialize() {
+    	user_p_link.setDisable(true);   	
+    	
         // set a clip to apply rounded border to the original image.
     	//NON TOCCARE LE DIMENSIONI
     	Circle clip = new Circle(95, 82, 80);

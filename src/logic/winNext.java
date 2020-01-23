@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logic.model.Singleton;
 
@@ -38,6 +39,21 @@ public class winNext{
         backWin.show();
         Stage change = (Stage)((Node)event.getSource()).getScene().getWindow();
         change.close();
+	}
+	
+	public void openWarning(Stage k) throws IOException{
+		Stage currentWin = new Stage();
+        currentWin.setTitle("EcoClean");
+        currentWin.initModality(Modality.APPLICATION_MODAL);
+        //Parent root = FXMLLoader.load(getClass().getResource("view/warningmessage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/warningmessage.fxml"));
+        Parent root = (Parent)loader.load();
+        WarningController controll = loader.getController();
+        controll.setStage(k);
+        System.out.println(controll.getStage());
+        Scene scene = new Scene(root);
+        currentWin.setScene(scene);
+        currentWin.showAndWait();
 	}
 
 }

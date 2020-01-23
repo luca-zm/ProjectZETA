@@ -53,7 +53,7 @@ public class LoginController extends Application {
     
     
 
-    private int flag;
+    //private int flag;
 
     /**
     flag = 0 UTENTE NON LOGGATO
@@ -89,11 +89,9 @@ public class LoginController extends Application {
         	}
         	//METODO che verifica se l'utente si e' loggato o meno, mposta 1 se � loggato
         	if(cl.login(ub)) {
-        		System.out.println("ciao");
-        		flag = 1;
-        		sg.logAS(flag);
         		a.openWin("view/productsPage.fxml");
         	}
+        	 	
         	//System.out.println(ub);
         	//System.out.println(cl.login(ub));
 
@@ -101,6 +99,8 @@ public class LoginController extends Application {
         }
         if (eventClicked.contentEquals("Button[id=conf, styleClass=button]'Confirm'")) {
         	//metodo registra
+        	System.out.println(sg.getUser());
+
         }
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         oldWin.close();

@@ -34,7 +34,7 @@ public class Singleton {
         
     }
 
-    
+
     //Sezione singleton per la scena
     public void saveScene(Scene newScene){
     	

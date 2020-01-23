@@ -40,7 +40,7 @@
       <Button layoutX="52.0" layoutY="118.0" mnemonicParsing="false" prefHeight="166.0" prefWidth="172.0" visible="false" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="38.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/cane.jpg" />
+            <Image url="@images/bor.png" />
          </image>
          <effect>
             <Lighting bumpInput="$null">

@@ -20,7 +20,7 @@ public class Query {
 	
 	public static final String INSERT_SHIPMENT = "INSERT INTO shipment(date, trackingNumber, product, deliveryStatus, userId) VALUES (?,?,?,?,?)";
 	
-	public static final String INSERT_USER = "INSERT INTO user(mail, name, surname, pass, type, cart, history, boards, greenCoin, address) VALUES (?,?,?,?,?,?,?,?,?,?)";
+	public static final String INSERT_USER = "INSERT INTO user(mail, name, surname, pass, type, greenCoin, address) VALUES (?,?,?,?,?,?,?)";
 	
 	public static final String INSERT_WISHLIST = "INSERT INTO wishlist(userId, productId) VALUES (?,?)";
 
@@ -62,7 +62,7 @@ public class Query {
 	
 	public static final String SELECT_SHIPMENT = "SELECT * from shipment WHERE userid = ?";
 	
-	public static final String SELECT_REGISTEREDUSER = "SELECT * from user WHERE mail = ? AND pass = ?";
+	public static final String SELECT_REGISTEREDUSER = "SELECT * from user WHERE mail = ?";
 	
 	public static final String SELECT_USERBYID = "SELECT * from user WHERE id = ?";
 	

@@ -133,6 +133,7 @@ public class MapController extends Application {
         	//pagina prodotti
         	a.openWin("view/productsPage.fxml");
         }
+        
         oldWin.close();
     }
 }

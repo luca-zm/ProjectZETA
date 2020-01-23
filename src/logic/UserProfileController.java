@@ -3,6 +3,8 @@ package logic;
 import java.awt.Color;
 import java.io.IOException;
 
+import bean.UserBean;
+import controller.ControllerLogin;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +16,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import logic.model.Singleton;
 
 public class UserProfileController extends Application {
 
@@ -27,7 +31,16 @@ public class UserProfileController extends Application {
 
     @FXML
     public Button map, a_code_link, prod_link, user_p_link;
+    
+    @FXML
+    public Text tname, tsurname, tmail, ttel, taddress, tgreencoin;
 
+    ControllerLogin cl = new  ControllerLogin();
+	UserBean userBean = cl.getUserBean();
+	
+	Singleton sg = Singleton.getInstance();
+
+    
 	public UserProfileController() {
 		
 	}
@@ -35,12 +48,27 @@ public class UserProfileController extends Application {
 	//setto l'avatar a forma di cerchio
     @FXML
     public void initialize() {
-    	user_p_link.setDisable(true);   	
+    	user_p_link.setDisable(true); 
+    	
+    	//------gestione profilo utente-------
+
+    	tname.setText(userBean.getName());
+    	tsurname.setText(userBean.getSurname());
+    	tmail.setText(userBean.getMail());
+    	ttel.setText(userBean.getAddress().getTelephone());
+    	tgreencoin.setText(Integer.toString(userBean.getGreencoin()));
+    	taddress.setText(userBean.getAddress().getAddress()+" "+userBean.getAddress().getPostalCode()+" "+
+    	userBean.getAddress().getCity()+" "+userBean.getAddress().getCountry());
+    	
+
+
+
+    	//-------------
     	
         // set a clip to apply rounded border to the original image.
     	//NON TOCCARE LE DIMENSIONI
-    	Circle clip = new Circle(95, 82, 80);
-        avatarImage.setClip(clip);
+    	//Circle clip = new Circle(95, 82, 80);
+        //avatarImage.setClip(clip);
     }
 	
 	@FXML

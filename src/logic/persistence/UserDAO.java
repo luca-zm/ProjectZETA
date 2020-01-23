@@ -30,7 +30,7 @@ public class UserDAO {
            preparedStatement.setString(4, user.getPass());
            preparedStatement.setString(5, String.valueOf(user.getType()));
            preparedStatement.setInt(6, user.getGreenCoin());
-           preparedStatement.setInt(6, user.getAddress().getId());
+           preparedStatement.setInt(7, user.getAddress().getId());
            
            int resultSet = preparedStatement.executeUpdate();
            if (resultSet > 0) {
@@ -62,18 +62,19 @@ public class UserDAO {
        return false;
    }  
     
-    public static AbstractUser findRegisteredUser(String mail, String pass) throws SQLException{
+    public static AbstractUser findRegisteredUser(String mail) throws SQLException{
  
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_REGISTEREDUSER);
             preparedStatement.setString(1, mail);
-            preparedStatement.setString(2, pass);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) { 
             	int id = resultSet.getInt("id");
             	String name = resultSet.getString("name");
                 String surname = resultSet.getString("surname");
                 String type = resultSet.getString("type"); 
+                String pass = resultSet.getString("pass"); 
+
                 AbstractUser user = FactoryUsers.get(id, name, surname, mail, pass, type);
                 return user;
             }

@@ -26,24 +26,24 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49a67498" height="104.0" layoutX="27.0" layoutY="26.0" stroke="WHITE" strokeType="INSIDE" width="142.0" />
                   <ImageView fitHeight="101.0" fitWidth="136.0" layoutX="35.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/cane.jpg" />
+                        <Image url="@images/bor.png" />
                      </image></ImageView>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49a67498" height="104.0" layoutX="27.0" layoutY="211.0" stroke="WHITE" strokeType="INSIDE" width="142.0" />
                   <ImageView fitHeight="101.0" fitWidth="136.0" layoutX="35.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/cane.jpg" />
+                        <Image url="@images/bor.png" />
                      </image>
                   </ImageView>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49a67498" height="104.0" layoutX="27.0" layoutY="386.0" stroke="WHITE" strokeType="INSIDE" width="142.0" />
                   <ImageView fitHeight="101.0" fitWidth="136.0" layoutX="35.0" layoutY="387.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/cane.jpg" />
+                        <Image url="@images/bor.png" />
                      </image>
                   </ImageView>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49a67498" height="104.0" layoutX="27.0" layoutY="537.0" stroke="WHITE" strokeType="INSIDE" width="142.0" />
                   <ImageView fitHeight="101.0" fitWidth="136.0" layoutX="35.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/cane.jpg" />
+                        <Image url="@images/bor.png" />
                      </image>
                   </ImageView>
                   <TextArea editable="false" layoutX="205.0" layoutY="26.0" prefHeight="40.0" prefWidth="249.0" />

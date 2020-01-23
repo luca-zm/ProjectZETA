@@ -2,12 +2,16 @@ package controller;
 
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import bean.AddressBean;
 import bean.UserBean;
 import logic.enums.Roles;
 import logic.model.AbstractUser;
+import logic.model.Address;
 import logic.model.FactoryUsers;
 import logic.model.Singleton;
+import logic.persistence.AddressDAO;
 import logic.persistence.UserDAO;
 
 public class ControllerRegistration {
@@ -17,19 +21,22 @@ public class ControllerRegistration {
 		String pass = userBean.getPass();
 		String name = userBean.getName();
 		String username = userBean.getSurname();
-		AddressBean address = userBean.getAddress();
-		if(UserDAO.findRegisteredUser(mail, pass) != null) {
-			System.out.println("User already registered");
+		AddressBean addrBean = userBean.getAddress();
+
+		
+		if(UserDAO.findRegisteredUser(mail) != null) {
 			return false;
 		}
 		
 		AbstractUser user = FactoryUsers.get(0, mail, name, username, pass, "USER");
+		
+		Address addr = new Address(0, addrBean.getAddress(), addrBean.getCity(), addrBean.getPostalCode(), addrBean.getTelephone(), addrBean.getState(), addrBean.getCountry(), addrBean.getZone());
+		AddressDAO.insert(addr);
+	
+		user.setAddress(addr);
 		singleton.setUser(user);
 		
-		if(UserDAO.insert(user)) {
-			return true;
-		}
-		System.out.println("User not inserted in database!");
-		return false;
+		UserDAO.insert(user);
+		return true;
 	}
 }

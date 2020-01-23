@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,20 +11,20 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="754.0" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.LoginController">
    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e6f5eb" height="160.0" layoutX="354.0" layoutY="278.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="347.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="771.0" layoutX="313.0" layoutY="-88.0" stroke="WHITE" strokeType="INSIDE" width="18.0" />
-      <PasswordField fx:id="psw" layoutX="46.0" layoutY="201.0" onAction="#next" prefHeight="16.0" prefWidth="214.0" styleClass="text-area" />
+      <PasswordField fx:id="psw" layoutX="46.0" layoutY="201.0" onAction="#next" prefHeight="26.0" prefWidth="214.0" styleClass="text-area" />
       <TextField fx:id="usr" layoutX="47.0" layoutY="132.0" onAction="#next" prefHeight="26.0" prefWidth="214.0" styleClass="text-area" />
-      <TextField fx:id="name_r" layoutX="404.0" layoutY="132.0" onAction="#next" prefHeight="25.0" prefWidth="214.0" styleClass="text-area" />
-      <TextField fx:id="pass_r" layoutX="403.0" layoutY="325.0" onAction="#next" prefHeight="26.0" prefWidth="214.0" styleClass="text-area" />
-      <TextField fx:id="pass2_r" layoutX="404.0" layoutY="376.0" onAction="#next" prefHeight="26.0" prefWidth="214.0" styleClass="text-area" />
-      <CheckBox layoutX="431.0" layoutY="418.0" mnemonicParsing="false" text="Accept terms and&#10;condition to continue" />
+      <TextField fx:id="name_r" layoutX="359.0" layoutY="99.0" onAction="#next" prefHeight="26.0" prefWidth="137.0" styleClass="text-area" />
+      <TextField fx:id="pass_r" layoutX="361.0" layoutY="190.0" onAction="#next" prefHeight="26.0" prefWidth="214.0" styleClass="text-area" />
+      <TextField fx:id="pass2_r" layoutX="361.0" layoutY="241.0" onAction="#next" prefHeight="26.0" prefWidth="214.0" styleClass="text-area" />
       <Text layoutX="51.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
       <Text layoutX="52.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
-      <Text layoutX="403.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
-      <Text layoutX="405.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
-      <Text layoutX="406.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm password:" />
+      <Text layoutX="360.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
+      <Text layoutX="360.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
+      <Text layoutX="360.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm password:" />
       <Button id="log" fx:id="log" layoutX="129.0" layoutY="284.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Login!" />
-      <Button id="conf" fx:id="conf" layoutX="468.0" layoutY="467.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Confirm" />
+      <Button id="conf" fx:id="conf" layoutX="490.0" layoutY="451.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Confirm" />
       <Button id="back" fx:id="con" layoutX="60.0" layoutY="451.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Continue without signing in" />
       <Polygon fill="#48a875af" layoutX="643.0" layoutY="141.0" points="25.5, -86.99999237060547, 0.4000244140625, 7.399993896484375, 136.0, -98.20000457763672" stroke="#48aa77" strokeWidth="0.0" />
       <Polygon fill="#47a673d9" layoutX="628.0" layoutY="182.0" points="65.0001220703125, -108.20001220703125, 0.4000244140625, 7.399993896484375, 191.699951171875, 100.60000610351562" stroke="#48aa77" strokeWidth="0.0" />
@@ -39,11 +38,23 @@
       <Polygon fill="#49a6742f" layoutX="696.0" layoutY="316.0" points="-27.0999755859375, -55.0, 128.0, -7.899993896484375, 136.0, -98.20000457763672" stroke="#48aa77" strokeWidth="0.0" />
       <Text layoutX="114.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="LOGIN" wrappingWidth="79.897705078125" />
       <Text layoutX="458.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="REGISTER" wrappingWidth="106.40000000000009" />
-      <TextField fx:id="sur_r" layoutX="404.0" layoutY="182.0" onAction="#next" prefHeight="25.0" prefWidth="214.0" styleClass="text-area" />
-      <Text layoutX="403.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname" />
-      <TextField fx:id="add_r" layoutX="404.0" layoutY="236.0" onAction="#next" prefHeight="25.0" prefWidth="214.0" styleClass="text-area" />
-      <Text layoutX="403.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" />
-      <TextField fx:id="mail_r" layoutX="404.0" layoutY="279.0" onAction="#next" prefHeight="25.0" prefWidth="214.0" styleClass="text-area" />
-      <Text layoutX="403.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:" />
+      <TextField fx:id="sur_r" layoutX="515.0" layoutY="99.0" onAction="#next" prefHeight="26.0" prefWidth="138.0" styleClass="text-area" />
+      <Text layoutX="517.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname" />
+      <TextField fx:id="add_r" layoutX="420.0" layoutY="291.0" onAction="#next" prefHeight="26.0" prefWidth="250.0" styleClass="text-area" />
+      <Text layoutX="364.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" />
+      <TextField fx:id="mail_r" layoutX="402.0" layoutY="136.0" onAction="#next" prefHeight="26.0" prefWidth="250.0" styleClass="text-area" />
+      <Text layoutX="359.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:" />
+      <Text layoutX="373.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:" wrappingWidth="27.505493164062386" />
+      <Text layoutX="544.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zipcode:" wrappingWidth="46.845703125" />
+      <Text layoutX="364.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tel. N.:" wrappingWidth="46.845703125" />
+      <Text layoutX="364.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State:" wrappingWidth="46.845703125" />
+      <Text layoutX="544.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country:" wrappingWidth="46.845703125" />
+      <Text layoutX="550.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zone:" wrappingWidth="34.294921875" />
+      <TextField fx:id="city_r" layoutX="420.0" layoutY="326.0" onAction="#next" prefHeight="26.0" prefWidth="118.0" styleClass="text-area" />
+      <TextField fx:id="zip_r" layoutX="594.0" layoutY="326.0" onAction="#next" prefHeight="26.0" prefWidth="80.0" styleClass="text-area" />
+      <TextField fx:id="tel_r" layoutX="420.0" layoutY="362.0" onAction="#next" prefHeight="26.0" prefWidth="118.0" styleClass="text-area" />
+      <TextField fx:id="zone_r" layoutX="584.0" layoutY="362.0" onAction="#next" prefHeight="26.0" prefWidth="90.0" styleClass="text-area" />
+      <TextField fx:id="state_r" layoutX="420.0" layoutY="395.0" onAction="#next" prefHeight="26.0" prefWidth="118.0" styleClass="text-area" />
+      <TextField fx:id="country_r" layoutX="594.0" layoutY="395.0" onAction="#next" prefHeight="26.0" prefWidth="80.0" styleClass="text-area" />
    </children>
 </AnchorPane>

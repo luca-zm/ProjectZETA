@@ -18,37 +18,37 @@
                <children>
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="34.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/cane.jpg" />
+                        <Image url="@images/bor.png" />
                      </image>
                   </ImageView>
                   <Button id="img_b" layoutX="25.0" layoutY="23.0" mnemonicParsing="false" onAction="#next" opacity="0.0" prefHeight="157.0" prefWidth="206.0" style="-fx-background-color: #47a67353" />
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="266.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/cane.jpg" />
+                        <Image url="@images/bor.png" />
                      </image>
                   </ImageView>
                   <Button id="img_b" layoutX="257.0" layoutY="23.0" mnemonicParsing="false" onAction="#next" opacity="0.0" prefHeight="157.0" prefWidth="206.0" style="-fx-background-color: #47a67353" />
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="34.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/cane.jpg" />
+                        <Image url="@images/bor.png" />
                      </image>
                   </ImageView>
                   <Button id="img_b" layoutX="25.0" layoutY="223.0" mnemonicParsing="false" onAction="#next" opacity="0.0" prefHeight="157.0" prefWidth="206.0" style="-fx-background-color: #47a67353" />
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="265.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/cane.jpg" />
+                        <Image url="@images/bor.png" />
                      </image>
                   </ImageView>
                   <Button id="img_b" layoutX="256.0" layoutY="227.0" mnemonicParsing="false" onAction="#next" opacity="0.0" prefHeight="157.0" prefWidth="206.0" style="-fx-background-color: #47a67353" />
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="34.0" layoutY="424.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/cane.jpg" />
+                        <Image url="@images/bor.png" />
                      </image>
                   </ImageView>
                   <Button id="img_b" layoutX="25.0" layoutY="420.0" mnemonicParsing="false" onAction="#next" opacity="0.0" prefHeight="157.0" prefWidth="206.0" style="-fx-background-color: #47a67353" />
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="266.0" layoutY="424.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/cane.jpg" />
+                        <Image url="@images/bor.png" />
                      </image>
                   </ImageView>
                   <Button id="img_b" layoutX="257.0" layoutY="420.0" mnemonicParsing="false" onAction="#next" opacity="0.0" prefHeight="157.0" prefWidth="206.0" style="-fx-background-color: #47a67353" />

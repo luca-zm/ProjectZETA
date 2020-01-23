@@ -37,6 +37,9 @@ import logic.model.Singleton;
 
 import javax.swing.*;
 
+import bean.UserBean;
+import controller.ControllerLogin;
+
 public class ProductsController extends Application {
 
     @FXML
@@ -52,7 +55,7 @@ public class ProductsController extends Application {
     public Text wb;
     
     Singleton sg = Singleton.getInstance(); 
-
+    ControllerLogin cl = new  ControllerLogin();
     
     public ProductsController() { }
 
@@ -62,15 +65,21 @@ public class ProductsController extends Application {
     
 	@FXML
 	public void initialize() {
+		
 		prod_link.setDisable(true);
+		UserBean userBean = cl.getUserBean();
+		
 		//-----
 		log.setVisible(false);
-		
+		//wb.setText(sg.getUser().getName());
+
 		//-----
 		
-		if(sg.getUser() == null) { //utente non loggato
+		if(userBean == null) { //utente non loggato
 			wb.setVisible(false);
 			log.setVisible(true);
+		}else {
+			wb.setText(userBean.getName());
 		}
 	}
 

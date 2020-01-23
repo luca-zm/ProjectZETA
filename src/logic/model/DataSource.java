@@ -6,7 +6,7 @@ import java.sql.*;
 public class DataSource {
 
     private static final String JDBC_CONNECTION_URL =
-            "jdbc:mysql://localhost:3306/database"; 
+            "jdbc:mysql://localhost:3306/test1"; 
 
     private static Connection connection = null;
 

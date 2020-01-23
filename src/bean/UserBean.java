@@ -12,6 +12,7 @@ public class UserBean {
 	protected String surname;
 	protected String pass;
 	protected String mail;
+	protected int greencoin;
     protected AddressBean address;
 	public UserBean(int id, String name, String surname, String pass, String mail, AddressBean address) {
 		super();
@@ -21,6 +22,7 @@ public class UserBean {
 		this.pass = pass;
 		this.mail = mail;
 		this.address = address;
+		this.greencoin = 0;
 	}
 	
 	public int getId() {
@@ -62,11 +64,22 @@ public class UserBean {
 		this.address = address;
 	}
 
+	
+	public int getGreencoin() {
+		return greencoin;
+	}
+
+	public void setGreencoin(int greencoin) {
+		this.greencoin = greencoin;
+	}
+
 	@Override
 	public String toString() {
 		return "UserBean [id=" + id + ", name=" + name + ", surname=" + surname + ", pass=" + pass + ", mail=" + mail
-				+ ", address=" + address + "]";
+				+ ", greencoin=" + greencoin + ", address=" + address + "]";
 	}
+
+	
 	
 	
 }

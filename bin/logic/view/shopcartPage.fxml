@@ -26,24 +26,24 @@
                <children>
                   <ImageView fitHeight="51.0" fitWidth="58.0" layoutX="27.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/cane.jpg" />
+                        <Image url="@images/bor.png" />
                      </image></ImageView>
                   <TextArea fx:id="text1" editable="false" layoutX="118.0" layoutY="22.0" prefHeight="51.0" prefWidth="126.0" />
                   <ImageView fitHeight="51.0" fitWidth="58.0" layoutX="27.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/cane.jpg" />
+                        <Image url="@images/bor.png" />
                      </image>
                   </ImageView>
                   <TextArea fx:id="text2" editable="false" layoutX="118.0" layoutY="118.0" prefHeight="51.0" prefWidth="126.0" />
                   <TextArea fx:id="text3" editable="false" layoutX="118.0" layoutY="211.0" prefHeight="51.0" prefWidth="126.0" />
                   <ImageView fitHeight="51.0" fitWidth="58.0" layoutX="27.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/cane.jpg" />
+                        <Image url="@images/bor.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="51.0" fitWidth="58.0" layoutX="27.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/cane.jpg" />
+                        <Image url="@images/bor.png" />
                      </image>
                   </ImageView>
                   <TextArea fx:id="text4" editable="false" layoutX="118.0" layoutY="300.0" prefHeight="51.0" prefWidth="126.0" />

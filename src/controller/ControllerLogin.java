@@ -3,6 +3,7 @@ package controller;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import bean.AddressBean;
 import bean.UserBean;
 import logic.model.AbstractUser;
 import logic.model.ActivationCodeTran;
@@ -31,8 +32,8 @@ public class ControllerLogin {
 		
 		String mail = userBean.getMail();
 		String pass = userBean.getPass();
-		AbstractUser user = UserDAO.findRegisteredUser(mail, pass);
-		if (user == null) {
+		AbstractUser user = UserDAO.findRegisteredUser(mail);
+		if (user == null || !user.getPass().equals(pass)) {
 			return false;
 		}
 		
@@ -61,6 +62,27 @@ public class ControllerLogin {
 		singleton.setUser(user);
 		
 		return true;
+	}
+
+	public UserBean getUserBean() {
+		
+		if (singleton.getUser()==null) {
+			return null;
+		}
+		
+		AbstractUser ab = singleton.getUser();
+		
+		AddressBean addr = new AddressBean(ab.getAddress().getAddress(), ab.getAddress().getCity(),
+				ab.getAddress().getPostalCode(), ab.getAddress().getTelephone(), ab.getAddress().getState(),
+				ab.getAddress().getCountry(), ab.getAddress().getZone());
+
+		
+		
+		UserBean ub = new UserBean(ab.getId(), ab.getName(), ab.getSurname(), ab.getPass(), ab.getMail(), addr);
+		
+		ub.setGreencoin(ab.getGreenCoin());
+		
+		return ub;
 	}
 
 }

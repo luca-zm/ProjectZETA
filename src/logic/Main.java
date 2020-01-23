@@ -1,6 +1,7 @@
 package logic;
-
+import java.security.SecureRandom;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javafx.application.Application;
 
@@ -15,14 +16,18 @@ import logic.enums.Roles;
 import logic.model.AbstractUser;
 import logic.model.ActivationCode;
 import logic.model.CollectionPoint;
+import logic.model.History;
 import logic.model.Message;
 import logic.model.Product;
+import logic.model.ShipmentTran;
+import logic.model.Transaction;
 import logic.model.User;
 import logic.persistence.ActivationCodeDAO;
 import logic.persistence.AddressDAO;
 import logic.persistence.CollectionPointDAO;
 import logic.persistence.MessageDAO;
 import logic.persistence.ProductDAO;
+import logic.persistence.TransactionDAO;
 import logic.persistence.UserDAO;
 import logic.persistence.WishListDAO;
 
@@ -31,10 +36,39 @@ import logic.persistence.WishListDAO;
 
 
 public class Main extends Application {
+	
+
+	
+	
+	
 
     @Override
     public void start(Stage primaryStage) throws Exception{ 
+    	
+		java.util.Date dt = new java.util.Date();
 
+		java.text.SimpleDateFormat sdf = 
+		     new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+		String currentTime = sdf.format(dt);
+		
+		String tracknum = "randomString";
+		
+		Product prod2 = new Product(1, "default2", 0, 0, Category.Default , "default2" , "default2", true);
+		 
+		AbstractUser user = new User(2, "default", "default", "default", "default"); 
+		user.setHistory(new History(new ArrayList<Transaction>()));
+			
+		ShipmentTran s = new ShipmentTran(0,currentTime, tracknum, prod2, DeliveryStatus.SENT );
+		
+		TransactionDAO.insertShipment(s, user);
+		
+		user.getHistory().addTransaction(s);
+	
+		System.out.println(user);
+    	
+    	
+    	
         Parent root = FXMLLoader.load(getClass().getResource("view/homePage.fxml"));
         primaryStage.setTitle("EcoClean");
         primaryStage.setScene(new Scene(root, 770, 550));

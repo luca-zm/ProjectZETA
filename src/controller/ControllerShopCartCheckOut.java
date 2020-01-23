@@ -1,17 +1,23 @@
 package controller;
 
 import logic.enums.DeliveryStatus;
+
 import logic.enums.MesType;
 import logic.model.AbstractUser;
+import logic.model.ActivationCode;
+import logic.model.ActivationCodeTran;
 import logic.model.Message;
 
 import java.security.SecureRandom;
 import java.sql.SQLException;
 
+import bean.ActivationCodeBean;
 import bean.ProductBean;
 import logic.model.Product;
 import logic.model.ShipmentTran;
 import logic.model.Singleton;
+import logic.persistence.ActivationCodeDAO;
+import logic.persistence.MessageDAO;
 import logic.persistence.ProductDAO;
 import logic.persistence.TransactionDAO;
 import logic.persistence.UserDAO;
@@ -28,6 +34,13 @@ public class ControllerShopCartCheckOut {
 	      sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
 	   return sb.toString();
 	}
+	
+	java.util.Date dt = new java.util.Date();
+
+	java.text.SimpleDateFormat sdf = 
+	     new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+	String currentTime = sdf.format(dt);
 	
 	
 	Singleton singleton = Singleton.getInstance();
@@ -66,13 +79,6 @@ public class ControllerShopCartCheckOut {
 	public boolean buyShopCart() throws SQLException{
 		
 		
-		java.util.Date dt = new java.util.Date();
-
-		java.text.SimpleDateFormat sdf = 
-		     new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-		String currentTime = sdf.format(dt);
-		
 		AbstractUser user = singleton.getUser();
 		if (user == null) {
 			return false;
@@ -94,13 +100,18 @@ public class ControllerShopCartCheckOut {
 			
 			ShipmentTran s = new ShipmentTran(0,currentTime, tracknum, product, DeliveryStatus.SENT );
 			
+			TransactionDAO.insertShipment(s, user);
+			
 			user.getHistory().addTransaction(s);
 			
-			TransactionDAO.insertShipment(s, user);
 			
 			Message m = new Message(0,currentTime, "Acquisto prodotto", "Hai acquistato " + product.getName() + " al modico prezzo di " + product.getPrice(), MesType.PRODUCT);
 			
+			MessageDAO.insert(m, user);
+			
 			user.getBoards().addMessage(m);
+			
+			
 		}
 		
 		user.getCart().clear();
@@ -109,8 +120,55 @@ public class ControllerShopCartCheckOut {
 		return true;
 		
 	}
+	
+	
+	public boolean enabledActivationCode(ActivationCodeBean code) throws SQLException {
 		
-}
+		
+		AbstractUser user = singleton.getUser();
+		if (user == null) {
+			return false;
+		}
+		
+		ActivationCode cod = ActivationCodeDAO.select(code.getActivationCode());
+		
+		
+		if( cod != null) {
+				
+			int val = cod.getGrenCoinVal();
+				
+		
+			ActivationCodeDAO.delete(code.getActivationCode());
+		
+			user.setGreenCoin(user.getGreenCoin() + val);
+		
+			UserDAO.update(user);
+		
+			ActivationCodeTran a = new ActivationCodeTran(0, currentTime, code.getActivationCode(), val);
+		
+			TransactionDAO.insertActivationCodeTran(a, user);
+		
+			user.getHistory().addTransaction(a);
+		
+		
+			Message m = new Message(0,currentTime, "Riscossione GreenCoin da ActivationCode", "Hai riscosso " + val + " GreenCoin da un ActivationCode! ", MesType.ACTIVATIONCODE);
+		
+			MessageDAO.insert(m, user);
+		
+			user.getBoards().addMessage(m);
+			
+			return true;
+			
+			
+		}
+		
+		return false;
+		
+	}
+	
+	
+}		
+
 
 	
 	

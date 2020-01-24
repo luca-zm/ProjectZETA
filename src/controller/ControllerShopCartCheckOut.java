@@ -10,6 +10,7 @@ import logic.model.Message;
 
 import java.security.SecureRandom;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import bean.ActivationCodeBean;
 import bean.ProductBean;
@@ -74,6 +75,29 @@ public class ControllerShopCartCheckOut {
 		return true;
 	}
 	
+	public ArrayList<Product> checkCart() throws SQLException{
+		
+		AbstractUser user = singleton.getUser();
+		if (user == null) {
+			return null;
+		}
+		
+		ArrayList<Product> list = new ArrayList<Product>();
+		for( Product product : user.getCart().getProductList()) {
+			
+			
+			Product prod = ProductDAO.selectProduct(product.getId());
+			if ( !prod.isAvailability()) {
+				
+				list.add(product);
+				user.getCart().deleteProduct(product);
+			}
+				
+		}
+		return list;
+		
+	}
+	
 	
 	
 	public boolean buyShopCart() throws SQLException{
@@ -83,6 +107,7 @@ public class ControllerShopCartCheckOut {
 		if (user == null) {
 			return false;
 		}
+		
 		
 		if(user.getCart().getTotalPrice() > user.getGreenCoin()) {
 			System.out.println("Errore, non hai abbastanza Coin");

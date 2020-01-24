@@ -138,7 +138,7 @@ public class ControllerShopCartCheckOut {
 			int val = cod.getGrenCoinVal();
 				
 		
-			ActivationCodeDAO.delete(code.getActivationCode());
+			ActivationCodeDAO.delete(cod);
 		
 			user.setGreenCoin(user.getGreenCoin() + val);
 		

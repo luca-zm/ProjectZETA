@@ -1,8 +1,9 @@
 package logic.enums;
 
 public enum MesType {
-	PRODUCT,
-	COLLPOINT,
+	PRODUCTBROAD,
+	COLLPOINTBROAD,
 	BONUS,
-	ACTIVATIONCODE
+	ACTIVATIONCODE,
+	PRODUCT
 }

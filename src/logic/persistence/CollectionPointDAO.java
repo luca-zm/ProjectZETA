@@ -91,6 +91,7 @@ public class CollectionPointDAO {
             preparedStatement.setInt(5, collPoint.getOpeningTime());
             preparedStatement.setInt(6, collPoint.getClosingTime());
             preparedStatement.setBoolean(7, collPoint.getIsAvailable());
+            preparedStatement.setInt(8, collPoint.getId());
 
             int resultSet = preparedStatement.executeUpdate();
             if (resultSet > 0) {

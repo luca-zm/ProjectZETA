@@ -18,24 +18,33 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import logic.model.ActivationCode;
 import logic.model.Singleton;
+import logic.persistence.ActivationCodeDAO;
 
 import javax.swing.*;
+
+import bean.ActivationCodeBean;
+import bean.UserBean;
+import controller.ControllerLogin;
+import controller.ControllerShopCartCheckOut;
 
 public class ActivationCodeController extends Application {
 
     @FXML
-    public Button confirm, shop, wish, log;
+    public Button confirm, shop, wish;
     
     @FXML
     public Button map, a_code_link, prod_link, user_p_link;
@@ -45,7 +54,19 @@ public class ActivationCodeController extends Application {
     @FXML
     public Text wb;
     
+    @FXML
+    public TextArea up_gc, mygc;
+    
+    @FXML
+    public TextField add_gc;
+    
     Singleton sg =Singleton.getInstance();
+    ControllerShopCartCheckOut ac = new ControllerShopCartCheckOut();
+    
+    ControllerLogin cl = new  ControllerLogin();
+
+	UserBean userBean = cl.getUserBean();
+
     
     public ActivationCodeController() {
     	
@@ -59,27 +80,37 @@ public class ActivationCodeController extends Application {
 
     public void initialize() {
 		a_code_link.setDisable(true);
-		//-----
-		log.setVisible(false);
-		
-		//-----
+		mygc.setText(Integer.toString(userBean.getGreencoin()));
 		
 		if(sg.getUser() == null) { //utente non loggato
 			wb.setVisible(false);
-			log.setVisible(true);
 		}
 	}
     
     @FXML
-    private void next(ActionEvent event) throws IOException {
+    private void next(ActionEvent event) throws IOException, SQLException {
         //winNext a = new winNext();
         
         String eventClicked = event.getSource().toString();
         
         if (eventClicked.contentEquals("Button[id=confirm, styleClass=button]'OK'")) {
-        	//METODO che filtra i punti di raccolta
+
+        	ActivationCodeBean acb = new ActivationCodeBean(Integer.parseInt(add_gc.getText()), 0);
+        	int val = ac.enabledActivationCode(acb);
+        	if ( val == 0) { //code inesistente
+        		JOptionPane.showMessageDialog(null, "Code does not exist, try with another code please");
+        		
+        	}else {
+        		up_gc.setText(Integer.toString(val));
+        		add_gc.setText("");
+        		UserBean userBeanNew = cl.getUserBean();
+        		mygc.setText(Integer.toString(userBeanNew.getGreencoin()));
+        	}
+        	return;
         }
         
+        
+        //-----------toolbar---------------
         if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
         	//pagina carrello
         	a.openWin("view/shopcartPage.fxml");
@@ -88,6 +119,8 @@ public class ActivationCodeController extends Application {
         	//pagina wishlist
         	a.openWin("view/wishlistPage.fxml");
         }
+        
+        
         
       //hyperlink----------------
         if (eventClicked.contentEquals("Button[id=map_link, styleClass=button]'Map'")) {

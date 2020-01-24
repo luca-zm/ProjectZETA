@@ -74,8 +74,10 @@ public class UserDAO {
                 String surname = resultSet.getString("surname");
                 String type = resultSet.getString("type"); 
                 String pass = resultSet.getString("pass"); 
+                int greenCoin = resultSet.getInt("greenCoin");
 
                 AbstractUser user = FactoryUsers.get(id, name, surname, mail, pass, type);
+                user.setGreenCoin(greenCoin);
                 return user;
             }
         } catch (SQLException e) {
@@ -121,7 +123,8 @@ public class UserDAO {
             preparedStatement.setString(4, user.getPass());
             preparedStatement.setString(5, String.valueOf(user.getType()));
             preparedStatement.setInt(6, user.getGreenCoin());
-            preparedStatement.setInt(6, user.getAddress().getId());
+            preparedStatement.setInt(7, user.getAddress().getId());
+            preparedStatement.setInt(8, user.getId());
             
             int resultSet = preparedStatement.executeUpdate();
             if (resultSet > 0) {

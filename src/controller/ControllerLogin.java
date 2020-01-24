@@ -61,6 +61,8 @@ public class ControllerLogin {
 		
 		singleton.setUser(user);
 		
+		System.out.println(user);
+		
 		return true;
 	}
 

@@ -123,6 +123,7 @@ public class ProductDAO {
             preparedStatement.setString(5, product.getImage());
             preparedStatement.setString(6, product.getDescription());
             preparedStatement.setBoolean(7, product.isAvailability()); 
+            preparedStatement.setInt(8, product.getId());
             
             int resultSet = preparedStatement.executeUpdate();
             if (resultSet > 0) {

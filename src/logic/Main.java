@@ -45,29 +45,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{ 
     	
-		java.util.Date dt = new java.util.Date();
 
-		java.text.SimpleDateFormat sdf = 
-		     new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-		String currentTime = sdf.format(dt);
-		
-		String tracknum = "randomString";
-		
-		Product prod2 = new Product(1, "default2", 0, 0, Category.Default , "default2" , "default2", true);
-		 
-		AbstractUser user = new User(2, "default", "default", "default", "default"); 
-		user.setHistory(new History(new ArrayList<Transaction>()));
-			
-		ShipmentTran s = new ShipmentTran(0,currentTime, tracknum, prod2, DeliveryStatus.SENT );
-		
-		TransactionDAO.insertShipment(s, user);
-		
-		user.getHistory().addTransaction(s);
-	
-		System.out.println(user);
-    	
-    	
     	
         Parent root = FXMLLoader.load(getClass().getResource("view/homePage.fxml"));
         primaryStage.setTitle("EcoClean");
@@ -110,6 +88,31 @@ System.out.println(message.getType().toString());
  System.out.println(CollectionPointDAO.deleteCollectionPoint(collPoint));
  System.out.println(MessageDAO.insertMessage(new Message(0, currentTime, "default", "default", MesType.COLLPOINT), new User(1, "default", "default", "default", "default")));
 **/ 
+        
+        
+//		java.util.Date dt = new java.util.Date();
+//
+//		java.text.SimpleDateFormat sdf = 
+//		     new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//
+//		String currentTime = sdf.format(dt);
+//		
+//		String tracknum = "randomString";
+//		
+//		Product prod2 = new Product(1, "default2", 0, 0, Category.Default , "default2" , "default2", true);
+//		 
+//		AbstractUser user = new User(2, "default", "default", "default", "default"); 
+//		user.setHistory(new History(new ArrayList<Transaction>()));
+//			
+//		ShipmentTran s = new ShipmentTran(0,currentTime, tracknum, prod2, DeliveryStatus.SENT );
+//		
+//		TransactionDAO.insertShipment(s, user);
+//		
+//		user.getHistory().addTransaction(s);
+//	
+//		System.out.println(user);
+//    	
+//    	
 
 }
     

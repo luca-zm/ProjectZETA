@@ -27,9 +27,9 @@
       <Button fx:id="map_link" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
       <Button fx:id="a_code_link" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
       <Button fx:id="prod_link" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
-      <Text layoutX="148.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="38.39996337890602" />
+      <Text layoutX="129.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="49.332944329828024" />
       <Text layoutX="473.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="57.10400390625" />
-      <Text layoutX="143.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname:" wrappingWidth="57.10400390625" />
+      <Text layoutX="129.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname:" wrappingWidth="63.732907708734274" />
       <LineChart layoutX="376.0" layoutY="157.0" prefHeight="198.0" prefWidth="363.0">
          <xAxis>
             <CategoryAxis side="BOTTOM" />
@@ -50,15 +50,15 @@
          </image>
       </ImageView>
       <Button fx:id="a_code_link" layoutX="486.0" layoutY="109.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Activate your code!" />
-      <Text layoutX="140.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Greencoin:" wrappingWidth="63.732907708734274" />
-      <Text layoutX="148.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-Mail:" wrappingWidth="38.39996337890602" />
-      <Text layoutX="138.0" layoutY="490.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" wrappingWidth="49.332944329828024" />
-      <Text layoutX="136.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone:" wrappingWidth="63.732907708734274" />
-      <Text fx:id="tname" layoutX="204.0" layoutY="305.0" strokeType="OUTSIDE" text="" strokeWidth="0.0" wrappingWidth="154.62857055664062" />
-      <Text fx:id="tsurname" layoutX="204.0" layoutY="341.0" strokeType="OUTSIDE" text="" strokeWidth="0.0" wrappingWidth="154.62857055664062" />
-      <Text fx:id="tgreencoin" layoutX="204.0" layoutY="380.0" strokeType="OUTSIDE" text="" strokeWidth="0.0" wrappingWidth="154.62857055664062" />
-      <Text fx:id="tmail" layoutX="204.0" layoutY="416.0" strokeType="OUTSIDE" text="" strokeWidth="0.0" wrappingWidth="154.62857055664062" />
-      <Text fx:id="ttel" layoutX="204.0" layoutY="451.0" strokeType="OUTSIDE" text="" strokeWidth="0.0" wrappingWidth="154.62857055664062" />
-      <Text fx:id="taddress" layoutX="204.0" layoutY="490.0" strokeType="OUTSIDE" text="" strokeWidth="0.0" wrappingWidth="154.62857055664062" />
+      <Text layoutX="126.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Greencoin:" wrappingWidth="71.99999999999989" />
+      <Text layoutX="129.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-Mail:" wrappingWidth="49.332944329828024" />
+      <Text layoutX="123.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" wrappingWidth="63.732907708734274" />
+      <Text layoutX="126.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone:" wrappingWidth="71.99999999999989" />
+      <Text fx:id="tname" layoutX="198.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="154.62857055664062" />
+      <Text fx:id="tsurname" layoutX="198.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="154.62857055664062" />
+      <Text fx:id="tgreencoin" layoutX="204.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="154.62857055664062" />
+      <Text fx:id="tmail" layoutX="198.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="154.62857055664062" />
+      <Text fx:id="ttel" layoutX="204.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="154.62857055664062" />
+      <Text fx:id="taddress" layoutX="204.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="154.62857055664062" />
    </children>
 </AnchorPane>

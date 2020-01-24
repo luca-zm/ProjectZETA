@@ -122,14 +122,11 @@ public class ControllerShopCartCheckOut {
 	}
 	
 	
-	public boolean enabledActivationCode(ActivationCodeBean code) throws SQLException {
+	public int enabledActivationCode(ActivationCodeBean code) throws SQLException {
 		
 		
 		AbstractUser user = singleton.getUser();
-		if (user == null) {
-			return false;
-		}
-		
+
 		ActivationCode cod = ActivationCodeDAO.select(code.getActivationCode());
 		
 		
@@ -157,12 +154,12 @@ public class ControllerShopCartCheckOut {
 		
 			user.getBoards().addMessage(m);
 			
-			return true;
+			return val;
 			
 			
 		}
 		
-		return false;
+		return 0;
 		
 	}
 	

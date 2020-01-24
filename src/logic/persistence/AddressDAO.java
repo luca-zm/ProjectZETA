@@ -90,6 +90,7 @@ public class AddressDAO {
             preparedStatement.setString(5, address.getState());
             preparedStatement.setString(6, address.getCountry());
             preparedStatement.setString(7, address.getZone());
+            preparedStatement.setInt(8, address.getId());
             
             int resultSet = preparedStatement.executeUpdate();
             if (resultSet > 0) {

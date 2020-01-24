@@ -6,6 +6,7 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="754.0" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.ActivationCodeController">
@@ -24,12 +25,14 @@
       <Button fx:id="prod_link" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
       <Button fx:id="user_p" layoutX="23.0" layoutY="5.0" mnemonicParsing="false" onAction="#next" prefHeight="40.0" prefWidth="38.0" styleClass="hbox" stylesheets="@fextile.css" />
       <Button fx:id="confirm" layoutX="625.0" layoutY="262.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="OK" />
-      <TextField layoutX="251.0" layoutY="252.0" prefHeight="51.0" prefWidth="359.0" styleClass="text-area" />
+      <TextField fx:id="add_gc" layoutX="251.0" layoutY="252.0" onAction="#next" prefHeight="51.0" prefWidth="359.0" styleClass="text-area" />
       <Text layoutX="277.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="Please, insert here your code:" />
-      <TextArea editable="false" layoutX="496.0" layoutY="111.0" prefHeight="40.0" prefWidth="164.0" styleClass="text-area" />
+      <TextArea fx:id="mygc" editable="false" layoutX="496.0" layoutY="111.0" prefHeight="40.0" prefWidth="164.0" styleClass="text-area">
+         <font>
+            <Font size="20.0" />
+         </font></TextArea>
       <Text layoutX="532.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h4" text="Greencoins:" />
-      <TextArea editable="false" layoutX="251.0" layoutY="351.0" prefHeight="40.0" prefWidth="172.0" styleClass="text-area" />
+      <TextArea fx:id="up_gc" editable="false" layoutX="251.0" layoutY="351.0" onDragDetected="#next" prefHeight="40.0" prefWidth="172.0" styleClass="text-area" />
       <Text fill="RED" layoutX="212.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h1" text="+" />
-      <Button fx:id="log" layoutX="612.0" layoutY="10.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Login or Register" />
    </children>
 </AnchorPane>

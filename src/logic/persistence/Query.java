@@ -68,12 +68,12 @@ public class Query {
 	
 	public static final String SELECT_WISHLIST = "SELECT * from wishlist WHERE userid = ?";
 	
-	public static final String UPDATE_ADDRESS = "UPDATE address SET address = ?, city = ?, postalCode = ?, telephone = ?, state = ?, country = ?, zone = ?";
+	public static final String UPDATE_ADDRESS = "UPDATE address SET address = ?, city = ?, postalCode = ?, telephone = ?, state = ?, country = ?, zone = ? WHERE ID = ? ";
 	
-	public static final String UPDATE_COLLECTIONPOINT = "UPDATE collectionpoint SET name = ?, longitude = ?, latitude = ?, address = ?, openingTime = ?, closingTime = ?, isAvailable = ?";
+	public static final String UPDATE_COLLECTIONPOINT = "UPDATE collectionpoint SET name = ?, longitude = ?, latitude = ?, address = ?, openingTime = ?, closingTime = ?, isAvailable = ? WHERE ID = ? ";
 	
-	public static final String UPDATE_PRODUCT = "UPDATE product SET name = ?, price = ?, discountPercentage = ?, category = ?, image = ?, description = ?, availability = ?";
+	public static final String UPDATE_PRODUCT = "UPDATE product SET name = ?, price = ?, discountPercentage = ?, category = ?, image = ?, description = ?, availability = ? WHERE ID = ? ";
 	
-	public static final String UPDATE_USER = "UPDATE user SET mail = ?, name = ?, surname = ?, pass = ?, type = ?, cart = ?, history = ?, boards = ?, greenCoin = ?, address = ?";
+	public static final String UPDATE_USER = "UPDATE user SET mail = ?, name = ?, surname = ?, pass = ?, type = ?, greenCoin = ?, address = ? WHERE id = ?";
 	
 }

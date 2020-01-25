@@ -23,8 +23,8 @@ public class BonusTran extends Transaction {
 	}
 	@Override
 	public String toString() {
-		return "BonusTran [description=" + description + ", greenCoinAdded=" + greenCoinAdded + ", id=" + id + ", date="
-				+ date + "]";
+		return "Bonus-> Description: " + description + ", Greencoin added: " + greenCoinAdded + ", id: " + id + ", Date: "
+				+ date + "\n";
 	}
 	
 	

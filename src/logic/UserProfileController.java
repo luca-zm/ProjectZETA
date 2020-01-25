@@ -10,7 +10,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.SnapshotParameters;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
@@ -18,6 +23,8 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import logic.model.AbstractUser;
+import logic.model.History;
 import logic.model.Singleton;
 
 public class UserProfileController extends Application {
@@ -34,34 +41,56 @@ public class UserProfileController extends Application {
     
     @FXML
     public Text tname, tsurname, tmail, ttel, taddress, tgreencoin;
+    
+    @FXML
+    public TextArea story;
 
+    
+    public NumberAxis xAxis = new NumberAxis(1960, 2020, 10); 
+    public NumberAxis yAxis = new NumberAxis(0, 350, 50); 
+    @FXML
+    public LineChart chart = new LineChart(xAxis, yAxis);
+    
+    
     ControllerLogin cl = new  ControllerLogin();
-	UserBean userBean = cl.getUserBean();
 	
-	Singleton sg = Singleton.getInstance();
 
+	Singleton sg = Singleton.getInstance();
+	AbstractUser user = sg.getUser();
     
 	public UserProfileController() {
 		
 	}
 
 	//setto l'avatar a forma di cerchio
-    @FXML
+	@FXML
     public void initialize() {
     	user_p_link.setDisable(true); 
-    	
+    	story.setText(sg.getUser().getHistory().getTranList().toString());
     	//------gestione profilo utente-------
 
-    	tname.setText(userBean.getName());
-    	tsurname.setText(userBean.getSurname());
-    	tmail.setText(userBean.getMail());
-    	ttel.setText(userBean.getAddress().getTelephone());
-    	tgreencoin.setText(Integer.toString(userBean.getGreencoin()));
-    	taddress.setText(userBean.getAddress().getAddress()+" "+userBean.getAddress().getPostalCode()+" "+
-    	userBean.getAddress().getCity()+" "+userBean.getAddress().getCountry());
+    	tname.setText(user.getName());
+    	tsurname.setText(user.getSurname());
+    	tmail.setText(user.getMail());
+    	ttel.setText(user.getAddress().getTelephone());
+    	tgreencoin.setText(Integer.toString(user.getGreenCoin()));
+    	taddress.setText(user.getAddress().getAddress()+" "+user.getAddress().getPostalCode()+" "+
+    	user.getAddress().getCity()+" "+user.getAddress().getCountry());
     	
-
-
+    	
+    	XYChart.Series series = new XYChart.Series(); 
+    	series.setName("No of schools in an year"); 
+    	        
+    	series.getData().add(new XYChart.Data(1970, 15)); 
+    	series.getData().add(new XYChart.Data(1980, 30)); 
+    	series.getData().add(new XYChart.Data(1990, 60)); 
+    	series.getData().add(new XYChart.Data(2000, 120)); 
+    	series.getData().add(new XYChart.Data(2013, 240)); 
+    	series.getData().add(new XYChart.Data(2014, 300));
+    	
+    	chart.getData().add(series);
+    	
+    	
 
     	//-------------
     	

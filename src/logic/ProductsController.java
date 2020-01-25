@@ -33,6 +33,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import logic.model.AbstractUser;
 import logic.model.Singleton;
 
 import javax.swing.*;
@@ -54,6 +55,14 @@ public class ProductsController extends Application {
     @FXML
     public Text wb;
     
+    //elementi da moltiplicare, prodotti
+    @FXML
+    public Button like, cart, info;
+    
+    @FXML
+    public Text descrizione;
+    //-----------------
+    
     Singleton sg = Singleton.getInstance(); 
     ControllerLogin cl = new  ControllerLogin();
     
@@ -67,7 +76,7 @@ public class ProductsController extends Application {
 	public void initialize() {
 		
 		prod_link.setDisable(true);
-		UserBean userBean = cl.getUserBean();
+		AbstractUser user = sg.getUser();
 		
 		//-----
 		log.setVisible(false);
@@ -75,11 +84,11 @@ public class ProductsController extends Application {
 
 		//-----
 		
-		if(userBean == null) { //utente non loggato
+		if(user == null) { //utente non loggato
 			wb.setVisible(false);
 			log.setVisible(true);
 		}else {
-			wb.setText(userBean.getName());
+			wb.setText(user.getName());
 		}
 	}
 
@@ -91,7 +100,8 @@ public class ProductsController extends Application {
         
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         
-        
+        System.out.println(eventClicked);
+
         if (eventClicked.contentEquals("Button[id=user_p, styleClass=button hbox]''")) {
         	//pagina profilo utente da icona
         	if(sg.getUser() != null) {
@@ -154,14 +164,26 @@ public class ProductsController extends Application {
         	a.openWin("view/login_registerPage.fxml");
         }
         
-        //per immagini
-        if (eventClicked.contentEquals("Button[id=img_b, styleClass=button]''")) {
+
+        if (eventClicked.contentEquals("Button[id=info, styleClass=button]''")) {
         	a.openWin("view/info.fxml");
+        }
+        
+        if (eventClicked.contentEquals("Button[id=like, styleClass=button btn-default]'Wish'")) {
+        	//metodo che aggiunge elemento alla wishlist senza andarci
+        	if(sg.getUser() != null) {
+            	//metodo
+        		
+        	}else {
+        		a.openWarning(oldWin);
+        		return;
+        	}
         }
        
         
         oldWin.close();
     }
+    
 }
 
 

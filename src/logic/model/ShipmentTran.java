@@ -53,8 +53,7 @@ public class ShipmentTran extends Transaction{
 
 	@Override
 	public String toString() {
-		return "Shipment [tackingNumber=" + tackingNumber + ", product=" + product + ", deliveryStatus="
-				+ deliveryStatus + "]";
+		return "TrackingNumber: " + tackingNumber + ", product: " + product + ", Status: "+ deliveryStatus + "\n";
 	}
 
 

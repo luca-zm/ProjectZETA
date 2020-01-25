@@ -22,8 +22,7 @@ public class ActivationCodeTran extends Transaction{
 	}
 	@Override
 	public String toString() {
-		return "ActivationCodeTran [activationCode=" + activationCode + ", greenCoinAdded=" + greenCoinAdded + ", id="
-				+ id + ", date=" + date + "]";
+		return "ActivationCode: " + activationCode + ", Greencoin added: " + greenCoinAdded + ", Date: " + date + "\n";
 	}
 	
 	

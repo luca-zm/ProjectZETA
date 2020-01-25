@@ -61,30 +61,9 @@ public class ControllerLogin {
 		
 		singleton.setUser(user);
 		
-		System.out.println(user);
 		
 		return true;
 	}
 
-	public UserBean getUserBean() {
-		
-		if (singleton.getUser()==null) {
-			return null;
-		}
-		
-		AbstractUser ab = singleton.getUser();
-		
-		AddressBean addr = new AddressBean(ab.getAddress().getAddress(), ab.getAddress().getCity(),
-				ab.getAddress().getPostalCode(), ab.getAddress().getTelephone(), ab.getAddress().getState(),
-				ab.getAddress().getCountry(), ab.getAddress().getZone());
-
-		
-		
-		UserBean ub = new UserBean(ab.getId(), ab.getName(), ab.getSurname(), ab.getPass(), ab.getMail(), addr);
-		
-		ub.setGreencoin(ab.getGreenCoin());
-		
-		return ub;
-	}
 
 }

@@ -30,16 +30,16 @@
       <Text layoutX="129.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="49.332944329828024" />
       <Text layoutX="473.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="57.10400390625" />
       <Text layoutX="129.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname:" wrappingWidth="63.732907708734274" />
-      <LineChart layoutX="376.0" layoutY="157.0" prefHeight="198.0" prefWidth="363.0">
+      <LineChart fx:id="chart" layoutX="376.0" layoutY="157.0" prefHeight="198.0" prefWidth="363.0">
          <xAxis>
-            <CategoryAxis side="BOTTOM" />
+            <NumberAxis side="BOTTOM" />
          </xAxis>
          <yAxis>
             <NumberAxis side="LEFT" />
          </yAxis>
       </LineChart>
       <Text layoutX="404.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Greencoin in time " />
-      <TextArea editable="false" layoutX="398.0" layoutY="401.0" prefHeight="130.0" prefWidth="320.0" styleClass="text-area">
+      <TextArea fx:id="story" editable="false" layoutX="398.0" layoutY="401.0" prefHeight="130.0" prefWidth="320.0" styleClass="text-area">
          <font>
             <Font size="42.0" />
          </font>

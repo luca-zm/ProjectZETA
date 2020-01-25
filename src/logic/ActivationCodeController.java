@@ -30,6 +30,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import logic.model.AbstractUser;
 import logic.model.ActivationCode;
 import logic.model.Singleton;
 import logic.persistence.ActivationCodeDAO;
@@ -65,7 +66,7 @@ public class ActivationCodeController extends Application {
     
     ControllerLogin cl = new  ControllerLogin();
 
-	UserBean userBean = cl.getUserBean();
+	AbstractUser user = sg.getUser();
 
     
     public ActivationCodeController() {
@@ -80,7 +81,7 @@ public class ActivationCodeController extends Application {
 
     public void initialize() {
 		a_code_link.setDisable(true);
-		mygc.setText(Integer.toString(userBean.getGreencoin()));
+		mygc.setText(Integer.toString(user.getGreenCoin()));
 		
 		if(sg.getUser() == null) { //utente non loggato
 			wb.setVisible(false);
@@ -103,8 +104,8 @@ public class ActivationCodeController extends Application {
         	}else {
         		up_gc.setText(Integer.toString(val));
         		add_gc.setText("");
-        		UserBean userBeanNew = cl.getUserBean();
-        		mygc.setText(Integer.toString(userBeanNew.getGreencoin()));
+        		AbstractUser userNew = sg.getUser(); //per aggiornare il riquadro dei greencoin in real time
+        		mygc.setText(Integer.toString(userNew.getGreenCoin()));
         	}
         	return;
         }

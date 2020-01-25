@@ -54,9 +54,7 @@ public class History {
 		tranList.add(tran);
 	}
 
-	
-	// Needed by Graphic Observer in View
-	public ArrayList<Transaction> getList(){return tranList;}
+
 	
 	public void clear() {
 		tranList.clear();

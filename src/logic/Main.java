@@ -58,7 +58,7 @@ public class Main extends Application {
     	
         launch(args);
     
-        
+      
 //ProductDAO.insert(12345, "Borraccia in legno", 200, 0, "utility", "/Users/davide/Desktop/Progetto3/src/logic/view/images" , "Yoko Design 1550 Bottiglia Termica, Acciaio Inox, Legno, 26 x 7 x 7 cm", 1);
 //CollectionPointDAO.insert( "Quadraro" , 41.8552719, 12.5503039, 1, 9, 21, 1);
 //ShipmentDAO.insert("12/01/2020", "a1b2c3d4e5f6", 12345, DeliveryStatus.SENT, 1);
@@ -120,11 +120,7 @@ System.out.println(message.getType().toString());
 
 // Serve per scrivere la data corrente
 /**       java.util.Date dt = new java.util.Date();
-
 java.text.SimpleDateFormat sdf = 
      new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
 String currentTime = sdf.format(dt);
-
-
- **/
+**/

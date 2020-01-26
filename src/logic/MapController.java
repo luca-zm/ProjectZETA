@@ -75,7 +75,7 @@ public class MapController extends Application implements ActionListener{
     
 	@FXML
 	public void initialize() throws IOException {
-		URL mapUrl = new URL("https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=AIzaSyDWaK_dXLPOBO43oLeAkMTrgkh-6qSlnuc");
+		URL mapUrl = new URL("https://maps.googleapis.com/maps/api/staticmap?center=Rome,Italy&zoom=11&size=600x400&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C41.8618764,12.5317308&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=AIzaSyDWaK_dXLPOBO43oLeAkMTrgkh-6qSlnuc");
         BufferedImage mapImage = ImageIO.read(mapUrl);
         
         

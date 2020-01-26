@@ -42,15 +42,14 @@ public class ControllerWishList {
 	Singleton singleton = Singleton.getInstance();
 	
 	
-	public boolean addProductinWishList(ProductBean p) throws SQLException{
+	public boolean addProductinWishList(int productId) throws SQLException{
 
 		AbstractUser user = singleton.getUser();
 		if (user == null) {
 			return false;
 		}
 		
-		Product product = ProductDAO.selectProduct(p.getId());
-		
+		Product product = ProductDAO.selectProduct(productId);
 		WishListDAO.insert(user, product);
 
 		user.getWishList().addProduct(product);
@@ -61,14 +60,14 @@ public class ControllerWishList {
 	}
 	
 	
-	public boolean deleteProductfromWishList(ProductBean p) throws SQLException{
+	public boolean deleteProductfromWishList(int productId) throws SQLException{
 
 		AbstractUser user = singleton.getUser();
 		if (user == null) {
 			return false;
 		}
 		
-		Product product = ProductDAO.selectProduct(p.getId());
+		Product product = ProductDAO.selectProduct(productId);
 		
 		WishListDAO.delete(user, product);
 

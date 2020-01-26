@@ -46,14 +46,14 @@ public class ControllerShopCartCheckOut {
 	
 	Singleton singleton = Singleton.getInstance();
 	
-	public boolean addProduct(ProductBean p) throws SQLException{
+	public boolean addProduct(int productId) throws SQLException{
 
 		AbstractUser user = singleton.getUser();
 		if (user == null) {
 			return false;
 		}
 		
-		Product product = ProductDAO.selectProduct(p.getId());
+		Product product = ProductDAO.selectProduct(productId);
 
 		user.getCart().addProduct(product);
 		
@@ -61,14 +61,14 @@ public class ControllerShopCartCheckOut {
 	}
 	
 	
-	public boolean deleteProduct(ProductBean p) throws SQLException{
+	public boolean deleteProduct(int productId) throws SQLException{
 
 		AbstractUser user = singleton.getUser();
 		if (user == null) {
 			return false;
 		}
 		
-		Product product = ProductDAO.selectProduct(p.getId());
+		Product product = ProductDAO.selectProduct(productId);
 
 		user.getCart().deleteProduct(product);
 		

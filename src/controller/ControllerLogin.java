@@ -8,6 +8,7 @@ import bean.UserBean;
 import logic.model.AbstractUser;
 import logic.model.ActivationCodeTran;
 import logic.model.Address;
+import logic.model.BonusMachine;
 import logic.model.BonusTran;
 import logic.model.History;
 import logic.model.Message;
@@ -58,6 +59,8 @@ public class ControllerLogin {
 
 		Address address = AddressDAO.select(user);
 		user.setAddress(address);
+		
+		BonusMachine machine = new BonusMachine(user);
 		
 		singleton.setUser(user);
 		

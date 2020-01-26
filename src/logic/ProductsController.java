@@ -7,19 +7,25 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollBar;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.application.Application;
@@ -28,18 +34,28 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import javafx.util.Callback;
 import logic.model.AbstractUser;
+import logic.model.CatalogueSingleton;
+import logic.model.Product;
 import logic.model.Singleton;
+import logic.persistence.ProductDAO;
 
 import javax.swing.*;
 
 import bean.UserBean;
 import controller.ControllerLogin;
+import controller.ControllerShopCartCheckOut;
+import controller.ControllerWishList;
 
 public class ProductsController extends Application {
 
@@ -49,31 +65,139 @@ public class ProductsController extends Application {
     @FXML
     public Button map, a_code_link, prod_link, user_p_link;
     
-    @FXML
-    public Button img_b;
+    
     
     @FXML
     public Text wb;
     
-    //elementi da moltiplicare, prodotti
     @FXML
-    public Button like, cart, info;
+    public StackPane base;
     
-    @FXML
-    public Text descrizione;
+
     //-----------------
     
     Singleton sg = Singleton.getInstance(); 
     ControllerLogin cl = new  ControllerLogin();
+    ControllerShopCartCheckOut CSC = new ControllerShopCartCheckOut();
+    ControllerWishList CWL = new ControllerWishList();
     
     public ProductsController() { }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+
     }
     
+    
+    private class CustomListCell extends ListCell<Product> {
+    
+        private Image image;
+        private Text name;
+        private Text greenCoin;
+        private Button cart;
+        private Button wish;
+        private Button info;
+        private Text prova;
+        
+        private HBox cartWish;
+        private VBox content;
+        private HBox maxi;
+        
+        private Product product;
+        
+        
+        
+        public CustomListCell() {
+            super();
+            name = new Text();
+          //  image = new Image(product.getImage());
+            greenCoin = new Text();
+            cart = new Button("Cart");
+            wish = new Button("Wish");
+            info = new Button("Info");
+            prova = new Text("PROVA");
+            
+            cartWish = new HBox(cart, wish);
+            cartWish.setSpacing(3);
+            content = new VBox(name, greenCoin, cartWish);
+            content.setAlignment(Pos.CENTER);
+            content.setSpacing(5);
+            maxi = new HBox(prova, content, info);
+            maxi.setSpacing(100);
+            maxi.setFillHeight(true);
+            maxi.setMaxWidth(Control.USE_PREF_SIZE);
+            
+            if(sg.getUser() == null) {
+            	cart.setDisable(true);
+            	wish.setDisable(true);
+            }
+            
+            cart.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {              
+                    try {
+						CSC.addProduct(product.getId());
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}             
+                }
+            }); 
+            
+            wish.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {              
+                    try {
+						CWL.addProductinWishList(product.getId());
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+                }
+            }); 
+            
+            info.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {              
+                                  
+                }
+            }); 
+            
+        }
+        
+       
+
+        @Override
+        protected void updateItem(Product product, boolean empty) {
+            super.updateItem(product, empty);
+            if (product != null && !empty) { // <== test for null item and empty parameter
+            	this.product = product;
+                name.setText(product.getName());
+                greenCoin.setText(String.format("%d $", product.getPrice()));
+                setGraphic(maxi);
+            } else {
+                setGraphic(null);
+            }
+        }
+    }
+    
+    
+    
+//  @Override
+//  public void start(Stage primaryStage) throws Exception {
+//	  
+//  }
+//    
+    
+    
+    
+    
+    
+    
 	@FXML
-	public void initialize() {
+	public void initialize() throws SQLException {
 		
 		prod_link.setDisable(true);
 		AbstractUser user = sg.getUser();
@@ -90,6 +214,24 @@ public class ProductsController extends Application {
 		}else {
 			wb.setText(user.getName());
 		}
+		
+        ObservableList<Product> data = FXCollections.observableArrayList();
+        
+        ArrayList<Product> list = ProductDAO.select();
+
+        for(Product p: list) {		
+        	data.add(p);
+        }
+
+
+        final ListView<Product> listView = new ListView<Product>(data);
+        listView.setCellFactory(new Callback<ListView<Product>, ListCell<Product>>() {
+            @Override
+            public ListCell<Product> call(ListView<Product> listView) {
+                return new CustomListCell();
+            }
+        });
+        base.getChildren().add(listView);
 	}
 
     @FXML

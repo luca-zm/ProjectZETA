@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DataSource {
     private static final String JDBC_CONNECTION_URL =
-            "jdbc:mysql://localhost:3306/test1"; 
+            "jdbc:mysql://localhost:3306/database"; 
 
     private static Connection connection = null;
 

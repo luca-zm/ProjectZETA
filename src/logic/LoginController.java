@@ -49,8 +49,6 @@ public class LoginController extends Application {
     @FXML
     public TextField add_r, city_r, zip_r, tel_r, state_r, country_r, zone_r;
 
-	
-	
     @FXML
     public PasswordField psw;
     
@@ -65,6 +63,7 @@ public class LoginController extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+    	psw.setText("fanculo");
     }
 
     @FXML

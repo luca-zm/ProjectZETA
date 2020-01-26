@@ -1,45 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="754.0" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.ProductsController">
    <children>
-      <ScrollPane layoutX="174.0" layoutY="80.0" prefHeight="454.0" prefWidth="515.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="603.0" prefWidth="495.0">
-               <children>
-               
-               
-               
-               
-                  <Pane fx:id="base" layoutX="34.0" layoutY="23.0" prefHeight="229.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="24.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/bor.png" />
-                           </image>
-                        </ImageView>
-                        <Button fx:id="info" layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#next" opacity="0.0" prefHeight="158.0" prefWidth="170.0" style="-fx-background-color: #47a67353" />
-                        <Button fx:id="cart" onAction="#next" layoutX="47.0" layoutY="192.0" mnemonicParsing="false" styleClass="btn-default" text="Cart" />
-                        <Button fx:id="like" onAction="#next" layoutX="100.0" layoutY="192.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="59.0" styleClass="btn-default" text="Wish" />
-                        <Text fx:id="descrizione" layoutX="5.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="  " wrappingWidth="188.46998596191406" />
-                     </children>
-                  </Pane>
-                  
-                  
-                  
-               </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
       <ToolBar prefHeight="51.0" prefWidth="862.0">
          <items>
             <Text fx:id="wb" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back!   " />
@@ -54,5 +23,6 @@
       <Button fx:id="a_code_link" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
       <Button fx:id="prod_link" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
       <Button fx:id="user_p" layoutX="23.0" layoutY="5.0" mnemonicParsing="false" onAction="#next" prefHeight="40.0" prefWidth="38.0" styleClass="hbox" stylesheets="@fextile.css" />
+      <StackPane fx:id="base" layoutX="134.0" layoutY="79.0" prefHeight="459.0" prefWidth="603.0" />
    </children>
 </AnchorPane>

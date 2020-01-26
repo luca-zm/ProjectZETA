@@ -36,7 +36,7 @@ public class ControllerManageCollPoint {
 		CollectionPoint collPoint = new CollectionPoint(id, name, lon, lat, addr, opening, closing, avail);
 	    CollectionPointDAO.insert(collPoint);
 	    
-	    Message m = new Message(0,getDate(), "Nuovo Punto di raccolta", "C'è un nuovo punto di raccolta sulla mappa: " + name, MesType.COLLPOINT);
+	    Message m = new Message(0,getDate(), "Nuovo Punto di raccolta", "C'ï¿½ un nuovo punto di raccolta sulla mappa: " + name, MesType.COLLPOINTBROAD);
 		
 	    MessageDAO.insert(m, user);
 	    
@@ -48,7 +48,7 @@ public class ControllerManageCollPoint {
 	public Boolean delete(CollectionPointBean collPointBean) throws SQLException {
 		CollectionPointDAO.delete(collPointBean.getId());
 		
-	    Message m = new Message(0,getDate(), "Eliminato Punto di raccolta", "E' stato eliminato un punto di raccolta sulla mappa: " + collPoint, MesType.COLLPOINT);
+	    Message m = new Message(0,getDate(), "Eliminato Punto di raccolta", "E' stato eliminato un punto di raccolta sulla mappa: " + collPointBean, MesType.COLLPOINTBROAD);
 		
 	    MessageDAO.insert(m, user);
 	    

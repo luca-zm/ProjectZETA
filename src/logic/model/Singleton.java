@@ -1,6 +1,7 @@
 package logic.model;
 
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 
 public class Singleton {
 	
@@ -8,6 +9,8 @@ public class Singleton {
     private AbstractUser user = null;
     public int flag;
     public Scene myscene;
+    public String mydescr;
+    public String img;
 
     public static Singleton getInstance() {
         if(istance == null)
@@ -54,6 +57,22 @@ public class Singleton {
 
 	public void setUser(AbstractUser user) {
 		this.user = user;
+	}
+
+	public void saveDescription(String description) {
+		mydescr = description;
+		
+	}
+	public String getDescr() {
+		return mydescr;
+	}
+
+	public void saveImage(String image) {
+		img = image;
+		
+	}
+	public String getImage() {
+		return img;
 	}
     
     

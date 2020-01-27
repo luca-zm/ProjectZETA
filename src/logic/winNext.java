@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import logic.model.Product;
 import logic.model.Singleton;
 
 public class winNext{
@@ -55,5 +56,30 @@ public class winNext{
         currentWin.setScene(scene);
         currentWin.showAndWait();
 	}
+	
+//	public void openWinInfo(String neWin, Product p) throws IOException{
+//		Stage currentWin = new Stage();
+//        currentWin.setTitle("EcoClean");        
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource(neWin));
+//        Parent root = (Parent)loader.load();
+//        InfoProductController controller = loader.getController();
+//        controller.setP(p);
+//        Scene scene = new Scene(root);
+//        currentWin.setScene(scene);
+//        currentWin.show();
+//    	sg.saveScene(scene);
+//	}
 
+	public void openWinInfo(String neWin, Product p) throws IOException{
+		sg.saveDescription(p.getDescription());
+    	sg.saveImage(p.getImage());
+		Stage currentWin = new Stage();
+        currentWin.setTitle("EcoClean");
+        Parent root = FXMLLoader.load(getClass().getResource(neWin));
+        Scene scene = new Scene(root);
+        sg.saveScene(scene);
+    	
+        currentWin.setScene(scene);
+        currentWin.show();  	
+	}
 }

@@ -18,6 +18,7 @@ import javafx.scene.control.ScrollBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -92,7 +93,7 @@ public class ProductsController extends Application {
     
     private class CustomListCell extends ListCell<Product> {
     
-        private Image image;
+        private ImageView image;
         private Text name;
         private Text greenCoin;
         private Button cart;
@@ -106,30 +107,33 @@ public class ProductsController extends Application {
         
         private Product product;
         
-        
+        winNext a = new winNext();
+
         
         public CustomListCell() {
             super();
             name = new Text();
-          //  image = new Image(product.getImage());
+            image = new ImageView();
+            image.setFitHeight(125);
+            image.setFitWidth(125);
             greenCoin = new Text();
-            cart = new Button("Cart");
-            wish = new Button("Wish");
-            info = new Button("Info");
-            prova = new Text("PROVA");
+            cart = new Button("Add to cart");
+            wish = new Button("Add to wishlist");
+            info = new Button("i");
+            //prova = new Text("PROVA");
             
             cartWish = new HBox(cart, wish);
             cartWish.setSpacing(3);
             content = new VBox(name, greenCoin, cartWish);
+            info.setAlignment(Pos.CENTER_RIGHT);
             content.setAlignment(Pos.CENTER);
             content.setSpacing(5);
-            maxi = new HBox(prova, content, info);
+            maxi = new HBox(image, content, info);
             maxi.setSpacing(100);
             maxi.setFillHeight(true);
             maxi.setMaxWidth(Control.USE_PREF_SIZE);
             
             if(sg.getUser() == null) {
-            	cart.setDisable(true);
             	wish.setDisable(true);
             }
             
@@ -161,7 +165,13 @@ public class ProductsController extends Application {
 
                 @Override
                 public void handle(MouseEvent event) {              
-                                  
+                	try {
+                		Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
+						a.openWinInfo("view/info.fxml", product);
+						oldWin.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
                 }
             }); 
             
@@ -174,6 +184,9 @@ public class ProductsController extends Application {
             super.updateItem(product, empty);
             if (product != null && !empty) { // <== test for null item and empty parameter
             	this.product = product;
+                Image imageObject = new Image(product.getImage());
+                image.setImage(imageObject);
+              
                 name.setText(product.getName());
                 greenCoin.setText(String.format("%d $", product.getPrice()));
                 setGraphic(maxi);
@@ -183,17 +196,7 @@ public class ProductsController extends Application {
         }
     }
     
-    
-    
-//  @Override
-//  public void start(Stage primaryStage) throws Exception {
-//	  
-//  }
-//    
-    
-    
-    
-    
+
     
     
 	@FXML
@@ -242,7 +245,6 @@ public class ProductsController extends Application {
         
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         
-        System.out.println(eventClicked);
 
         if (eventClicked.contentEquals("Button[id=user_p, styleClass=button hbox]''")) {
         	//pagina profilo utente da icona

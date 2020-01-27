@@ -3,21 +3,17 @@ package bean;
 public class CollectionPointBean {
 	private int id;
 	private String name;
-	private double longitude;
-	private double latitude;
-	private AddressBean address;
+	private String address;
 	private int openingTime;
 	private int closingTime;
 	private Boolean isAvailable;
 	
 	
-	public CollectionPointBean(int id, String name, double longitude, double latitude, AddressBean address, int openingTime,
+	public CollectionPointBean(int id, String name,  String address, int openingTime,
 			int closingTime, Boolean isAvailable) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.longitude = longitude;
-		this.latitude = latitude;
 		this.address = address;
 		this.openingTime = openingTime;
 		this.closingTime = closingTime;
@@ -35,22 +31,10 @@ public class CollectionPointBean {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public double getLongitude() {
-		return longitude;
-	}
-	public void setLongitude(double longitude) {
-		this.longitude = longitude;
-	}
-	public double getLatitude() {
-		return latitude;
-	}
-	public void setLatitude(double latitude) {
-		this.latitude = latitude;
-	}
-	public AddressBean getAddress() {
+	public String getAddress() {
 		return address;
 	}
-	public void setAddress(AddressBean address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 	public int getOpeningTime() {
@@ -73,10 +57,11 @@ public class CollectionPointBean {
 	}
 	@Override
 	public String toString() {
-		return "CollectionPointBean [id=" + id + ", name=" + name + ", longitude=" + longitude + ", latitude="
-				+ latitude + ", address=" + address + ", openingTime=" + openingTime + ", closingTime=" + closingTime
-				+ ", isAvailable=" + isAvailable + "]";
+		return "CollectionPointBean [id=" + id + ", name=" + name + ", address=" + address + ", openingTime="
+				+ openingTime + ", closingTime=" + closingTime + ", isAvailable=" + isAvailable + "]";
 	}
+	
+	
 	
 	
 	

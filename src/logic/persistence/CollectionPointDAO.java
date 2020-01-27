@@ -22,7 +22,7 @@ public class CollectionPointDAO {
                 preparedStatement.setString(1, collPoint.getName());
                 preparedStatement.setDouble(2, collPoint.getLongitude());
                 preparedStatement.setDouble(3, collPoint.getLatitude());
-                preparedStatement.setInt(4, collPoint.getAddress().getId());
+                preparedStatement.setString(4, collPoint.getAddress());
                 preparedStatement.setInt(5, collPoint.getOpeningTime());
                 preparedStatement.setInt(6, collPoint.getClosingTime());
                 preparedStatement.setBoolean(7, collPoint.getIsAvailable());
@@ -67,12 +67,11 @@ public class CollectionPointDAO {
             	String name = resultSet.getString("name");
             	double lon = resultSet.getDouble("longitude");
             	double lat = resultSet.getDouble("latitude");
-            	int addr = resultSet.getInt("address");
-            	Address address = AddressDAO.select(addr);
+            	String addr = resultSet.getString("address");
             	int opTime = resultSet.getInt("openingTime");
             	int clTime = resultSet.getInt("closingTime");
             	Boolean available = resultSet.getBoolean("isAvailable");
-            	list.add(new CollectionPoint(id, name, lon, lat, address, opTime, clTime, available));
+            	list.add(new CollectionPoint(id, name, lon, lat, addr, opTime, clTime, available));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -87,7 +86,7 @@ public class CollectionPointDAO {
             preparedStatement.setString(1, collPoint.getName());
             preparedStatement.setDouble(2, collPoint.getLongitude());
             preparedStatement.setDouble(3, collPoint.getLatitude());
-            preparedStatement.setInt(4, collPoint.getAddress().getId());
+            preparedStatement.setString(4, collPoint.getAddress());
             preparedStatement.setInt(5, collPoint.getOpeningTime());
             preparedStatement.setInt(6, collPoint.getClosingTime());
             preparedStatement.setBoolean(7, collPoint.getIsAvailable());

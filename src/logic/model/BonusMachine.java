@@ -30,12 +30,23 @@ public class BonusMachine implements Observer{
 		ArrayList<ShipmentTran> listShipmentTran = TransactionDAO.selectShipment(user);
 		
 		int shipmentGreenCoin = 0; 
+		int activationGreenCoin = 0;
 		
-		for (ShipmentTran shipmentTran : listShipmentTran) {
-			int price = shipmentTran.getProduct().getPrice();
-			shipmentGreenCoin += price;
+//		for (ShipmentTran shipmentTran : listShipmentTran) {
+//			int price = shipmentTran.getProduct().getPrice();
+//			shipmentGreenCoin += price;
+//		}
+//		if(shipmentGreenCoin - greenCoinMemo > greenCoinTarget) {
+//			addBonus();
+//			greenCoinMemo = greenCoinTarget;
+//		}
+		
+		
+		for (ActivationCodeTran actCodeTran : listActCodeTran) {
+			int price = actCodeTran.getGreenCoinAdded();
+			activationGreenCoin += price;
 		}
-		if(shipmentGreenCoin - greenCoinMemo > greenCoinTarget) {
+		if(activationGreenCoin - greenCoinMemo > greenCoinTarget) {
 			addBonus();
 			greenCoinMemo = greenCoinTarget;
 		}

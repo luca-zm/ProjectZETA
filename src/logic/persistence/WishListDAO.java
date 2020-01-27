@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import logic.enums.Category;
 import logic.model.AbstractUser;
 import logic.model.FactoryUsers;
 import logic.persistence.DataSource;
@@ -63,4 +64,24 @@ public class WishListDAO {
         }
         return list;
     }
+    
+    public static Boolean checkProductByName(int id) throws SQLException {
+
+        //preparing some objects for connection
+    	try {        
+            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.FIND_PROD_IN_LIST); 
+            preparedStatement.setInt(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) { 
+
+            	return true;
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
 }

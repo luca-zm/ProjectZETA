@@ -7,30 +7,46 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import javafx.util.Callback;
+import logic.model.AbstractUser;
+import logic.model.Product;
 import logic.model.Singleton;
+import logic.persistence.ProductDAO;
 
 import javax.swing.*;
+
+import controller.ControllerShopCartCheckOut;
 
 public class ShopcartController extends Application {
 
@@ -46,8 +62,16 @@ public class ShopcartController extends Application {
     @FXML
     public Text wb;
     
-    Singleton sg =Singleton.getInstance();
+    @FXML
+    public TextArea price_text, gcoin_text, total;
     
+    @FXML
+    public StackPane stack;
+    
+    Singleton sg =Singleton.getInstance();
+	AbstractUser user = sg.getUser();
+	ControllerShopCartCheckOut CSC = new ControllerShopCartCheckOut();
+	
     public ShopcartController() {
 
     }
@@ -56,17 +80,121 @@ public class ShopcartController extends Application {
     public void start(Stage primaryStage) throws Exception {
     }
 
+    
+    private class CustomListCell extends ListCell<Product> {
+        
+        private ImageView image;
+        private Text name;
+        private Text greenCoin;
+        private Button remove;
+        
+        private VBox content;
+        private HBox maxi;
+        
+        private Product product;
+        
+        winNext a = new winNext();
+
+
+        
+        public CustomListCell() {
+            super();
+            name = new Text();
+            image = new ImageView();
+            image.setFitHeight(90);
+            image.setFitWidth(90);
+            greenCoin = new Text();
+            remove = new Button("remove");
+            
+            content = new VBox(name, greenCoin, remove);
+            content.setAlignment(Pos.CENTER);
+            content.setSpacing(5);
+            maxi = new HBox(image, content);
+            maxi.setSpacing(110);
+            maxi.setFillHeight(true);
+            maxi.setMaxWidth(Control.USE_PREF_SIZE);
+            
+                        
+            remove.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {              
+                    try {
+						CSC.deleteProduct(product.getId());
+						Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			        	a.openWin("view/shopcartPage.fxml");
+			        	oldWin.close();
+					} catch (SQLException | IOException e) {
+						e.printStackTrace();
+					}             
+                }
+            }); 
+            
+            
+            
+        }
+        
+       
+
+        @Override
+        protected void updateItem(Product product, boolean empty) {
+            super.updateItem(product, empty);
+            if (product != null && !empty) { // <== test for null item and empty parameter
+            	this.product = product;
+                Image imageObject = new Image(product.getImage());
+                image.setImage(imageObject);
+              
+                name.setText(product.getName());
+                greenCoin.setText(String.format("%d $", product.getPrice()));
+                setGraphic(maxi);
+            } else {
+                setGraphic(null);
+            }
+        }
+    }
+    
+    
     public void initialize() {
-		shop.setDisable(true);
+    
+    	String result = "";
+    	
+    	for(Product p: user.getCart().getProductList()) {
+    		if (result.contains(p.getName())) {
+    			continue;
+    		}
+    		result = result + p.getName() + ": " +p.getPrice() + "\n\n";
+    	}
+    	price_text.setText(result);
+    	total.setText(Integer.toString(user.getCart().getTotalPrice()));
+    	gcoin_text.setText(Integer.toString(user.getGreenCoin()));
+    	shop.setDisable(true);
 		//-----
 		log.setVisible(false);
-		
 		//-----
 		
 		if(sg.getUser() == null) { //utente non loggato
 			wb.setVisible(false);
 			log.setVisible(true);
 		}
+		//----------------------------------------------
+		ObservableList<Product> data = FXCollections.observableArrayList();
+        
+   
+
+        for(Product p: sg.getUser().getCart().getProductList()) {		
+        	data.add(p);
+        }
+
+
+        final ListView<Product> listView = new ListView<Product>(data);
+        listView.setCellFactory(new Callback<ListView<Product>, ListCell<Product>>() {
+            @Override
+            public ListCell<Product> call(ListView<Product> listView) {
+                return new CustomListCell();
+            }
+        });
+        stack.getChildren().add(listView);
+         
 	}
     @FXML
     private void next(ActionEvent event) throws IOException {

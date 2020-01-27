@@ -3,6 +3,8 @@ package logic;
 import java.awt.Color;
 import java.io.IOException;
 
+import javax.swing.JOptionPane;
+
 import bean.UserBean;
 import controller.ControllerLogin;
 import javafx.application.Application;
@@ -25,7 +27,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import logic.model.AbstractUser;
 import logic.model.History;
+import logic.model.Message;
+import logic.model.NoticeBoard;
+import logic.model.Product;
 import logic.model.Singleton;
+import logic.model.User;
+import logic.persistence.MessageDAO;
 
 public class UserProfileController extends Application {
 
@@ -34,7 +41,7 @@ public class UserProfileController extends Application {
     private ImageView avatarImage;
 	
 	@FXML
-    public Button wish, shop;
+    public Button wish, shop, message;
 
     @FXML
     public Button map, a_code_link, prod_link, user_p_link;
@@ -57,6 +64,8 @@ public class UserProfileController extends Application {
 
 	Singleton sg = Singleton.getInstance();
 	AbstractUser user = sg.getUser();
+	//MessageDAO md = new MessageDAO();
+	//Message nb = new Message();
     
 	public UserProfileController() {
 		
@@ -65,6 +74,7 @@ public class UserProfileController extends Application {
 	//setto l'avatar a forma di cerchio
 	@FXML
     public void initialize() {
+		
     	user_p_link.setDisable(true); 
     	story.setText(sg.getUser().getHistory().getTranList().toString());
     	//------gestione profilo utente-------
@@ -79,25 +89,19 @@ public class UserProfileController extends Application {
     	
     	
     	XYChart.Series series = new XYChart.Series(); 
-    	series.setName("No of schools in an year"); 
-    	        
-    	series.getData().add(new XYChart.Data(1970, 15)); 
-    	series.getData().add(new XYChart.Data(1980, 30)); 
-    	series.getData().add(new XYChart.Data(1990, 60)); 
-    	series.getData().add(new XYChart.Data(2000, 120)); 
-    	series.getData().add(new XYChart.Data(2013, 240)); 
-    	series.getData().add(new XYChart.Data(2014, 300));
+    	series.setName("Greencoin graph"); 
     	
+    	//for(user: user.getHistory().getTranList()series) {
+
+    	series.getData().add(new XYChart.Data(250, 15)); 
+    	series.getData().add(new XYChart.Data(340, 30)); 
+    	series.getData().add(new XYChart.Data(720, 60));     	
+    	//}
     	chart.getData().add(series);
-    	
-    	
 
     	//-------------
     	
-        // set a clip to apply rounded border to the original image.
-    	//NON TOCCARE LE DIMENSIONI
-    	//Circle clip = new Circle(95, 82, 80);
-        //avatarImage.setClip(clip);
+    	
     }
 	
 	@FXML
@@ -121,6 +125,10 @@ public class UserProfileController extends Application {
         	a.openWin("view/activationcodePage.fxml");
         }
         
+        if (eventClicked.contentEquals("Button[id=message, styleClass=button btn-info]'MSG'")) {
+			JOptionPane.showMessageDialog(null, "io sono una bella tabella di messaggi, ciauu");
+			return;
+        }
         //hyperlink----------------
         if (eventClicked.contentEquals("Button[id=map_link, styleClass=button]'Map'")) {
         	//pagina mappe

@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
@@ -19,62 +16,18 @@
       <Circle fill="#4aa8766d" layoutX="725.0" layoutY="498.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
       <Circle fill="#4ba675db" layoutX="725.0" layoutY="266.0" radius="63.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
       <Circle fill="#4ba675db" layoutX="262.0" layoutY="105.0" radius="63.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-      <ScrollPane layoutX="174.0" layoutY="80.0" prefHeight="454.0" prefWidth="515.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="603.0" prefWidth="495.0">
-               <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49a67498" height="104.0" layoutX="27.0" layoutY="26.0" stroke="WHITE" strokeType="INSIDE" width="142.0" />
-                  <ImageView fitHeight="101.0" fitWidth="136.0" layoutX="35.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/bor.png" />
-                     </image></ImageView>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49a67498" height="104.0" layoutX="27.0" layoutY="211.0" stroke="WHITE" strokeType="INSIDE" width="142.0" />
-                  <ImageView fitHeight="101.0" fitWidth="136.0" layoutX="35.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/bor.png" />
-                     </image>
-                  </ImageView>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49a67498" height="104.0" layoutX="27.0" layoutY="386.0" stroke="WHITE" strokeType="INSIDE" width="142.0" />
-                  <ImageView fitHeight="101.0" fitWidth="136.0" layoutX="35.0" layoutY="387.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/bor.png" />
-                     </image>
-                  </ImageView>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49a67498" height="104.0" layoutX="27.0" layoutY="537.0" stroke="WHITE" strokeType="INSIDE" width="142.0" />
-                  <ImageView fitHeight="101.0" fitWidth="136.0" layoutX="35.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/bor.png" />
-                     </image>
-                  </ImageView>
-                  <TextArea editable="false" layoutX="205.0" layoutY="26.0" prefHeight="40.0" prefWidth="249.0" />
-                  <TextArea editable="false" layoutX="205.0" layoutY="212.0" prefHeight="40.0" prefWidth="249.0" />
-                  <TextArea editable="false" layoutX="205.0" layoutY="387.0" prefHeight="40.0" prefWidth="249.0" />
-                  <TextArea editable="false" layoutX="205.0" layoutY="538.0" prefHeight="40.0" prefWidth="249.0" />
-                  <Button id="buy" onAction="#next" layoutX="208.0" layoutY="87.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Buy" />
-                  <Button id="del" onAction="#next" layoutX="282.0" layoutY="87.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Remove from whislist" />
-                  <Button id="buy" onAction="#next" layoutX="205.0" layoutY="270.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Buy" />
-                  <Button id="del" onAction="#next" layoutX="279.0" layoutY="270.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Remove from whislist" />
-                  <Button id="buy" onAction="#next" layoutX="205.0" layoutY="447.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Buy" />
-                  <Button id="del" onAction="#next" layoutX="279.0" layoutY="447.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Remove from whislist" />
-                  <Button id="buy" onAction="#next" layoutX="205.0" layoutY="587.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Buy" />
-                  <Button id="del" onAction="#next" layoutX="279.0" layoutY="587.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Remove from whislist" />
-               </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
       <ToolBar prefHeight="51.0" prefWidth="862.0">
          <items>
-            <Circle fill="#1fffb6" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back			" />
-            <Button fx:id="shop" onAction="#next" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Shopcart" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back   " />
+            <Button fx:id="shop" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Shopcart" />
             <Button fx:id="wish" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Wishlist" />
          </items>
       </ToolBar>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="634.0" layoutX="-2.0" layoutY="51.0" stroke="WHITE" strokeType="INSIDE" width="120.0" />
       <Button fx:id="user_p_link" layoutX="-8.0" layoutY="79.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="User Profile" />
-      <Button fx:id="map_link" onAction="#next" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
-      <Button fx:id="a_code_link" onAction="#next" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
-      <Button fx:id="prod_link" onAction="#next" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
-      <Button fx:id="user_p_link" layoutX="23.0" layoutY="5.0" mnemonicParsing="false" onAction="#next" prefHeight="40.0" prefWidth="38.0" styleClass="hbox" stylesheets="@fextile.css" />
+      <Button fx:id="map_link" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
+      <Button fx:id="a_code_link" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
+      <Button fx:id="prod_link" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
+      <StackPane fx:id="stack" layoutX="183.0" layoutY="101.0" prefHeight="404.0" prefWidth="484.0" />
    </children>
 </AnchorPane>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
@@ -9,6 +8,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -27,10 +27,10 @@
       <Button fx:id="map_link" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
       <Button fx:id="a_code_link" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
       <Button fx:id="prod_link" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
-      <Text layoutX="129.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="49.332944329828024" />
+      <Text layoutX="130.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="63.732907708734274" />
       <Text layoutX="473.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="57.10400390625" />
-      <Text layoutX="129.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname:" wrappingWidth="63.732907708734274" />
-      <LineChart fx:id="chart" layoutX="376.0" layoutY="157.0" prefHeight="198.0" prefWidth="363.0">
+      <Text layoutX="126.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname:" wrappingWidth="71.99999999999989" />
+      <LineChart fx:id="chart" layoutX="395.0" layoutY="74.0" prefHeight="238.0" prefWidth="338.0">
          <xAxis>
             <NumberAxis side="BOTTOM" />
          </xAxis>
@@ -38,27 +38,30 @@
             <NumberAxis side="LEFT" />
          </yAxis>
       </LineChart>
-      <Text layoutX="404.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Greencoin in time " />
-      <TextArea fx:id="story" editable="false" layoutX="398.0" layoutY="401.0" prefHeight="130.0" prefWidth="320.0" styleClass="text-area">
+      <Text layoutX="432.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Greencoin in time " />
+      <TextArea fx:id="story" editable="false" layoutX="432.0" layoutY="358.0" prefHeight="174.0" prefWidth="286.0" styleClass="text-area">
          <font>
             <Font size="42.0" />
          </font>
       </TextArea>
-      <ImageView fx:id="avatarImage" fitHeight="164.0" fitWidth="205.0" layoutX="163.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="avatarImage" fitHeight="164.0" fitWidth="205.0" layoutX="178.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/avatar.png" />
          </image>
       </ImageView>
-      <Button fx:id="a_code_link" layoutX="486.0" layoutY="109.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Activate your code!" />
-      <Text layoutX="126.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Greencoin:" wrappingWidth="71.99999999999989" />
-      <Text layoutX="129.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-Mail:" wrappingWidth="49.332944329828024" />
-      <Text layoutX="123.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" wrappingWidth="63.732907708734274" />
-      <Text layoutX="126.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone:" wrappingWidth="71.99999999999989" />
-      <Text fx:id="tname" layoutX="198.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="154.62857055664062" />
-      <Text fx:id="tsurname" layoutX="198.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="154.62857055664062" />
-      <Text fx:id="tgreencoin" layoutX="204.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="154.62857055664062" />
-      <Text fx:id="tmail" layoutX="198.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="154.62857055664062" />
-      <Text fx:id="ttel" layoutX="204.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="154.62857055664062" />
-      <Text fx:id="taddress" layoutX="204.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="154.62857055664062" />
+      <Text layoutX="122.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Greencoin:" wrappingWidth="79.19999999999993" />
+      <Text layoutX="126.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-Mail:" wrappingWidth="71.99999999999989" />
+      <Text layoutX="122.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" wrappingWidth="79.19999999999993" />
+      <Text layoutX="122.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone:" wrappingWidth="79.19999999999993" />
+      <Text fx:id="tname" layoutX="194.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="174.62857055664062" />
+      <Text fx:id="tsurname" layoutX="194.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="174.62857055664062" />
+      <Text fx:id="tgreencoin" layoutX="204.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="154.62857055664062" />
+      <Text fx:id="tmail" layoutX="194.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="174.62857055664062" />
+      <Text fx:id="ttel" layoutX="201.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="174.62857055664062" />
+      <Text fx:id="taddress" layoutX="201.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="174.62857055664062" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00e5ff" height="38.0" layoutX="313.0" layoutY="84.0" stroke="BLACK" strokeType="INSIDE" width="64.0" />
+      <Line endX="-98.0" endY="39.00000762939453" layoutX="441.0" layoutY="65.0" startX="-66.0" startY="20.00000762939453" />
+      <Line endX="-63.0" endY="13.000007629394531" layoutX="408.0" layoutY="91.0" startX="-95.0" startY="-5.999992370605469" />
+      <Button fx:id="message" layoutX="313.0" layoutY="84.0" mnemonicParsing="false" onAction="#next" opacity="0.0" prefHeight="38.0" prefWidth="64.0" styleClass="btn-info" text="MSG" />
    </children>
 </AnchorPane>

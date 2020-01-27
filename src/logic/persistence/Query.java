@@ -76,5 +76,7 @@ public class Query {
 	
 	public static final String UPDATE_USER = "UPDATE user SET mail = ?, name = ?, surname = ?, pass = ?, type = ?, greenCoin = ?, address = ? WHERE id = ?";
 	
-	
+	//.............
+	public static final String FIND_PROD_IN_LIST = "SELECT * from wishlist WHERE productid = ?";
+
 }

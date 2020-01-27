@@ -50,6 +50,7 @@ import logic.model.CatalogueSingleton;
 import logic.model.Product;
 import logic.model.Singleton;
 import logic.persistence.ProductDAO;
+import logic.persistence.WishListDAO;
 
 import javax.swing.*;
 
@@ -135,6 +136,7 @@ public class ProductsController extends Application {
             
             if(sg.getUser() == null) {
             	wish.setDisable(true);
+            	cart.setDisable(true);
             }
             
             cart.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -154,7 +156,12 @@ public class ProductsController extends Application {
                 @Override
                 public void handle(MouseEvent event) {              
                     try {
-						CWL.addProductinWishList(product.getId());
+                    	if (WishListDAO.checkProductByName(product.getId())) {
+                			JOptionPane.showMessageDialog(null, "Product is already in your wishlist "+ sg.getUser().getName());
+
+                    	}else {
+                    		CWL.addProductinWishList(product.getId());
+                    	}
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}

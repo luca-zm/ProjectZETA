@@ -1,6 +1,7 @@
 package logic;
 
 import javafx.application.Application;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,6 +27,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.application.Application;
@@ -45,7 +47,13 @@ import logic.model.Singleton;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import controller.ControllerMap;
+import controller.ControllerManageCollPoint;
+
 public class MapController extends Application implements ActionListener{
+	
+	
+	ControllerManageCollPoint c = new ControllerManageCollPoint();
 
     @FXML
     public Button wishlist, shop, log;
@@ -65,51 +73,28 @@ public class MapController extends Application implements ActionListener{
     public Pane panel_map;
     
     
-    
     public MapController() { 
     }
-
+    
     @Override
     public void start(Stage primaryStage) throws Exception{
     }
     
 	@FXML
-	public void initialize() throws IOException {
-		URL mapUrl = new URL("https://maps.googleapis.com/maps/api/staticmap?center=Rome,Italy&zoom=11&size=600x400&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C41.8618764,12.5317308&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=AIzaSyDWaK_dXLPOBO43oLeAkMTrgkh-6qSlnuc");
+	public void initialize() throws IOException, SQLException {
+		URL mapUrl = c.startUrl();
         BufferedImage mapImage = ImageIO.read(mapUrl);
         
         
         final JFrame frame = new JFrame("Esempio Static Google Maps");
-        JPanel controlsPanel = new JPanel();
-        controlsPanel.setLayout(new BorderLayout());
-        final JTextField searchText = new JTextField("Roma");
-        JButton searchButton = new JButton("Cerca");
+        
         final JLabel mapHolder = new JLabel(new ImageIcon(mapImage));
-        searchButton.addActionListener(new ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent e) {
-                String mapUrlFormat = "https://maps.googleapis.com/maps/api/staticmap?center=%s&zoom=8&size=300x300&maptype=roadmap";
-                try {
-                    URL mapUrl = new URL(String.format(mapUrlFormat, URLEncoder.encode(searchText.getText())));
-                    BufferedImage mapImage = ImageIO.read(mapUrl);
-                    mapHolder.setIcon(new ImageIcon(mapImage));
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(frame, ex.getMessage());
-                }
-            }
-
-			
-        });
-        controlsPanel.add(searchText, BorderLayout.CENTER);
-        controlsPanel.add(searchButton, BorderLayout.LINE_END);
         
         JPanel framePanel = new JPanel();
-        framePanel.setLayout(new BorderLayout());
-        framePanel.add(controlsPanel, BorderLayout.NORTH);
-        framePanel.add(mapHolder, BorderLayout.CENTER);
+        framePanel.add(mapHolder);
         frame.setContentPane(framePanel);
         
         frame.pack();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         
         

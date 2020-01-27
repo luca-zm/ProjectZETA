@@ -5,12 +5,12 @@ public class CollectionPoint {
 	private String name;
 	private double longitude;
 	private double latitude;
-	private Address address;
+	private String address;
 	private int openingTime;
 	private int closingTime;
 	private Boolean isAvailable;
 	
-	public CollectionPoint(int id, String name, double longitude, double latitude, Address address, int openingTime,
+	public CollectionPoint(int id, String name, double longitude, double latitude, String address, int openingTime,
 			int closingTime, Boolean isAvailable) {
 		super();
 		this.id = id;
@@ -46,10 +46,10 @@ public class CollectionPoint {
 	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
-	public Address getAddress() {
+	public String getAddress() {
 		return address;
 	}
-	public void setAddress(Address address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 	public int getOpeningTime() {

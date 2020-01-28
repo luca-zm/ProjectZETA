@@ -117,8 +117,7 @@ public class ControllerManageCollPoint {
 		
 		int opening = collPointBean.getOpeningTime();
 		int closing = collPointBean.getClosingTime();
-		Boolean avail = collPointBean.getIsAvailable();
-		CollectionPoint collPoint = new CollectionPoint(id, name, lon, lat, addr, opening, closing, avail);
+		CollectionPoint collPoint = new CollectionPoint(id, name, lon, lat, addr, opening, closing);
 		System.out.println(collPoint);
 	    CollectionPointDAO.insert(collPoint);
 	    //getFinalUrl("https://maps.googleapis.com/maps/api/staticmap?center=Rome,Italy&zoom=11&size=600x500&maptype=roadmap&key=AIzaSyDWaK_dXLPOBO43oLeAkMTrgkh-6qSlnuc", lon,lat);
@@ -152,8 +151,7 @@ public class ControllerManageCollPoint {
 		
 		int opening = collPointBean.getOpeningTime();
 		int closing = collPointBean.getClosingTime();
-		Boolean avail = collPointBean.getIsAvailable();
-		CollectionPoint collPoint = new CollectionPoint(id, name, lon, lat, addr, opening, closing, avail);
+		CollectionPoint collPoint = new CollectionPoint(id, name, lon, lat, addr, opening, closing);
 	    CollectionPointDAO.update(collPoint);
 		return true;
 	}

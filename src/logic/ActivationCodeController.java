@@ -103,9 +103,8 @@ public class ActivationCodeController extends Application {
         		
         	}else {
         		up_gc.setText(Integer.toString(val));
-        		add_gc.setText("");
-        		AbstractUser userNew = sg.getUser(); //per aggiornare il riquadro dei greencoin in real time
-        		mygc.setText(Integer.toString(userNew.getGreenCoin()));
+        		add_gc.setText(""); //per aggiornare il riquadro dei greencoin in real time
+        		mygc.setText(Integer.toString(user.getGreenCoin()));
         	}
         	return;
         }

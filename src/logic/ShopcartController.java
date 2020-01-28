@@ -121,10 +121,11 @@ public class ShopcartController extends Application {
                 public void handle(MouseEvent event) {              
                     try {
 						CSC.deleteProduct(product.getId());
-						Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			        	a.openWin("view/shopcartPage.fxml");
-			        	oldWin.close();
-					} catch (SQLException | IOException e) {
+						initialize();
+//						Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//			        	a.openWin("view/shopcartPage.fxml");
+//			        	oldWin.close();
+					} catch (SQLException e) {
 						e.printStackTrace();
 					}             
                 }

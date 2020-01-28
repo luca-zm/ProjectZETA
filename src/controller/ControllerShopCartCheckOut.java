@@ -181,6 +181,8 @@ public class ControllerShopCartCheckOut {
 		
 			user.getBoards().addMessage(m);
 			
+			System.out.println(user.getGreenCoin());
+			
 			return val;
 			
 			

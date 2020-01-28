@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.application.Application;
@@ -35,6 +36,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
@@ -42,7 +44,9 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import logic.model.CollectionPoint;
 import logic.model.Singleton;
+import logic.persistence.CollectionPointDAO;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -64,13 +68,13 @@ public class MapController extends Application implements ActionListener{
     @FXML
     public Text wb;
     
+    @FXML
+    public TextArea map_text;
+    
     Singleton sg = Singleton.getInstance(); 
 
     @FXML
     public Label mapHolder;
-    
-    @FXML
-    public Pane panel_map;
     
     
     public MapController() { 
@@ -98,10 +102,18 @@ public class MapController extends Application implements ActionListener{
         frame.setVisible(true);
         
         
+        map_text.setEditable(false);
         
+        ArrayList<CollectionPoint> list = CollectionPointDAO.select();
         
+        String string = "";
+        int count = 1;
+        for(CollectionPoint point: list) {
+        	string = string + Integer.toString(count) + " " +  point.getName() + ": " + point.getAddress() + " (hours of service: " + point.getOpeningTime() + " - " + point.getClosingTime() + ")\n\n";
+        	count += 1;
+        }
         
-        
+        map_text.setText(string);
         
 		map_link.setDisable(true);
 		//-----
@@ -113,6 +125,8 @@ public class MapController extends Application implements ActionListener{
 			wb.setVisible(false);
 			log.setVisible(true);
 		}
+		
+		
 	}
 
     @FXML

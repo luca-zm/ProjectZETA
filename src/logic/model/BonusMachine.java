@@ -16,15 +16,16 @@ public class BonusMachine implements Observer{
 	private int greenCoinMemo;
 	private int greenCoinTarget;
 	private int bonus;
-
-	public BonusMachine(AbstractUser user) {
+	private int activationGreenCoin;
+	public BonusMachine(AbstractUser user) throws SQLException {
 		super();
 		this.user = user;
 		this.history = user.getHistory();
 		this.history.attach(this);
-		this.greenCoinMemo = 0;
 		this.greenCoinTarget = 500;
 		this.bonus = 100;
+		this.greenCoinMemo = getHistoryPrice();
+		
 	}
 		public String time() {
 			java.util.Date dt = new java.util.Date();
@@ -37,6 +38,14 @@ public class BonusMachine implements Observer{
 		
 	@Override
 	public void update() throws SQLException {
+		int coin = getHistoryPrice();
+		if(coin - greenCoinMemo >= greenCoinTarget) {
+			greenCoinMemo += greenCoinTarget;
+			addBonus();
+		}
+	}
+	
+	public int getHistoryPrice() throws SQLException {
 		ArrayList<ActivationCodeTran> listActCodeTran = TransactionDAO.selectActivationCodeTra(user);
 		int activationGreenCoin = 0;
 		
@@ -44,10 +53,7 @@ public class BonusMachine implements Observer{
 			int price = actCodeTran.getGreenCoinAdded();
 			activationGreenCoin += price;
 		}
-		if(activationGreenCoin - greenCoinMemo > greenCoinTarget) {
-			addBonus();
-			greenCoinMemo = greenCoinTarget;
-		}
+		return activationGreenCoin;
 	}
 	
 	public void addBonus() throws SQLException {

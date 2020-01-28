@@ -61,6 +61,7 @@ public class ControllerLogin {
 		user.setAddress(address);
 		
 		BonusMachine machine = new BonusMachine(user);
+	
 		
 		singleton.setUser(user);
 		

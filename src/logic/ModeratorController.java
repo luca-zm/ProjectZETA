@@ -74,12 +74,12 @@ public class ModeratorController extends Application {
     }
 
     @FXML
-    private void next(ActionEvent event) throws IOException {
+    private void next(ActionEvent event) throws Exception {
         winNext a = new winNext();
         String eventClicked = event.getSource().toString();
         if (eventClicked.contentEquals("Button[id=confirm, styleClass=button]'Confirm'")) {
         	if (name != null && address != null && opening != null && closing != null && avaiable != null) {
-                CollectionPointBean cb = new CollectionPointBean(name.getText(), address.getText(),
+                CollectionPointBean cb = new CollectionPointBean(0, name.getText(), address.getText(),
                 		Integer.parseInt(opening.getText()), Integer.parseInt(closing.getText()),
                 		Boolean.parseBoolean(avaiable.getText()));
                 CMC.insert(cb);

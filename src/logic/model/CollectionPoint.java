@@ -8,10 +8,9 @@ public class CollectionPoint {
 	private String address;
 	private int openingTime;
 	private int closingTime;
-	private Boolean isAvailable;
 	
 	public CollectionPoint(int id, String name, double longitude, double latitude, String address, int openingTime,
-			int closingTime, Boolean isAvailable) {
+			int closingTime) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -20,7 +19,6 @@ public class CollectionPoint {
 		this.address = address;
 		this.openingTime = openingTime;
 		this.closingTime = closingTime;
-		this.isAvailable = isAvailable;
 	}
 	public int getId() {
 		return id;
@@ -64,18 +62,12 @@ public class CollectionPoint {
 	public void setClosingTime(int closingTime) {
 		this.closingTime = closingTime;
 	}
-	public Boolean getIsAvailable() {
-		return isAvailable;
-	}
-	public void setIsAvailable(Boolean isAvailable) {
-		this.isAvailable = isAvailable;
-	}
 	@Override
 	public String toString() {
 		return "CollectionPoint [id=" + id + ", name=" + name + ", longitude=" + longitude + ", latitude=" + latitude
-				+ ", address=" + address + ", openingTime=" + openingTime + ", closingTime=" + closingTime
-				+ ", isAvailable=" + isAvailable + "]";
+				+ ", address=" + address + ", openingTime=" + openingTime + ", closingTime=" + closingTime + "]";
 	}
+	
 	
 	
 }

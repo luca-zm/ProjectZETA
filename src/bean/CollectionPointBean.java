@@ -6,18 +6,16 @@ public class CollectionPointBean {
 	private String address;
 	private int openingTime;
 	private int closingTime;
-	private Boolean isAvailable;
 	
 	
 	public CollectionPointBean(int id, String name,  String address, int openingTime,
-			int closingTime, Boolean isAvailable) {
+			int closingTime) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.address = address;
 		this.openingTime = openingTime;
 		this.closingTime = closingTime;
-		this.isAvailable = isAvailable;
 	}
 	public int getId() {
 		return id;
@@ -49,17 +47,12 @@ public class CollectionPointBean {
 	public void setClosingTime(int closingTime) {
 		this.closingTime = closingTime;
 	}
-	public Boolean getIsAvailable() {
-		return isAvailable;
-	}
-	public void setIsAvailable(Boolean isAvailable) {
-		this.isAvailable = isAvailable;
-	}
 	@Override
 	public String toString() {
 		return "CollectionPointBean [id=" + id + ", name=" + name + ", address=" + address + ", openingTime="
-				+ openingTime + ", closingTime=" + closingTime + ", isAvailable=" + isAvailable + "]";
+				+ openingTime + ", closingTime=" + closingTime + "]";
 	}
+
 	
 	
 	

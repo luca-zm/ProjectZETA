@@ -152,6 +152,8 @@ public class WishlistController extends Application {
                 public void handle(MouseEvent event) {              
                     try {
 						CWL.deleteProductfromWishList(product.getId());
+						initialize();
+
 //						Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
 //			        	a.openWin("view/wishlistPage.fxml");
 //			        	oldWin.close();

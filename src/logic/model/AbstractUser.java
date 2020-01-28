@@ -186,7 +186,7 @@ public abstract class AbstractUser {
 	public String toString() {
 		return "AbstractUser [id=" + id + ", name=" + name + ", surname=" + surname + ", pass=" + pass + ", mail="
 				+ mail + ", type=" + type + ", cart=" + cart + ", wishList=" + wishList + ", history=" + history
-				+ ", boards=" + boards + ", greenCoin=" + greenCoin + ", address=" + address + "]";
+				+ ", boards=" + boards + ", greenCoin=" + greenCoin + ", address=" + address;
 	}
 
 //

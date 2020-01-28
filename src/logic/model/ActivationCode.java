@@ -35,7 +35,7 @@ public class ActivationCode {
 
 	@Override
 	public String toString() {
-		return "ActivationCode [activationCode=" + activationCode + ", grenCoinVal=" + greenCoinVal + "]";
+		return "ActivationCode: " + activationCode + ", Greencoin value: " + greenCoinVal;
 	}
 	
 	

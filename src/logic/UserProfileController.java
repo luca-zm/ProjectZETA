@@ -83,7 +83,6 @@ public class UserProfileController extends Application {
     	tsurname.setText(user.getSurname());
     	tmail.setText(user.getMail());
     	ttel.setText(user.getAddress().getTelephone());
-    	System.out.println(Integer.toString(user.getGreenCoin()));
     	tgreencoin.setText(Integer.toString(user.getGreenCoin()));
     	taddress.setText(user.getAddress().getAddress()+" "+user.getAddress().getPostalCode()+" "+
     	user.getAddress().getCity()+" "+user.getAddress().getCountry());

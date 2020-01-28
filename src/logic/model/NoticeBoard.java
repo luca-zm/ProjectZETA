@@ -41,7 +41,7 @@ public class NoticeBoard {
 
 	@Override
 	public String toString() {
-		return "NoticeBoard [list=" + list + "]";
+		return "NoticeBoard: " + list;
 	}
 
 

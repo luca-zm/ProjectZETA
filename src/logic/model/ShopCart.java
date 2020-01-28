@@ -43,17 +43,25 @@ public class ShopCart {
 	
 	public Boolean deleteProduct(Product product) {
 		ArrayList<Product> appoggio = new ArrayList<Product>();
-		Boolean verifica = false;
+		int c = 0;
 		for (Product p: this.productList) {
-			if(p.getId() != product.getId()) {
-				appoggio.add(p);
+			if(p.getId() != product.getId()){
+				
+				appoggio.add(p); //lista buona
 			}
 			else {
-				verifica = true;
+				if (c == 0){
+					
+					c = c + 1;
+				}
+				else {
+					appoggio.add(p); //lista buona
+				}
+  
 			}
 		}
 		this.productList = appoggio;
-		if(verifica) {
+		if(c != 0) {
 	     	this.totalPrice -= product.getPrice();
 	     	return true;
 		}
@@ -73,7 +81,7 @@ public class ShopCart {
 
 	@Override
 	public String toString() {
-		return "ShopCart [productList=" + productList + ", totalPrice=" + totalPrice + "]";
+		return "ProductList=" + productList + ", TotalPrice=" + totalPrice;
 	}
 	
 	

@@ -99,13 +99,14 @@ public class LoginController extends Application {
         		
         		UserBean ub = new UserBean(0, name_r.getText(), sur_r.getText(), pass_r.getText(), mail_r.getText(), newadd);
 
-        		if(cr.register(ub)) {
-        			JOptionPane.showMessageDialog(null, "Registration succesfully!\nPlease login now");
-        			a.openWin("view/login_registerPage.fxml");
-        		}else {
+        		if(pass_r.getText().contentEquals(pass2_r.getText())) {
+        			if(cr.register(ub)) {
+        				JOptionPane.showMessageDialog(null, "Registration succesfully!\nPlease login now");
+        				a.openWin("view/login_registerPage.fxml");
+        			}else {
         			JOptionPane.showMessageDialog(null, "User already registered, please change your email");
-        		}	
-
+        			}	
+        		}
         }
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         oldWin.close();

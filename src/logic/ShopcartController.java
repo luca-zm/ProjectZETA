@@ -198,7 +198,7 @@ public class ShopcartController extends Application {
          
 	}
     @FXML
-    private void next(ActionEvent event) throws IOException {
+    private void next(ActionEvent event) throws IOException, SQLException {
         winNext a = new winNext();
         
         String eventClicked = event.getSource().toString();
@@ -254,8 +254,13 @@ public class ShopcartController extends Application {
         //Hyper link ------------------
 
         //methods buy and remove from Wishlist ----------
-        if (eventClicked.contentEquals("Button[id=consume_gcoin, styleClass=button]'Consume your greencoin'")) {
-        	//metodo buy, aggiunge al carrello da wishlist
+        if (eventClicked.contentEquals("Button[id=consume_gcoin, styleClass=button]'Buy products!'")) {
+        	CSC.buyShopCart();
+        	//initialize();
+			Stage k = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        	a.openWin("view/shopcartPage.fxml");
+        	k.close();
+        	return;
         }
       //methods buy and remove from Wishlist ----------
         

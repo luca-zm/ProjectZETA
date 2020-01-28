@@ -64,7 +64,7 @@ public class History {
 
 	@Override
 	public String toString() {
-		return "History [tranList=" + tranList + "]";
+		return "History:tranList: " + tranList;
 	}
 
 	

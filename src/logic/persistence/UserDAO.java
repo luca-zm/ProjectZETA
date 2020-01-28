@@ -86,6 +86,33 @@ public class UserDAO {
         return null;
     }
     
+    public static ArrayList<AbstractUser> findUsers() throws SQLException{
+    	ArrayList<AbstractUser> list = new ArrayList<AbstractUser>();
+    	try {        
+            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_USERS);
+            ResultSet resultSet = preparedStatement.executeQuery();
+           
+            
+            while (resultSet.next()) { 
+            	int id = resultSet.getInt("id");
+            	String name = resultSet.getString("name");
+                String surname = resultSet.getString("surname");
+                String type = resultSet.getString("type"); 
+                String pass = resultSet.getString("pass"); 
+                String mail = resultSet.getString("mail"); 
+                int greenCoin = resultSet.getInt("greenCoin");
+
+                AbstractUser user = FactoryUsers.get(id, name, surname, mail, pass, type);
+                user.setGreenCoin(greenCoin);
+                list.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    
+    
 
         
 

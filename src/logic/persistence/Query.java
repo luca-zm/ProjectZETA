@@ -66,6 +66,8 @@ public class Query {
 	
 	public static final String SELECT_USERBYID = "SELECT * from user WHERE id = ?";
 	
+	public static final String SELECT_USERS = "SELECT * from user";
+	
 	public static final String SELECT_WISHLIST = "SELECT * from wishlist WHERE userid = ?";
 	
 	public static final String UPDATE_ADDRESS = "UPDATE address SET address = ?, city = ?, postalCode = ?, telephone = ?, state = ?, country = ?, zone = ? WHERE ID = ? ";

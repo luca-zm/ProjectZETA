@@ -8,7 +8,7 @@ public class Query {
 
 	public static final String INSERT_ADDRESS = "INSERT INTO address ( address, city, postalCode, telephone, state, country, zone) values (?,?,?,?,?,?,?)";
 	
-	public static final String INSERT_COLLECTIONPOINT = "INSERT INTO collectionpoint(name, longitude, latitude, address, openingTime, closingTime, isAvailable) VALUES (?,?,?,?,?,?,?)";
+	public static final String INSERT_COLLECTIONPOINT = "INSERT INTO collectionpoint(name, longitude, latitude, address, openingTime, closingTime) VALUES (?,?,?,?,?,?)";
 	
 	public static final String INSERT_MESSAGE = "INSERT INTO message(date, title, bodymessage, type, userId) VALUES (?,?,?,?,?)";
 	
@@ -72,7 +72,7 @@ public class Query {
 	
 	public static final String UPDATE_ADDRESS = "UPDATE address SET address = ?, city = ?, postalCode = ?, telephone = ?, state = ?, country = ?, zone = ? WHERE ID = ? ";
 	
-	public static final String UPDATE_COLLECTIONPOINT = "UPDATE collectionpoint SET name = ?, longitude = ?, latitude = ?, address = ?, openingTime = ?, closingTime = ?, isAvailable = ? WHERE ID = ? ";
+	public static final String UPDATE_COLLECTIONPOINT = "UPDATE collectionpoint SET name = ?, longitude = ?, latitude = ?, address = ?, openingTime = ?, closingTime = ? WHERE ID = ? ";
 	
 	public static final String UPDATE_PRODUCT = "UPDATE product SET name = ?, price = ?, discountPercentage = ?, category = ?, image = ?, description = ?, availability = ? WHERE ID = ? ";
 	

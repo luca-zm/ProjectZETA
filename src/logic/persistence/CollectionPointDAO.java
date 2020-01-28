@@ -25,7 +25,7 @@ public class CollectionPointDAO {
                 preparedStatement.setString(4, collPoint.getAddress());
                 preparedStatement.setInt(5, collPoint.getOpeningTime());
                 preparedStatement.setInt(6, collPoint.getClosingTime());
-                preparedStatement.setBoolean(7, collPoint.getIsAvailable());
+         
 
                 
                 int resultSet = preparedStatement.executeUpdate();
@@ -70,8 +70,8 @@ public class CollectionPointDAO {
             	String addr = resultSet.getString("address");
             	int opTime = resultSet.getInt("openingTime");
             	int clTime = resultSet.getInt("closingTime");
-            	Boolean available = resultSet.getBoolean("isAvailable");
-            	list.add(new CollectionPoint(id, name, lon, lat, addr, opTime, clTime, available));
+        
+            	list.add(new CollectionPoint(id, name, lon, lat, addr, opTime, clTime));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -89,8 +89,7 @@ public class CollectionPointDAO {
             preparedStatement.setString(4, collPoint.getAddress());
             preparedStatement.setInt(5, collPoint.getOpeningTime());
             preparedStatement.setInt(6, collPoint.getClosingTime());
-            preparedStatement.setBoolean(7, collPoint.getIsAvailable());
-            preparedStatement.setInt(8, collPoint.getId());
+            preparedStatement.setInt(7, collPoint.getId());
 
             int resultSet = preparedStatement.executeUpdate();
             if (resultSet > 0) {

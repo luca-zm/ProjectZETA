@@ -136,10 +136,11 @@ public class WishlistController extends Application {
                     try {
 						CSC.addProduct(product.getId());
 						CWL.deleteProductfromWishList(product.getId());
-						Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			        	a.openWin("view/wishlistPage.fxml");
-			        	oldWin.close();
-					} catch (SQLException | IOException e) {
+						initialize();
+						//Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			        	//a.openWin("view/wishlistPage.fxml");
+			        	//oldWin.close();
+					} catch (SQLException e ) {
 						e.printStackTrace();
 					}             
                 }
@@ -151,10 +152,10 @@ public class WishlistController extends Application {
                 public void handle(MouseEvent event) {              
                     try {
 						CWL.deleteProductfromWishList(product.getId());
-						Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			        	a.openWin("view/wishlistPage.fxml");
-			        	oldWin.close();
-					} catch (SQLException | IOException e) {
+//						Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//			        	a.openWin("view/wishlistPage.fxml");
+//			        	oldWin.close();
+					} catch (SQLException e) {
 						e.printStackTrace();
 					}
                 }

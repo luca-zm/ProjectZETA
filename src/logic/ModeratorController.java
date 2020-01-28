@@ -47,7 +47,7 @@ public class ModeratorController extends Application {
     public Button confirm, add;
     
     @FXML
-    public TextField name, address, opening, closing, avaiable;
+    public TextField name, address, opening, closing;
     
     @FXML
     public TextArea area;
@@ -64,7 +64,6 @@ public class ModeratorController extends Application {
     	address = null;
     	opening = null;
     	closing = null;
-    	avaiable = null;
     }
 
     @Override
@@ -86,10 +85,9 @@ public class ModeratorController extends Application {
         winNext a = new winNext();
         String eventClicked = event.getSource().toString();
         if (eventClicked.contentEquals("Button[id=add, styleClass=button]'Add EcoPoint'")) {
-        	if (name != null && address != null && opening != null && closing != null && avaiable != null) {
+        	if (name != null && address != null && opening != null && closing != null) {
                 CollectionPointBean cb = new CollectionPointBean(0, name.getText(), address.getText(),
-                		Integer.parseInt(opening.getText()), Integer.parseInt(closing.getText()),
-                		Boolean.parseBoolean(avaiable.getText()));
+                		Integer.parseInt(opening.getText()), Integer.parseInt(closing.getText()));
                 CMC.insert(cb);
                 JOptionPane.showMessageDialog(null, "EcoPoint correctly insert!");
                 Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();

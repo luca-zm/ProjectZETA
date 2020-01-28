@@ -3,7 +3,11 @@ package logic.model;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import logic.enums.DeliveryStatus;
+import logic.enums.MesType;
+import logic.persistence.MessageDAO;
 import logic.persistence.TransactionDAO;
+import logic.persistence.UserDAO;
 
 public class BonusMachine implements Observer{
 	
@@ -22,25 +26,19 @@ public class BonusMachine implements Observer{
 		this.greenCoinTarget = 500;
 		this.bonus = 100;
 	}
+		public String time() {
+			java.util.Date dt = new java.util.Date();
 
+			java.text.SimpleDateFormat sdf = 
+			     new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+			return sdf.format(dt);
+		}
+		
 	@Override
 	public void update() throws SQLException {
 		ArrayList<ActivationCodeTran> listActCodeTran = TransactionDAO.selectActivationCodeTra(user);
-		ArrayList<BonusTran> listbonusTran = TransactionDAO.selectBonusTran(user);
-		ArrayList<ShipmentTran> listShipmentTran = TransactionDAO.selectShipment(user);
-		
-		int shipmentGreenCoin = 0; 
 		int activationGreenCoin = 0;
-		
-//		for (ShipmentTran shipmentTran : listShipmentTran) {
-//			int price = shipmentTran.getProduct().getPrice();
-//			shipmentGreenCoin += price;
-//		}
-//		if(shipmentGreenCoin - greenCoinMemo > greenCoinTarget) {
-//			addBonus();
-//			greenCoinMemo = greenCoinTarget;
-//		}
-		
 		
 		for (ActivationCodeTran actCodeTran : listActCodeTran) {
 			int price = actCodeTran.getGreenCoinAdded();
@@ -52,8 +50,21 @@ public class BonusMachine implements Observer{
 		}
 	}
 	
-	public void addBonus() {
-		System.out.println("Ho aggiunto greenCoin");
+	public void addBonus() throws SQLException {
+		user.setGreenCoin(user.getGreenCoin() + bonus); 
+		
+		BonusTran tran = new BonusTran(0, time(), "Hai collezionato 500 GreenCoin", bonus);
+					
+		TransactionDAO.insertBonusTran(tran, user);
+					
+		user.getHistory().addTransaction(tran);
+										
+		Message m = new Message(0,time(), "Bonus", "Hai ricevuto un bonus di " + Integer.toString(bonus), MesType.BONUS);
+					
+		MessageDAO.insert(m, user);
+		
+		UserDAO.update(user);
+		
 	}
 	
 	

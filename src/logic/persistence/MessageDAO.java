@@ -40,6 +40,30 @@ public class MessageDAO {
     }
     
     
+    public static Boolean insertBroad(Message message )throws SQLException {
+        try {        
+            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_MESSAGE , Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, message.getDate());
+            preparedStatement.setString(2, message.getTitle());
+            preparedStatement.setString(3, message.getBodymessage());
+            preparedStatement.setString(4, String.valueOf(message.getType()));
+            preparedStatement.setInt(5, 0);
+            
+            int resultSet = preparedStatement.executeUpdate();
+            if (resultSet > 0) {
+            	ResultSet keys = preparedStatement.getGeneratedKeys();    
+            	keys.next();  
+            	message.setId(keys.getInt(1));
+            	return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+    
+    
     public static Boolean delete(Message message) throws SQLException{
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.DELETE_MESSAGE);

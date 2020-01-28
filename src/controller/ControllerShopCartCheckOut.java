@@ -69,9 +69,9 @@ public class ControllerShopCartCheckOut {
 		}
 		
 		Product product = ProductDAO.selectProduct(productId);
-
-		user.getCart().deleteProduct(product);
 		
+		user.getCart().deleteProduct(product);
+		//System.out.println(user.getCart().getProductList().remove(product));
 		return true;
 	}
 	

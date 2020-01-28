@@ -65,7 +65,7 @@ public class UserProfileController extends Application {
 	Singleton sg = Singleton.getInstance();
 	AbstractUser user = sg.getUser();
 	//MessageDAO md = new MessageDAO();
-	//Message nb = new Message();
+	
     
 	public UserProfileController() {
 		
@@ -126,7 +126,11 @@ public class UserProfileController extends Application {
         }
         
         if (eventClicked.contentEquals("Button[id=message, styleClass=button btn-info]'MSG'")) {
-			JOptionPane.showMessageDialog(null, "io sono una bella tabella di messaggi, ciauu");
+        	String messaggi = "";
+        	for(Message m : user.getBoards().getList()) {
+        		messaggi = messaggi + m.getTitle() + ": " + m.getBodymessage() + "\n";
+        	}
+			JOptionPane.showMessageDialog(null, messaggi);
 			return;
         }
         //hyperlink----------------

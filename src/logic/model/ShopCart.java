@@ -42,11 +42,27 @@ public class ShopCart {
 	
 	
 	public Boolean deleteProduct(Product product) {
-		if(this.productList.remove(product)) {
-			this.totalPrice -= product.getPrice();
-			return true;
+		ArrayList<Product> appoggio = new ArrayList<Product>();
+		Boolean verifica = false;
+		for (Product p: this.productList) {
+			if(p.getId() != product.getId()) {
+				appoggio.add(p);
+			}
+			else {
+				verifica = true;
+			}
+		}
+		this.productList = appoggio;
+		if(verifica) {
+	     	this.totalPrice -= product.getPrice();
+	     	return true;
 		}
 		return false;
+//		if(this.productList.remove(product)) {
+//			this.totalPrice -= product.getPrice();
+//			return true;
+//		}
+//		return false;
 	}
 	
 	public void clear() {

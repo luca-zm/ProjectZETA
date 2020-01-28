@@ -51,6 +51,7 @@ public class Main extends Application {
         primaryStage.setTitle("EcoClean");
         primaryStage.setScene(new Scene(root, 770, 550));
         primaryStage.show();
+        primaryStage.centerOnScreen();
 
     }
     

@@ -40,13 +40,11 @@ public class LoginControllerServlet extends HttpServlet {
 		UserBean ub = new UserBean(0, null, null, un, pw, null);
 
 		try {
-			if(controller.login(ub))
+			if(controller.login(ub, session))
 			{
-				System.out.println(session.getAttribute("user"));
 				ArrayList<Product> catalogo = ProductDAO.select();
 				session.setAttribute("catalogo", catalogo);
-				
-				response.sendRedirect("homepage.jsp");
+				request.getRequestDispatcher("homepage.jsp").forward(request, response);
 				return;
 			}
 			else

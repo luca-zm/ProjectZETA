@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="zxx">
 <head>
 	<title>EcoClean</title>
@@ -36,11 +37,11 @@
 			<div class="container">
 				<!-- menu -->
 				<ul class="main-menu">
-					<li><a href="./index.html">Home</a></li>
-					<li><a href="./userprofile.html">User Profile</a></li>
-					<li><a href="./userprofile.html">Activation Code</a></li>
-					<li><a href="./map.html">Map</a></li>
-					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>0</span></div><a href="./cart.html"> Shopping Cart</a></li>
+					<li><a href="./index.jsp">Home</a></li>
+					<li><a href="./userprofile.jsp">User Profile</a></li>
+					<li><a href="./userprofile.jsp">Activation Code</a></li>
+					<li><a href="./map.jsp">Map</a></li>
+					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>0</span></div><a href="./cart.jsp"> Shopping Cart</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -84,50 +85,13 @@
 	<section class="top-letest-product-section">
 		<div class="container">
 			<div class="section-title">
-				<h2>LATEST PRODUCTS</h2>
+				<h2>BEST PRODUCTS</h2>
 			</div>
+			
+
 			<div class="product-slider owl-carousel">
-				<div class="product-item">
-					<div class="pi-pic">
-						<a href="./product.html"><img src="./img/product/1.png" alt=""></a>
-						<div class="pi-links">
-							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-						</div>
-					</div>
-					<div>
-						<h6>25 greencoin</h6>
-						<p>Bottle Test</p>
-					</div>
-				</div>
-				<div class="product-item">
-					<div class="pi-pic">
-						<div class="tag-new">New</div>
-						<a href="./product.html"><img src="./img/product/1.png" alt=""></a>
-						<div class="pi-links">
-							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-						</div>
-					</div>
-					<div>
-						<h6>25 greencoin</h6>
-						<p>Bottle Test</p>
-					</div>
-				</div>
-				<div class="product-item">
-					<div class="pi-pic">
-						<a href="./product.html"><img src="./img/product/1.png" alt=""></a>
-						<div class="pi-links">
-							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-						</div>
-					</div>
-					<div>
-						<h6>25 greencoin</h6>
-							<p>Bottle Test</p>
-					</div>
-				</div>
-				<div class="product-item">
+			    <c:forEach items="${catalogo}" var="item">
+					<div class="product-item">
 						<div class="pi-pic">
 							<a href="./product.html"><img src="./img/product/1.png" alt=""></a>
 							<div class="pi-links">
@@ -136,23 +100,11 @@
 							</div>
 						</div>
 						<div>
-							<h6>25 greencoin</h6>
-							<p>Bottle Test</p>
+							<h6>${item.getPrice()} greencoin</h6>
+							<p>${item.getName()}</p>
 						</div>
 					</div>
-				<div class="product-item">
-						<div class="pi-pic">
-							<a href="./product.html"><img src="./img/product/1.png" alt=""></a>
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div>
-							<h6>25 greencoin</h6>
-							<p>Bottle Test</p>
-						</div>
-					</div>
+				</c:forEach>
 			</div>
 		</div>
 	</section>
@@ -164,7 +116,6 @@
 	<!-- Product filter section -->
 	<section class="product-filter-section">
 		<div class="container">
-			
 			<div class="row">
 				<div class="col-lg-3 col-sm-6">
 					<div class="product-item">
@@ -181,114 +132,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<div class="tag-sale">ON SALE</div>
-							<a href="./product.html"><img src="./img/product/1.png" alt=""></a>
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div>
-							<h6>25 greencoin</h6>
-							<p>Bottle Test</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<a href="./product.html"><img src="./img/product/1.png" alt=""></a>
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div>
-							<h6>25 greencoin</h6>
-							<p>Bottle Test</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<a href="./product.html"><img src="./img/product/1.png" alt=""></a>
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div>
-							<h6>25 greencoin</h6>
-							<p>Bottle Test</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<a href="./product.html"><img src="./img/product/1.png" alt=""></a>
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div>
-							<h6>25 greencoin</h6>
-							<p>Bottle Test</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<a href="./product.html"><img src="./img/product/1.png" alt=""></a>
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div>
-							<h6>25 greencoin</h6>
-							<p>Bottle Test</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<a href="./product.html"><img src="./img/product/1.png" alt=""></a>
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div>
-							<h6>25 greencoin</h6>
-							<p>Bottle Test</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<a href="./product.html"><img src="./img/product/1.png" alt=""></a>
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div>
-							<h6>25 greencoin</h6>
-							<p>Bottle Test</p>
-						</div>
-					</div>
-				</div>
 			</div>
-			
 		</div>
 	</section>
 	<!-- Product filter section end -->

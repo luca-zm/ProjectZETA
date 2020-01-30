@@ -3,6 +3,8 @@ package controller;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import bean.AddressBean;
 import bean.UserBean;
 import model.AbstractUser;
@@ -22,15 +24,14 @@ import model.WishList;
 import persistence.ActivationCodeDAO;
 import persistence.AddressDAO;
 import persistence.MessageDAO;
+import persistence.ProductDAO;
 import persistence.TransactionDAO;
 import persistence.UserDAO;
 import persistence.WishListDAO;
 
 public class ControllerLogin {
-	Singleton singleton = Singleton.getInstance();
 	
-	public Boolean login(UserBean userBean) throws SQLException {
-		
+	public Boolean login(UserBean userBean, HttpSession session) throws SQLException {		
 		String mail = userBean.getMail();
 		String pass = userBean.getPass();
 		AbstractUser user = UserDAO.findRegisteredUser(mail);
@@ -60,10 +61,9 @@ public class ControllerLogin {
 		Address address = AddressDAO.select(user);
 		user.setAddress(address);
 		
-		BonusMachine machine = new BonusMachine(user);
-	
+		BonusMachine machine = new BonusMachine(user);		
 		
-		singleton.setUser(user);
+		session.setAttribute("user", user);
 		
 		
 		return true;

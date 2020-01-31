@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -33,120 +35,79 @@
 
 </head>
 <body>
+	<nav class="main-navbar">
+			<div class="container">
+				<!-- menu -->
+				<ul class="main-menu">
+					<li><a href="./index.html">Home</a></li>
+					<li><a href="./userprofile.html">User Profile</a></li>
+					<li><a href="./userprofile.html">Activation Code</a></li>
+					<li><a href="./map.html">Map</a></li>
+					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>0</span></div><a href="./cart.html"> Shopping Cart</a></li>
+				</ul>
+			</div>
+		</nav>
 
 
+	
+
+	<!-- cart section end -->
 	<section class="cart-section spad">
 		<div class="container">
 			<div class="row">
-			
-			
-			
-				<div class="col-lg-4">
+				<div class="col-lg-12">
 					<div class="cart-table">
-						<h3>SIGN IN</h3>
-						<hr>
-						<form action="LoginControllerServlet" method="post">
-						<div class="promo-code-form">
-							<input id="usr" type="text" placeholder="Email" name="username"><br><br>
-							<input id="psw" type="text" placeholder="Password" name="password"><br><br>
-						</div>
-						<button class="site-btn" style="background-color:#4fe090">Login</button>
-						</form>
-						<br><br>
-					</div>	
-				</div>
-				
-				
-				
-				
-				
-				
-				<div class="col-lg-8">
-				
-					<div class="cart-table">
-						<h3>REGISTER ACCOUNT</h3>
+						<h3>Your Wishlist</h3>
 						<div class="cart-table-warp">
-						<form class="promo-code-form">
-							<table><thead><tr><th></th><th></th></tr></thead><tbody>
-								<tr><!-- prima riga -->
-									<td><input type="text" placeholder="Name"></td>
-									<td><input type="text" placeholder="Surname"></td>
-								</tr><!-- fine prima riga -->
-								
+							<table>
+							<thead>
 								<tr>
-								<td><input type="password" placeholder="Password"></td>
-								<td><input type="password" placeholder="Confirm password"></td>
+									<th class="product-th">Product</th>
+									<th class="quy-th">Price</th>
+									<th class="total-th"></th>
 								</tr>
-							</tbody></table>
+							</thead>
+							<tbody>
 							
 							
-							<input type="text" placeholder="Email">
-							
-							
-							<table><thead><tr><th></th><th></th></tr></thead><tbody>
-								<tr><!-- prima riga -->
-									<td><input type="text" placeholder="Address"></td>
-									<td><input type="text" placeholder="City"></td>
-								</tr><!-- fine prima riga -->
-								
+								<c:forEach items="${catalogo}" var="item">
 								<tr>
-								<td><input type="password" placeholder="Zipcode"></td>
-								<td><input type="password" placeholder="Telephone"></td>
+									<td class="product-col">
+										<img src="${item.getImage()}" alt="">
+										<div class="pc-title">
+											<h4>${item.getName()}</h4>
+										</div>
+									</td>
+									<td class="quy-col">
+										<p>${item.getPrice()} greencoin</p>
+									</td>
+									<td>
+									<a href="./checkout.html" class="site-btn" style="background-color:#4fe090">Add to cart!</a>
+									<a href="./checkout.html" class="site-btn" style="background-color:#666666">Remove</a>
+									</td>
 								</tr>
-								
-								<tr>
-								<td><input type="password" placeholder="State"></td>
-								<td><input type="password" placeholder="Zone"></td>
-								</tr>
-							</tbody></table>
 							
-						</form>
+								</c:forEach>
+								
+								
+							</tbody>
+						</table>
 						</div>
 						
 					</div>
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
+				</div>
 				
 			</div>
 		</div>
 	</section>
+	<!-- cart section end -->
+	
+	
+	<br><br>
+	
+	
+		
+
 
 	<!--====== Javascripts & Jquery ======-->
 	<script src="js/jquery-3.2.1.min.js"></script>

@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="model.CollectionPoint" %>
 <html lang="zxx">
 <head>
 	<title>EcoClean</title>
@@ -49,21 +52,27 @@
 	<section class="contact-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6 contact-info">
+				<div class="col-lg-8 contact-info">
 					<h3>Map of our EcoPoint</h3>
-					<form class="header-search-form">
-					
-						<input type="text" placeholder="...">
-						<button><i class="flaticon-search"></i></button>
-						
-					</form>
+					<c:forEach items="${collpoint}" var="item">
+								<tr>
+									<td class="product-col">
+										<div class="pc-title">
+											<h4>${item.getName()}</h4>
+										</div>
+									</td>
+									<td class="quy-col">
+										<p>${item.getAddress()}</p>
+									</td>
+								</tr>		
+					</c:forEach>
 					<br><br><br><br><br><br><br>
 					<br><br><br><br><br><br><br>
 					<br><br><br><br><br><br><br>
 				</div>
 			</div>
 		</div>
-		<div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14376.077865872314!2d-73.879277264103!3d40.757667781624285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1546528920522" style="border:2"></iframe></div>
+		<div class="map"><a href="https://maps.googleapis.com/maps/api/staticmap?center=Rome,Italy&zoom=11&size=600x500&maptype=roadmap&key=AIzaSyDWaK_dXLPOBO43oLeAkMTrgkh-6qSlnuc">Nome Sito</a></div>
 	</section>
 	
 	<!-- Contact section end -->

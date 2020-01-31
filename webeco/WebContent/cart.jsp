@@ -1,4 +1,9 @@
+
+
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="model.Product" %>
 <html lang="zxx">
 <head>
 	<title>EcoClean</title>
@@ -59,28 +64,33 @@
 							<thead>
 								<tr>
 									<th class="product-th">Product</th>
-									<th class="quy-th">Quantity</th>
 									<th class="total-th">Price</th>
 								</tr>
 							</thead>
 							<tbody>
+								
+								<c:forEach items="${catalogo}" var="item">
 								<tr>
 									<td class="product-col">
-										<img src="img/product/1.png" alt="">
+										<img src="${item.getImage()}" alt="">
 										<div class="pc-title">
-											<h4>Test bottle</h4>
-											<p>25 greencoin</p>
+											<h4>${item.getName()}</h4>
 										</div>
 									</td>
 									<td class="quy-col">
-										<div class="quantity">
-					                        <div class="pro-qty">
-												<input type="text" value="1">
-											</div>
-                    					</div>
+										<p>${item.getPrice()} greencoin</p>
 									</td>
-									<td class="total-col"><h4>25 greencoin</h4></td>
+									<td>
+									
+									<form action="ShopCartCheckOutServlet" method="get">
+									<input type="hidden" name="productId" value ="${item.getId()}">
+										<input type="submit" name="action" value="del" class="site-btn" style="background-color:#666666">
+									</form>
+									
+									</td>
 								</tr>
+							
+								</c:forEach>
 							</tbody>
 						</table>
 						</div>
@@ -94,7 +104,7 @@
 						<input type="text" placeholder="Enter promo code">
 						<button style="color:#4fe090">Submit</button>
 					</form>
-					<a href="./checkout.html" class="site-btn" style="background-color:#4fe090">Proceed to checkout</a>
+					<a href="./checkout.jsp" class="site-btn" style="background-color:#4fe090">Proceed to checkout</a>
 					<a href="#continue" class="site-btn sb-dark" style="background-color:#66666">Continue shopping</a>
 				</div>
 			</div>
@@ -107,72 +117,32 @@
 	
 	
 	<!-- Related product section -->
-	<section class="related-product-section">
+	<section class="top-letest-product-section">
 		<div class="container">
-			<div id="continue" class="section-title text-uppercase">
-				<h2>Continue Shopping</h2>
+			<div class="section-title">
+				<h2>CONTINUE SHOPPING</h2>
 			</div>
-			<div class="row">
-				<div class="col-lg-3 col-sm-6">
+			
+
+			<div class="product-slider owl-carousel">
+			    <c:forEach items="${catalogo}" var="item">
 					<div class="product-item">
 						<div class="pi-pic">
-							<img src="./img/product/1.png" alt="">
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+							<a href="#"><img src="${item.getImage()}" alt=""></a>
+							<div align="center">
+							<input type="submit" value="cart" name="action" class="site-btn" style="background-color:#4fe090; margin: 0.3em;">
+							<!--  <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>-->
+							<!--  <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>-->
+							<input type="submit" value="wish" name="action" class="site-btn" style="background-color:#2fb56e; margin: 0,3em;">
 							</div>
 						</div>
-						<div>
-							<h6>25 greencoin</h6>
-							<p>Test bottle</p>
+						<div align="center">
+							<br>
+							<h6>${item.getPrice()} greencoin</h6>
+							<p>${item.getName()}</p>
 						</div>
 					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<img src="./img/product/1.png" alt="">
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div>
-							<h6>25 greencoin</h6>
-							<p>Test bottle</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<img src="./img/product/1.png" alt="">
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div>
-							<h6>25 greencoin</h6>
-							<p>Test bottle</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<img src="./img/product/1.png" alt="">
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div>
-							<h6>25 greencoin</h6>
-							<p>Test bottle</p>
-						</div>
-					</div>
-				</div>
+				</c:forEach>
 			</div>
 		</div>
 	</section>

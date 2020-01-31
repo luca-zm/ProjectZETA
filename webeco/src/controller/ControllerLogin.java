@@ -65,6 +65,7 @@ public class ControllerLogin {
 		
 		session.setAttribute("user", user);
 		
+		System.out.println(user);
 		
 		return true;
 	}

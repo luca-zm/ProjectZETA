@@ -2,6 +2,7 @@ package controller;
 
 import java.sql.SQLException;
 
+import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
 import bean.AddressBean;
@@ -16,7 +17,7 @@ import persistence.UserDAO;
 
 public class ControllerRegistration {
 	Singleton singleton = Singleton.getInstance();
-	public Boolean register(UserBean userBean) throws SQLException {
+	public Boolean register(UserBean userBean,  HttpSession session) throws SQLException {
 		String mail = userBean.getMail();
 		String pass = userBean.getPass();
 		String name = userBean.getName();

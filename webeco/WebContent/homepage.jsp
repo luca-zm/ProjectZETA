@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="model.Product" %>
 <html lang="zxx">
 <head>
 	<title>EcoClean</title>
@@ -55,10 +57,17 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-6 col-lg-7 text-white">
-
+                        <%  Product borraccia = null;
+                            for(Product p : (ArrayList<Product>)session.getAttribute("catalogo")){
+                                if(p.getName().equals("Borraccia in legno")){
+                	    	       borraccia = p;
+                		           break;
+                                }
+                            }
+                		%>
 							<h2>TESTANDO</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-							<a href="./product.html" class="site-btn sb-line">DISCOVER</a>
+							<a href="${p.getImage()}" class="site-btn sb-line">DISCOVER</a>
 						</div>
 					</div>
 				</div>
@@ -69,7 +78,7 @@
 						<div class="col-xl-6 col-lg-7 text-white">
 							<h2>TEST TEST</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-							<a href="#" class="site-btn sb-line">DISCOVER</a>
+							<a href="./map.jsp" class="site-btn sb-line">DISCOVER</a>
 						</div>
 					</div>
 				</div>
@@ -90,16 +99,19 @@
 			
 
 			<div class="product-slider owl-carousel">
-			    <c:forEach items="${catalogo}" var="item">
+			    <c:forEach items="${catalogomini}" var="item">
 					<div class="product-item">
 						<div class="pi-pic">
-							<a href="./product.html"><img src="./img/product/1.png" alt=""></a>
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+							<a href="${item.getImage()}"><img src="./img/product/1.png" alt=""></a>
+							<div align="center">
+							<input type="submit" value="cart" name="action" class="site-btn" style="background-color:#4fe090; margin: 0.3em;">
+							<!--  <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>-->
+							<!--  <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>-->
+							<input type="submit" value="wish" name="action" class="site-btn" style="background-color:#2fb56e; margin: 0,3em;">
 							</div>
 						</div>
-						<div>
+						<div align="center">
+							<br>
 							<h6>${item.getPrice()} greencoin</h6>
 							<p>${item.getName()}</p>
 						</div>
@@ -114,24 +126,29 @@
 <hr>
 
 	<!-- Product filter section -->
-	<section class="product-filter-section">
+	
+	
+	
+	<section class="related-product-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<a href="./product.html"><img src="./img/product/1.png" alt=""></a>
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div>
-							<h6>25 greencoin</h6>
-							<p>Bottle Test</p>
-						</div>
+			    <c:forEach items="${catalogo}" var="item">			
+					<div class="col-lg-3 col-sm-6">
+						 	<div class="product-item">
+						 		<div class="pi-pic">	
+						 		    <a href="${item.getImage()}"><img src="./img/product/1.png" alt="" width=240 height=240></a>								
+									<div align="center">
+										<input type="submit" value="cart" name="action" class="site-btn" style="background-color:#4fe090; margin: 0.3em;">
+										<input type="submit" value="wish" name="action" class="site-btn" style="background-color:#2fb56e; margin: 0,3em;">
+									</div>
+							    </div>
+									<div>
+										<h6>${item.getPrice()} greencoin</h6>
+										<p>${item.getName()}</p>
+									</div>
+								</div>					
 					</div>
-				</div>
+			    </c:forEach>				
 			</div>
 		</div>
 	</section>

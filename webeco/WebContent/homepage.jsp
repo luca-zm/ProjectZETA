@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="model.Product" %>
 <html lang="zxx">
 <head>
@@ -60,7 +59,9 @@
                         
 							<h2>TESTANDO</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-							<a href="#" class="site-btn sb-line">DISCOVER</a>
+							<form action="HomePageServlet" method="post">
+								<input type="submit" value="Special" name="action" class="site-btn sb-line">
+							</form>
 						</div>
 					</div>
 				</div>
@@ -82,6 +83,7 @@
 	<!-- Hero section end -->
 
 
+
 	<!-- letest product section -->
 	<section class="top-letest-product-section">
 		<div class="container">
@@ -89,13 +91,16 @@
 				<h2>BEST PRODUCTS</h2>
 			</div>
 			
-			
+
 			<div class="product-slider owl-carousel">
 			    <c:forEach items="${catalogomini}" var="item">
+			        <form action="HomePageServlet" method="post">
 					<div class="product-item">
 						<div class="pi-pic">
-							<a href="#"><img src="${item.getImage()}" alt="" height=240 width=240></a>
+							<img src="${item.getImage()}" alt="" width= 240 height= 240>
 							<div align="center">
+							<input type="hidden" name="productId" value ="${item.getId()}">
+							<input type="submit" value="info" name="action" class="site-btn" style="color: black; background-color:#d7fce8; margin-top: 0.3em;">
 							<input type="submit" value="cart" name="action" class="site-btn" style="background-color:#4fe090; margin: 0.3em;">
 							<!--  <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>-->
 							<!--  <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>-->
@@ -108,6 +113,7 @@
 							<p>${item.getName()}</p>
 						</div>
 					</div>
+					</form>
 				</c:forEach>
 			</div>
 		</div>
@@ -124,22 +130,31 @@
 	<section class="related-product-section">
 		<div class="container">
 			<div class="row">
-			    <c:forEach items="${catalogo}" var="item">			
+			    <c:forEach items="${catalogo}" var="item">	
+			    	
 					<div class="col-lg-3 col-sm-6">
-						 	<div class="product-item">
+						<div class="product-item">
 						 		<div class="pi-pic">	
-						 		    <a href="#"><img src="${item.getImage()}" alt="" width=240 height=240></a>								
-									<div align="center">
-										<input type="submit" value="cart" name="action" class="site-btn" style="background-color:#4fe090; margin: 0.3em;">
-										<input type="submit" value="wish" name="action" class="site-btn" style="background-color:#2fb56e; margin: 0,3em;">
-									</div>
+						 		    	<img src="${item.getImage()}" alt="" width=240 height=240>							
+									    <form action="HomePageServlet" method="post">
+									    <div align = "center">
+									    <input type="submit" value="info" name="action" class="site-btn" style="color: black; background-color:#d7fce8; margin-top: 0.3em;">
+									    </div>
+									    <input type="hidden" name="productId" value ="${item.getId()}">
+									    <div align = "center">
+											<input type="submit" value="cart" name="action" class="site-btn" style="background-color:#4fe090; margin: 0.3em;">
+											<input type="submit" value="wish" name="action" class="site-btn" style="background-color:#2fb56e; margin: 0,3em;">
+										</div>
+										</form>
 							    </div>
-									<div>
+								<div align="center">
+									    <br>
 										<h6>${item.getPrice()} greencoin</h6>
 										<p>${item.getName()}</p>
-									</div>
-								</div>					
+								</div>
+						</div>					
 					</div>
+				
 			    </c:forEach>				
 			</div>
 		</div>

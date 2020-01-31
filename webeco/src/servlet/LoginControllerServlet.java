@@ -43,7 +43,7 @@ public class LoginControllerServlet extends HttpServlet {
 				if(CL.login(ub, session))
 				{
 					ArrayList<Product> catalogo = ProductDAO.select();
-					ArrayList<Product> catalogo_mini = ProductDAO.select();
+					ArrayList<Product> catalogo_mini = new ArrayList<Product>();
 					for(Product p: catalogo) {
 						if(p.getPrice() > 100) {
 							catalogo_mini.add(p);
@@ -56,11 +56,11 @@ public class LoginControllerServlet extends HttpServlet {
 					request.getRequestDispatcher("homepage.jsp").forward(request, response);
 					return;
 				}
-				else
-				{
-				    // user errato
-					return;
-				}
+//				else if()
+//				{
+//				    // user errato
+//					return;
+//				}
 			} catch (SQLException | ServletException | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -39,14 +39,14 @@
 			<div class="container">
 				<!-- menu -->
 				<ul class="main-menu">
-					<li><a href="./index.html">Home</a></li>
-					<li><a href="./userprofile.html">User Profile</a></li>
-					<li><a href="./userprofile.html">Activation Code</a></li>
-					<li><a href="./map.html">Map</a></li>
-					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>0</span></div><a href="./cart.html"> Shopping Cart</a></li>
+					<li><a href="./index.jsp">Home</a></li>
+					<li><a href="./userprofile.jsp">User Profile</a></li>
+					<li><a href="./map.jsp">Map</a></li>
+					<li><a href="./wishlist.jsp">Wishlist</a></li>
+					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>0</span></div><a href="./cart.jsp"> Shopping Cart</a></li>
 				</ul>
 			</div>
-		</nav>
+	</nav>
 
 
 	
@@ -83,7 +83,7 @@
 									</td>
 									<td>
 									
-									<form action="WishlistServlet" method="get">
+									<form action="WishlistServlet" method="post">
 									<input type="hidden" name="productId" value ="${item.getId()}">
 										<!--<a href="./checkout.html" class="site-btn" style="background-color:#4fe090">Add to cart!</a>-->
 										<input type="submit" name="action" value="cart" class="site-btn" style="background-color:#4fe090">
@@ -111,8 +111,6 @@
 	
 	
 	<br><br>
-	
-	<p>${user}</p>
 		
 
 

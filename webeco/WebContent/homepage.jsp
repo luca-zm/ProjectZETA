@@ -57,17 +57,10 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-6 col-lg-7 text-white">
-                        <%  Product borraccia = null;
-                            for(Product p : (ArrayList<Product>)session.getAttribute("catalogo")){
-                                if(p.getName().equals("Borraccia in legno")){
-                	    	       borraccia = p;
-                		           break;
-                                }
-                            }
-                		%>
+                        
 							<h2>TESTANDO</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-							<a href="${p.getImage()}" class="site-btn sb-line">DISCOVER</a>
+							<a href="#" class="site-btn sb-line">DISCOVER</a>
 						</div>
 					</div>
 				</div>

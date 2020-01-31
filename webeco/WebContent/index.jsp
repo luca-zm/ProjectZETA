@@ -50,7 +50,7 @@
 							<input id="usr" type="text" placeholder="Email" name="username"><br><br>
 							<input id="psw" type="text" placeholder="Password" name="password"><br><br>
 						</div>
-						<button class="site-btn" style="background-color:#4fe090">Login</button>
+						<button class="site-btn" style="background-color:#4fe090" name="action" value="login">Login</button>
 						</form>
 						<br><br>
 					</div>	
@@ -64,9 +64,11 @@
 				<div class="col-lg-8">
 				
 					<div class="cart-table">
+					
+						<form method="post" action="LoginControllerServlet">
 						<h3>REGISTER ACCOUNT</h3>
 						<div class="cart-table-warp">
-						<form class="promo-code-form">
+						<div class="promo-code-form">
 							<table><thead><tr><th></th><th></th></tr></thead><tbody>
 								<tr><!-- prima riga -->
 									<td><input type="text" placeholder="Name"></td>
@@ -99,14 +101,14 @@
 								<td><input type="password" placeholder="Zone"></td>
 								</tr>
 							</tbody></table>
-							
-						</form>
+							 
+							 
 						</div>
-						
+						</div>
+						<button class="site-btn" style="background-color:#4fe090" name="action" value="register">Register</button>
+						<br><br>
+						</form>
 					</div>
-	
-				
-				
 			</div>
 		</div>
 		</div>

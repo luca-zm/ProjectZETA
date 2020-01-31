@@ -70,7 +70,7 @@
 							<tbody>
 							
 							
-								<c:forEach items="${catalogo}" var="item">
+								<c:forEach items="${user.getWishList().getList()}" var="item">
 								<tr>
 									<td class="product-col">
 										<img src="${item.getImage()}" alt="">
@@ -82,8 +82,15 @@
 										<p>${item.getPrice()} greencoin</p>
 									</td>
 									<td>
-									<a href="./checkout.html" class="site-btn" style="background-color:#4fe090">Add to cart!</a>
-									<a href="./checkout.html" class="site-btn" style="background-color:#666666">Remove</a>
+									
+									<form action="WishlistServlet" method="get">
+									<input type="hidden" name="productId" value ="${item.getId()}">
+										<!--<a href="./checkout.html" class="site-btn" style="background-color:#4fe090">Add to cart!</a>-->
+										<input type="submit" name="action" value="cart" class="site-btn" style="background-color:#4fe090">
+										<input type="submit" name="action" value="del" class="site-btn" style="background-color:#666666">
+										<!--  <a href="./checkout.html" class="site-btn" style="background-color:#666666">Remove</a>-->
+									</form>
+									
 									</td>
 								</tr>
 							
@@ -105,7 +112,7 @@
 	
 	<br><br>
 	
-	
+	<p>${user}</p>
 		
 
 

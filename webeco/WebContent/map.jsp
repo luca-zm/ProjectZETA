@@ -2,6 +2,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="model.CollectionPoint" %>
+<%@ page import="controller.ControllerManageCollPoint" %>
+<%@ page import="java.net.MalformedURLException"%>
+<%@ page import="java.net.URL" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="javax.imageio.ImageIO" %>
+<%@ page import="javax.swing.*" %>
+
+<%@ page import="java.awt.image.BufferedImage" %>
+
+<%@ page import="java.net.URLEncoder" %>
+
+<%@ page import="java.util.ResourceBundle" %>
+
+
 <html lang="zxx">
 <head>
 	<title>EcoClean</title>
@@ -31,50 +45,65 @@
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
-
 </head>
 <body>
 	<nav class="main-navbar">
 			<div class="container">
 				<!-- menu -->
 				<ul class="main-menu">
-					<li><a href="./index.html">Home</a></li>
-					<li><a href="./userprofile.html">User Profile</a></li>
-					<li><a href="./userprofile.html">Activation Code</a></li>
-					<li><a href="./map.html">Map</a></li>
-					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>0</span></div><a href="./cart.html"> Shopping Cart</a></li>
+					<li><a href="./homepage.jsp">Home</a></li>
+					<li><a href="./userprofile.jsp">User Profile</a></li>
+					<li><a href="./map.jsp">Map</a></li>
+					<li><a href="./wishlist.jsp">Wishlist</a></li>
+					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>0</span></div><a href="./cart.jsp"> Shopping Cart</a></li>
 				</ul>
 			</div>
 		</nav>
-
 
 	<!-- Contact section -->
 	<section class="contact-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8 contact-info">
-					<h3>Map of our EcoPoint</h3>
-					<c:forEach items="${collpoint}" var="item">
-								<tr>
-									<td class="product-col">
-										<div class="pc-title">
-											<h4>${item.getName()}</h4>
-										</div>
-									</td>
-									<td class="quy-col">
-										<p>${item.getAddress()}</p>
-									</td>
-								</tr>		
-					</c:forEach>
-					<br><br><br><br><br><br><br>
-					<br><br><br><br><br><br><br>
-					<br><br><br><br><br><br><br>
+				<div class="col-lg-4 contact-info">
+						<div class="cart-table">
+							<h3>Map of our EcoPoint</h3>
+							
+								<table>
+								<thead>
+									<tr>
+									<th></th>
+									<th></th>
+									</tr>
+								</thead>
+								
+								<tbody>
+								<c:forEach items="${collpoint}" var="item">
+									<tr>
+									
+										<td class="product-col">
+											<p>${item.getId()} :</p>
+										</td>
+										<td class="quy-col">
+											${item.getAddress()}<p>${item.getOpeningTime()}:00 am - ${item.getClosingTime()}:00 pm</p>
+										</td>
+									
+									</tr>
+								</c:forEach>
+								</tbody>
+								</table>
+					</div>
 				</div>
-			</div>
+				<div class="col-lg-8 contact-info">
+					<div class="cart-table">
+						<img src="${mapImage}">
+					</div>
+				</div>
 		</div>
-		<div class="map"><a href="https://maps.googleapis.com/maps/api/staticmap?center=Rome,Italy&zoom=11&size=600x500&maptype=roadmap&key=AIzaSyDWaK_dXLPOBO43oLeAkMTrgkh-6qSlnuc">Nome Sito</a></div>
+		</div>
+		<br><br><br>
 	</section>
 	
+
 	<!-- Contact section end -->
 
 	<!--====== Javascripts & Jquery ======-->

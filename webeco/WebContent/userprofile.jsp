@@ -35,11 +35,11 @@
 			<div class="container">
 				<!-- menu -->
 				<ul class="main-menu">
-					<li><a href="./index.html">Home</a></li>
-					<li><a href="./userprofile.html">User Profile</a></li>
-					<li><a href="./userprofile.html">Activation Code</a></li>
-					<li><a href="./map.html">Map</a></li>
-					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>0</span></div><a href="./cart.html"> Shopping Cart</a></li>
+					<li><a href="./index.jsp">Home</a></li>
+					<li><a href="./userprofile.jsp">User Profile</a></li>
+					<li><a href="./map.jsp">Map</a></li>
+					<li><a href="./wishlist.jsp">Wishlist</a></li>
+					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>0</span></div><a href="./cart.jsp"> Shopping Cart</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -58,10 +58,12 @@
 						<hr>
 					<img src="./img/avatar.png" alt="" align="left">&emsp;
 					<div align="right">
-								<p align="left">&ensp;&ensp;&ensp;Username:</p><br>
-								<p align="left">&ensp;&ensp;&ensp;Email:</p><br>
-								<p align="left">&ensp;&ensp;&ensp;Greencoin:</p><br>
-								<p align="left">&ensp;&ensp;&ensp;Address:</p><br>
+								<p align="left">&ensp;&ensp;&ensp;Username:&emsp;${user.getName()}</p><br>
+								<p align="left">&ensp;&ensp;&ensp;Email:&emsp;${user.getMail()}</p><br>
+								<p align="left">&ensp;&ensp;&ensp;Greencoin:&emsp;${user.getGreenCoin()}</p><br>
+								<p align="left">&ensp;&ensp;&ensp;Address:&emsp;${user.getAddress().getAddress()}&emsp;${user.getAddress().getCity()}<br>
+												&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;${user.getAddress().getPostalCode()}&emsp;${user.getAddress().getTelephone()}<br>
+												&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;${user.getAddress().getState()}&emsp;${user.getAddress().getZone()}</p><br>
 					</div>
 					<hr>
 					<br>
@@ -70,11 +72,11 @@
 				</div>
 				
 				<div class="col-lg-4 card-right">
-					<form class="promo-code-form">
-						<input type="text" placeholder="Enter your activation code">
-						<button style="color:#4fe090">Submit</button>
+					<form class="promo-code-form" method="post" action="UserProfileServlet">
+						<input type="text" placeholder="Enter your code" name="code">
+						<br>
+						<input type="submit" class="site-btn" style="background-color:#4fe090" value="activate" name="activate">
 					</form>
-					<a href="" class="site-btn" style="background-color:#4fe090">Activate!</a>
 				</div>
 			</div>
 		</div>

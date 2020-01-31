@@ -82,7 +82,6 @@
 	<!-- Hero section end -->
 
 
-
 	<!-- letest product section -->
 	<section class="top-letest-product-section">
 		<div class="container">
@@ -90,12 +89,12 @@
 				<h2>BEST PRODUCTS</h2>
 			</div>
 			
-
+			
 			<div class="product-slider owl-carousel">
 			    <c:forEach items="${catalogomini}" var="item">
 					<div class="product-item">
 						<div class="pi-pic">
-							<a href="${item.getImage()}"><img src="./img/product/1.png" alt=""></a>
+							<a href="#"><img src="${item.getImage()}" alt="" height=240 width=240></a>
 							<div align="center">
 							<input type="submit" value="cart" name="action" class="site-btn" style="background-color:#4fe090; margin: 0.3em;">
 							<!--  <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>-->
@@ -129,7 +128,7 @@
 					<div class="col-lg-3 col-sm-6">
 						 	<div class="product-item">
 						 		<div class="pi-pic">	
-						 		    <a href="${item.getImage()}"><img src="./img/product/1.png" alt="" width=240 height=240></a>								
+						 		    <a href="#"><img src="${item.getImage()}" alt="" width=240 height=240></a>								
 									<div align="center">
 										<input type="submit" value="cart" name="action" class="site-btn" style="background-color:#4fe090; margin: 0.3em;">
 										<input type="submit" value="wish" name="action" class="site-btn" style="background-color:#2fb56e; margin: 0,3em;">

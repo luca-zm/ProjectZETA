@@ -35,11 +35,11 @@
 			<div class="container">
 				<!-- menu -->
 				<ul class="main-menu">
-					<li><a href="./index.html">Home</a></li>
-					<li><a href="./userprofile.html">User Profile</a></li>
-					<li><a href="./userprofile.html">Activation Code</a></li>
-					<li><a href="./map.html">Map</a></li>
-					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>0</span></div><a href="./cart.html"> Shopping Cart</a></li>
+					<li><a href="./index.jsp">Home</a></li>
+					<li><a href="./userprofile.jsp">User Profile</a></li>
+					<li><a href="./map.jsp">Map</a></li>
+					<li><a href="./wishlist.jsp">Map</a></li>
+					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>0</span></div><a href="./cart.jsp"> Shopping Cart</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -48,36 +48,23 @@
 	<!-- product section -->
 	<section class="product-section">
 		<div class="container">
-			<div class="back-link">
-				<a href="./index.html"> &lt;&lt; Back to Home</a>
-			</div>
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="product-pic-zoom">
-						<img class="product-big-img" src="img/product/bot2.jpg" alt="">
+						<img class="product-big-img" src="${product.getImage()}" alt="">
 					</div>
 					<div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
 						
 					</div>
 				</div>
 				<div class="col-lg-6 product-details">
-					<h2 class="p-title">Test bottle</h2>
-					<h3 class="p-price">25 greencoin</h3>
-					<h4 class="p-stock">Available: <span>In Stock</span></h4>
-					<div class="p-rating">
-						<i class="fa fa-star-o"></i>
-						<i class="fa fa-star-o"></i>
-						<i class="fa fa-star-o"></i>
-						<i class="fa fa-star-o"></i>
-						<i class="fa fa-star-o fa-fade"></i>
-					</div>
+					<h2 class="p-title">${product.getName()}</h2>
+					<h3 class="p-price">${product.getPrice()}</h3>
+					<h4 class="p-stock" style="color:#4fe090">Available</h4>
 					
+
 					
-					<div class="quantity">
-						<p>Quantity</p>
-                        <div class="pro-qty"><input type="text" value="1"></div>
-                    </div>
-					<a href="#" class="site-btn" style="background-color:#4fe090">SHOP NOW</a>
+					<input type="submit" class="site-btn" style="background-color:#4fe090" value="add to cart">
 					<div id="accordion" class="accordion-area">
 						<div class="panel">
 							<div class="panel-header" id="headingOne">
@@ -85,8 +72,8 @@
 							</div>
 							<div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 								<div class="panel-body">
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>								
-								</div>
+									<p>${product.getDescription()}
+									</div>
 							</div>
 						</div>
 						<div class="panel">

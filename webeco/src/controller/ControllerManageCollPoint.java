@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import bean.AddressBean;
 import bean.CollectionPointBean;
-//import logic.URLReader;
+import utilClasses.URLReader;
 import enums.MesType;
 import model.AbstractUser;
 import model.Address;

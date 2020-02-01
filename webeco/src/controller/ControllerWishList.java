@@ -75,7 +75,6 @@ public class ControllerWishList {
 		user.getWishList().deleteProduct(product);
 		
 		
-		
 		return true;
 	}
 	

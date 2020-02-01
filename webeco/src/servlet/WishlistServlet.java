@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import controller.ControllerShopCartCheckOut;
 import controller.ControllerWishList;
+import model.AbstractUser;
 
 /**
  * Servlet implementation class WIshlistServlet
@@ -36,12 +37,13 @@ public class WishlistServlet extends HttpServlet {
 
 		HttpSession session = request.getSession(); 
 		String action = request.getParameter("action");
-		ControllerShopCartCheckOut controller = new ControllerShopCartCheckOut();
-		ControllerWishList controller2 = new ControllerWishList();
+
+
 		int productId = Integer.parseInt(request.getParameter("productId"));
 
 		if("cart".equals(action)) {
 			try {
+				ControllerShopCartCheckOut controller = new ControllerShopCartCheckOut();
 				controller.addProduct(productId, session);
 				response.sendRedirect("wishlist.jsp");
 			} catch (SQLException e) {
@@ -51,7 +53,10 @@ public class WishlistServlet extends HttpServlet {
 		}
 		else if("del".contentEquals(action)) {
 			try {
+				ControllerWishList controller2 = new ControllerWishList();
 				controller2.deleteProductfromWishList(productId, session);
+				AbstractUser user = (AbstractUser) session.getAttribute("user");
+				System.out.println(user.getWishList().getList());
 				response.sendRedirect("wishlist.jsp");
 
 			} catch (SQLException e) {

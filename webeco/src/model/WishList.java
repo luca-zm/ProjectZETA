@@ -29,9 +29,18 @@ public class WishList {
 	
 	
 	public void deleteProduct(Product product) {
-		this.list.remove(product);
-		
+		ArrayList<Product> appoggio = new ArrayList<Product>();
+		int c = 0;
+		for (Product p: this.list) {
+			if(p.getId() != product.getId()){
+				
+				appoggio.add(p); //lista buona
+			}
+		}
+		this.list = appoggio;
 	}
+		
+	
 	
 	public void clear() {
 		this.list.clear();

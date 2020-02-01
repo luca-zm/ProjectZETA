@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="model.Product" %>
+<%@page import="java.util.ArrayList" %>
 <html lang="zxx">
 <head>
 	<title>EcoClean</title>
@@ -60,6 +61,7 @@
 							<h2>TESTANDO</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
 							<form action="HomePageServlet" method="post">
+							    <input type="hidden" name="productId" value ="${item.getId()}">
 								<input type="submit" value="Special" name="action" class="site-btn sb-line">
 							</form>
 						</div>

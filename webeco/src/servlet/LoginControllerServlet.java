@@ -63,6 +63,7 @@ public class LoginControllerServlet extends HttpServlet {
 			try {
 				if(CL.login(ub, session))
 				{
+					ShopCart s = new ShopCart();
 					ArrayList<Product> catalogo = ProductDAO.select();
 					ArrayList<Product> catalogo_mini = new ArrayList<Product>();
 					ArrayList<CollectionPoint> collpoint = CollectionPointDAO.select();
@@ -74,7 +75,8 @@ public class LoginControllerServlet extends HttpServlet {
 							catalogo_mini.add(p);
 						}
 					}	
-					
+					session.setAttribute("carrello", s.getProductList());
+					session.setAttribute("totale", s.getTotalPrice());
 					session.setAttribute("mapImage", mapUrl);
 					session.setAttribute("collpoint", collpoint);
 					session.setAttribute("catalogomini", catalogo_mini);

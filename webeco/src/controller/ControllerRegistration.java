@@ -17,7 +17,7 @@ import persistence.UserDAO;
 
 public class ControllerRegistration {
 	Singleton singleton = Singleton.getInstance();
-	public Boolean register(UserBean userBean,  HttpSession session) throws SQLException {
+	public Boolean register(UserBean userBean) throws SQLException {
 		String mail = userBean.getMail();
 		String pass = userBean.getPass();
 		String name = userBean.getName();
@@ -31,11 +31,11 @@ public class ControllerRegistration {
 		
 		AbstractUser user = FactoryUsers.get(0, mail, name, username, pass, "USER");
 		
-		Address addr = new Address(0, addrBean.getAddress(), addrBean.getCity(), addrBean.getPostalCode(), addrBean.getTelephone(), addrBean.getState(), addrBean.getCountry(), addrBean.getZone());
+		Address addr = new Address(0, addrBean.getAddress(), addrBean.getCity(), addrBean.getPostalCode(), addrBean.getTelephone(), addrBean.getState(), addrBean.getZone());
 		AddressDAO.insert(addr);
 	
 		user.setAddress(addr);
-		singleton.setUser(user);
+
 		
 		UserDAO.insert(user);
 		return true;

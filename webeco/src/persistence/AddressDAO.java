@@ -24,8 +24,7 @@ public class AddressDAO {
             preparedStatement.setString(3, address.getPostalCode());
             preparedStatement.setString(4, address.getTelephone());
             preparedStatement.setString(5, address.getState());
-            preparedStatement.setString(6, address.getCountry());
-            preparedStatement.setString(7, address.getZone());
+            preparedStatement.setString(6, address.getZone());
 
             
             int resultSet = preparedStatement.executeUpdate();
@@ -69,9 +68,8 @@ public class AddressDAO {
             	String postalCode = resultSet.getString("postalCode");
             	String telephone = resultSet.getString("telephone");
             	String state = resultSet.getString("state");
-            	String country = resultSet.getString("country");
             	String zone = resultSet.getString("zone");
-            	Address addr = new Address(user.getId(), address, city, postalCode, telephone, state, country, zone);
+            	Address addr = new Address(user.getId(), address, city, postalCode, telephone, state, zone);
             	return addr;
             }
         } catch (SQLException e) {
@@ -88,7 +86,6 @@ public class AddressDAO {
             preparedStatement.setString(3, address.getPostalCode());
             preparedStatement.setString(4, address.getTelephone());
             preparedStatement.setString(5, address.getState());
-            preparedStatement.setString(6, address.getCountry());
             preparedStatement.setString(7, address.getZone());
             preparedStatement.setInt(8, address.getId());
             

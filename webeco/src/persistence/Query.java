@@ -6,7 +6,7 @@ public class Query {
 	
 	public static final String INSERT_ACTCODE = "INSERT INTO activationcode(activationCode, greenCoinAdded) VALUES (?,?)";
 
-	public static final String INSERT_ADDRESS = "INSERT INTO address ( address, city, postalCode, telephone, state, country, zone) values (?,?,?,?,?,?,?)";
+	public static final String INSERT_ADDRESS = "INSERT INTO address ( address, city, postalCode, telephone, state, zone) values (?,?,?,?,?,?)";
 	
 	public static final String INSERT_COLLECTIONPOINT = "INSERT INTO collectionpoint(name, longitude, latitude, address, openingTime, closingTime) VALUES (?,?,?,?,?,?)";
 	

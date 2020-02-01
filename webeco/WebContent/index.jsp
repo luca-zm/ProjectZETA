@@ -71,34 +71,34 @@
 						<div class="promo-code-form">
 							<table><thead><tr><th></th><th></th></tr></thead><tbody>
 								<tr><!-- prima riga -->
-									<td><input type="text" placeholder="Name"></td>
-									<td><input type="text" placeholder="Surname"></td>
+									<td><input type="text" placeholder="Name" name="name"></td>
+									<td><input type="text" placeholder="Surname" name="surname"></td>
 								</tr><!-- fine prima riga -->
 								
 								<tr>
-								<td><input type="password" placeholder="Password"></td>
-								<td><input type="password" placeholder="Confirm password"></td>
+								<td><input type="password" placeholder="Password" name="pass"></td>
+								<td><input type="password" placeholder="Confirm password" name="confpass"></td>
 								</tr>
 							</tbody></table>
 							
 							
-							<input type="text" placeholder="Email">
+							<input type="text" placeholder="Email" name="email">
 							
 							
 							<table><thead><tr><th></th><th></th></tr></thead><tbody>
 								<tr><!-- prima riga -->
-									<td><input type="text" placeholder="Address"></td>
-									<td><input type="text" placeholder="City"></td>
+									<td><input type="text" placeholder="Address" name="address"></td>
+									<td><input type="text" placeholder="City" name="city"></td>
 								</tr><!-- fine prima riga -->
 								
 								<tr>
-								<td><input type="password" placeholder="Zipcode"></td>
-								<td><input type="password" placeholder="Telephone"></td>
+								<td><input type="password" placeholder="Zipcode" came="zipcode"></td>
+								<td><input type="password" placeholder="Telephone" name="telephone"></td>
 								</tr>
 								
 								<tr>
-								<td><input type="password" placeholder="State"></td>
-								<td><input type="password" placeholder="Zone"></td>
+								<td><input type="password" placeholder="State" name="state"></td>
+								<td><input type="password" placeholder="Zone" name ="zone"></td>
 								</tr>
 							</tbody></table>
 							 

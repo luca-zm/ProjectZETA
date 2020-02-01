@@ -6,19 +6,18 @@ public class AddressBean {
 	private String postalCode;
 	private String telephone;
 	private String state;
-	private String country;
 	private String zone;
 	
 	
 	
-	public AddressBean(String address, String city, String postalCode, String telephone, String state, String country,
+	public AddressBean(String address, String city, String postalCode, String telephone, String state,
 			String zone) {
 		this.address = address;
 		this.city = city;
 		this.postalCode = postalCode;
 		this.telephone = telephone;
 		this.state = state;
-		this.country = country;
+
 		this.zone = zone;
 	}
 	public String getAddress() {
@@ -50,12 +49,6 @@ public class AddressBean {
 	}
 	public void setState(String state) {
 		this.state = state;
-	}
-	public String getCountry() {
-		return country;
-	}
-	public void setCountry(String country) {
-		this.country = country;
 	}
 	public String getZone() {
 		return zone;

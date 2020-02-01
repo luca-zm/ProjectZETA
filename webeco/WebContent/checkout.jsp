@@ -43,11 +43,11 @@
 			<div class="container">
 				<!-- menu -->
 				<ul class="main-menu">
-					<li><a href="./index.html">Home</a></li>
-					<li><a href="./userprofile.html">User Profile</a></li>
-					<li><a href="./userprofile.html">Activation Code</a></li>
-					<li><a href="./map.html">Map</a></li>
-					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>0</span></div><a href="./cart.html"> Shopping Cart</a></li>
+					<li><a href="./homepage.jsp">Home</a></li>
+					<li><a href="./userprofile.jsp">User Profile</a></li>
+					<li><a href="./map.jsp">Map</a></li>
+					<li><a href="./wishlist.jsp">Wishlist</a></li>
+					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>0</span></div><a href="./cart.jsp"> Shopping Cart</a></li>
 				</ul>
 			</div>
 	</nav>
@@ -86,8 +86,8 @@
 								<input type="text" placeholder="Phone number">
 							</div>
 						</div>
-					<form action="checkout" method="get">	
-					<button class="site-btn submit-order-btn" style="background-color:#4fe090">Place Order</button>
+					<form action="CheckoutServlet" method="get">	
+					<button name="action" value="order" class="site-btn submit-order-btn" style="background-color:#4fe090">Place Order</button>
 					</form>	
 			</div>	
 					
@@ -100,7 +100,7 @@
 					
 					<form action="ShopCartServlet" method="get">
 					
-					<c:forEach items="${catalogo}" var="item">
+					<c:forEach items="${user.getCart().getProductList()}" var="item">
 								<tr>
 										<div class="pc-title">
 											<h4>${item.getName()}</h4>

@@ -100,11 +100,13 @@
 							<img src="${item.getImage()}" alt="" width= 240 height= 240>
 							<div align="center">
 							<input type="hidden" name="productId" value ="${item.getId()}">
+							<form method="post" action="HomePageServlet">
 							<input type="submit" value="info" name="action" class="site-btn" style="color: black; background-color:#d7fce8; margin-top: 0.3em;">
 							<input type="submit" value="cart" name="action" class="site-btn" style="background-color:#4fe090; margin: 0.3em;">
 							<!--  <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>-->
 							<!--  <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>-->
 							<input type="submit" value="wish" name="action" class="site-btn" style="background-color:#2fb56e; margin: 0,3em;">
+							</form>
 							</div>
 						</div>
 						<div align="center">
@@ -136,15 +138,19 @@
 						<div class="product-item">
 						 		<div class="pi-pic">	
 						 		    	<img src="${item.getImage()}" alt="" width=240 height=240>							
-									    <form action="HomePageServlet" method="post">
+										<form method="post" action="HomePageServlet">
+										
 									    <div align = "center">
-									    <input type="submit" value="info" name="action" class="site-btn" style="color: black; background-color:#d7fce8; margin-top: 0.3em;">
+									    	<input type="submit" value="info" name="action" class="site-btn" style="color: black; background-color:#d7fce8; margin-top: 0.3em;">
 									    </div>
-									    <input type="hidden" name="productId" value ="${item.getId()}">
+									    
+									    	<input type="hidden" name="productId" value ="${item.getId()}">
+									    	
 									    <div align = "center">
 											<input type="submit" value="cart" name="action" class="site-btn" style="background-color:#4fe090; margin: 0.3em;">
 											<input type="submit" value="wish" name="action" class="site-btn" style="background-color:#2fb56e; margin: 0,3em;">
 										</div>
+										
 										</form>
 							    </div>
 								<div align="center">

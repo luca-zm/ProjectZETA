@@ -37,21 +37,22 @@ public class WishlistServlet extends HttpServlet {
 		HttpSession session = request.getSession(); 
 		String action = request.getParameter("action");
 		ControllerShopCartCheckOut controller = new ControllerShopCartCheckOut();
-		if("cart".contentEquals(action)) {
+		int productId = Integer.parseInt(request.getParameter("productId"));
 
-			int productId = Integer.parseInt(request.getParameter("productId"));
+		if("cart".equals(action)) {
 			try {
 				controller.addProduct(productId, session);
+				response.sendRedirect("wishlist.jsp");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		else if("del".contentEquals(action)) {
-			int productId = Integer.parseInt(request.getParameter("productId"));
 			try {
 				controller.deleteProduct(productId, session);
-				
+				response.sendRedirect("wishlist.jsp");
+
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

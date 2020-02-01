@@ -22,6 +22,7 @@ import controller.ControllerManageCollPoint;
 import controller.ControllerRegistration;
 import model.CollectionPoint;
 import model.Product;
+import model.ShopCart;
 import persistence.CollectionPointDAO;
 import persistence.ProductDAO;
 
@@ -63,7 +64,7 @@ public class LoginControllerServlet extends HttpServlet {
 			try {
 				if(CL.login(ub, session))
 				{
-					ShopCart s = new ShopCart();
+					//ShopCart s = new ShopCart();
 					ArrayList<Product> catalogo = ProductDAO.select();
 					ArrayList<Product> catalogo_mini = new ArrayList<Product>();
 					ArrayList<CollectionPoint> collpoint = CollectionPointDAO.select();
@@ -73,10 +74,11 @@ public class LoginControllerServlet extends HttpServlet {
 					for(Product p: catalogo) {
 						if(p.getPrice() > 100) {
 							catalogo_mini.add(p);
+							//s.addProduct(p);
 						}
 					}	
-					session.setAttribute("carrello", s.getProductList());
-					session.setAttribute("totale", s.getTotalPrice());
+//					session.setAttribute("carrello", s.getProductList());
+//					session.setAttribute("totale", s.getTotalPrice());
 					session.setAttribute("mapImage", mapUrl);
 					session.setAttribute("collpoint", collpoint);
 					session.setAttribute("catalogomini", catalogo_mini);

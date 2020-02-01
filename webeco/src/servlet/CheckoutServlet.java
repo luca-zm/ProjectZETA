@@ -38,15 +38,17 @@ public class CheckoutServlet extends HttpServlet {
 		
 		ControllerShopCartCheckOut c = new ControllerShopCartCheckOut();
 		
-		if("checkout".contentEquals(action)) {
+		if("order".contentEquals(action)) {
 			
 			try {
+				System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"+session.getAttribute("carrello"));
 				c.buyShopCart(session);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 			
-			
+			request.getRequestDispatcher("cart.jsp").forward(request, response);
+			return;
 		}	
     }
 }

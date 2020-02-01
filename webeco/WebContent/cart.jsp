@@ -69,7 +69,7 @@
 							</thead>
 							<tbody>
 								
-								<c:forEach items="${carrello}" var="item">
+								<c:forEach items="${user.getCart().getProductList()}" var="item">
 								<tr>
 									<td class="product-col">
 										<img src="${item.getImage()}" alt="">
@@ -95,7 +95,7 @@
 						</table>
 						</div>
 						<div class="total-cost" style="background-color:#4fe090">
-							<h6>TOTAL <span>${totale} greencoin</span></h6>
+							<h6>TOTAL <span>${user.getCart().getTotalPrice()} greencoin</span></h6>
 						</div>
 					</div>
 				</div>
@@ -104,6 +104,7 @@
 						<input type="text" placeholder="Enter promo code">
 						<button style="color:#4fe090">Submit</button>
 					</form>
+					
 					<a href="./checkout.jsp" class="site-btn" style="background-color:#4fe090">Proceed to checkout</a>
 					<a href="#continue" class="site-btn sb-dark" style="background-color:#66666">Continue shopping</a>
 				</div>

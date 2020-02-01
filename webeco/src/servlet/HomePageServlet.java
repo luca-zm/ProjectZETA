@@ -49,29 +49,29 @@ public class HomePageServlet extends HttpServlet {
 		HttpSession session = request.getSession(); 
 		String action = request.getParameter("action");
 		int productId = Integer.parseInt(request.getParameter("productId"));
-		if("cart".equals(action)) {
-			ControllerShopCartCheckOut controller = new ControllerShopCartCheckOut();
+		if("wish".equals(action)) {
+			ControllerWishList controller = new ControllerWishList();
 			try {
 				AbstractUser user = (AbstractUser)session.getAttribute("user");
 				for(Product p: user.getWishList().getList()) {
 					if(p.getId() == productId) {
-						response.sendRedirect("homepage.jsp/#");
+						response.sendRedirect("homepage.jsp");
 						return;
 					}
 					
 				}
-				controller.addProduct(productId, session);
-				response.sendRedirect("homepage.jsp/#");
+				controller.addProductinWishList(productId, session);
+				response.sendRedirect("homepage.jsp");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
 		}
-		else if("wish".equals(action)) {
-			ControllerWishList controller = new ControllerWishList();
+		else if("cart".equals(action)) {
+			ControllerShopCartCheckOut controller = new ControllerShopCartCheckOut();
 			try {
-				controller.addProductinWishList(productId, session);
+				controller.addProduct(productId, session);
 				response.sendRedirect("homepage.jsp");
 				return;
 			} catch (SQLException e) {

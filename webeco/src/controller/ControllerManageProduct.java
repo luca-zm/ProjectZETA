@@ -22,11 +22,11 @@ public class ControllerManageProduct {
 		return true;
 	}
 	
-//	public Boolean deleteProduct(ProductBean productBean) throws SQLException {
-//		int id = productBean.getId();
-//		ProductDAO.delete(id);
-//		return true;
-//	}
+	public Boolean deleteProduct(ProductBean productBean) throws SQLException {
+		int id = productBean.getId();
+		ProductDAO.delete(id);
+		return true;
+	}
 	
 	
 	public Boolean setProductAvailability(ProductBean productBean, Boolean av) throws SQLException {

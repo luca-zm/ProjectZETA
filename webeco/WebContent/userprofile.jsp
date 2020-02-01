@@ -1,5 +1,9 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <!DOCTYPE html>
 <html lang="zxx">
+
 <head>
 	<title>EcoClean</title>
 	<meta charset="UTF-8">
@@ -73,15 +77,84 @@
 				
 				<div class="col-lg-4 card-right">
 					<form class="promo-code-form" method="post" action="UserProfileServlet">
-						<input type="text" placeholder="Enter your code" name="code">
+						<input type="text" placeholder="Enter your code" name="code"><br>
 						<br>
 						<input type="submit" class="site-btn" style="background-color:#4fe090" value="activate" name="activate">
 					</form>
+					<br><br><br><br><br><br>
+					<a href="#continue" class="site-btn sb-dark" style="background-color:#66666">Check messages and history</a>
+
+					
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- cart section end -->
+	
+	<hr>
+	
+	
+	<!-- SECTION MESSAGES AND HISTORY -->
+		<section id="continue" class="cart-section spad">
+		<div class="container">	
+		<div class="row">	
+				<div class="col-lg-6" style="overflow-y: scroll; height:400px;">
+					<div class="cart-table">
+						<div class="promo-code-form">
+						<h3>MESSAGES</h3>
+						<hr>
+						<div class="cart-table">
+							
+								<table><thead><tr><th></th><th></th></tr></thead>
+								<tbody>
+								<c:forEach items="${user.getBoards().getList()}" var="item">
+									<tr>
+									
+										<td class="product-col">
+											${item.getDate()} :: <p>${item.getTitle()}</p>
+										</td>
+										<td class="quy-col">
+											<p>${item.getBodymessage()}</p>
+										</td>
+									
+									</tr>
+								</c:forEach>
+								</tbody>
+								</table>
+						</div>			
+						<br>
+					</div>	
+				</div>
+				</div>
+				
+				
+				<div class="col-lg-6" style="overflow-y: scroll; height:400px;">
+				<div class="cart-table">
+						<h3>HISTORY</h3><div class="cart-table-warp"><div class="promo-code-form"><hr>		
+							<form method="get" action="UserProfileServlet">
+							
+								<table><thead><tr><th></th></tr></thead>
+								<tbody>
+								<c:forEach items="${user.getHistory().getTranList()}" var="item">
+									<tr>
+									
+										<td class="product-col">
+											<P>${item.toString()}</p><br><hr>
+										</td>
+										
+									</tr>
+								</c:forEach>
+								</tbody>
+								</table>
+
+							
+							</form>							 
+				</div></div><br><br></div></div>
+			</div>
+			</div>
+	</section>	
+			
+	
 
 
 	<!--====== Javascripts & Jquery ======-->

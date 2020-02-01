@@ -16,9 +16,9 @@ import model.Product;
 import persistence.ProductDAO;
 
 /**
- * Servlet implementation class ShopCart
+ * Servlet implementation class ShopCartServlet
  */
-@WebServlet("/ShopCart")
+@WebServlet("/ShopCartServlet")
 public class ShopCartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -43,6 +43,7 @@ public class ShopCartServlet extends HttpServlet {
 				int productId = Integer.parseInt(request.getParameter("productId"));
 				try {
 					controller.deleteProduct(productId, session);
+					response.sendRedirect("cart.jsp");
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

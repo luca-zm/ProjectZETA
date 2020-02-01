@@ -16,7 +16,7 @@ import controller.ControllerWishList;
 /**
  * Servlet implementation class WIshlistServlet
  */
-@WebServlet("/WIshlistServlet")
+@WebServlet("/WishlistServlet")
 public class WishlistServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -37,6 +37,7 @@ public class WishlistServlet extends HttpServlet {
 		HttpSession session = request.getSession(); 
 		String action = request.getParameter("action");
 		ControllerShopCartCheckOut controller = new ControllerShopCartCheckOut();
+		ControllerWishList controller2 = new ControllerWishList();
 		int productId = Integer.parseInt(request.getParameter("productId"));
 
 		if("cart".equals(action)) {
@@ -50,7 +51,7 @@ public class WishlistServlet extends HttpServlet {
 		}
 		else if("del".contentEquals(action)) {
 			try {
-				controller.deleteProduct(productId, session);
+				controller2.deleteProductfromWishList(productId, session);
 				response.sendRedirect("wishlist.jsp");
 
 			} catch (SQLException e) {

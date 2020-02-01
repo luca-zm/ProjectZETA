@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="model.Product" %>
 <html lang="zxx">
 <head>
 	<title>EcoClean</title>
@@ -54,7 +57,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 order-2 order-lg-1">
-					<form class="checkout-form">
+					<div class="checkout-form">
 						<div class="cf-title" style="backgroudn-color:#66666">Billing Address</div>
 						<div class="row">
 							
@@ -83,27 +86,36 @@
 								<input type="text" placeholder="Phone number">
 							</div>
 						</div>
-						
-						<button class="site-btn submit-order-btn" style="background-color:#4fe090">Place Order</button>
-					</form>
-				</div>
-				<div class="col-lg-4 order-1 order-lg-2">
-					<div class="checkout-cart">
-						<h3>Your Cart</h3>
-						<ul class="product-list">
-							<li>
-								<div class="pl-thumb"><img src="img/product/1.png" alt=""></div>
-								<h6>Bottle Test</h6>
-								<p>25 gc</p>
-							</li>
-						</ul>
-						<ul class="price-list">
-							<li>TOTAL<span>25 gc</span></li>
-							<li>Shipping<span>free</span></li>
-							<li class="total">TOTAL<span>25 gc</span></li>
-						</ul>
+					<form action="checkout" method="get">	
+					<button class="site-btn submit-order-btn" style="background-color:#4fe090">Place Order</button>
+					</form>	
+			</div>	
+					
 					</div>
-				</div>
+					
+					<div class="col-lg-4 order-1 order-lg-2">
+					<div class="checkout-cart">	
+					
+					<h3>Your Cart</h3>
+					
+					<form action="ShopCartServlet" method="get">
+					
+					<c:forEach items="${catalogo}" var="item">
+								<tr>
+										<div class="pc-title">
+											<h4>${item.getName()}</h4>
+										</div>
+									</td>
+									<td class="quy-col">
+										<p>${item.getPrice()} greencoin</p>
+									</td>
+									<td>
+									
+
+									</td>
+								</tr>
+					</c:forEach>
+					</form>
 			</div>
 		</div>
 	</section>

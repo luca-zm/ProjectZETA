@@ -69,7 +69,7 @@
 							</thead>
 							<tbody>
 								
-								<c:forEach items="${catalogo}" var="item">
+								<c:forEach items="${carrello}" var="item">
 								<tr>
 									<td class="product-col">
 										<img src="${item.getImage()}" alt="">
@@ -95,7 +95,7 @@
 						</table>
 						</div>
 						<div class="total-cost" style="background-color:#4fe090">
-							<h6>TOTAL <span>25 greencoin</span></h6>
+							<h6>TOTAL <span>${totale} greencoin</span></h6>
 						</div>
 					</div>
 				</div>

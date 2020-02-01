@@ -58,12 +58,9 @@
 					<div class="row">
 						<div class="col-xl-6 col-lg-7 text-white">
                         
-							<h2>TESTANDO</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-							<form action="HomePageServlet" method="post">
-							    <input type="hidden" name="productId" value ="${item.getId()}">
-								<input type="submit" value="Special" name="action" class="site-btn sb-line">
-							</form>
+							<h2>NEW ARRIVE</h2>
+							<p>take a look at our latest product added to the platform, the CLIMA BOTTLE, in collaboration with 24bottles and Diesel! </p>
+							    <a href="#top" class="site-btn sb-line">GO TO PRODUCTS</a>
 						</div>
 					</div>
 				</div>
@@ -72,8 +69,8 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-6 col-lg-7 text-white">
-							<h2>TEST TEST</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+							<h2>DISCOVER THE ECOPOINT CLOSEST TO YOU!</h2>
+							<p>Our EcoPoints cover a good part of Rome, arranged along the most popular underground.</p>
 							<a href="./map.jsp" class="site-btn sb-line">DISCOVER</a>
 						</div>
 					</div>
@@ -87,7 +84,7 @@
 
 
 	<!-- letest product section -->
-	<section class="top-letest-product-section">
+	<section class="top-letest-product-section" id="top">
 		<div class="container">
 			<div class="section-title">
 				<h2>BEST PRODUCTS</h2>
@@ -96,13 +93,14 @@
 
 			<div class="product-slider owl-carousel">
 			    <c:forEach items="${catalogomini}" var="item">
-			        <form action="HomePageServlet" method="post">
+
 					<div class="product-item">
 						<div class="pi-pic">
 							<img src="${item.getImage()}" alt="" width= 240 height= 240>
 							<div align="center">
-							<input type="hidden" name="productId" value ="${item.getId()}">
 							<form method="post" action="HomePageServlet">
+							
+							<input type="hidden" name="productId" value ="${item.getId()}">
 							<input type="submit" value="info" name="action" class="site-btn" style="color: black; background-color:#d7fce8; margin-top: 0.3em;">
 							<input type="submit" value="cart" name="action" class="site-btn" style="background-color:#4fe090; margin: 0.3em;">
 							<!--  <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>-->
@@ -117,7 +115,7 @@
 							<p>${item.getName()}</p>
 						</div>
 					</div>
-					</form>
+
 				</c:forEach>
 			</div>
 		</div>

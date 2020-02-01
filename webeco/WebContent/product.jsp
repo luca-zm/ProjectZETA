@@ -35,10 +35,10 @@
 			<div class="container">
 				<!-- menu -->
 				<ul class="main-menu">
-					<li><a href="./index.jsp">Home</a></li>
+					<li><a href="./homepage.jsp">Home</a></li>
 					<li><a href="./userprofile.jsp">User Profile</a></li>
 					<li><a href="./map.jsp">Map</a></li>
-					<li><a href="./wishlist.jsp">Map</a></li>
+					<li><a href="./wishlist.jsp">Wishlist</a></li>
 					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>${user.getCart().getProductList().size()}</span></div><a href="./cart.jsp"> Shopping Cart</a></li>
 				</ul>
 			</div>
@@ -59,12 +59,13 @@
 				</div>
 				<div class="col-lg-6 product-details">
 					<h2 class="p-title">${product.getName()}</h2>
-					<h3 class="p-price">${product.getPrice()}</h3>
-					<h4 class="p-stock" style="color:#4fe090">Available</h4>
-					
+					<h3 class="p-price">${product.getPrice()}</h3>					
 
+					<form method="get" action="ShopCartServlet">
+					<input type="hidden" name="productIdup" value ="${product.getId()}">
+					<input type="submit" value="add to cart" name="action" class="site-btn" style="background-color:#4fe090; margin: 0.3em;">
+					</form>
 					
-					<input type="submit" class="site-btn" style="background-color:#4fe090" value="add to cart">
 					<div id="accordion" class="accordion-area">
 						<div class="panel">
 							<div class="panel-header" id="headingOne">

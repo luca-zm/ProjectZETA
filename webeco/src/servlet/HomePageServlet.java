@@ -92,19 +92,6 @@ public class HomePageServlet extends HttpServlet {
 			request.getRequestDispatcher("product.jsp").forward(request, response);
 			return;
 		}
-		else if("Special".equals(action)) {
-			ArrayList<Product> lista = (ArrayList<Product>) session.getAttribute("catalogo");
-			Product specialProduct = null;
-			for(Product p: lista) {
-				if(p.getName().equals("Borraccia")) {
-				    specialProduct = p;
-				    break;
-				}
-			}
-			session.setAttribute("product", specialProduct);
-			request.getRequestDispatcher("product.jsp").forward(request, response);
-			return;
-		}
 	}
 
 }

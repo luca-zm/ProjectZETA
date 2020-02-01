@@ -118,7 +118,7 @@
 	
 	
 	<!-- Related product section -->
-	<section class="top-letest-product-section">
+	<section id="continue" class="top-letest-product-section">
 		<div class="container">
 			<div class="section-title">
 				<h2>CONTINUE SHOPPING</h2>
@@ -129,12 +129,14 @@
 			    <c:forEach items="${catalogo}" var="item">
 					<div class="product-item">
 						<div class="pi-pic">
-							<a href="#"><img src="${item.getImage()}" alt=""></a>
+							<a href="#"><img src="${item.getImage()}" alt="" width= 240 height= 240></a>
+							
 							<div align="center">
+							<form method="get" action="ShopCartServlet">
+							<input type="hidden" name="productIddown" value ="${item.getId()}">
 							<input type="submit" value="cart" name="action" class="site-btn" style="background-color:#4fe090; margin: 0.3em;">
-							<!--  <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>-->
-							<!--  <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>-->
 							<input type="submit" value="wish" name="action" class="site-btn" style="background-color:#2fb56e; margin: 0,3em;">
+							</form>
 							</div>
 						</div>
 						<div align="center">

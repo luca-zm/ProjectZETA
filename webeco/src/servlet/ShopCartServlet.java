@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import controller.ControllerShopCartCheckOut;
+import controller.ControllerWishList;
+import model.AbstractUser;
 import model.Product;
 import persistence.ProductDAO;
 
@@ -39,6 +41,7 @@ public class ShopCartServlet extends HttpServlet {
 
 			String action = request.getParameter("action");
 			ControllerShopCartCheckOut controller = new ControllerShopCartCheckOut();
+
 			if("del".contentEquals(action)) {
 				int productId = Integer.parseInt(request.getParameter("productId"));
 				try {
@@ -49,6 +52,58 @@ public class ShopCartServlet extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
+			
+			
+			
+			
+			if("wish".equals(action)) {
+				int productIddown = Integer.parseInt(request.getParameter("productIddown"));
+
+				ControllerWishList cwish = new ControllerWishList();
+				try {
+					AbstractUser user = (AbstractUser)session.getAttribute("user");
+					for(Product p: user.getWishList().getList()) {
+						if(p.getId() == productIddown) {
+							response.sendRedirect("cart.jsp");
+							return;
+						}
+						
+					}
+					cwish.addProductinWishList(productIddown, session);
+					response.sendRedirect("cart.jsp");
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+			if("cart".equals(action)) {
+				int productIddown = Integer.parseInt(request.getParameter("productIddown"));
+
+				try {
+					controller.addProduct(productIddown, session);
+					response.sendRedirect("cart.jsp");
+					return;
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			//per schermata singolo prodotto
+			if("add to cart".equals(action)) {
+				int productIdup = Integer.parseInt(request.getParameter("productIdup"));
+
+				try {
+					controller.addProduct(productIdup, session);
+					response.sendRedirect("product.jsp");
+					return;
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
 	}
     
     /**protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -40,11 +40,11 @@
 			<div class="container">
 				<!-- menu -->
 				<ul class="main-menu">
-					<li><a href="./index.html">Home</a></li>
-					<li><a href="./userprofile.html">User Profile</a></li>
-					<li><a href="./userprofile.html">Activation Code</a></li>
-					<li><a href="./map.html">Map</a></li>
-					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>0</span></div><a href="./cart.html"> Shopping Cart</a></li>
+					<li><a href="./homepage.jsp">Home</a></li>
+					<li><a href="./userprofile.jsp">User Profile</a></li>
+					<li><a href="./map.jsp">Map</a></li>
+					<li><a href="./wishlist.jsp">Wishlist</a></li>
+					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>${user.getCart().getProductList().size()}</span></div><a href="./cart.html"> Shopping Cart</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -82,7 +82,7 @@
 									</td>
 									<td>
 									
-									<form action="ShopCartCheckOutServlet" method="get">
+									<form action="ShopCartServlet" method="get">
 									<input type="hidden" name="productId" value ="${item.getId()}">
 										<input type="submit" name="action" value="del" class="site-btn" style="background-color:#666666">
 									</form>

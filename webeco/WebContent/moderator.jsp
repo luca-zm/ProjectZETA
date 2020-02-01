@@ -39,7 +39,7 @@
 	<nav class="main-navbar">
 			<div class="container">
 				<!-- menu -->
-				<form method="get" action="ModeratorServlet">
+				<form method="post" action="ModeratorServlet">
 					
 				<ul class="main-menu">
 					<li><input type="submit" class="site-btn" style="background-color:#a7aba9" name="action" value="logout"></li>
@@ -89,15 +89,17 @@
 						<div class="promo-code-form">
 						<h3>DELETE ECOPOINT</h3>
 						<hr>
-						<form method="get" action="ModeratorServlet">
+						<form method="post" action="ModeratorServlet">
 							
-							<input type="text" placeholder="Ecopoint ID" name="productId">
+							<input type="text" placeholder="Ecopoint ID" name="collId">
 							<br>
 							<input type="submit" class="site-btn" style="background-color:#4fe090" name="action" value="delete">
 							
 						</form>			
-						<br><br>
-					</div>	
+						<br>
+
+						<br>
+
 					</div>
 				</div>
 			

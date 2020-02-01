@@ -47,6 +47,7 @@ public class LoginControllerServlet extends HttpServlet {
 		HttpSession session = request.getSession(); 
 		String action = request.getParameter("action");
 		
+	
 		
 		
 		ControllerManageCollPoint c = new ControllerManageCollPoint();
@@ -162,10 +163,14 @@ public class LoginControllerServlet extends HttpServlet {
 			
 			AddressBean addr = new AddressBean(address, city, zipcode, telephone, state, zone);
 			UserBean ub = new UserBean(0, name, surname, pass, email, addr);
+			
+			String indirizzo= addr.toString();
+			
 			if(pass.contentEquals(confpass)){
 				try {
 					if(cr.register(ub)) {
 						System.out.println("funziona il login");
+						session.setAttribute("indirizzo", indirizzo);
 						request.getRequestDispatcher("index.jsp").forward(request, response);
 						return;
 					}

@@ -66,6 +66,8 @@
 					<div class="cart-table">
 					
 						<form method="post" action="LoginControllerServlet">
+						
+						
 						<h3>REGISTER ACCOUNT</h3>
 						<div class="cart-table-warp">
 						<div class="promo-code-form">
@@ -92,21 +94,26 @@
 								</tr><!-- fine prima riga -->
 								
 								<tr>
-								<td><input type="password" placeholder="Zipcode" came="zipcode"></td>
-								<td><input type="password" placeholder="Telephone" name="telephone"></td>
+								<td><input type="text" placeholder="Zipcode" name="zipcode"></td>
+								<td><input type="text" placeholder="Telephone" name="telephone"></td>
 								</tr>
 								
 								<tr>
-								<td><input type="password" placeholder="State" name="state"></td>
-								<td><input type="password" placeholder="Zone" name ="zone"></td>
+								<td><input type="text" placeholder="State" name="state"></td>
+								<td><input type="text" placeholder="Zone" name ="zone"></td>
 								</tr>
 							</tbody></table>
 							 
 							 
 						</div>
 						</div>
-						<button class="site-btn" style="background-color:#4fe090" name="action" value="register">Register</button>
+						
+						<input type="submit" class="site-btn" style="background-color:#4fe090" name="action" value="register">
+						
 						<br><br>
+						
+						
+						
 						</form>
 					</div>
 			</div>

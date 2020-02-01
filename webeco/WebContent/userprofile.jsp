@@ -49,7 +49,7 @@
 		</nav>
 
 
-	
+	<!-- user.getAddress().getTelephone() -->
 
 
 	<!-- cart section end -->

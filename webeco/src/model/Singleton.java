@@ -1,14 +1,12 @@
 package model;
 
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
 
 public class Singleton {
 	
     private static Singleton istance = new Singleton();
     private AbstractUser user = null;
     public int flag;
-    public Scene myscene;
+
     public String mydescr;
     public String img;
 
@@ -38,18 +36,7 @@ public class Singleton {
     }
 
 
-    //Sezione singleton per la scena
-    public void saveScene(Scene newScene){
-    	
-        myscene = newScene;
-        
-    }
-    
-    public Scene getScene(){
-    	
-        return myscene;
-        
-    }
+
 
 	public AbstractUser getUser() {
 		return user;

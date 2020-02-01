@@ -59,8 +59,9 @@ public class AddressBean {
 	@Override
 	public String toString() {
 		return "AddressBean [address=" + address + ", city=" + city + ", postalCode=" + postalCode + ", telephone="
-				+ telephone + ", state=" + state + ", country=" + country + ", zone=" + zone + "]";
+				+ telephone + ", state=" + state + ", zone=" + zone + "]";
 	}
+	
 	
 	
 }

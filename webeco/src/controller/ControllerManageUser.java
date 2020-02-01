@@ -15,7 +15,7 @@ public class ControllerManageUser {
 	
 	public Boolean delete(UserBean userBean) throws SQLException {
 		AbstractUser user = UserDAO.findUserById(userBean.getId());
-		UserDAO.update(user);
+		UserDAO.delete(user);
 		return true;
 	}
 

@@ -50,12 +50,14 @@ public class ModeratorServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String action = request.getParameter("action");
 		ControllerManageCollPoint conmod = new ControllerManageCollPoint(); 
-		if("insert".equals(action)) {
+		
+		
+		if("add".equals(action)) {
 			
 			String name=request.getParameter("name");
 			String address=request.getParameter("address");
-			int optime = Integer.parseInt(request.getParameter("openingtime"));
-			int closetime = Integer.parseInt(request.getParameter("closingtime"));
+			int optime = Integer.parseInt(request.getParameter("opening"));
+			int closetime = Integer.parseInt(request.getParameter("closing"));
 			CollectionPointBean cb = new CollectionPointBean(0, name, address, optime, closetime);
 			try {
 				conmod.insert(cb);
@@ -67,7 +69,7 @@ public class ModeratorServlet extends HttpServlet {
 				
 		}
 		
-		else if("del".equals(action)) {
+		else if("delete".equals(action)) {
 			
 			int collId = Integer.parseInt(request.getParameter("collId"));
 			

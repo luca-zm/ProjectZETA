@@ -51,12 +51,16 @@ public class AdminServlet extends HttpServlet {
 			String action = request.getParameter("action");
 			ControllerManageProduct conmod = new ControllerManageProduct(); 
 			ControllerManageUser cmu = new ControllerManageUser();
-			if("insert".equals(action)) {
+			
+			
+			
+			if("add".equals(action)) {
 				
 				String name=request.getParameter("name");
 				int price = Integer.parseInt(request.getParameter("price"));
-				String path=request.getParameter("path");
+				String path=request.getParameter("imgpath");
 				String descr=request.getParameter("descr");
+
 				ProductBean cb = new ProductBean(0, name, price, 0, Category.utility , path, descr, true);
 				
 				try {
@@ -70,11 +74,11 @@ public class AdminServlet extends HttpServlet {
 							
 			}
 			
-			else if("delprod".equals(action)) {
+			else if("delete".equals(action)) {
 				
-				int prodId = Integer.parseInt(request.getParameter("prodId"));
+				int productId = Integer.parseInt(request.getParameter("productId"));
 				
-				ProductBean pb = new ProductBean( prodId , null , 0, 0, null, null,null, true);
+				ProductBean pb = new ProductBean( productId , null , 0, 0, null, null,null, true);
 				
 				try {
 					conmod.deleteProduct(pb);
@@ -87,7 +91,7 @@ public class AdminServlet extends HttpServlet {
 				
 			}
 			
-			else if("delid".equals(action)) {
+			else if("ban".equals(action)) {
 				
 				int userId = Integer.parseInt(request.getParameter("userId"));
 				

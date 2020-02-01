@@ -67,7 +67,7 @@
 							
 								<table><thead><tr><th></th><th></th></tr></thead><tbody>
 									<tr><!-- prima riga -->
-										<td><input type="text" placeholder="Name" name="name"></td>
+										<td><input type="text" placeholder="Name" name="name" ></td>
 										<td><input type="text" placeholder="Price" name="price"></td>
 									</tr><!-- fine prima riga -->
 								
@@ -84,7 +84,7 @@
 							<hr><hr>
 							
 							<h4>DELETE PRODUCT</h4>
-							<form method="get" action="AdminServlet">
+							<form method="post" action="AdminServlet">
 							
 							<table><thead><tr><th></th><th></th></tr></thead><tbody>
 								<tr><!-- prima riga -->
@@ -105,7 +105,7 @@
 					<div class="cart-table">
 						<h3>USER OPTIONS</h3>
 						<hr>
-						<form action="AdminServlet" method="get">
+						<form action="AdminServlet" method="post">
 						
 							<div class="promo-code-form">
 								<input type="text" placeholder="User ID" name="userId">

@@ -2,19 +2,10 @@ package controller;
 
 import java.security.SecureRandom;
 import java.sql.SQLException;
-
-import bean.ProductBean;
-import logic.enums.DeliveryStatus;
-import logic.enums.MesType;
 import logic.model.AbstractUser;
-import logic.model.Message;
 import logic.model.Product;
-import logic.model.ShipmentTran;
 import logic.model.Singleton;
-import logic.model.User;
 import logic.persistence.ProductDAO;
-import logic.persistence.TransactionDAO;
-import logic.persistence.UserDAO;
 import logic.persistence.WishListDAO;
 
 public class ControllerWishList {

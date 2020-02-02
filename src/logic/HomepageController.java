@@ -50,11 +50,9 @@ public class HomepageController extends Application implements Initializable{
 	@FXML
     private void next(ActionEvent event) throws IOException {
         winNext a = new winNext();
-        
-        //in 'eventclicked' ci sara una stringa evento che serve per la scelta dell'if
+
         String eventClicked = event.getSource().toString();
-        //System.out.println(eventClicked); <-- usare per prelevare la stringa
-        //in base al bottone cliccato, apro la propria pagina
+
         if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login or Register'")) {
         	a.openWin("view/login_registerPage.fxml");
         }

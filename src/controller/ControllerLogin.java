@@ -2,8 +2,6 @@ package controller;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import bean.AddressBean;
 import bean.UserBean;
 import logic.model.AbstractUser;
 import logic.model.ActivationCodeTran;
@@ -19,7 +17,6 @@ import logic.model.ShopCart;
 import logic.model.Singleton;
 import logic.model.Transaction;
 import logic.model.WishList;
-import logic.persistence.ActivationCodeDAO;
 import logic.persistence.AddressDAO;
 import logic.persistence.MessageDAO;
 import logic.persistence.TransactionDAO;
@@ -37,8 +34,6 @@ public class ControllerLogin {
 		if (user == null || !user.getPass().equals(pass)) {
 			return false;
 		}
-		
-		ShopCart shopcart = new ShopCart();
 		ArrayList<Product> productList = WishListDAO.select(user);
 		WishList wishList = new WishList(productList);
 		user.setWishList(wishList);
@@ -58,24 +53,13 @@ public class ControllerLogin {
 		user.setBoards(noticeBoard);
 
 		Address address = AddressDAO.select(user);
-		user.setAddress(address);
-		
-		BonusMachine machine = new BonusMachine(user);
-	
-		
-		singleton.setUser(user);
-		
-		
+		user.setAddress(address);		
+		BonusMachine machine = new BonusMachine(user);		
+		singleton.setUser(user);	
 		return true;
 	}
 	
-	public AbstractUser giveUserForRole(UserBean u) throws SQLException {
-		
-		
+	public AbstractUser giveUserForRole(UserBean u) throws SQLException {		
 		return UserDAO.findRegisteredUser(u.getMail());
-		
-	
 	}
-
-
 }

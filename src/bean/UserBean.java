@@ -1,11 +1,4 @@
 package bean;
-
-import logic.enums.Roles;
-import logic.model.Address;
-import logic.model.History;
-import logic.model.NoticeBoard;
-import logic.model.ShopCart;
-
 public class UserBean {
 	protected int id;
 	protected String name;

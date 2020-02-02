@@ -1,7 +1,6 @@
 package controller;
 
 import java.sql.SQLException;
-
 import bean.ProductBean;
 import logic.enums.Category;
 import logic.model.Product;

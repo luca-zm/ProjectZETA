@@ -1,12 +1,8 @@
 package controller;
 
 import java.sql.SQLException;
-
-import javax.swing.JOptionPane;
-
 import bean.AddressBean;
 import bean.UserBean;
-import logic.enums.Roles;
 import logic.model.AbstractUser;
 import logic.model.Address;
 import logic.model.FactoryUsers;

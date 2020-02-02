@@ -7,13 +7,10 @@ import logic.model.AbstractUser;
 import logic.model.ActivationCode;
 import logic.model.ActivationCodeTran;
 import logic.model.Message;
-
 import java.security.SecureRandom;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import bean.ActivationCodeBean;
-import bean.ProductBean;
 import logic.model.Product;
 import logic.model.ShipmentTran;
 import logic.model.Singleton;

@@ -4,17 +4,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import bean.AddressBean;
 import bean.CollectionPointBean;
 import logic.URLReader;
 import logic.enums.MesType;
 import logic.model.AbstractUser;
-import logic.model.Address;
 import logic.model.CollectionPoint;
 import logic.model.Message;
 import logic.model.Singleton;
-import logic.persistence.AddressDAO;
 import logic.persistence.CollectionPointDAO;
 import logic.persistence.MessageDAO;
 

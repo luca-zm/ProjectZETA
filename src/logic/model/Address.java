@@ -10,15 +10,13 @@ public class Address {
 	private String postalCode;
 	private String telephone;
 	private String state;
-	private String country;
 	private String zone;
 
 	
 
 
 
-	public Address(int id, String address, String city, String postalCode, String telephone, String state,
-			String country, String zone) {
+	public Address(int id, String address, String city, String postalCode, String telephone, String state, String zone) {
 		super();
 		this.id = id;
 		this.address = address;
@@ -26,7 +24,6 @@ public class Address {
 		this.postalCode = postalCode;
 		this.telephone = telephone;
 		this.state = state;
-		this.country = country;
 		this.zone = zone;
 	}
 	
@@ -68,14 +65,6 @@ public class Address {
 		this.postalCode = postalCode;
 	}
 	
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
 	public String getZone() {
 		return zone;
 	}
@@ -105,8 +94,14 @@ public class Address {
 	@Override
 	public String toString() {
 		return "Address [id=" + id + ", address=" + address + ", city=" + city + ", postalCode=" + postalCode
-				+ ", telephone=" + telephone + ", state=" + state + ", country=" + country + ", zone=" + zone + "]";
+				+ ", telephone=" + telephone + ", state=" + state + ", zone=" + zone + "]";
 	}
+	
+	
+
+	
+
+	
 	
 	
 	

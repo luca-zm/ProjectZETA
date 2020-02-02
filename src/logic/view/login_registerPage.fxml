@@ -14,11 +14,11 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e6f5eb" height="160.0" layoutX="354.0" layoutY="278.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="347.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="771.0" layoutX="313.0" layoutY="-88.0" stroke="WHITE" strokeType="INSIDE" width="18.0" />
       <PasswordField fx:id="psw" layoutX="46.0" layoutY="201.0" onAction="#next" prefHeight="26.0" prefWidth="214.0" styleClass="text-area" />
-      <TextField fx:id="usr" layoutX="47.0" layoutY="132.0" onAction="#next" prefHeight="26.0" prefWidth="214.0" styleClass="text-area" />
+      <TextField fx:id="mail" layoutX="47.0" layoutY="132.0" onAction="#next" prefHeight="26.0" prefWidth="214.0" styleClass="text-area" />
       <TextField fx:id="name_r" layoutX="359.0" layoutY="99.0" onAction="#next" prefHeight="26.0" prefWidth="137.0" styleClass="text-area" />
       <TextField fx:id="pass_r" layoutX="361.0" layoutY="190.0" onAction="#next" prefHeight="26.0" prefWidth="214.0" styleClass="text-area" />
       <TextField fx:id="pass2_r" layoutX="361.0" layoutY="241.0" onAction="#next" prefHeight="26.0" prefWidth="214.0" styleClass="text-area" />
-      <Text layoutX="51.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
+      <Text layoutX="51.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail:" />
       <Text layoutX="52.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
       <Text layoutX="360.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
       <Text layoutX="360.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
@@ -48,13 +48,11 @@
       <Text layoutX="544.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zipcode:" wrappingWidth="46.845703125" />
       <Text layoutX="364.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tel. N.:" wrappingWidth="46.845703125" />
       <Text layoutX="364.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State:" wrappingWidth="46.845703125" />
-      <Text layoutX="544.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country:" wrappingWidth="46.845703125" />
       <Text layoutX="550.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zone:" wrappingWidth="34.294921875" />
       <TextField fx:id="city_r" layoutX="420.0" layoutY="326.0" onAction="#next" prefHeight="26.0" prefWidth="118.0" styleClass="text-area" />
       <TextField fx:id="zip_r" layoutX="594.0" layoutY="326.0" onAction="#next" prefHeight="26.0" prefWidth="80.0" styleClass="text-area" />
       <TextField fx:id="tel_r" layoutX="420.0" layoutY="362.0" onAction="#next" prefHeight="26.0" prefWidth="118.0" styleClass="text-area" />
       <TextField fx:id="zone_r" layoutX="584.0" layoutY="362.0" onAction="#next" prefHeight="26.0" prefWidth="90.0" styleClass="text-area" />
       <TextField fx:id="state_r" layoutX="420.0" layoutY="395.0" onAction="#next" prefHeight="26.0" prefWidth="118.0" styleClass="text-area" />
-      <TextField fx:id="country_r" layoutX="594.0" layoutY="395.0" onAction="#next" prefHeight="26.0" prefWidth="80.0" styleClass="text-area" />
    </children>
 </AnchorPane>

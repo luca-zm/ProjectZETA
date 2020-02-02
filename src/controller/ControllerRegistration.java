@@ -20,7 +20,7 @@ public class ControllerRegistration {
 		String mail = userBean.getMail();
 		String pass = userBean.getPass();
 		String name = userBean.getName();
-		String username = userBean.getSurname();
+		String surname = userBean.getSurname();
 		AddressBean addrBean = userBean.getAddress();
 
 		
@@ -28,9 +28,9 @@ public class ControllerRegistration {
 			return false;
 		}
 		
-		AbstractUser user = FactoryUsers.get(0, mail, name, username, pass, "USER");
+		AbstractUser user = FactoryUsers.get(0, mail, name, surname, pass, "USER");
 		
-		Address addr = new Address(0, addrBean.getAddress(), addrBean.getCity(), addrBean.getPostalCode(), addrBean.getTelephone(), addrBean.getState(), addrBean.getCountry(), addrBean.getZone());
+		Address addr = new Address(0, addrBean.getAddress(), addrBean.getCity(), addrBean.getPostalCode(), addrBean.getTelephone(), addrBean.getState(),  addrBean.getZone());
 		AddressDAO.insert(addr);
 	
 		user.setAddress(addr);

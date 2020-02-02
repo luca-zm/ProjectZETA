@@ -14,7 +14,8 @@ public class UserBean {
 	protected String mail;
 	protected int greencoin;
     protected AddressBean address;
-	public UserBean(int id, String name, String surname, String pass, String mail, AddressBean address) {
+    
+	public UserBean(int id, String mail, String name , String surname, String pass, AddressBean address) {
 		super();
 		this.id = id;
 		this.name = name;

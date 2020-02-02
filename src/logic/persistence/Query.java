@@ -6,7 +6,7 @@ public class Query {
 	
 	public static final String INSERT_ACTCODE = "INSERT INTO activationcode(activationCode, greenCoinAdded) VALUES (?,?)";
 
-	public static final String INSERT_ADDRESS = "INSERT INTO address ( address, city, postalCode, telephone, state, country, zone) values (?,?,?,?,?,?,?)";
+	public static final String INSERT_ADDRESS = "INSERT INTO address ( address, city, postalCode, telephone, state, zone) values (?,?,?,?,?,?)";
 	
 	public static final String INSERT_COLLECTIONPOINT = "INSERT INTO collectionpoint(name, longitude, latitude, address, openingTime, closingTime) VALUES (?,?,?,?,?,?)";
 	
@@ -70,7 +70,7 @@ public class Query {
 	
 	public static final String SELECT_WISHLIST = "SELECT * from wishlist WHERE userid = ?";
 	
-	public static final String UPDATE_ADDRESS = "UPDATE address SET address = ?, city = ?, postalCode = ?, telephone = ?, state = ?, country = ?, zone = ? WHERE ID = ? ";
+	public static final String UPDATE_ADDRESS = "UPDATE address SET address = ?, city = ?, postalCode = ?, telephone = ?, state = ?, zone = ? WHERE ID = ? ";
 	
 	public static final String UPDATE_COLLECTIONPOINT = "UPDATE collectionpoint SET name = ?, longitude = ?, latitude = ?, address = ?, openingTime = ?, closingTime = ? WHERE ID = ? ";
 	

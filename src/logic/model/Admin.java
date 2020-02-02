@@ -6,8 +6,8 @@ public class Admin extends AbstractUser {
 
 
 
-    public Admin(int id, String mail, String name, String username, String pass) {
-		super(id, mail, name, username, pass, Roles.ADMIN);
+    public Admin(int id, String mail, String name, String surname, String pass) {
+		super(id, mail, name, surname, pass, Roles.ADMIN);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -20,9 +20,12 @@ public class Admin extends AbstractUser {
 
 	@Override
 	public String toString() {
-		return "Admin [name=" + name + ", surname=" + surname + ", pass=" + pass + ", mail=" + mail + ", type=" + type
-				+ ", cart=" + cart + ", history=" + history + ", boards=" + boards + ", greenCoin=" + greenCoin + "]";
+		return "Admin [id=" + id + ", name=" + name + ", surname=" + surname + ", pass=" + pass + ", mail=" + mail
+				+ ", type=" + type + ", cart=" + cart + ", wishList=" + wishList + ", history=" + history + ", boards="
+				+ boards + ", greenCoin=" + greenCoin + ", address=" + address + "]";
 	}
+
+	
     
 
 	  

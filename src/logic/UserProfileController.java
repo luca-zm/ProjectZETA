@@ -85,7 +85,7 @@ public class UserProfileController extends Application {
     	ttel.setText(user.getAddress().getTelephone());
     	tgreencoin.setText(Integer.toString(user.getGreenCoin()));
     	taddress.setText(user.getAddress().getAddress()+" "+user.getAddress().getPostalCode()+" "+
-    	user.getAddress().getCity()+" "+user.getAddress().getCountry());
+    	user.getAddress().getCity()+" "+user.getAddress().getState());
     	
     	
     	XYChart.Series series = new XYChart.Series(); 

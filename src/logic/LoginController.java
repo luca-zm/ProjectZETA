@@ -44,7 +44,7 @@ public class LoginController extends Application {
     public Button log, conf, back;
     
     @FXML
-    public TextField usr, pass_r, pass2_r, mail_r, sur_r, name_r;
+    public TextField mail, pass_r, pass2_r, mail_r, sur_r, name_r;
     
     @FXML
     public TextField add_r, city_r, zip_r, tel_r, state_r, zone_r;
@@ -76,13 +76,13 @@ public class LoginController extends Application {
         }
         if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login!'")) {
         	
-        		UserBean ub = new UserBean(0,  mail_r.getText() , null, null , psw.getText(), null);
+        		UserBean ub = new UserBean(0,  mail.getText() , null, null , psw.getText(), null);
         	
         		//metodo verifica credenziali, imposta flag, fa aprire schermata prodotti, admin, moderatore in base al flag 
-        		if (mail_r.getText().contentEquals("admin") && psw.getText().contentEquals("admin")) {
+        		if (mail.getText().contentEquals("admin") && psw.getText().contentEquals("admin")) {
         			a.openWin("view/adminPage.fxml");
         		}
-        		if (mail_r.getText().contentEquals("moderator") && psw.getText().contentEquals("moderator")) {
+        		if (mail.getText().contentEquals("moderator") && psw.getText().contentEquals("moderator")) {
         			a.openWin("view/modPage.fxml");
         		}
         		//METODO che verifica se l'utente si e' loggato o meno

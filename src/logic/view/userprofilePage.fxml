@@ -46,7 +46,7 @@
       </TextArea>
       <ImageView fx:id="avatarImage" fitHeight="164.0" fitWidth="205.0" layoutX="178.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/avatar.png" />
+            <Image url="@img/avatar.png" />
          </image>
       </ImageView>
       <Text layoutX="122.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Greencoin:" wrappingWidth="79.19999999999993" />

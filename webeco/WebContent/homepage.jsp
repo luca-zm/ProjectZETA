@@ -43,7 +43,7 @@
 				<ul class="main-menu">
 					<li><input type="submit" class="site-btn" style="background-color:#a7aba9" name="action" value="logout"></li>
 					<li></li>
-					<li><a href="./homepage.jsp">Home</a></li>
+					<li><a href="./homepage.jsp" style="color:#4fe090">Home</a></li>
 					<li><a href="./userprofile.jsp">User Profile</a></li>
 					<li><a href="./map.jsp">Map</a></li>
 					<li><a href="./wishlist.jsp">Wishlist</a></li>

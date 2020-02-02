@@ -76,12 +76,7 @@ public class UserProfileController extends Application {
 
 	Singleton sg = Singleton.getInstance();
 	AbstractUser user = sg.getUser();
-	//MessageDAO md = new MessageDAO();
-	
-    
-	public UserProfileController() {
-		
-	}
+
 
 	//setto l'avatar a forma di cerchio
 	@FXML
@@ -103,7 +98,6 @@ public class UserProfileController extends Application {
     	XYChart.Series series = new XYChart.Series(); 
     	series.setName("Greencoin graph"); 
     	
-    	//for(user: user.getHistory().getTranList()series) {
 
     	series.getData().add(new XYChart.Data(250, 15)); 
     	series.getData().add(new XYChart.Data(340, 30)); 

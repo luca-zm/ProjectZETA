@@ -63,10 +63,7 @@ public class LoginController extends Application {
     
     ControllerLogin cl = new ControllerLogin();
     ControllerRegistration cr = new ControllerRegistration();
-    
-    public LoginController() {
-    	
-    }
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {

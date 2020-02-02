@@ -21,10 +21,6 @@ public class WarningController extends Application {
     
     Stage stage = null;
 
-    
-    public WarningController() {
-
-    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {

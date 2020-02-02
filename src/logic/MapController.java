@@ -61,9 +61,6 @@ public class MapController extends Application implements ActionListener{
     public Label mapHolder;
     
     
-    public MapController() { 
-    }
-    
     @Override
     public void start(Stage primaryStage) throws Exception{
     	//empty

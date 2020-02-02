@@ -70,6 +70,7 @@ public class ActivationCodeController extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+    	//empty
     }
 
     public void initialize() {
@@ -84,7 +85,6 @@ public class ActivationCodeController extends Application {
     
     @FXML
     private void next(ActionEvent event) throws IOException, SQLException {
-        //winNext a = new winNext();
         
         String eventClicked = event.getSource().toString();
         

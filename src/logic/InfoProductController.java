@@ -27,9 +27,6 @@ public class InfoProductController extends Application {
     winNext a = new winNext();
     Singleton sg = Singleton.getInstance();
 
-    public InfoProductController() {
-
-    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {	

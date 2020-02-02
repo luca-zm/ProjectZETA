@@ -74,7 +74,6 @@ public class ProductsController extends Application {
     ControllerShopCartCheckOut CSC = new ControllerShopCartCheckOut();
     ControllerWishList CWL = new ControllerWishList();
     
-    public ProductsController() { }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -201,7 +200,6 @@ public class ProductsController extends Application {
 		
 		//-----
 		log.setVisible(false);
-		//wb.setText(sg.getUser().getName());
 
 		//-----
 		

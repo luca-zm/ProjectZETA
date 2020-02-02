@@ -66,8 +66,6 @@ public class AdminController extends Application {
     ArrayList<Product> listPRODUCTS;
 
 
-    public AdminController() {    	
-    }
 
     public void initialize() throws SQLException {
     	listprod.setEditable(false);	

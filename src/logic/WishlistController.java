@@ -67,9 +67,7 @@ public class WishlistController extends Application {
     ControllerWishList CWL = new ControllerWishList();
     ControllerShopCartCheckOut CSC = new ControllerShopCartCheckOut();
     
-    public WishlistController() {
 
-    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -135,9 +133,7 @@ public class WishlistController extends Application {
 						CSC.addProduct(product.getId());
 						CWL.deleteProductfromWishList(product.getId());
 						initialize();
-						//Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			        	//a.openWin("view/wishlistPage.fxml");
-			        	//oldWin.close();
+
 					} catch (SQLException e ) {
 						e.printStackTrace();
 					}             
@@ -152,9 +148,6 @@ public class WishlistController extends Application {
 						CWL.deleteProductfromWishList(product.getId());
 						initialize();
 
-//						Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//			        	a.openWin("view/wishlistPage.fxml");
-//			        	oldWin.close();
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
@@ -244,14 +237,6 @@ public class WishlistController extends Application {
         }
         //Hyper link ------------------
 
-        //methods buy and remove from Wishlist ----------
-        if (eventClicked.contentEquals("Button[id=buy, styleClass=button]'Buy'")) {
-        	//metodo buy, aggiunge al carrello da wishlist
-        }
-        if (eventClicked.contentEquals("Button[id=del, styleClass=button]'Remove from wishlist'")) {
-        	//metodo remove from wishlist, rimuove elemento da wishlist
-        }
-      //methods buy and remove from Wishlist ----------
         
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         oldWin.close();

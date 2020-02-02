@@ -70,9 +70,7 @@ public class ShopcartController extends Application {
 	AbstractUser user = sg.getUser();
 	ControllerShopCartCheckOut CSC = new ControllerShopCartCheckOut();
 	
-    public ShopcartController() {
 
-    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -118,9 +116,7 @@ public class ShopcartController extends Application {
                     try {
 						CSC.deleteProduct(product.getId());
 						initialize();
-//						Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//			        	a.openWin("view/shopcartPage.fxml");
-//			        	oldWin.close();
+
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}             

@@ -44,7 +44,6 @@ public class winNext{
 		Stage currentWin = new Stage();
         currentWin.setTitle("EcoClean");
         currentWin.initModality(Modality.APPLICATION_MODAL);
-        //Parent root = FXMLLoader.load(getClass().getResource("view/warningmessage.fxml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("view/warningmessage.fxml"));
         Parent root = (Parent)loader.load();
         WarningController controll = loader.getController();
@@ -55,18 +54,6 @@ public class winNext{
         currentWin.showAndWait();
 	}
 	
-//	public void openWinInfo(String neWin, Product p) throws IOException{
-//		Stage currentWin = new Stage();
-//        currentWin.setTitle("EcoClean");        
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource(neWin));
-//        Parent root = (Parent)loader.load();
-//        InfoProductController controller = loader.getController();
-//        controller.setP(p);
-//        Scene scene = new Scene(root);
-//        currentWin.setScene(scene);
-//        currentWin.show();
-//    	sg.saveScene(scene);
-//	}
 
 	public void openWinInfo(String neWin, Product p) throws IOException{
 		sg.saveDescription(p.getDescription());

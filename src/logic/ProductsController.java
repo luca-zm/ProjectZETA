@@ -41,7 +41,7 @@ public class ProductsController extends Application {
     public Button logout;
 	
     @FXML
-    public Button user_p;
+    public Button userp;
     @FXML
     public Button wishlist;
     @FXML
@@ -52,11 +52,11 @@ public class ProductsController extends Application {
     @FXML
     public Button map;
     @FXML
-    public Button a_code_link;
+    public Button codelink;
     @FXML
     public Button prod_link;
     @FXML
-    public Button user_p_link;
+    public Button userlink;
     
     
     
@@ -78,8 +78,7 @@ public class ProductsController extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-
+    	//empty
     }
     
     
@@ -197,7 +196,7 @@ public class ProductsController extends Application {
 	@FXML
 	public void initialize() throws SQLException {
 		
-		prod_link.setDisable(true);
+		prodlink.setDisable(true);
 		AbstractUser user = sg.getUser();
 		
 		//-----
@@ -247,7 +246,7 @@ public class ProductsController extends Application {
         }
         
         
-        if (eventClicked.contentEquals("Button[id=user_p, styleClass=button hbox]''")) {
+        if (eventClicked.contentEquals("Button[id=userp, styleClass=button hbox]''")) {
         	//pagina profilo utente da icona
         	if(sg.getUser() != null) {
         		a.openWin("view/userprofilePage.fxml");
@@ -275,7 +274,7 @@ public class ProductsController extends Application {
         }
         
         
-        if (eventClicked.contentEquals("Button[id=user_p_link, styleClass=button]'User Profile'")) {
+        if (eventClicked.contentEquals("Button[id=userlink, styleClass=button]'User Profile'")) {
         	//pagina del profilo utente
         	if(sg.getUser() != null) {
         		a.openWin("view/userprofilePage.fxml");
@@ -286,13 +285,13 @@ public class ProductsController extends Application {
         }
         
         
-        if (eventClicked.contentEquals("Button[id=map_link, styleClass=button]'Map'")) {
+        if (eventClicked.contentEquals("Button[id=maplink, styleClass=button]'Map'")) {
         	//pagina mappe
         	a.openWin("view/mapPage.fxml");
         }
         
         
-        if (eventClicked.contentEquals("Button[id=a_code_link, styleClass=button]'Activation Code'")) {
+        if (eventClicked.contentEquals("Button[id=codelink, styleClass=button]'Activation Code'")) {
         	//pagina activation code
         	if(sg.getUser() != null) {
             	a.openWin("view/activationcodePage.fxml");

@@ -19,20 +19,20 @@
          </items>
       </ToolBar>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="634.0" layoutX="-2.0" layoutY="51.0" stroke="WHITE" strokeType="INSIDE" width="120.0" />
-      <Button fx:id="user_p_link" layoutX="-8.0" layoutY="79.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="User Profile" />
-      <Button fx:id="map_link" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
-      <Button fx:id="a_code_link" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
-      <Button fx:id="prod_link" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
-      <Button fx:id="user_p" layoutX="23.0" layoutY="5.0" mnemonicParsing="false" onAction="#next" prefHeight="40.0" prefWidth="38.0" styleClass="hbox" stylesheets="@fextile.css" />
+      <Button fx:id="userlink" layoutX="-8.0" layoutY="79.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="User Profile" />
+      <Button fx:id="maplink" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
+      <Button fx:id="codelink" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
+      <Button fx:id="prodlink" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
+      <Button fx:id="userp" layoutX="23.0" layoutY="5.0" mnemonicParsing="false" onAction="#next" prefHeight="40.0" prefWidth="38.0" styleClass="hbox" stylesheets="@fextile.css" />
       <Button fx:id="confirm" layoutX="625.0" layoutY="262.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="OK" />
-      <TextField fx:id="add_gc" layoutX="251.0" layoutY="252.0" onAction="#next" prefHeight="51.0" prefWidth="359.0" styleClass="text-area" />
+      <TextField fx:id="addgc" layoutX="251.0" layoutY="252.0" onAction="#next" prefHeight="51.0" prefWidth="359.0" styleClass="text-area" />
       <Text layoutX="277.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="Please, insert here your code:" />
       <TextArea fx:id="mygc" editable="false" layoutX="496.0" layoutY="111.0" prefHeight="40.0" prefWidth="164.0" styleClass="text-area">
          <font>
             <Font size="20.0" />
          </font></TextArea>
       <Text layoutX="532.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h4" text="Greencoins:" />
-      <TextArea fx:id="up_gc" editable="false" layoutX="251.0" layoutY="351.0" onDragDetected="#next" prefHeight="40.0" prefWidth="172.0" styleClass="text-area" />
+      <TextArea fx:id="upgc" editable="false" layoutX="251.0" layoutY="351.0" onDragDetected="#next" prefHeight="40.0" prefWidth="172.0" styleClass="text-area" />
       <Text fill="RED" layoutX="212.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h1" text="+" />
       <Button fx:id="logout" layoutX="667.0" layoutY="8.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Logout" />
    </children>

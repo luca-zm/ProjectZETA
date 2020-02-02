@@ -42,24 +42,24 @@ public class ShopcartController extends Application {
     public Button shop;
 
     @FXML
-    public Button map_link;
+    public Button maplink;
     @FXML
-    public Button a_code_link;
+    public Button codelink;
     @FXML
-    public Button prod_link;
+    public Button prodlink;
     @FXML
-    public Button user_p_link;
+    public Button userlink;
     
     @FXML
-    public Button consume_gcoin;
+    public Button consumegcoin;
     
     @FXML
     public Text wb;
     
     @FXML
-    public TextArea price_text;
+    public TextArea pricetext;
     @FXML
-    public TextArea gcoin_text;
+    public TextArea gcointext;
     @FXML
     public TextArea total;
     
@@ -76,6 +76,7 @@ public class ShopcartController extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+    	//empty
     }
 
     
@@ -160,9 +161,9 @@ public class ShopcartController extends Application {
     		}
     		result = result + p.getName() + ": " +p.getPrice() + "\n\n";
     	}
-    	price_text.setText(result);
+    	pricetext.setText(result);
     	total.setText(Integer.toString(user.getCart().getTotalPrice()));
-    	gcoin_text.setText(Integer.toString(user.getGreenCoin()));
+    	gcointext.setText(Integer.toString(user.getGreenCoin()));
     	shop.setDisable(true);
 		//-----
 		log.setVisible(false);
@@ -220,7 +221,7 @@ public class ShopcartController extends Application {
 
         
         //Hyperlink ------------------
-        if (eventClicked.contentEquals("Button[id=user_p_link, styleClass=button]'User Profile'")) {
+        if (eventClicked.contentEquals("Button[id=userlink, styleClass=button]'User Profile'")) {
         	//pagina del profilo utente
         	if(sg.getUser() != null) {
             	a.openWin("view/userprofilePage.fxml");
@@ -229,7 +230,7 @@ public class ShopcartController extends Application {
         		return;
         	}
         }
-        if (eventClicked.contentEquals("Button[id=map_link, styleClass=button]'Map'")) {
+        if (eventClicked.contentEquals("Button[id=maplink, styleClass=button]'Map'")) {
         	//pagina mappe
         	a.openWin("view/mapPage.fxml");
         }
@@ -239,7 +240,7 @@ public class ShopcartController extends Application {
         	a.openWin("view/login_registerPage.fxml");
         }  
         
-        if (eventClicked.contentEquals("Button[id=a_code_link, styleClass=button]'Activation Code'")) {
+        if (eventClicked.contentEquals("Button[id=codelink, styleClass=button]'Activation Code'")) {
         	//pagina activation code
         	if(sg.getUser() != null) {
             	a.openWin("view/activationcodePage.fxml");
@@ -248,13 +249,13 @@ public class ShopcartController extends Application {
         		return;
         	}
         }
-        if (eventClicked.contentEquals("Button[id=prod_link, styleClass=button]'Products'")) {
+        if (eventClicked.contentEquals("Button[id=prodlink, styleClass=button]'Products'")) {
         	a.openWin("view/productsPage.fxml");
         }
         //Hyper link ------------------
 
         //methods buy and remove from Wishlist ----------
-        if (eventClicked.contentEquals("Button[id=consume_gcoin, styleClass=button]'Buy products!'")) {
+        if (eventClicked.contentEquals("Button[id=consumegcoin, styleClass=button]'Buy products!'")) {
         	CSC.buyShopCart();
         	//initialize();
 			Stage k = (Stage) ((Node) event.getSource()).getScene().getWindow();

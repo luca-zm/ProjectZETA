@@ -24,10 +24,10 @@
          </items>
       </ToolBar>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="634.0" layoutX="-2.0" layoutY="51.0" stroke="WHITE" strokeType="INSIDE" width="120.0" />
-      <Button fx:id="user_p_link" layoutX="-8.0" layoutY="79.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="User Profile" />
-      <Button fx:id="map_link" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
-      <Button fx:id="a_code_link" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
-      <Button fx:id="prod_link" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
+      <Button fx:id="userlink" layoutX="-8.0" layoutY="79.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="User Profile" />
+      <Button fx:id="maplink" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
+      <Button fx:id="codelink" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
+      <Button fx:id="prodlink" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
       <StackPane fx:id="stack" layoutX="183.0" layoutY="101.0" prefHeight="404.0" prefWidth="484.0" />
       <Button fx:id="logout" layoutX="664.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Logout" />
    </children>

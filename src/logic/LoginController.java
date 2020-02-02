@@ -33,28 +33,28 @@ public class LoginController extends Application {
     @FXML
     public TextField mail;
     @FXML
-    public TextField pass_r;
+    public TextField passr;
     @FXML
-    public TextField pass2_r;
+    public TextField pass2r;
     @FXML
-    public TextField mail_r;
+    public TextField mailr;
     @FXML
-    public TextField sur_r;
+    public TextField surr;
     @FXML
-    public TextField name_r;
+    public TextField namer;
     
     @FXML
-    public TextField add_r;
+    public TextField addr;
     @FXML
-    public TextField city_r;
+    public TextField cityr;
     @FXML
-    public TextField zip_r;
+    public TextField zipr;
     @FXML
-    public TextField tel_r;
+    public TextField telr;
     @FXML
-    public TextField state_r;
+    public TextField stater;
     @FXML
-    public TextField zone_r;
+    public TextField zoner;
 
     @FXML
     public PasswordField psw;
@@ -111,12 +111,12 @@ public class LoginController extends Application {
         if (eventClicked.contentEquals("Button[id=conf, styleClass=button]'Confirm'")) {
         	
     			
-        		AddressBean newadd = new AddressBean(add_r.getText(), city_r.getText(), zip_r.getText(), tel_r.getText(),
-    													state_r.getText(), zone_r.getText());
+        		AddressBean newadd = new AddressBean(addr.getText(), cityr.getText(), zipr.getText(), telr.getText(),
+    													stater.getText(), zoner.getText());
         		
-        		UserBean ub = new UserBean(0, mail_r.getText(), name_r.getText(), sur_r.getText(), pass_r.getText(), newadd);
+        		UserBean ub = new UserBean(0, mailr.getText(), namer.getText(), surr.getText(), passr.getText(), newadd);
 
-        		if(pass_r.getText().contentEquals(pass2_r.getText())) {
+        		if(passr.getText().contentEquals(pass2r.getText())) {
         			if(cr.register(ub)) {
         				JOptionPane.showMessageDialog(null, "Registration succesfully!\nPlease login now");
         				a.openWin("view/login_registerPage.fxml");

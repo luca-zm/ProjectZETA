@@ -41,11 +41,11 @@ public class UserProfileController extends Application {
     @FXML
     public Button map;
     @FXML
-    public Button a_code_link;
+    public Button codelink;
     @FXML
-    public Button prod_link;
+    public Button prodlink;
     @FXML
-    public Button user_p_link;
+    public Button userlink;
     
     @FXML
     public Text tname;
@@ -87,7 +87,7 @@ public class UserProfileController extends Application {
 	@FXML
     public void initialize() {
 		
-    	user_p_link.setDisable(true); 
+    	userlink.setDisable(true); 
     	story.setText(sg.getUser().getHistory().getTranList().toString());
     	//------gestione profilo utente-------
 
@@ -136,7 +136,7 @@ public class UserProfileController extends Application {
         	a.openWin("view/wishlistPage.fxml");
         }
         
-        if (eventClicked.contentEquals("Button[id=a_code_link, styleClass=button]'Activate your code!'")) {
+        if (eventClicked.contentEquals("Button[id=codelink, styleClass=button]'Activate your code!'")) {
         	//pagina activation code
         	a.openWin("view/activationcodePage.fxml");
         }
@@ -152,15 +152,15 @@ public class UserProfileController extends Application {
 			return;
         }
         //hyperlink----------------
-        if (eventClicked.contentEquals("Button[id=map_link, styleClass=button]'Map'")) {
+        if (eventClicked.contentEquals("Button[id=maplink, styleClass=button]'Map'")) {
         	//pagina mappe
         	a.openWin("view/mapPage.fxml");
         }
-        if (eventClicked.contentEquals("Button[id=a_code_link, styleClass=button]'Activation Code'")) {
+        if (eventClicked.contentEquals("Button[id=codelink, styleClass=button]'Activation Code'")) {
         	//pagina activation code
         	a.openWin("view/activationcodePage.fxml");
         }
-        if (eventClicked.contentEquals("Button[id=prod_link, styleClass=button]'Products'")) {
+        if (eventClicked.contentEquals("Button[id=prodlink, styleClass=button]'Products'")) {
         	//pagina prodotti
         	a.openWin("view/productsPage.fxml");
         }

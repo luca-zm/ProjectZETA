@@ -34,11 +34,11 @@ public class ActivationCodeController extends Application {
     @FXML
     public Button map;
     @FXML
-    public Button a_code_link;
+    public Button codelink;
     @FXML
-    public Button prod_link;
+    public Button prodlink;
     @FXML
-    public Button user_p_link;
+    public Button userlink;
     
     public winNext a;
     
@@ -46,13 +46,13 @@ public class ActivationCodeController extends Application {
     public Text wb;
     
     @FXML
-    public TextArea up_gc;
+    public TextArea upgc;
     
     @FXML
     public TextArea mygc;
     
     @FXML
-    public TextField add_gc;
+    public TextField addgc;
     
     Singleton sg =Singleton.getInstance();
     ControllerShopCartCheckOut ac = new ControllerShopCartCheckOut();
@@ -73,7 +73,7 @@ public class ActivationCodeController extends Application {
     }
 
     public void initialize() {
-		a_code_link.setDisable(true);
+		codelink.setDisable(true);
 		mygc.setText(Integer.toString(user.getGreenCoin()));
 		
 		if(sg.getUser() == null) { //utente non loggato
@@ -90,14 +90,14 @@ public class ActivationCodeController extends Application {
         
         if (eventClicked.contentEquals("Button[id=confirm, styleClass=button]'OK'")) {
 
-        	ActivationCodeBean acb = new ActivationCodeBean(Integer.parseInt(add_gc.getText()), 0);
+        	ActivationCodeBean acb = new ActivationCodeBean(Integer.parseInt(addgc.getText()), 0);
         	int val = ac.enabledActivationCode(acb);
         	if ( val == 0) { //code inesistente
         		JOptionPane.showMessageDialog(null, "Code does not exist, try with another code please");
         		
         	}else {
-        		up_gc.setText(Integer.toString(val));
-        		add_gc.setText(""); //per aggiornare il riquadro dei greencoin in real time
+        		upgc.setText(Integer.toString(val));
+        		addgc.setText(""); //per aggiornare il riquadro dei greencoin in real time
         		mygc.setText(Integer.toString(user.getGreenCoin()));
         	}
         	return;
@@ -120,15 +120,15 @@ public class ActivationCodeController extends Application {
         }
         
         //Hyperlink
-        if (eventClicked.contentEquals("Button[id=map_link, styleClass=button]'Map'")) {
+        if (eventClicked.contentEquals("Button[id=maplink, styleClass=button]'Map'")) {
         	//pagina mappe
         	a.openWin("view/mapPage.fxml");
         }
-        if (eventClicked.contentEquals("Button[id=prod_link, styleClass=button]'Products'")) {
+        if (eventClicked.contentEquals("Button[id=prodlink, styleClass=button]'Products'")) {
         	//pagina prodotti
         	a.openWin("view/productsPage.fxml");
         }
-        if (eventClicked.contentEquals("Button[id=user_p_link, styleClass=button]'User Profile'")) {
+        if (eventClicked.contentEquals("Button[id=userlink, styleClass=button]'User Profile'")) {
         	//pagina prodotti
         	a.openWin("view/userprofilePage.fxml");
         }               

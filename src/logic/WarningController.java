@@ -28,6 +28,7 @@ public class WarningController extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+    	//empty
     }
 
     @FXML

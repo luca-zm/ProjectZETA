@@ -42,13 +42,13 @@ public class WishlistController extends Application {
     public Button shop;
 
     @FXML
-    public Button map_link;
+    public Button maplink;
     @FXML
-    public Button a_code_link;
+    public Button codelink;
     @FXML
-    public Button prod_link;
+    public Button prodlink;
     @FXML
-    public Button user_p_link;
+    public Button userlink;
     @FXML
     public Button wish;
     
@@ -73,6 +73,7 @@ public class WishlistController extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+    	//empty
     }
     
     
@@ -226,19 +227,19 @@ public class WishlistController extends Application {
 
         
         //Hyperlink ------------------
-        if (eventClicked.contentEquals("Button[id=user_p_link, styleClass=button]'User Profile'")) {
+        if (eventClicked.contentEquals("Button[id=userlink, styleClass=button]'User Profile'")) {
         	//pagina del profilo utente
         	a.openWin("view/userprofilePage.fxml");
         }
-        if (eventClicked.contentEquals("Button[id=map_link, styleClass=button]'Map'")) {
+        if (eventClicked.contentEquals("Button[id=maplink, styleClass=button]'Map'")) {
         	//pagina mappe
         	a.openWin("view/mapPage.fxml");
         }
-        if (eventClicked.contentEquals("Button[id=a_code_link, styleClass=button]'Activation Code'")) {
+        if (eventClicked.contentEquals("Button[id=codelink, styleClass=button]'Activation Code'")) {
         	//pagina activation code
         	a.openWin("view/activationcodePage.fxml");
         }
-        if (eventClicked.contentEquals("Button[id=prod_link, styleClass=button]'Products'")) {
+        if (eventClicked.contentEquals("Button[id=prodlink, styleClass=button]'Products'")) {
         	a.openWin("view/productsPage.fxml");
         }
         //Hyper link ------------------

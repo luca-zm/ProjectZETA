@@ -43,6 +43,7 @@ public class HomepageController extends Application implements Initializable{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		//empty
 		
 	}
 	

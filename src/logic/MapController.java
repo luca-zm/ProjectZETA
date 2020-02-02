@@ -41,19 +41,19 @@ public class MapController extends Application implements ActionListener{
     public Button log;
 
     @FXML
-    public Button map_link;
+    public Button maplink;
     @FXML
-    public Button a_code_link;
+    public Button codelink;
     @FXML
-    public Button prod_link;
+    public Button prodlink;
     @FXML
-    public Button user_p_link;
+    public Button userlink;
     
     @FXML
     public Text wb;
     
     @FXML
-    public TextArea map_text;
+    public TextArea maptext;
     
     Singleton sg = Singleton.getInstance(); 
 
@@ -66,6 +66,7 @@ public class MapController extends Application implements ActionListener{
     
     @Override
     public void start(Stage primaryStage) throws Exception{
+    	//empty
     }
     
 	@FXML
@@ -85,8 +86,8 @@ public class MapController extends Application implements ActionListener{
         frame.pack();
         frame.setVisible(true);
         
-        System.out.println(map_text);
-        map_text.setEditable(false);
+        System.out.println(maptext);
+        maptext.setEditable(false);
         
         ArrayList<CollectionPoint> list = CollectionPointDAO.select();
         
@@ -97,9 +98,9 @@ public class MapController extends Application implements ActionListener{
         	count += 1;
         }
         
-        map_text.setText(string);
+        maptext.setText(string);
         
-		map_link.setDisable(true);
+		maplink.setDisable(true);
 		//-----
 		log.setVisible(false);
 		
@@ -144,7 +145,7 @@ public class MapController extends Application implements ActionListener{
         }
         
         
-        if (eventClicked.contentEquals("Button[id=user_p_link, styleClass=button]'User Profile'")) {
+        if (eventClicked.contentEquals("Button[id=userlink, styleClass=button]'User Profile'")) {
         	//pagina del profilo utente
         	if(sg.getUser() != null) {
         		a.openWin("view/userprofilePage.fxml");
@@ -156,7 +157,7 @@ public class MapController extends Application implements ActionListener{
         
                 
         
-        if (eventClicked.contentEquals("Button[id=a_code_link, styleClass=button]'Activation Code'")) {
+        if (eventClicked.contentEquals("Button[id=codelink, styleClass=button]'Activation Code'")) {
         	//pagina activation code
         	if(sg.getUser() != null) {
             	a.openWin("view/activationcodePage.fxml");
@@ -174,7 +175,7 @@ public class MapController extends Application implements ActionListener{
         
         
         
-        if (eventClicked.contentEquals("Button[id=prod_link, styleClass=button]'Products'")) {
+        if (eventClicked.contentEquals("Button[id=prodlink, styleClass=button]'Products'")) {
         	//pagina prodotti
         	a.openWin("view/productsPage.fxml");
         }

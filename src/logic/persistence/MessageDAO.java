@@ -6,10 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import logic.enums.MesType;
 import logic.model.AbstractUser;
-import logic.model.CollectionPoint;
 import logic.persistence.DataSource;
 import logic.model.Message;
 

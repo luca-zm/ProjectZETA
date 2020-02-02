@@ -1,7 +1,5 @@
 package logic.model;
 
-
-
 public class Address {
 
 	private int id;

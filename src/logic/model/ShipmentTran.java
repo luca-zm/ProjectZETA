@@ -1,8 +1,5 @@
 package logic.model;
 
-
-import java.util.List;
-
 import logic.enums.DeliveryStatus;
 
 public class ShipmentTran extends Transaction{

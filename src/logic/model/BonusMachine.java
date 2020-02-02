@@ -3,7 +3,6 @@ package logic.model;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import logic.enums.DeliveryStatus;
 import logic.enums.MesType;
 import logic.persistence.MessageDAO;
 import logic.persistence.TransactionDAO;

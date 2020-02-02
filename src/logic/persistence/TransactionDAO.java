@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-import logic.enums.Category;
 import logic.enums.DeliveryStatus;
 import logic.model.AbstractUser;
 import logic.model.ActivationCodeTran;

@@ -1,53 +1,23 @@
 package logic;
 
 import javafx.application.Application;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollBar;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
-
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import logic.model.CollectionPoint;
 import logic.model.Singleton;
 import logic.persistence.CollectionPointDAO;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import controller.ControllerManageCollPoint;

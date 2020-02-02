@@ -1,39 +1,24 @@
 package logic;
-
-import java.awt.Color;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
-
-import bean.UserBean;
 import controller.ControllerLogin;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.SnapshotParameters;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.WritableImage;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import logic.model.AbstractUser;
-import logic.model.History;
 import logic.model.Message;
-import logic.model.NoticeBoard;
-import logic.model.Product;
 import logic.model.Singleton;
-import logic.model.User;
 import logic.persistence.MessageDAO;
 
 public class UserProfileController extends Application {

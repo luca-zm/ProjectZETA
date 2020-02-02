@@ -1,10 +1,6 @@
 package logic.model;
 
-import java.util.ArrayList;
-
-
 import logic.enums.Roles;
-
 
 public abstract class AbstractUser {
 	protected  int id;

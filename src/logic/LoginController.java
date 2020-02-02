@@ -12,9 +12,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import logic.enums.Roles;
 import logic.model.Singleton;
-
 import javax.swing.*;
-
 import bean.AddressBean;
 import bean.UserBean;
 import controller.ControllerLogin;

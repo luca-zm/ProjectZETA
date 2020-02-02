@@ -6,9 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-import logic.model.AbstractUser;
-import logic.model.Address;
 import logic.model.CollectionPoint;
 import logic.persistence.DataSource;
 

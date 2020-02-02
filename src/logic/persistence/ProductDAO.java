@@ -6,12 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import logic.enums.Category;
-import logic.enums.MesType;
 import logic.persistence.DataSource;
-import logic.model.AbstractUser;
-import logic.model.Message;
 import logic.model.Product;
 
 public class ProductDAO {

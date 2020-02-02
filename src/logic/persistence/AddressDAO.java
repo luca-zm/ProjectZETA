@@ -5,9 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import logic.model.AbstractUser;
-import logic.model.ActivationCode;
 import logic.model.Address;
 import logic.persistence.DataSource;
 

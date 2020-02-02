@@ -1,7 +1,6 @@
 package logic.model;
 import logic.enums.Roles;
 
-import static logic.enums.Roles.ADMIN;
 import static logic.enums.Roles.USER;
 
 public class User extends AbstractUser {

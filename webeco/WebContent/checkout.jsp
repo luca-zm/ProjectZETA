@@ -32,6 +32,7 @@
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
+
 </head>
 <body>
 	<!-- Page Preloder -->
@@ -42,15 +43,22 @@
 	<nav class="main-navbar">
 			<div class="container">
 				<!-- menu -->
+				<form method="post" action="LoginControllerServlet">
+				
 				<ul class="main-menu">
+					<li><input type="submit" class="site-btn" style="background-color:#a7aba9" name="action" value="logout"></li>
+					<li></li>
 					<li><a href="./homepage.jsp">Home</a></li>
 					<li><a href="./userprofile.jsp">User Profile</a></li>
 					<li><a href="./map.jsp">Map</a></li>
 					<li><a href="./wishlist.jsp">Wishlist</a></li>
 					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>${user.getCart().getProductList().size()}</span></div><a href="./cart.jsp"> Shopping Cart</a></li>
 				</ul>
+				
+				</form>
 			</div>
 	</nav>
+
 
 	<!-- checkout section  -->
 	<section class="checkout-section spad">
@@ -100,23 +108,30 @@
 					
 					<form action="ShopCartServlet" method="get">
 					
-					<c:forEach items="${user.getCart().getProductList()}" var="item">
+					
+					<table>
+							<thead>
 								<tr>
-										<div class="pc-title">
+									<th></th><th></th>
+									
+								</tr>
+							</thead>
+							<tbody>
+							<c:forEach items="${user.getCart().getProductList()}" var="item">
+								<tr>
+									<td class="product-col">
 											<h4>${item.getName()}</h4>
-										</div>
 									</td>
-									<td class="quy-col">
+								</tr><tr>
+									<td class="product-col">
 										<p>${item.getPrice()} greencoin</p>
 									</td>
-									<td>
-									
-
-									</td>
 								</tr>
-					</c:forEach>
+							</c:forEach>
+							</tbody>
+					</table>
 					</form>
-			</div>
+			</div></div></div>
 		</div>
 	</section>
 	<!-- checkout section end -->

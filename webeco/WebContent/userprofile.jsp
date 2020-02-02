@@ -38,13 +38,19 @@
 		<nav class="main-navbar">
 			<div class="container">
 				<!-- menu -->
+				<form method="post" action="LoginControllerServlet">
+				
 				<ul class="main-menu">
-					<li><a href="./index.jsp">Home</a></li>
+					<li><input type="submit" class="site-btn" style="background-color:#a7aba9" name="action" value="logout"></li>
+					<li></li>
+					<li><a href="./homepage.jsp">Home</a></li>
 					<li><a href="./userprofile.jsp">User Profile</a></li>
 					<li><a href="./map.jsp">Map</a></li>
 					<li><a href="./wishlist.jsp">Wishlist</a></li>
 					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>${user.getCart().getProductList().size()}</span></div><a href="./cart.jsp"> Shopping Cart</a></li>
 				</ul>
+				
+				</form>
 			</div>
 		</nav>
 
@@ -62,12 +68,10 @@
 						<hr>
 					<img src="./img/avatar.png" alt="" align="left">&emsp;
 					<div align="right">
-								<p align="left">&ensp;&ensp;&ensp;Username:&emsp;${user.getName()}</p><br>
-								<p align="left">&ensp;&ensp;&ensp;Email:&emsp;${user.getMail()}</p><br>
-								<p align="left">&ensp;&ensp;&ensp;Greencoin:&emsp;${user.getGreenCoin()}</p><br>
-								<p align="left">&ensp;&ensp;&ensp;Address:&emsp;${user.getAddress().getAddress()}&emsp;${user.getAddress().getCity()}<br>
-												&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;${user.getAddress().getPostalCode()}&emsp;${user.getAddress().getTelephone()}<br>
-												&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;${user.getAddress().getState()}&emsp;${user.getAddress().getZone()}</p><br>
+								&ensp;&ensp;&ensp;<p align="left">&ensp;&ensp;&ensp;Email:&emsp;${user.getMail()}</p><br>
+								&ensp;&ensp;&ensp;<p align="left">&ensp;&ensp;&ensp;Name\surname:&emsp;${user.getName()} - ${user.getSurname()}</p><br>
+								&ensp;&ensp;&ensp;<p align="left">&ensp;&ensp;&ensp;Greencoin:&emsp;${user.getGreenCoin()}</p><br>
+								&ensp;&ensp;&ensp;<p align="left">&ensp;&ensp;&ensp;Address:&emsp;${indirizzo}</p><br>
 					</div>
 					<hr>
 					<br>

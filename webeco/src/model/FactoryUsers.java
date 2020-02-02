@@ -3,18 +3,18 @@ package model;
 
 public class FactoryUsers {
 
-    public static AbstractUser get(int id, String name, String username, String mail, String pass, String type) {
+    public static AbstractUser get(int id, String mail, String name, String surname, String pass, String type) {
 
         switch (type) {
 
             case "COLLECTIONPOINTMAN":
-                return new CollectionPointMan(id, name, username , mail, pass);
+                return new CollectionPointMan(id, mail, name , surname, pass);
             case "USER":
-                return new User(id, name, username , mail, pass);
+                return new User(id, mail, name , surname, pass);
             case "ADMIN":
-                return new Admin(id, mail, name, username, pass);
+                return new Admin(id, mail, name , surname, pass);
             default:
-                return new Guest(id, mail, name, username, pass);
+                return new Guest(id, mail, name , surname, pass);
         }
     }
 }

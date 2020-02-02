@@ -50,13 +50,19 @@
 	<nav class="main-navbar">
 			<div class="container">
 				<!-- menu -->
+				<form method="post" action="LoginControllerServlet">
+				
 				<ul class="main-menu">
+					<li><input type="submit" class="site-btn" style="background-color:#a7aba9" name="action" value="logout"></li>
+					<li></li>
 					<li><a href="./homepage.jsp">Home</a></li>
 					<li><a href="./userprofile.jsp">User Profile</a></li>
 					<li><a href="./map.jsp">Map</a></li>
 					<li><a href="./wishlist.jsp">Wishlist</a></li>
 					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>${user.getCart().getProductList().size()}</span></div><a href="./cart.jsp"> Shopping Cart</a></li>
 				</ul>
+				
+				</form>
 			</div>
 		</nav>
 

@@ -36,12 +36,12 @@ public class CheckoutServlet extends HttpServlet {
 
 		String action = request.getParameter("action");
 		
+
 		ControllerShopCartCheckOut c = new ControllerShopCartCheckOut();
 		
 		if("order".contentEquals(action)) {
 			
 			try {
-				System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"+session.getAttribute("carrello"));
 				c.buyShopCart(session);
 			} catch (SQLException e) {
 				e.printStackTrace();

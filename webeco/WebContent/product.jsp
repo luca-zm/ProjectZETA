@@ -34,13 +34,19 @@
 	<nav class="main-navbar">
 			<div class="container">
 				<!-- menu -->
+				<form method="post" action="LoginControllerServlet">
+				
 				<ul class="main-menu">
+					<li><input type="submit" class="site-btn" style="background-color:#a7aba9" name="action" value="logout"></li>
+					<li></li>
 					<li><a href="./homepage.jsp">Home</a></li>
 					<li><a href="./userprofile.jsp">User Profile</a></li>
 					<li><a href="./map.jsp">Map</a></li>
 					<li><a href="./wishlist.jsp">Wishlist</a></li>
 					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>${user.getCart().getProductList().size()}</span></div><a href="./cart.jsp"> Shopping Cart</a></li>
 				</ul>
+				
+				</form>
 			</div>
 		</nav>
 
@@ -77,17 +83,7 @@
 									</div>
 							</div>
 						</div>
-						<div class="panel">
-							<div class="panel-header" id="headingTwo">
-								<button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">care details </button>
-							</div>
-							<div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-								<div class="panel-body">
-									<img src="./img/cards.png" alt="">
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
-								</div>
-							</div>
-						</div>
+						
 						
 					</div>
 				</div>

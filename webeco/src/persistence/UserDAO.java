@@ -76,7 +76,7 @@ public class UserDAO {
                 String pass = resultSet.getString("pass"); 
                 int greenCoin = resultSet.getInt("greenCoin");
 
-                AbstractUser user = FactoryUsers.get(id, name, surname, mail, pass, type);
+                AbstractUser user = FactoryUsers.get(id, mail, name, surname, pass, type);
                 user.setGreenCoin(greenCoin);
                 return user;
             }
@@ -102,7 +102,7 @@ public class UserDAO {
                 String mail = resultSet.getString("mail"); 
                 int greenCoin = resultSet.getInt("greenCoin");
 
-                AbstractUser user = FactoryUsers.get(id, name, surname, mail, pass, type);
+                AbstractUser user = FactoryUsers.get(id, mail, name, surname, pass, type);
                 user.setGreenCoin(greenCoin);
                 list.add(user);
             }
@@ -130,7 +130,7 @@ public class UserDAO {
                 String type = resultSet.getString("type");       
                 String mail = resultSet.getString("mail");
                 String pass = resultSet.getString("pass");
-                AbstractUser user = FactoryUsers.get(id, name, surname, mail, pass, type);
+                AbstractUser user = FactoryUsers.get(id, mail, name, surname, pass, type);
                 return user;
             }
         } catch (SQLException e) {

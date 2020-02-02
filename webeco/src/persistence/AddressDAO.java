@@ -99,6 +99,31 @@ public class AddressDAO {
         return false;
     }
     
+    public static Address findAddressById(int id) throws SQLException{
+      	 
+    	try {        
+            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_ADDRBYID);
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) { 
+            	String address = resultSet.getString("address");
+                String city = resultSet.getString("city");
+                String postalCode = resultSet.getString("postalCode"); 
+                String telephone = resultSet.getString("telephone"); 
+                String state = resultSet.getString("state");
+                String zone = resultSet.getString("zone");
+
+                Address addr = new Address(id, address, city, postalCode, telephone, state, zone);
+                
+                return addr;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    
     
 }
 

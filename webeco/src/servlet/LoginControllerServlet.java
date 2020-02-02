@@ -27,6 +27,7 @@ import model.AbstractUser;
 import model.CollectionPoint;
 import model.Product;
 import model.ShopCart;
+import persistence.AddressDAO;
 import persistence.CollectionPointDAO;
 import persistence.ProductDAO;
 import persistence.UserDAO;
@@ -47,8 +48,7 @@ public class LoginControllerServlet extends HttpServlet {
 		HttpSession session = request.getSession(); 
 		String action = request.getParameter("action");
 		
-	
-		
+
 		
 		ControllerManageCollPoint c = new ControllerManageCollPoint();
 		URL mapUrl = null;
@@ -64,9 +64,10 @@ public class LoginControllerServlet extends HttpServlet {
 		
 		if("login".equals(action)) {
 			ControllerLogin CL = new ControllerLogin();
-			String un=request.getParameter("username");
+			String mail=request.getParameter("username");
 			String pw=request.getParameter("password");
-			UserBean ub = new UserBean(0, null, null, un, pw, null);
+			UserBean ub = new UserBean(0, mail, null, null, pw, null);
+			
 			try {
 				if(CL.login(ub, session))
 				{
@@ -86,6 +87,9 @@ public class LoginControllerServlet extends HttpServlet {
 						session.setAttribute("collpoint", collpoint);
 						session.setAttribute("catalogomini", catalogo_mini);
 						session.setAttribute("catalogo", catalogo);
+						
+						session.setAttribute("indirizzo", AddressDAO.findAddressById(user.getId()));
+						
 						request.getRequestDispatcher("homepage.jsp").forward(request, response);
 						return;
 						
@@ -111,7 +115,7 @@ public class LoginControllerServlet extends HttpServlet {
 					
 					
 					
-
+					
 					
 					
 					
@@ -162,15 +166,14 @@ public class LoginControllerServlet extends HttpServlet {
 			String zone = request.getParameter("zone");
 			
 			AddressBean addr = new AddressBean(address, city, zipcode, telephone, state, zone);
-			UserBean ub = new UserBean(0, name, surname, pass, email, addr);
+			UserBean ub = new UserBean(0, email, name, surname, pass, addr);
 			
-			String indirizzo= addr.toString();
 			
 			if(pass.contentEquals(confpass)){
 				try {
 					if(cr.register(ub)) {
 						System.out.println("funziona il login");
-						session.setAttribute("indirizzo", indirizzo);
+
 						request.getRequestDispatcher("index.jsp").forward(request, response);
 						return;
 					}
@@ -180,6 +183,12 @@ public class LoginControllerServlet extends HttpServlet {
 				}
 			}
 			
+		}
+		
+		
+		if("logout".equals(action)) {
+			session.invalidate(); 
+			response.sendRedirect("index.jsp");
 		}
 
 	}

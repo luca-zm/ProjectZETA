@@ -57,7 +57,7 @@
 					<li></li>
 					<li><a href="./homepage.jsp">Home</a></li>
 					<li><a href="./userprofile.jsp">User Profile</a></li>
-					<li><a href="./map.jsp">Map</a></li>
+					<li><a href="./map.jsp">Map style="color:#4fe090"</a></li>
 					<li><a href="./wishlist.jsp">Wishlist</a></li>
 					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>${user.getCart().getProductList().size()}</span></div><a href="./cart.jsp"> Shopping Cart</a></li>
 				</ul>

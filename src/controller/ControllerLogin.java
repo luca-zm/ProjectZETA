@@ -68,6 +68,14 @@ public class ControllerLogin {
 		
 		return true;
 	}
+	
+	public AbstractUser giveUserForRole(UserBean u) throws SQLException {
+		
+		
+		return UserDAO.findRegisteredUser(u.getMail());
+		
+	
+	}
 
 
 }

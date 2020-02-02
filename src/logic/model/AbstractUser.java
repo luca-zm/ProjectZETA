@@ -49,7 +49,9 @@ public abstract class AbstractUser {
 
 
 
-	public abstract Roles getType();
+	public Roles getType() {
+		return type;
+	}
 	
 	public void setType(Roles type) {
         this.type = type;

@@ -29,6 +29,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import logic.enums.Roles;
 import logic.model.Singleton;
 
 import javax.swing.*;
@@ -79,22 +80,28 @@ public class LoginController extends Application {
         		}
         		
         		UserBean ub = new UserBean(0,  mail.getText() , null, null , psw.getText(), null);
+        		
         	
-        		//metodo verifica credenziali, imposta flag, fa aprire schermata prodotti, admin, moderatore in base al flag 
-        		if (mail.getText().contentEquals("admin") && psw.getText().contentEquals("admin")) {
-        			a.openWin("view/adminPage.fxml");
-        		}
-        		if (mail.getText().contentEquals("moderator") && psw.getText().contentEquals("moderator")) {
-        			a.openWin("view/modPage.fxml");
-        		}
-        		//METODO che verifica se l'utente si e' loggato o meno
+        	
+        		
+        		//METODO che verifica se l'utente si e' loggato o meno con RUOLO
         		if(cl.login(ub)) {
-        			a.openWin("view/productsPage.fxml");
-        		}else {
+        			if(cl.giveUserForRole(ub).getType().equals(Roles.ADMIN)) {
+        				a.openWin("view/adminPage.fxml");
+        			}
+        			else if(cl.giveUserForRole(ub).getType().equals(Roles.COLLECTIONPOINTMAN)) {
+        				a.openWin("view/modPage.fxml");
+        			}
+        				
+        			else { a.openWin("view/productsPage.fxml");}
+        			
+        		}
+        		else {
         			return;
         		}
+         }
         	
-        }
+        
         if (eventClicked.contentEquals("Button[id=conf, styleClass=button]'Confirm'")) {
         	
     			

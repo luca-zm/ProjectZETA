@@ -1,9 +1,11 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,13 +38,12 @@ public class ShopCartServlet extends HttpServlet {
 	 * @see HttpServlet#doGet1(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 			HttpSession session = request.getSession(); 
 
 			String action = request.getParameter("action");
 			ControllerShopCartCheckOut controller = new ControllerShopCartCheckOut();
 
-			if("del".contentEquals(action)) {
+			if("del".equals(action)) {
 				int productId = Integer.parseInt(request.getParameter("productId"));
 				try {
 					controller.deleteProduct(productId, session);
@@ -64,7 +65,16 @@ public class ShopCartServlet extends HttpServlet {
 					AbstractUser user = (AbstractUser)session.getAttribute("user");
 					for(Product p: user.getWishList().getList()) {
 						if(p.getId() == productIddown) {
-							response.sendRedirect("cart.jsp");
+							PrintWriter out = response.getWriter();
+							out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
+							out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
+							out.println("<script>");
+							out.println("$(document).ready(function(){");
+							out.println("swal ( 'Product already inserted in Wish List!' ,  '' ,  '' );");
+							out.println("});");
+							out.println("</script>");
+							RequestDispatcher rd = request.getRequestDispatcher("cart.jsp");
+							rd.include(request, response);
 							return;
 						}
 						
@@ -85,7 +95,6 @@ public class ShopCartServlet extends HttpServlet {
 					response.sendRedirect("cart.jsp");
 					return;
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -103,7 +112,25 @@ public class ShopCartServlet extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
-
+			
+			if("proceed to checkout".equals(action)) {
+				AbstractUser user = (AbstractUser) session.getAttribute("user");
+				if(user.getCart().getProductList().isEmpty()) {
+					PrintWriter out = response.getWriter();
+					out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
+					out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
+					out.println("<script>");
+					out.println("$(document).ready(function(){");
+					out.println("swal ( 'Shop Cart is empty' ,  'Add products !' ,  'error' );");
+					out.println("});");
+					out.println("</script>");
+					RequestDispatcher rd = request.getRequestDispatcher("cart.jsp");
+					rd.include(request, response);
+					return;
+				}
+				RequestDispatcher rd = request.getRequestDispatcher("checkout.jsp");
+				rd.include(request, response);
+			}
 	}
     
     /**protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

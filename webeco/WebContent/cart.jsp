@@ -48,7 +48,7 @@
 					<li><a href="./userprofile.jsp">User Profile</a></li>
 					<li><a href="./map.jsp">Map</a></li>
 					<li><a href="./wishlist.jsp">Wishlist</a></li>
-					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>${user.getCart().getProductList().size()}</span></div><a href="./cart.html"> Shopping Cart</a></li>
+					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>${user.getCart().getProductList().size()}</span></div><a href="#"> Shopping Cart</a></li>
 				</ul>
 				
 				</form>
@@ -110,8 +110,9 @@
 						<input type="text" placeholder="Enter promo code">
 						<button style="color:#4fe090">Submit</button>
 					</form>
-					
-					<a href="./checkout.jsp" class="site-btn" style="background-color:#4fe090">Proceed to checkout</a>
+					<form action="ShopCartServlet" method="get">
+					<input type="submit" name="action" class="site-btn" style="background-color:#4fe090" value ="proceed to checkout">
+					</form> 
 					<a href="#continue" class="site-btn sb-dark" style="background-color:#66666">Continue shopping</a>
 				</div>
 			</div>

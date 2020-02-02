@@ -1,9 +1,11 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -55,13 +57,23 @@ public class HomePageServlet extends HttpServlet {
 				AbstractUser user = (AbstractUser)session.getAttribute("user");
 				for(Product p: user.getWishList().getList()) {
 					if(p.getId() == productId) {
-						response.sendRedirect("homepage.jsp");
+						PrintWriter out = response.getWriter();
+						out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
+						out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
+						out.println("<script>");
+						out.println("$(document).ready(function(){");
+						out.println("swal ( 'Product already inserted in Wish List!' ,  '' ,  '' );");
+						out.println("});");
+						out.println("</script>");
+						RequestDispatcher rd = request.getRequestDispatcher("homepage.jsp");
+						rd.include(request, response);
 						return;
 					}
 					
 				}
 				controller.addProductinWishList(productId, session);
-				response.sendRedirect("homepage.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("homepage.jsp");
+				rd.include(request, response);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -72,7 +84,8 @@ public class HomePageServlet extends HttpServlet {
 			ControllerShopCartCheckOut controller = new ControllerShopCartCheckOut();
 			try {
 				controller.addProduct(productId, session);
-				response.sendRedirect("homepage.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("homepage.jsp");
+				rd.include(request, response);
 				return;
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block

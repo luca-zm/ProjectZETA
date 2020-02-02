@@ -1,5 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="java.util.ArrayList" %>
+<%@page import="model.Message" %>
+<%@page import="model.AbstractUser" %>
+<%@page import="persistence.MessageDAO" %>
 
 <!DOCTYPE html>
 <html lang="zxx">
@@ -44,7 +50,7 @@
 					<li><input type="submit" class="site-btn" style="background-color:#a7aba9" name="action" value="logout"></li>
 					<li></li>
 					<li><a href="./homepage.jsp">Home</a></li>
-					<li><a href="./userprofile.jsp">User Profile</a></li>
+					<li><a href="./userprofile.jsp" style="color:#4fe090">User Profile</a></li>
 					<li><a href="./map.jsp">Map</a></li>
 					<li><a href="./wishlist.jsp">Wishlist</a></li>
 					<li><div class="shopping-card"><i class="flaticon-bag"></i><span>${user.getCart().getProductList().size()}</span></div><a href="./cart.jsp"> Shopping Cart</a></li>
@@ -111,7 +117,11 @@
 							
 								<table><thead><tr><th></th><th></th></tr></thead>
 								<tbody>
-								<c:forEach items="${user.getBoards().getList()}" var="item">
+								<% ArrayList<Message> messages = MessageDAO.selectBroadcast();
+								   AbstractUser user = (AbstractUser)session.getAttribute("user");
+								   messages.addAll(user.getBoards().getList());	
+								%>
+								<c:forEach items="<%=messages%>" var="item">
 									<tr>
 									
 										<td class="product-col">

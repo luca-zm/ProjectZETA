@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import enums.MesType;
+import persistence.Query;
 import model.AbstractUser;
 import model.CollectionPoint;
 import model.Message;
@@ -94,6 +95,28 @@ public class MessageDAO {
             	String type = resultSet.getString("type");
             	MesType mesType = MesType.valueOf(type);
             	list.add(new Message(user.getId(), date, title, bodymessage, mesType));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    
+    
+    public static ArrayList<Message> selectBroadcast() throws SQLException {
+
+    	ArrayList<Message> list = new ArrayList<Message>();
+        //preparing some objects for connection
+    	try {        
+            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_MESSAGEBROAD); 
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) { ;
+            	String date = resultSet.getString("date");
+            	String title = resultSet.getString("title");
+            	String bodymessage = resultSet.getString("bodymessage");
+            	String type = resultSet.getString("type");
+            	MesType mesType = MesType.valueOf(type);
+            	list.add(new Message(0, date, title, bodymessage, mesType));
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -33,7 +33,7 @@ public class HomepageController extends Application implements Initializable{
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		myplayer= new MediaPlayer(new Media(this.getClass().getResource("view/img/video.mp4").toExternalForm()));
+		myplayer= new MediaPlayer(new Media(this.getClass().getResource("view\\images\\video.mp4").toExternalForm()));
 
     	myplayer.setAutoPlay(true);
     	myvideo.setMediaPlayer(myplayer);

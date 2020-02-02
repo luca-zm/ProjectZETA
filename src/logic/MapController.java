@@ -50,8 +50,6 @@ import logic.persistence.CollectionPointDAO;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-
-import controller.ControllerMap;
 import controller.ControllerManageCollPoint;
 
 public class MapController extends Application implements ActionListener{
@@ -105,7 +103,7 @@ public class MapController extends Application implements ActionListener{
         frame.pack();
         frame.setVisible(true);
         
-        
+        System.out.println(map_text);
         map_text.setEditable(false);
         
         ArrayList<CollectionPoint> list = CollectionPointDAO.select();

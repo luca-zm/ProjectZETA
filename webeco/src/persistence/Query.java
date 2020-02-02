@@ -52,6 +52,8 @@ public class Query {
 	
 	public static final String SELECT_MESSAGE = "SELECT * from message WHERE userid = ?";
 	
+	public static final String SELECT_MESSAGEBROAD = "SELECT * from message WHERE userid = 0";
+	
 	public static final String SELECT_PRODUCTS = "SELECT * from product";
 	
 	public static final String SELECT_PRODUCT = "SELECT * from product WHERE id = ?";

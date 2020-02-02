@@ -2,6 +2,8 @@ package logic;
 
 import java.awt.Color;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -109,7 +111,7 @@ public class UserProfileController extends Application {
     }
 	
 	@FXML
-    private void next(ActionEvent event) throws IOException {
+    private void next(ActionEvent event) throws IOException, SQLException {
 		winNext a = new winNext();
         String eventClicked = event.getSource().toString();
         System.out.println(eventClicked);
@@ -135,7 +137,9 @@ public class UserProfileController extends Application {
         
         if (eventClicked.contentEquals("Button[id=message, styleClass=button btn-info]'MSG'")) {
         	String messaggi = "";
-        	for(Message m : user.getBoards().getList()) {
+        	ArrayList<Message> messages = MessageDAO.selectBroadcast();
+        	messages.addAll(user.getBoards().getList());
+        	for(Message m : messages) {
         		messaggi = messaggi + m.getTitle() + ": " + m.getBodymessage() + "\n";
         	}
 			JOptionPane.showMessageDialog(null, messaggi);

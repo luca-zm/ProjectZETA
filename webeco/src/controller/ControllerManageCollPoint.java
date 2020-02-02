@@ -122,7 +122,7 @@ public class ControllerManageCollPoint {
 	    CollectionPointDAO.insert(collPoint);
 	    //getFinalUrl("https://maps.googleapis.com/maps/api/staticmap?center=Rome,Italy&zoom=11&size=600x500&maptype=roadmap&key=AIzaSyDWaK_dXLPOBO43oLeAkMTrgkh-6qSlnuc", lon,lat);
 	    
-	    Message m = new Message(0,getDate(), "Nuovo Punto di raccolta", "C'� un nuovo punto di raccolta sulla mappa: " + name, MesType.COLLPOINTBROAD);
+	    Message m = new Message(0,getDate(), "Nuovo Punto di raccolta", "C'e' un nuovo punto di raccolta sulla mappa: " + name, MesType.COLLPOINTBROAD);
 		
 	    MessageDAO.insertBroad(m);
 	    

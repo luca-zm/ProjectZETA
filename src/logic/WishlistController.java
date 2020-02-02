@@ -42,10 +42,20 @@ public class WishlistController extends Application {
     public Button shop;
 
     @FXML
-    public Button map_link, a_code_link, prod_link, user_p_link, wish;
+    public Button map_link;
+    @FXML
+    public Button a_code_link;
+    @FXML
+    public Button prod_link;
+    @FXML
+    public Button user_p_link;
+    @FXML
+    public Button wish;
     
     @FXML
-    public Button buy, del;
+    public Button buy;
+    @FXML
+    public Button del;
     
     @FXML
     public Text wb;

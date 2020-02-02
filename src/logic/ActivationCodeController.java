@@ -25,10 +25,20 @@ public class ActivationCodeController extends Application {
     public Button logout;
 	
     @FXML
-    public Button confirm, shop, wish;
+    public Button confirm;
+    @FXML
+    public Button shop;
+    @FXML
+    public Button wish;
     
     @FXML
-    public Button map, a_code_link, prod_link, user_p_link;
+    public Button map;
+    @FXML
+    public Button a_code_link;
+    @FXML
+    public Button prod_link;
+    @FXML
+    public Button user_p_link;
     
     public winNext a;
     
@@ -36,7 +46,10 @@ public class ActivationCodeController extends Application {
     public Text wb;
     
     @FXML
-    public TextArea up_gc, mygc;
+    public TextArea up_gc;
+    
+    @FXML
+    public TextArea mygc;
     
     @FXML
     public TextField add_gc;

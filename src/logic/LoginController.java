@@ -21,13 +21,40 @@ import controller.ControllerRegistration;
 public class LoginController extends Application {
 
     @FXML
-    public Button log, conf, back;
+    public Button log;
     
     @FXML
-    public TextField mail, pass_r, pass2_r, mail_r, sur_r, name_r;
+    public Button conf;
     
     @FXML
-    public TextField add_r, city_r, zip_r, tel_r, state_r, zone_r;
+    public Button back;
+    
+    
+    @FXML
+    public TextField mail;
+    @FXML
+    public TextField pass_r;
+    @FXML
+    public TextField pass2_r;
+    @FXML
+    public TextField mail_r;
+    @FXML
+    public TextField sur_r;
+    @FXML
+    public TextField name_r;
+    
+    @FXML
+    public TextField add_r;
+    @FXML
+    public TextField city_r;
+    @FXML
+    public TextField zip_r;
+    @FXML
+    public TextField tel_r;
+    @FXML
+    public TextField state_r;
+    @FXML
+    public TextField zone_r;
 
     @FXML
     public PasswordField psw;

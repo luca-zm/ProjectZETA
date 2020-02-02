@@ -13,7 +13,9 @@ import logic.model.Singleton;
 public class WarningController extends Application {
 
     @FXML
-    public Button log, cancel;
+    public Button log;
+    @FXML
+    public Button cancel;
     
     Singleton sg = Singleton.getInstance(); 
     

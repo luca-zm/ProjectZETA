@@ -25,7 +25,9 @@ public class HomepageController extends Application implements Initializable{
     public MediaPlayer myplayer;
     
     @FXML
-    public Button log, shop;
+    public Button log;
+    @FXML
+    public Button hop;
 
     
 	@Override

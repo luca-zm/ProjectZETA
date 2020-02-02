@@ -32,13 +32,34 @@ public class UserProfileController extends Application {
     private ImageView avatarImage;
 	
 	@FXML
-    public Button wish, shop, message;
+    public Button wish;
+	@FXML
+    public Button shop;
+	@FXML
+    public Button message;
 
     @FXML
-    public Button map, a_code_link, prod_link, user_p_link;
+    public Button map;
+    @FXML
+    public Button a_code_link;
+    @FXML
+    public Button prod_link;
+    @FXML
+    public Button user_p_link;
     
     @FXML
-    public Text tname, tsurname, tmail, ttel, taddress, tgreencoin;
+    public Text tname;
+    
+    @FXML
+    public Text tsurname;
+    @FXML
+    public Text tmail;
+    @FXML
+    public Text ttel;
+    @FXML
+    public Text taddress;
+    @FXML
+    public Text tgreencoin;
     
     @FXML
     public TextArea story;

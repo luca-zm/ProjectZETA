@@ -32,10 +32,22 @@ public class MapController extends Application implements ActionListener{
     public Button logout;
 	
     @FXML
-    public Button wishlist, shop, log;
+    public Button wishlist;
+    
+    @FXML
+    public Button shop;
 
     @FXML
-    public Button map_link, a_code_link, prod_link, user_p_link;
+    public Button log;
+
+    @FXML
+    public Button map_link;
+    @FXML
+    public Button a_code_link;
+    @FXML
+    public Button prod_link;
+    @FXML
+    public Button user_p_link;
     
     @FXML
     public Text wb;

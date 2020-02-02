@@ -35,10 +35,20 @@ public class ShopcartController extends Application {
     public Button logout;
 	
     @FXML
-    public Button wish, log, shop;
+    public Button wish;
+    @FXML
+    public Button log;
+    @FXML
+    public Button shop;
 
     @FXML
-    public Button map_link, a_code_link, prod_link, user_p_link;
+    public Button map_link;
+    @FXML
+    public Button a_code_link;
+    @FXML
+    public Button prod_link;
+    @FXML
+    public Button user_p_link;
     
     @FXML
     public Button consume_gcoin;
@@ -47,7 +57,11 @@ public class ShopcartController extends Application {
     public Text wb;
     
     @FXML
-    public TextArea price_text, gcoin_text, total;
+    public TextArea price_text;
+    @FXML
+    public TextArea gcoin_text;
+    @FXML
+    public TextArea total;
     
     @FXML
     public StackPane stack;

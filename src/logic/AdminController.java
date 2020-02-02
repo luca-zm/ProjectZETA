@@ -27,15 +27,31 @@ public class AdminController extends Application {
 	
 	
     @FXML
-    public Button add, delete, ban;
+    public Button add;
+    @FXML
+    public Button delete;
+    @FXML
+    public Button ban;
 
     @FXML
-    public TextArea listprod, listusers;
+    public TextArea listprod;
+    @FXML
+    public TextArea listusers;
 	private Category utility;
 
     //products
     @FXML
-    public TextField prodid, prodname, proddisc, prodimg, prodgc, proddescr;
+    public TextField prodid;
+    @FXML
+    public TextField prodname;
+    @FXML
+    public TextField proddisc;
+    @FXML
+    public TextField prodimg;
+    @FXML
+    public TextField prodgc;
+    @FXML
+    public TextField proddescr;
     @FXML
     public TextField prodid2;
     

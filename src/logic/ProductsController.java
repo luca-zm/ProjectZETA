@@ -41,10 +41,22 @@ public class ProductsController extends Application {
     public Button logout;
 	
     @FXML
-    public Button user_p, wishlist, shop, log;
+    public Button user_p;
+    @FXML
+    public Button wishlist;
+    @FXML
+    public Button shop;
+    @FXML
+    public Button log;
 
     @FXML
-    public Button map, a_code_link, prod_link, user_p_link;
+    public Button map;
+    @FXML
+    public Button a_code_link;
+    @FXML
+    public Button prod_link;
+    @FXML
+    public Button user_p_link;
     
     
     

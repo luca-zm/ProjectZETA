@@ -24,10 +24,18 @@ public class ModeratorController extends Application {
 	
 	
     @FXML
-    public Button confirm, add;
+    public Button confirm;
+    @FXML
+    public Button add;
     
     @FXML
-    public TextField name, address, opening, closing;
+    public TextField name;
+    @FXML
+    public TextField address;
+    @FXML
+    public TextField opening;
+    @FXML
+    public TextField closing;
     
     @FXML
     public TextArea area;

@@ -24,5 +24,6 @@
       <Button fx:id="prod_link" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
       <Button fx:id="user_p" layoutX="23.0" layoutY="5.0" mnemonicParsing="false" onAction="#next" prefHeight="40.0" prefWidth="38.0" styleClass="hbox" stylesheets="@fextile.css" />
       <StackPane fx:id="base" layoutX="134.0" layoutY="79.0" prefHeight="459.0" prefWidth="603.0" />
+      <Button fx:id="logout" layoutX="676.0" layoutY="11.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Logout" />
    </children>
 </AnchorPane>

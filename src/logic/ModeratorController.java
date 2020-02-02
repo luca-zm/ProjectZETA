@@ -43,6 +43,11 @@ import controller.ControllerManageCollPoint;
 
 public class ModeratorController extends Application {
 
+	
+	@FXML
+    public Button logout;
+	
+	
     @FXML
     public Button confirm, add;
     
@@ -84,6 +89,14 @@ public class ModeratorController extends Application {
     private void next(ActionEvent event) throws Exception {
         winNext a = new winNext();
         String eventClicked = event.getSource().toString();
+        
+        
+        if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
+			a.openWin("view/login_registerPage.fxml");
+        }
+        
+        
+        
         if (eventClicked.contentEquals("Button[id=add, styleClass=button]'Add EcoPoint'")) {
         	if (name != null && address != null && opening != null && closing != null) {
                 CollectionPointBean cb = new CollectionPointBean(0, name.getText(), address.getText(),

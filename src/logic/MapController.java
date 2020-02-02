@@ -59,6 +59,10 @@ public class MapController extends Application implements ActionListener{
 	
 	ControllerManageCollPoint c = new ControllerManageCollPoint();
 
+	
+	@FXML
+    public Button logout;
+	
     @FXML
     public Button wishlist, shop, log;
 
@@ -124,6 +128,7 @@ public class MapController extends Application implements ActionListener{
 		if(sg.getUser() == null) { //utente non loggato
 			wb.setVisible(false);
 			log.setVisible(true);
+			logout.setVisible(false);
 		}
 		
 		
@@ -138,7 +143,9 @@ public class MapController extends Application implements ActionListener{
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         
         
-       
+        if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
+			a.openWin("view/login_registerPage.fxml");
+        }
         
         if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
         	//pagina carrello

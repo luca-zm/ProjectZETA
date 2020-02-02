@@ -44,6 +44,11 @@ import javax.swing.*;
 
 public class AdminController extends Application {
 
+	
+	@FXML
+    public Button logout;
+	
+	
     @FXML
     public Button add, delete, ban;
 
@@ -102,6 +107,12 @@ public class AdminController extends Application {
         winNext a = new winNext();
         String eventClicked = event.getSource().toString();
 
+        
+        if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
+			a.openWin("view/login_registerPage.fxml");
+        }
+        
+        
         if (eventClicked.contentEquals("Button[id=add, styleClass=button]'Add'")) {
         	//metodo opzioni prodotti
         	if(prodid != null && prodname != null && proddisc != null && prodimg != null && prodgc != null && proddescr != null) {

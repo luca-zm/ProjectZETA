@@ -34,7 +34,9 @@
 </head>
 <body>
 
-
+	<div align="center">
+	<img src="./img/logoz.png" width="398" height="210">
+	</div>
 	<section class="cart-section spad">
 		<div class="container">
 			<div class="row">

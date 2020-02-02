@@ -34,5 +34,6 @@
       <Text layoutX="532.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h4" text="Greencoins:" />
       <TextArea fx:id="up_gc" editable="false" layoutX="251.0" layoutY="351.0" onDragDetected="#next" prefHeight="40.0" prefWidth="172.0" styleClass="text-area" />
       <Text fill="RED" layoutX="212.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h1" text="+" />
+      <Button fx:id="logout" layoutX="667.0" layoutY="8.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Logout" />
    </children>
 </AnchorPane>

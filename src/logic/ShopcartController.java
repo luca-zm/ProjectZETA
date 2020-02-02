@@ -50,6 +50,10 @@ import controller.ControllerShopCartCheckOut;
 
 public class ShopcartController extends Application {
 
+	
+	@FXML
+    public Button logout;
+	
     @FXML
     public Button wish, log, shop;
 
@@ -176,6 +180,7 @@ public class ShopcartController extends Application {
 		if(sg.getUser() == null) { //utente non loggato
 			wb.setVisible(false);
 			log.setVisible(true);
+			logout.setVisible(false);
 		}
 		//----------------------------------------------
 		ObservableList<Product> data = FXCollections.observableArrayList();
@@ -205,6 +210,10 @@ public class ShopcartController extends Application {
 
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+        
+        if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
+			a.openWin("view/login_registerPage.fxml");
+        }
         
         //Barra ----------------------
         if (eventClicked.contentEquals("Button[id=wish, styleClass=button]'Wishlist'")) {

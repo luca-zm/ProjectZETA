@@ -37,6 +37,10 @@ import logic.persistence.MessageDAO;
 public class UserProfileController extends Application {
 
 	
+	
+	@FXML
+    public Button logout;
+	
 	@FXML
     private ImageView avatarImage;
 	
@@ -110,6 +114,10 @@ public class UserProfileController extends Application {
         String eventClicked = event.getSource().toString();
         System.out.println(eventClicked);
         
+        
+        if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
+			a.openWin("view/login_registerPage.fxml");
+        }
         
         if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
         	//pagina carrello

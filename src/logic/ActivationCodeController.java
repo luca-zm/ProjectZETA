@@ -44,6 +44,10 @@ import controller.ControllerShopCartCheckOut;
 
 public class ActivationCodeController extends Application {
 
+	
+	@FXML
+    public Button logout;
+	
     @FXML
     public Button confirm, shop, wish;
     
@@ -85,6 +89,7 @@ public class ActivationCodeController extends Application {
 		
 		if(sg.getUser() == null) { //utente non loggato
 			wb.setVisible(false);
+			logout.setVisible(false);
 		}
 	}
     
@@ -107,6 +112,11 @@ public class ActivationCodeController extends Application {
         		mygc.setText(Integer.toString(user.getGreenCoin()));
         	}
         	return;
+        }
+        
+        
+        if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
+			a.openWin("view/login_registerPage.fxml");
         }
         
         

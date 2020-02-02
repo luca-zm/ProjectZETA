@@ -61,6 +61,10 @@ import controller.ControllerWishList;
 
 public class ProductsController extends Application {
 
+	
+	@FXML
+    public Button logout;
+	
     @FXML
     public Button user_p, wishlist, shop, log;
 
@@ -137,6 +141,7 @@ public class ProductsController extends Application {
             if(sg.getUser() == null) {
             	wish.setDisable(true);
             	cart.setDisable(true);
+            	logout.setVisible(false);
             }
             
             cart.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -253,6 +258,12 @@ public class ProductsController extends Application {
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         
 
+        
+        if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
+			a.openWin("view/login_registerPage.fxml");
+        }
+        
+        
         if (eventClicked.contentEquals("Button[id=user_p, styleClass=button hbox]''")) {
         	//pagina profilo utente da icona
         	if(sg.getUser() != null) {

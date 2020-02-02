@@ -137,6 +137,9 @@
 	
 	<section class="related-product-section">
 		<div class="container">
+		<div class="section-title">
+				<h2>OUR CATALOGUE</h2>
+		</div>
 			<div class="row">
 			    <c:forEach items="${catalogo}" var="item">	
 			    	

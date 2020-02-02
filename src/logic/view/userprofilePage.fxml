@@ -63,5 +63,6 @@
       <Line endX="-98.0" endY="39.00000762939453" layoutX="441.0" layoutY="65.0" startX="-66.0" startY="20.00000762939453" />
       <Line endX="-63.0" endY="13.000007629394531" layoutX="408.0" layoutY="91.0" startX="-95.0" startY="-5.999992370605469" />
       <Button fx:id="message" layoutX="313.0" layoutY="84.0" mnemonicParsing="false" onAction="#next" opacity="0.0" prefHeight="38.0" prefWidth="64.0" styleClass="btn-info" text="MSG" />
+      <Button fx:id="logout" layoutX="661.0" layoutY="10.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Logout" />
    </children>
 </AnchorPane>

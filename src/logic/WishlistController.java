@@ -51,6 +51,11 @@ import controller.ControllerWishList;
 
 public class WishlistController extends Application {
 
+	
+	
+	@FXML
+    public Button logout;
+	
     @FXML
     public Button shop;
 
@@ -217,6 +222,9 @@ public class WishlistController extends Application {
         String eventClicked = event.getSource().toString();
         System.out.println(eventClicked);
         
+        if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
+			a.openWin("view/login_registerPage.fxml");
+        }
         //Barra ----------------------
         if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
         	//pagina carrello

@@ -71,11 +71,13 @@ public class LoginController extends Application {
         winNext a = new winNext();
 
         String eventClicked = event.getSource().toString();
-        if (eventClicked.contentEquals("Button[id=back, styleClass=button]'Continue without signing in'")) {
-        	a.openWin("view/productsPage.fxml");
-        }
+
         if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login!'")) {
         	
+        		if(mail.getText().contentEquals("") || psw.getText().contentEquals("")) {
+        			return;
+        		}
+        		
         		UserBean ub = new UserBean(0,  mail.getText() , null, null , psw.getText(), null);
         	
         		//metodo verifica credenziali, imposta flag, fa aprire schermata prodotti, admin, moderatore in base al flag 
@@ -88,6 +90,8 @@ public class LoginController extends Application {
         		//METODO che verifica se l'utente si e' loggato o meno
         		if(cl.login(ub)) {
         			a.openWin("view/productsPage.fxml");
+        		}else {
+        			return;
         		}
         	
         }
@@ -108,6 +112,8 @@ public class LoginController extends Application {
         			}	
         		}
         }
+        
+        
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         oldWin.close();
     }

@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import bean.CollectionPointBean;
 import logic.URLReader;
 import logic.enums.MesType;
@@ -57,7 +59,6 @@ public class ControllerManageCollPoint {
 	public URL startUrl() throws SQLException, MalformedURLException {
 		List<CollectionPoint> listCollPoint = CollectionPointDAO.select();
 		URL url = new URL("https://maps.googleapis.com/maps/api/staticmap?center=Rome,Italy&zoom=11&size=600x500&maptype=roadmap&key=AIzaSyDWaK_dXLPOBO43oLeAkMTrgkh-6qSlnuc");
-		
 		count = 0;
 		for(CollectionPoint coll : listCollPoint) {
 			url = getFinalUrl(url.toString(), coll.getLatitude(), coll.getLongitude());
@@ -95,6 +96,11 @@ public class ControllerManageCollPoint {
 	
 
 	public Boolean insert(CollectionPointBean collPointBean) throws Exception { //Vuole eccezione personale
+		List<CollectionPoint> listaCollPoint = CollectionPointDAO.select();
+		if(listaCollPoint.size() >= 4) {
+			return false;
+		}
+		
 		String s = compositore(collPointBean.getAddressCollPointBean());
 		URLReader x = new URLReader(s);
 		
@@ -123,10 +129,7 @@ public class ControllerManageCollPoint {
 		
 	    Message m = new Message(0,getDate(), "Eliminato Punto di raccolta", "E' stato eliminato un punto di raccolta sulla mappa: " + collPoint.getName(), MesType.COLLPOINTBROAD);
 		
-	    MessageDAO.insertBroad(m );
-	    
-	
-		
+	    MessageDAO.insertBroad(m );		
 		return true;
 	}
 	

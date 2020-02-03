@@ -89,11 +89,16 @@ public class ModeratorController extends Application {
                 CollectionPointBean cb = new CollectionPointBean(0, name.getText(), address.getText(),
                 		Integer.parseInt(opening.getText()), Integer.parseInt(closing.getText()));
                 try {
-					cmc.insert(cb);
+					if(cmc.insert(cb)) {
+		                JOptionPane.showMessageDialog(null, "EcoPoint correctly insert!");
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "Maximum limit of points has been reached !");
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-                JOptionPane.showMessageDialog(null, "EcoPoint correctly insert!");
+
                 Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 a.openWin("view/modPage.fxml");
                 oldWin.close();

@@ -67,6 +67,22 @@ public class MapController extends Application implements ActionListener{
     
 	@FXML
 	public void initialize() throws IOException, SQLException {
+		log.setVisible(false);
+		
+		//-----
+		
+		if(sg.getUser() == null) { //utente non loggato
+			wb.setVisible(false);
+			log.setVisible(true);
+			logout.setVisible(false);
+		}
+		
+        List<CollectionPoint> list = CollectionPointDAO.select();
+		if(list.size() >= 4) {
+			JOptionPane.showMessageDialog(null, "You can't visualize the map !");
+			return;
+		}
+		
 		URL mapUrl = c.startUrl();
         BufferedImage mapImage = ImageIO.read(mapUrl);
         
@@ -84,8 +100,6 @@ public class MapController extends Application implements ActionListener{
         
         maptext.setEditable(false);
         
-        List<CollectionPoint> list = CollectionPointDAO.select();
-        
         int count = 1;
         for(CollectionPoint point: list) {
         	bld.append(Integer.toString(count) + " " +  point.getName() + ": " + point.getAddress() + " (hours of service: " + point.getOpeningTime() + " - " + point.getClosingTime() + ")\n\n");
@@ -96,15 +110,7 @@ public class MapController extends Application implements ActionListener{
         
 		maplink.setDisable(true);
 		//-----
-		log.setVisible(false);
-		
-		//-----
-		
-		if(sg.getUser() == null) { //utente non loggato
-			wb.setVisible(false);
-			log.setVisible(true);
-			logout.setVisible(false);
-		}
+
 		
 		
 	}

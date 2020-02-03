@@ -105,6 +105,7 @@ public class LoginController extends Application {
         			a.openWin("view/productsPage.fxml");
         		}
         		else {
+    				JOptionPane.showMessageDialog(null, "Mail or Password incorrect !");
         			return;
         		}
          }

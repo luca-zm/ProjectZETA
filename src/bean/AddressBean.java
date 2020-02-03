@@ -1,7 +1,7 @@
 package bean;
 
 public class AddressBean {
-	private String addressBean;
+	private String addrBean;
 	private String cityBean;
 	private String postalCodeBean;
 	private String telephoneBean;
@@ -12,18 +12,18 @@ public class AddressBean {
 	
 	public AddressBean(String address, String city, String postalCode, String telephone, String state,
 			String zone) {
-		this.addressBean = address;
+		this.addrBean = address;
 		this.cityBean = city;
 		this.postalCodeBean = postalCode;
 		this.telephoneBean = telephone;
 		this.stateBean = state;
 		this.zoneBean = zone;
 	}
-	public String getAddressBean() {
-		return addressBean;
+	public String getAddrBean() {
+		return addrBean;
 	}
-	public void setAddressBean(String address) {
-		this.addressBean = address;
+	public void setAddrBean(String address) {
+		this.addrBean = address;
 	}
 	public String getCityBean() {
 		return cityBean;
@@ -59,7 +59,7 @@ public class AddressBean {
 	}
 	@Override
 	public String toString() {
-		return "AddressBean [address=" + addressBean + ", city=" + cityBean + ", postalCode=" + postalCodeBean + ", telephone="
+		return "AddressBean [address=" + addrBean + ", city=" + cityBean + ", postalCode=" + postalCodeBean + ", telephone="
 				+ telephoneBean + ", state=" + stateBean + ", zone=" + zoneBean + "]";
 	}
 	

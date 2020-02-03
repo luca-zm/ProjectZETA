@@ -11,7 +11,7 @@ import logic.model.CollectionPoint;
 
 public class CollectionPointDAO {
 	
-    public CollectionPointDAO() {
+    private CollectionPointDAO() {
     	super();
     }
 

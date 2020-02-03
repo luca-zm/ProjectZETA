@@ -38,20 +38,20 @@ public class ShopcartController extends Application {
 	private Button logout;
 	
     @FXML
-    private Button wish;
+    private Button wishlist;
     @FXML
     private Button log;
     @FXML
-    private Button shop;
+    private Button shopcart;
 
     @FXML
-    private Button maplink;
+    private Button maplinker;
     @FXML
-    private Button codelink;
+    private Button codelinker;
     @FXML
-    private Button prodlink;
+    private Button prodlinker;
     @FXML
-    private Button userlink;
+    private Button userlinker;
     
     @FXML
     private Button consumegcoin;
@@ -162,7 +162,7 @@ public class ShopcartController extends Application {
     	
     	total.setText(Integer.toString(user.getCart().getTotalPrice()));
     	gcointext.setText(Integer.toString(user.getGreenCoin()));
-    	shop.setDisable(true);
+    	shopcart.setDisable(true);
 		//-----
 		log.setVisible(false);
 		//-----
@@ -203,11 +203,11 @@ public class ShopcartController extends Application {
         
         //Hyperlink ------------------
         
-        m.checkWarn(event, "userlink", style, "User Profile", "view/userprofilePage.fxml", sg.getUser());
+        m.checkWarn(event, "userlinker", style, "User Profile", "view/userprofilePage.fxml", sg.getUser());
 
-        m.goToPath(eventClicked, "maplink", style, "Map", "view/mapPage.fxml");
+        m.goToPath(eventClicked, "maplinker", style, "Map", "view/mapPage.fxml");
 
-        m.goToPath(eventClicked, "prodlink", style, "Products", "view/productsPage.fxml");
+        m.goToPath(eventClicked, "prodlinker", style, "Products", "view/productsPage.fxml");
 
         //Hyper link ------------------
 
@@ -244,11 +244,11 @@ public class ShopcartController extends Application {
 
         
         //Barra ----------------------
-        m.checkWarn(event, "wish", style, "Wishlist", "view/wishlistPage.fxml", sg.getUser());
+        m.checkWarn(event, "wishlist", style, "Wishlist", "view/wishlistPage.fxml", sg.getUser());
         
         m.goToPath(eventClicked, "log", style, "Login or Register", "view/login_registerPage.fxml");
        
-        m.checkWarn(event, "codelink", style, "Activation Code", "view/activationcodePage.fxml", sg.getUser());
+        m.checkWarn(event, "codelinker", style, "Activation Code", "view/activationcodePage.fxml", sg.getUser());
         
         
         oldWin.close();

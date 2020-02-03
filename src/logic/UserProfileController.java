@@ -113,52 +113,37 @@ public class UserProfileController extends Application {
 	
 	@FXML
     private void next(ActionEvent event) throws IOException, SQLException {
-		WinNext a = new WinNext();
+		ManagerClick m = new ManagerClick();
 		StringBuilder bld = new StringBuilder();
-
+		String style="button";
         String eventClicked = event.getSource().toString();
         
         
-        if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
-			a.openWin("view/login_registerPage.fxml");
-        }
+        m.goToPath(eventClicked, "logout", style, "Logout", "view/login_registerPage.fxml");
         
-        if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
-        	//pagina carrello
-        	a.openWin("view/shopcartPage.fxml");
-        }
-        if (eventClicked.contentEquals("Button[id=wish, styleClass=button]'Wishlist'")) {
-        	//pagina wishlist
-        	a.openWin("view/wishlistPage.fxml");
-        }
+        m.goToPath(eventClicked, "shop", style, "Shopcart", "view/shopcartPage.fxml");
         
-        if (eventClicked.contentEquals("Button[id=codelink, styleClass=button]'Activate your code!'")) {
-        	//pagina activation code
-        	a.openWin("view/activationcodePage.fxml");
-        }
+        m.goToPath(eventClicked, "wish", style, "Wishlist", "view/wishlistPage.fxml");
         
-        if (eventClicked.contentEquals("Button[id=message, styleClass=button btn-info]'MSG'")) {
+        m.goToPath(eventClicked, "codelink", style, "Activate your code!", "view/activationcodePage.fxml");
+
+        
+        if (m.check(eventClicked, "message", "button btn-info", "MSG")) {
         	List<Message> messages = MessageDAO.selectBroadcast();
         	messages.addAll(user.getBoards().getList());
-        	for(Message m : messages) {
-        		bld.append(m.getTitle() + ": " + m.getBodymessage() + "\n");
+        	for(Message msg : messages) {
+        		bld.append(msg.getTitle() + ": " + msg.getBodymessage() + "\n");
         	}
 			JOptionPane.showMessageDialog(null, bld.toString());
 			return;
         }
         //hyperlink----------------
-        if (eventClicked.contentEquals("Button[id=maplink, styleClass=button]'Map'")) {
-        	//pagina mappe
-        	a.openWin("view/mapPage.fxml");
-        }
-        if (eventClicked.contentEquals("Button[id=codelink, styleClass=button]'Activation Code'")) {
-        	//pagina activation code
-        	a.openWin("view/activationcodePage.fxml");
-        }
-        if (eventClicked.contentEquals("Button[id=prodlink, styleClass=button]'Products'")) {
-        	//pagina prodotti
-        	a.openWin("view/productsPage.fxml");
-        }
+        m.goToPath(eventClicked, "maplink", style, "Map", "view/mapPage.fxml");
+
+        m.goToPath(eventClicked, "codelink", style, "Activation Code", "view/activationcodePage.fxml");
+
+        m.goToPath(eventClicked, "prodlink", style, "Products", "view/productsPage.fxml");
+
         //hyperlink----------------
         
        

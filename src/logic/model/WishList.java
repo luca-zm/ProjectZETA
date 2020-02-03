@@ -1,20 +1,20 @@
 package logic.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class WishList {
-	private ArrayList<Product> list;
+	private List<Product> list;
 
 
-	public WishList(ArrayList<Product> list) {
+	public WishList(List<Product> list) {
 		this.list = list;
 	}
 
-	public ArrayList<Product> getList() {
+	public List<Product> getList() {
 		return list;
 	}
 
-	public void setList(ArrayList<Product> list) {
+	public void setList(List<Product> list) {
 		this.list = list;
 	}
 	

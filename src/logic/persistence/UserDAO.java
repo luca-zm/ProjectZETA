@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
+
 import logic.model.AbstractUser;
 import logic.model.FactoryUsers;
 
@@ -81,7 +83,7 @@ public class UserDAO {
         return null;
     }
     
-    public static ArrayList<AbstractUser> findUsers() throws SQLException{
+    public static List<AbstractUser> findUsers() throws SQLException{
     	ArrayList<AbstractUser> list = new ArrayList<>();
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_USERS);

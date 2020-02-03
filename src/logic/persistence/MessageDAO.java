@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
+
 import logic.enums.MesType;
 import logic.model.AbstractUser;
 import logic.model.Message;
@@ -80,7 +82,7 @@ public class MessageDAO {
         return false;
     }
     
-    public static ArrayList<Message> select(AbstractUser user) throws SQLException {
+    public static List<Message> select(AbstractUser user) throws SQLException {
 
     	ArrayList<Message> list = new ArrayList<>();
         //preparing some objects for connection
@@ -103,7 +105,7 @@ public class MessageDAO {
     }
     
     
-    public static ArrayList<Message> selectBroadcast() throws SQLException {
+    public static List<Message> selectBroadcast() throws SQLException {
 
     	ArrayList<Message> list = new ArrayList<>();
         //preparing some objects for connection

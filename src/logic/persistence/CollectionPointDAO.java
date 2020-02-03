@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
+
 import logic.model.CollectionPoint;
 
 public class CollectionPointDAO {
@@ -52,7 +54,7 @@ public class CollectionPointDAO {
         return false;
     }
     
-    public static ArrayList<CollectionPoint> select() throws SQLException {
+    public static List<CollectionPoint> select() throws SQLException {
 
     	ArrayList<CollectionPoint> list = new ArrayList<>();
         //preparing some objects for connection

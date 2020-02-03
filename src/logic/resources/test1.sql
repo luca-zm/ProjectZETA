@@ -74,7 +74,6 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`id`, `address`, `city`, `postalCode`, `telephone`, `state`, `country`, `zone`) VALUES
-(1, 'Via del Quadraro 72', 'Roma', '00179', '+393334455666', 'Italy', 'Italy', 'Quadraro'),
 (2, 'Via del Quadraro 72', 'Roma', '00179', '+393334455666', 'Italy', 'Italy', 'Quadraro');
 
 -- --------------------------------------------------------

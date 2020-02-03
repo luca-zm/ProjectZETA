@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
+
 import logic.enums.DeliveryStatus;
 import logic.model.AbstractUser;
 import logic.model.ActivationCodeTran;
@@ -58,10 +60,9 @@ public class TransactionDAO {
     }
     
     
-    public static ArrayList<ActivationCodeTran> selectActivationCodeTra(AbstractUser user) throws SQLException {
+    public static List<ActivationCodeTran> selectActivationCodeTra(AbstractUser user) throws SQLException {
 
     	ArrayList<ActivationCodeTran> list = new ArrayList<>();
-        //preparing some objects for connection
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_ACTCODETRAN);
             preparedStatement.setInt(1, user.getId());
@@ -117,7 +118,7 @@ public class TransactionDAO {
         return false;
     }
     
-    public static ArrayList<BonusTran> selectBonusTran(AbstractUser user) throws SQLException {
+    public static List<BonusTran> selectBonusTran(AbstractUser user) throws SQLException {
 
     	ArrayList<BonusTran> list = new ArrayList<>();
         //preparing some objects for connection
@@ -176,7 +177,7 @@ public class TransactionDAO {
         return false;
     }
     
-    public static ArrayList<ShipmentTran> selectShipment(AbstractUser user) throws SQLException {
+    public static List<ShipmentTran> selectShipment(AbstractUser user) throws SQLException {
 
     	ArrayList<ShipmentTran> list = new ArrayList<>();
         //preparing some objects for connection

@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
+
 import logic.enums.Category;
 import logic.model.Product;
 
@@ -59,7 +61,7 @@ public class ProductDAO {
         return false;
     }
     
-    public static ArrayList<Product> select() throws SQLException {
+    public static List<Product> select() throws SQLException {
 
     	ArrayList<Product> list = new ArrayList<>();
         //preparing some objects for connection

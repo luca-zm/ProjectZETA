@@ -1,28 +1,30 @@
 package logic.model;
 
 import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.Vector;
 
 public class History {
-	private ArrayList<Transaction> tranList;
-	private Vector listObserver;
+	private List<Transaction> tranList;
+	private ArrayList listObserver;
 	
-	public History(ArrayList<Transaction> tranList) {
+	public History(List<Transaction> tranList) {
 		this.tranList = tranList;
-		this.listObserver = new java.util.Vector();
+		this.listObserver = new ArrayList();
 	}
 	
 	
 	// Observer Pattern
 	
 	public void attach(Observer observer){
-		  listObserver.addElement(observer);
+		  listObserver.add(observer);
 	}
 
 	public void detach(Observer observer){
-	  listObserver.removeElement(observer);
+	  listObserver.remove(observer);
 	}
 
 	 public void inform() throws SQLException{

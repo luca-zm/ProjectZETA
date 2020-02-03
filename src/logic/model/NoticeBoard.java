@@ -1,18 +1,19 @@
 package logic.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NoticeBoard {
 
-	private ArrayList<Message> list;
+	private List<Message> list;
 
-	public NoticeBoard(ArrayList<Message> list) {
+	public NoticeBoard(List<Message> list) {
 
 		this.list = list;
 	}
 
 
-	public void setList(ArrayList<Message> list) {
+	public void setList(List<Message> list) {
 		this.list = list;
 	}
 
@@ -37,7 +38,7 @@ public class NoticeBoard {
 		list.clear();
 	}
 	
-	public ArrayList<Message> getList() {return list;}
+	public List<Message> getList() {return list;}
 
 	@Override
 	public String toString() {

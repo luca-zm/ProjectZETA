@@ -1,23 +1,25 @@
 package logic.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CatalogueSingleton {
 
     private ArrayList<Product> singletonCatalogue;
     
     private static class LazyCointainer {
-        private final static CatalogueSingleton sigletonInstance = new CatalogueSingleton(null);
+        private static final CatalogueSingleton sigletonInstance = new CatalogueSingleton(null);
     }
 
     protected CatalogueSingleton(ArrayList<Product> catalogue) {
         this.singletonCatalogue = catalogue;
     }
 
-    public void singletonOperation1() {
+    public void singletonOperation1(){
+    	  throw new UnsupportedOperationException();
     }
 
-    public ArrayList<Product> getSingletonCatalogue() {
+    public List<Product> getSingletonCatalogue() {
         return singletonCatalogue;
     }
 

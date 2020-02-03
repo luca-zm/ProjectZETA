@@ -1,9 +1,10 @@
 package logic.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ShopCart {
-	private ArrayList<Product> productList;
+	private List<Product> productList;
 	private int totalPrice;
 	
 	public ShopCart() {
@@ -11,12 +12,12 @@ public class ShopCart {
 		this.totalPrice = 0;
 	}
 	
-	public ArrayList<Product> getProductList() {
+	public List<Product> getProductList() {
 		return productList;
 	}
 
 
-	public void setProductList(ArrayList<Product> productList) {
+	public void setProductList(List<Product> productList) {
 		this.productList = productList;
 	}
 

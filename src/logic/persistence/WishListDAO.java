@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
+
 import logic.model.AbstractUser;
 import logic.model.Product;
 
@@ -45,7 +47,7 @@ public class WishListDAO {
         return false;
     }
     
-    public static ArrayList<Product> select(AbstractUser user) throws SQLException {
+    public static List<Product> select(AbstractUser user) throws SQLException {
     	ArrayList<Product> list = new ArrayList<>();
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_WISHLIST);

@@ -145,7 +145,7 @@
 											<p>${item.getPrice()}</p>
 										</td>
 										<td class="product-col">
-											<p>${item.isAvailability()}</p>
+											<p>${item.getImage()}</p>
 										</td>
 									
 									</tr>

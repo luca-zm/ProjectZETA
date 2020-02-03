@@ -38,6 +38,7 @@ public class AdminController extends Application {
     private TextArea listprod;
     @FXML
     private TextArea listusers;
+    
 	private Category utility;
 
     //products
@@ -66,6 +67,7 @@ public class AdminController extends Application {
 
 
     public void initialize() throws SQLException {
+    	utility = Category.UTILITY;
     	listprod.setEditable(false);	
     	listusers.setEditable(false);
 
@@ -118,8 +120,8 @@ public class AdminController extends Application {
         		
         	}else {
         		JOptionPane.showMessageDialog(null, "Invalid"); 
+        		return;
         	}
-        	
         }
         if (eventClicked.contentEquals("Button[id=delete, styleClass=button]'Delete'")) {
         		ProductDAO.delete(Integer.parseInt(prodid2.getText()));

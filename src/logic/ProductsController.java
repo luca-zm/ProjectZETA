@@ -240,7 +240,7 @@ public class ProductsController extends Application {
         
 
 
-        if (eventClicked.contentEquals("Button[id=userlink, styleClass=button]'User Profile'")) {
+        if (eventClicked.contentEquals("Button[id=userlinkProd, styleClass=button]'User Profile'")) {
         	//pagina del profilo utente
         	if(sg.getUser() != null) {
         		a.openWin("view/userprofilePage.fxml");
@@ -251,13 +251,13 @@ public class ProductsController extends Application {
         }
         
         
-        if (eventClicked.contentEquals("Button[id=maplink, styleClass=button]'Map'")) {
+        if (eventClicked.contentEquals("Button[id=mapProd, styleClass=button]'Map'")) {
         	//pagina mappe
         	a.openWin("view/mapPage.fxml");
         }
         
         
-        if (eventClicked.contentEquals("Button[id=codelink, styleClass=button]'Activation Code'")) {
+        if (eventClicked.contentEquals("Button[id=codelinkProd, styleClass=button]'Activation Code'")) {
         	//pagina activation code
         	if(sg.getUser() != null) {
             	a.openWin("view/activationcodePage.fxml");
@@ -285,7 +285,7 @@ public class ProductsController extends Application {
         
         
         
-        if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login or Register'")) {
+        if (eventClicked.contentEquals("Button[id=logProd, styleClass=button]'Login or Register'")) {
             //pagina login
         	a.openWin("view/login_registerPage.fxml");
         }
@@ -296,7 +296,7 @@ public class ProductsController extends Application {
         }
         
         
-        if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
+        if (eventClicked.contentEquals("Button[id=shopProd, styleClass=button]'Shopcart'")) {
         	//pagina carrello
         	if(sg.getUser() != null) {
             	a.openWin("view/shopcartPage.fxml");

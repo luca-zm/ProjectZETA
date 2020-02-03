@@ -13,7 +13,7 @@
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="771.0" layoutX="5.0" layoutY="-102.0" stroke="WHITE" strokeType="INSIDE" width="18.0" />
       <TextField fx:id="prodid" layoutX="190.0" layoutY="124.0" prefHeight="34.0" prefWidth="48.0" promptText="ID" styleClass="text-area" />
-      <Button id="conf_prod" fx:id="add" layoutX="427.0" layoutY="214.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Add" />
+      <Button fx:id="add" layoutX="427.0" layoutY="214.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Add" />
       <Text layoutX="45.0" layoutY="53.0" stroke="#aaa8a8" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h1" text="ADMIN" wrappingWidth="119.19992675781259">
          <effect>
             <DropShadow color="#48aa77" height="44.83" radius="33.235" spread="0.73" width="90.11" />
@@ -32,7 +32,7 @@
       <TextField fx:id="prodname" layoutX="249.0" layoutY="124.0" prefHeight="34.0" prefWidth="74.0" promptText="Name" styleClass="text-area" />
       <TextField fx:id="proddisc" layoutX="128.0" layoutY="167.0" prefHeight="34.0" prefWidth="74.0" promptText="discount %" styleClass="text-area" />
       <TextField fx:id="prodcat" layoutX="55.0" layoutY="167.0" prefHeight="34.0" prefWidth="64.0" promptText="category" styleClass="text-area" />
-      <TextField fx:id="prodimg" layoutX="206.0" layoutY="167.0" prefHeight="34.0" prefWidth="200.0" promptText="image path" styleClass="text-area" text="logic\view\images\" />
+      <TextField fx:id="prodimg" layoutX="206.0" layoutY="167.0" prefHeight="34.0" prefWidth="200.0" promptText="image path" styleClass="text-area" text="./img/" />
       <TextField fx:id="proddescr" layoutX="138.0" layoutY="213.0" prefHeight="34.0" prefWidth="271.0" promptText="Description" styleClass="text-area" />
       <Button fx:id="delete" layoutX="266.0" layoutY="277.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Delete" />
       <TextField fx:id="prodid2" layoutX="177.0" layoutY="276.0" prefHeight="34.0" prefWidth="74.0" promptText="ID" styleClass="text-area" />

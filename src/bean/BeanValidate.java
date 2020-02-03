@@ -1,6 +1,10 @@
 package bean;
 
 public class BeanValidate {
+	
+	private BeanValidate() {		
+	}
+	
 	public static boolean isInteger(String str) {
 	    if (str == null) {
 	        return false;

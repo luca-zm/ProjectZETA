@@ -11,10 +11,8 @@ public class History {
 	
 	public History(List<Transaction> tranList) {
 		this.tranList = tranList;
-		this.listObserver = new ArrayList<Observer>();
-	}
-	
-	
+		this.listObserver = new ArrayList<>();
+	}	
 	// Observer Pattern
 	
 	public void attach(Observer observer){

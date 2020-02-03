@@ -11,10 +11,10 @@ public class Product {
 	private Category category;
 	private String image;
 	private String description;
-	private boolean availability;
+	
 	
 	public Product(int id, String name, int price, int discountPercentage, Category category, String image,
-			String description, boolean availability) {
+			String description) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -23,7 +23,7 @@ public class Product {
 		this.category = category;
 		this.image = image;
 		this.description = description;
-		this.availability = availability;
+	
 	}
 	public int getId() {
 		return id;
@@ -67,12 +67,7 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public boolean isAvailability() {
-		return availability;
-	}
-	public void setAvailability(boolean availability) {
-		this.availability = availability;
-	}
+
 	@Override
 	public String toString() {
 		return name + ", Price: " + price;

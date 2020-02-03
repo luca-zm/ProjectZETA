@@ -10,12 +10,11 @@ public class ProductBean {
 	private Category category;
 	private String image;
 	private String description;
-	private boolean availability;
 	
 	
 	
 	public ProductBean(int id, String name, int price, int discountPercentage, Category category, String image,
-			String description, boolean availability) {
+			String description) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -24,7 +23,6 @@ public class ProductBean {
 		this.category = category;
 		this.image = image;
 		this.description = description;
-		this.availability = availability;
 	}
 	public int getId() {
 		return id;
@@ -68,18 +66,14 @@ public class ProductBean {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public boolean isAvailability() {
-		return availability;
-	}
-	public void setAvailability(boolean availability) {
-		this.availability = availability;
-	}
+	
 	@Override
 	public String toString() {
 		return "ProductBean [id=" + id + ", name=" + name + ", price=" + price + ", discountPercentage="
 				+ discountPercentage + ", category=" + category + ", image=" + image + ", description=" + description
-				+ ", availability=" + availability + "]";
+				+ "]";
 	}
+	
 	
 	
 }

@@ -133,29 +133,7 @@ public class ShopCartServlet extends HttpServlet {
 			}
 	}
     
-    /**protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    	HttpSession session = request.getSession(); 
-    	
-		String action = request.getParameter("action");
-		
-		ArrayList<Product> catalogo = null;
-		try {
-			catalogo = ProductDAO.select();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		if("cart".contentEquals(action)) {
-
-		session.setAttribute("catalogo", catalogo);
-		}
-		/**else if("del".contentEquals(action)) {
-			int productId = Integer.parseInt(request.getParameter("productId"));
-			controller.deleteProduct(productId);
-		}**/
-
+   
 
 	
 }

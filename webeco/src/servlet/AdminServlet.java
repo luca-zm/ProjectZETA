@@ -61,7 +61,7 @@ public class AdminServlet extends HttpServlet {
 				String path=request.getParameter("imgpath");
 				String descr=request.getParameter("descr");
 
-				ProductBean cb = new ProductBean(0, name, price, 0, Category.UTILITY , path, descr, true);
+				ProductBean cb = new ProductBean(0, name, price, 0, Category.UTILITY , path, descr);
 				
 				try {
 					conmod.addProduct(cb);
@@ -78,7 +78,7 @@ public class AdminServlet extends HttpServlet {
 				
 				int productId = Integer.parseInt(request.getParameter("productId"));
 				
-				ProductBean pb = new ProductBean( productId , null , 0, 0, null, null,null, true);
+				ProductBean pb = new ProductBean( productId , null , 0, 0, null, null,null);
 				
 				try {
 					conmod.deleteProduct(pb);

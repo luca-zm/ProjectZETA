@@ -75,29 +75,7 @@ public class ControllerShopCartCheckOut {
 		//System.out.println(user.getCart().getProductList().remove(product));
 		return true;
 	}
-	
-	public ArrayList<Product> checkCart( HttpSession session) throws SQLException{
-		
-		AbstractUser user = (AbstractUser) session.getAttribute("user");
-		if (user == null) {
-			return null;
-		}
-		
-		ArrayList<Product> list = new ArrayList<Product>();
-		for( Product product : user.getCart().getProductList()) {
-			
-			
-			Product prod = ProductDAO.selectProduct(product.getId());
-			if ( !prod.isAvailability()) {
-				
-				list.add(product);
-				user.getCart().deleteProduct(product);
-			}
-				
-		}
-		return list;
-		
-	}
+
 	
 	
 	

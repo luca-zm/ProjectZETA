@@ -1,19 +1,21 @@
 package logic.persistence;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import logic.model.CollectionPoint;
-import logic.persistence.DataSource;
 
 public class CollectionPointDAO {
-	private static Connection currentCon = null;
+	
+    private CollectionPointDAO() {
+        throw new IllegalStateException("Utility class");
+    }
 
-
-    public static Boolean insert(CollectionPoint collPoint)throws SQLException{                 
+	public static Boolean insert(CollectionPoint collPoint)throws SQLException{                 
             try {        
                 PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_COLLECTIONPOINT, Statement.RETURN_GENERATED_KEYS);
                 preparedStatement.setString(1, collPoint.getName());
@@ -54,7 +56,7 @@ public class CollectionPointDAO {
     
     public static ArrayList<CollectionPoint> select() throws SQLException {
 
-    	ArrayList<CollectionPoint> list = new ArrayList<CollectionPoint>();
+    	ArrayList<CollectionPoint> list = new ArrayList<>();
         //preparing some objects for connection
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_COLLECTIONPOINT);          

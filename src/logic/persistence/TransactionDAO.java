@@ -1,6 +1,7 @@
 package logic.persistence;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,11 +12,15 @@ import logic.model.AbstractUser;
 import logic.model.ActivationCodeTran;
 import logic.model.BonusTran;
 import logic.model.Product;
-import logic.persistence.DataSource;
 import logic.model.ShipmentTran;
 
 public class TransactionDAO {
-	private static Connection currentCon = null;
+	
+
+
+	private TransactionDAO()  {
+	    throw new IllegalStateException("Utility class");
+	  }
 
 
 	public static Boolean insertActivationCodeTran(ActivationCodeTran actCodeTran, AbstractUser user) throws SQLException{
@@ -57,7 +62,7 @@ public class TransactionDAO {
     
     public static ArrayList<ActivationCodeTran> selectActivationCodeTra(AbstractUser user) throws SQLException {
 
-    	ArrayList<ActivationCodeTran> list = new ArrayList<ActivationCodeTran>();
+    	ArrayList<ActivationCodeTran> list = new ArrayList<>();
         //preparing some objects for connection
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_ACTCODETRAN);
@@ -116,7 +121,7 @@ public class TransactionDAO {
     
     public static ArrayList<BonusTran> selectBonusTran(AbstractUser user) throws SQLException {
 
-    	ArrayList<BonusTran> list = new ArrayList<BonusTran>();
+    	ArrayList<BonusTran> list = new ArrayList<>();
         //preparing some objects for connection
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_BONUSTRAN);
@@ -175,7 +180,7 @@ public class TransactionDAO {
     
     public static ArrayList<ShipmentTran> selectShipment(AbstractUser user) throws SQLException {
 
-    	ArrayList<ShipmentTran> list = new ArrayList<ShipmentTran>();
+    	ArrayList<ShipmentTran> list = new ArrayList<>();
         //preparing some objects for connection
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_SHIPMENT);

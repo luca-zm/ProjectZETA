@@ -1,16 +1,21 @@
 package logic.persistence;
 
 import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import logic.model.AbstractUser;
-import logic.persistence.DataSource;
 import logic.model.FactoryUsers;
 
 
 public class UserDAO {
+	
+   private UserDAO() {
+	    throw new IllegalStateException("Utility class");
+   }
+
    public static Boolean insert(AbstractUser user)throws SQLException {
 	   try {        
 		   
@@ -79,7 +84,7 @@ public class UserDAO {
     }
     
     public static ArrayList<AbstractUser> findUsers() throws SQLException{
-    	ArrayList<AbstractUser> list = new ArrayList<AbstractUser>();
+    	ArrayList<AbstractUser> list = new ArrayList<>();
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_USERS);
             ResultSet resultSet = preparedStatement.executeQuery();

@@ -1,20 +1,26 @@
 package logic.persistence;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import logic.enums.Category;
-import logic.persistence.DataSource;
 import logic.model.Product;
 
 public class ProductDAO {
-	private static Connection currentCon = null;
-//	 String.valueOf(roles) 
+	
+	
 
-    public static Boolean insert(Product product) throws SQLException{      
+    private ProductDAO() {
+        throw new IllegalStateException("Utility class");
+    }
+
+
+
+	public static Boolean insert(Product product) throws SQLException{      
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_PRODUCT, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, product.getName());
@@ -57,7 +63,7 @@ public class ProductDAO {
     
     public static ArrayList<Product> select() throws SQLException {
 
-    	ArrayList<Product> list = new ArrayList<Product>();
+    	ArrayList<Product> list = new ArrayList<>();
         //preparing some objects for connection
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_PRODUCTS); 

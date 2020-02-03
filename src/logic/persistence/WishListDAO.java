@@ -1,19 +1,22 @@
 package logic.persistence;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import logic.model.AbstractUser;
-import logic.persistence.DataSource;
 import logic.model.Product;
 
 
 public class WishListDAO { 
-	private static Connection currentCon = null;
 	
-    public static Boolean insert(AbstractUser user, Product product) throws SQLException {                    
+	private WishListDAO()  {
+        throw new IllegalStateException("Utility class");
+    }
+
+	public static Boolean insert(AbstractUser user, Product product) throws SQLException {                    
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_WISHLIST);
             preparedStatement.setInt(1, user.getId());
@@ -45,7 +48,7 @@ public class WishListDAO {
     }
     
     public static ArrayList<Product> select(AbstractUser user) throws SQLException {
-    	ArrayList<Product> list = new ArrayList<Product>();
+    	ArrayList<Product> list = new ArrayList<>();
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_WISHLIST);
             preparedStatement.setInt(1, user.getId());

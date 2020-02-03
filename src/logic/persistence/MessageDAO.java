@@ -1,6 +1,7 @@
 package logic.persistence;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,14 +9,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import logic.enums.MesType;
 import logic.model.AbstractUser;
-import logic.persistence.DataSource;
 import logic.model.Message;
 
 public class MessageDAO {
-	private static Connection currentCon = null;
+	
+	
+
+    private MessageDAO()  {
+        throw new IllegalStateException("Utility class");
+    }
 
 
-    public static Boolean insert(Message message, AbstractUser user)throws SQLException {
+	public static Boolean insert(Message message, AbstractUser user)throws SQLException {
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_MESSAGE , Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, message.getDate());
@@ -79,13 +84,13 @@ public class MessageDAO {
     
     public static ArrayList<Message> select(AbstractUser user) throws SQLException {
 
-    	ArrayList<Message> list = new ArrayList<Message>();
+    	ArrayList<Message> list = new ArrayList<>();
         //preparing some objects for connection
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_MESSAGE); 
             preparedStatement.setInt(1, user.getId());
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) { ;
+            while (resultSet.next()) { 
             	String date = resultSet.getString("date");
             	String title = resultSet.getString("title");
             	String bodymessage = resultSet.getString("bodymessage");
@@ -102,12 +107,12 @@ public class MessageDAO {
     
     public static ArrayList<Message> selectBroadcast() throws SQLException {
 
-    	ArrayList<Message> list = new ArrayList<Message>();
+    	ArrayList<Message> list = new ArrayList<>();
         //preparing some objects for connection
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.SELECT_MESSAGEBROAD); 
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) { ;
+            while (resultSet.next()) { 
             	String date = resultSet.getString("date");
             	String title = resultSet.getString("title");
             	String bodymessage = resultSet.getString("bodymessage");

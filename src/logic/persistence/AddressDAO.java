@@ -1,23 +1,27 @@
 package logic.persistence;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import logic.model.AbstractUser;
 import logic.model.Address;
-import logic.persistence.DataSource;
+
 
 
 public class AddressDAO { 
-	private static Connection currentCon = null;
-
+	
+	
+	private AddressDAO() {
+	    throw new IllegalStateException("Utility class");
+	  }
 
     public static Boolean insert(Address address) throws SQLException{                 
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_ADDRESS, Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, address.getAddress());
+            preparedStatement.setString(1, address.getAddr());
             preparedStatement.setString(2, address.getCity());
             preparedStatement.setString(3, address.getPostalCode());
             preparedStatement.setString(4, address.getTelephone());
@@ -79,7 +83,7 @@ public class AddressDAO {
     public static Boolean update(Address address) throws SQLException{                 
         try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.UPDATE_ADDRESS);
-            preparedStatement.setString(1, address.getAddress());
+            preparedStatement.setString(1, address.getAddr());
             preparedStatement.setString(2, address.getCity());
             preparedStatement.setString(3, address.getPostalCode());
             preparedStatement.setString(4, address.getTelephone());

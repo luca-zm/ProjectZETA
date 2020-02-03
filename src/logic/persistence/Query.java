@@ -2,6 +2,10 @@ package logic.persistence;
 
 public class Query {
 	
+	private Query()  {
+	    throw new IllegalStateException("Utility class");
+	  }
+
 	public static final String SCOPE_IDENTITY = "SELECT LAST_INSERT_ID()";
 	
 	public static final String INSERT_ACTCODE = "INSERT INTO activationcode(activationCode, greenCoinAdded) VALUES (?,?)";

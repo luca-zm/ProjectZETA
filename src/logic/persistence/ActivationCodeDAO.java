@@ -1,18 +1,25 @@
 package logic.persistence;
 
 import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import logic.model.ActivationCode;
-import logic.persistence.DataSource;
 
 
-public class ActivationCodeDAO { 	
-    public static Boolean insert(ActivationCode actCode) throws SQLException {
+public class ActivationCodeDAO { 
+	
+	
+    private ActivationCodeDAO()  {
+        throw new IllegalStateException("Utility class");
+    }
+
+
+	public static Boolean insert(ActivationCode actCode) throws SQLException {
 
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_ACTCODE);
-            preparedStatement.setInt(1, actCode.getActivationCode());
+            preparedStatement.setInt(1, actCode.getActCode());
             preparedStatement.setInt(2, actCode.getGrenCoinVal());
             
             int resultSet = preparedStatement.executeUpdate();
@@ -29,7 +36,7 @@ public class ActivationCodeDAO {
     public static Boolean delete(ActivationCode actCode) throws SQLException {
     	try {        
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.DELETE_ACTCODE);
-            preparedStatement.setInt(1, actCode.getActivationCode());            
+            preparedStatement.setInt(1, actCode.getActCode());            
             int resultSet = preparedStatement.executeUpdate();
             if (resultSet > 0) {
                 return true;
@@ -46,8 +53,7 @@ public class ActivationCodeDAO {
             preparedStatement.setInt(1, code);            
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {         	
-            	ActivationCode actCode = new ActivationCode(code, resultSet.getInt("greenCoinAdded"));
-                return actCode;
+            	return new ActivationCode(code, resultSet.getInt("greenCoinAdded"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

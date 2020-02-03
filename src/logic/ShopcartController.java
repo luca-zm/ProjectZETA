@@ -84,40 +84,40 @@ public class ShopcartController extends Application {
     
     private class CustomListCell extends ListCell<Product> {
         
-        private ImageView image;
-        private Text name;
-        private Text greenCoin;
-        private Button remove;       
-        private VBox content;
-        private HBox maxi;        
-        private Product product;
+        private ImageView imager;
+        private Text namer;
+        private Text greenCoinr;
+        private Button delete;       
+        private VBox contentt;
+        private HBox maxii;        
+        private Product productt;
 
 
         
         public CustomListCell() {
             super();
-            name = new Text();
-            image = new ImageView();
-            image.setFitHeight(90);
-            image.setFitWidth(90);
-            greenCoin = new Text();
-            remove = new Button("remove");
+            namer = new Text();
+            imager = new ImageView();
+            imager.setFitHeight(90);
+            imager.setFitWidth(90);
+            greenCoinr = new Text();
+            delete = new Button("remove");
             
-            content = new VBox(name, greenCoin, remove);
-            content.setAlignment(Pos.CENTER);
-            content.setSpacing(5);
-            maxi = new HBox(image, content);
-            maxi.setSpacing(110);
-            maxi.setFillHeight(true);
-            maxi.setMaxWidth(Control.USE_PREF_SIZE);
+            contentt = new VBox(namer, greenCoinr, delete);
+            contentt.setAlignment(Pos.CENTER);
+            contentt.setSpacing(5);
+            maxii = new HBox(imager, contentt);
+            maxii.setSpacing(110);
+            maxii.setFillHeight(true);
+            maxii.setMaxWidth(Control.USE_PREF_SIZE);
             
                         
-            remove.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            delete.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
                 @Override
                 public void handle(MouseEvent event) {              
                     try {
-						csc.deleteProduct(product.getId());
+						csc.deleteProduct(productt.getId());
 						initialize();
 
 					} catch (SQLException e) {
@@ -136,13 +136,13 @@ public class ShopcartController extends Application {
         protected void updateItem(Product product, boolean empty) {
             super.updateItem(product, empty);
             if (product != null && !empty) { // <== test for null item and empty parameter
-            	this.product = product;
+            	this.productt = product;
                 Image imageObject = new Image(product.getImage());
-                image.setImage(imageObject);
+                imager.setImage(imageObject);
               
-                name.setText(product.getName());
-                greenCoin.setText(String.format("%d $", product.getPrice()));
-                setGraphic(maxi);
+                namer.setText(product.getName());
+                greenCoinr.setText(String.format("%d $", product.getPrice()));
+                setGraphic(maxii);
             } else {
                 setGraphic(null);
             }

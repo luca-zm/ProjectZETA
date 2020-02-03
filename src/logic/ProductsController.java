@@ -46,18 +46,18 @@ public class ProductsController extends Application {
     @FXML
     public Button wishlist;
     @FXML
-    public Button shop;
+    public Button shopProd;
     @FXML
-    public Button log;
+    public Button logProd;
 
     @FXML
-    public Button map;
+    public Button mapProd;
     @FXML
-    public Button codelink;
+    public Button codelinkProd;
     @FXML
-    public Button prodlink;
+    public Button prodlinkProd;
     @FXML
-    public Button userlink;
+    public Button userlinkProd;
     
     
     
@@ -74,7 +74,7 @@ public class ProductsController extends Application {
     ControllerLogin cl = new  ControllerLogin();
     ControllerShopCartCheckOut csc = new ControllerShopCartCheckOut();
     ControllerWishList cwl = new ControllerWishList();
-    ManagerClick m = new ManagerClick();
+    
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -84,15 +84,15 @@ public class ProductsController extends Application {
     
     private class CustomListCell extends ListCell<Product> {
     
-        private ImageView image;
-        private Text name;
-        private Text greenCoin;
+        private ImageView imageProd;
+        private Text nameProd;
+        private Text greenCoinProd;
         private Button cart;
         private Button wish;
         private Button info;
         private HBox cartWish;
         private VBox content;
-        private HBox maxi;
+        private HBox maxiProd;
         
         private Product product;
         
@@ -101,24 +101,24 @@ public class ProductsController extends Application {
         
         public CustomListCell() {
             super();
-            name = new Text();
-            image = new ImageView();
-            image.setFitHeight(125);
-            image.setFitWidth(125);
-            greenCoin = new Text();
+            nameProd = new Text();
+            imageProd = new ImageView();
+            imageProd.setFitHeight(125);
+            imageProd.setFitWidth(125);
+            greenCoinProd = new Text();
             cart = new Button("Add to cart");
             wish = new Button("Add to wishlist");
             info = new Button("i");  
             cartWish = new HBox(cart, wish);
             cartWish.setSpacing(3);
-            content = new VBox(name, greenCoin, cartWish);
+            content = new VBox(nameProd, greenCoinProd, cartWish);
             info.setAlignment(Pos.CENTER_RIGHT);
             content.setAlignment(Pos.CENTER);
             content.setSpacing(5);
-            maxi = new HBox(image, content, info);
-            maxi.setSpacing(100);
-            maxi.setFillHeight(true);
-            maxi.setMaxWidth(Control.USE_PREF_SIZE);
+            maxiProd = new HBox(imageProd, content, info);
+            maxiProd.setSpacing(100);
+            maxiProd.setFillHeight(true);
+            maxiProd.setMaxWidth(Control.USE_PREF_SIZE);
             
             if(sg.getUser() == null) {
             	wish.setDisable(true);
@@ -179,11 +179,11 @@ public class ProductsController extends Application {
             if (product != null && !empty) { // <== test for null item and empty parameter
             	this.product = product;
                 Image imageObject = new Image(product.getImage());
-                image.setImage(imageObject);
+                imageProd.setImage(imageObject);
               
-                name.setText(product.getName());
-                greenCoin.setText(String.format("%d $", product.getPrice()));
-                setGraphic(maxi);
+                nameProd.setText(product.getName());
+                greenCoinProd.setText(String.format("%d $", product.getPrice()));
+                setGraphic(maxiProd);
             } else {
                 setGraphic(null);
             }
@@ -196,17 +196,17 @@ public class ProductsController extends Application {
 	@FXML
 	public void initialize() throws SQLException {
 		
-		prodlink.setDisable(true);
+		prodlinkProd.setDisable(true);
 		AbstractUser user = sg.getUser();
 		
 		//-----
-		log.setVisible(false);
+		logProd.setVisible(false);
 
 		//-----
 		
 		if(user == null) { //utente non loggato
 			wb.setVisible(false);
-			log.setVisible(true);
+			logProd.setVisible(true);
 		}else {
 			wb.setText(user.getName());
 		}
@@ -232,18 +232,41 @@ public class ProductsController extends Application {
 
     @FXML
     private void next(ActionEvent event) throws IOException {
+        WinNext a = new WinNext();
+        
         String eventClicked = event.getSource().toString();
         
-        String style = "button";
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         
 
-        m.checkWarn(event, "userlink", style, "User Profile", "view/userprofilePage.fxml", sg.getUser());
- 
-        m.goToPath(eventClicked, "maplink", style, "Map", "view/mapPage.fxml");
-       
-        m.checkWarn(event, "codelink", style, "Activation Code", "view/activationcodePage.fxml", sg.getUser());
 
+        if (eventClicked.contentEquals("Button[id=userlink, styleClass=button]'User Profile'")) {
+        	//pagina del profilo utente
+        	if(sg.getUser() != null) {
+        		a.openWin("view/userprofilePage.fxml");
+        	}else {
+        		a.openWarning(oldWin);
+        		return;
+        	}	
+        }
+        
+        
+        if (eventClicked.contentEquals("Button[id=maplink, styleClass=button]'Map'")) {
+        	//pagina mappe
+        	a.openWin("view/mapPage.fxml");
+        }
+        
+        
+        if (eventClicked.contentEquals("Button[id=codelink, styleClass=button]'Activation Code'")) {
+        	//pagina activation code
+        	if(sg.getUser() != null) {
+            	a.openWin("view/activationcodePage.fxml");
+        	}else {
+        		a.openWarning(oldWin);
+        		return;
+        	}
+        }
+               
         
         oldWin.close();
     }
@@ -254,24 +277,45 @@ public class ProductsController extends Application {
     
     @FXML
     private void nextT(ActionEvent event) throws IOException {
+        WinNext a = new WinNext();
         
         String eventClicked = event.getSource().toString();
-        String style = "button";
         
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         
         
-        m.goToPath(eventClicked, "log", style, "Login or Register" , "view/login_registerPage.fxml");
+        
+        if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login or Register'")) {
+            //pagina login
+        	a.openWin("view/login_registerPage.fxml");
+        }
         
         
-        m.goToPath(eventClicked, "logout", style, "Logout", "view/login_registerPage.fxml");
+        if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
+			a.openWin("view/login_registerPage.fxml");
+        }
         
         
-        m.checkWarn(event, "shop", style, "Shopcart", "view/shopcartPage.fxml", sg.getUser());
+        if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
+        	//pagina carrello
+        	if(sg.getUser() != null) {
+            	a.openWin("view/shopcartPage.fxml");
+        	}else {
+        		a.openWarning(oldWin);
+        		return;
+        	}
+        }
         
         
-        m.checkWarn(event, "wishlist", style, "Wishlist", "view/wishlistPage.fxml", sg.getUser());
-        
+        if (eventClicked.contentEquals("Button[id=wishlist, styleClass=button]'Wishlist'")) {
+        	//pagina wishlist
+        	if(sg.getUser() != null) {
+        		a.openWin("view/wishlistPage.fxml");
+        	}else {
+        		a.openWarning(oldWin);
+        		return;
+        	}
+        }
         
         oldWin.close();
     }

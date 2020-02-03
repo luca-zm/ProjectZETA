@@ -71,7 +71,7 @@ public class LoginController extends Application {
     }
 
     @FXML
-    private void next(ActionEvent event) throws IOException, SQLException {
+    private void nextT(ActionEvent event) throws IOException, SQLException {
         WinNext a = new WinNext();
 
         String eventClicked = event.getSource().toString();
@@ -108,7 +108,23 @@ public class LoginController extends Application {
         			return;
         		}
          }
-        	
+        
+        Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        oldWin.close();
+    }
+    
+    
+    
+    
+    
+    
+    
+    @FXML
+    private void next(ActionEvent event) throws IOException, SQLException {
+        WinNext a = new WinNext();
+
+        String eventClicked = event.getSource().toString();
+     	
         
         if (eventClicked.contentEquals("Button[id=conf, styleClass=button]'Confirm'")) {
         	

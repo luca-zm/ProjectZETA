@@ -22,13 +22,13 @@
          <items>
             <Text fx:id="wb" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back   " />
             <Button fx:id="shop" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Shopcart" />
-            <Button fx:id="wish" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Wishlist" />
+            <Button fx:id="wish" mnemonicParsing="false" onAction="#nextT" style="-fx-background-color: #47a67353" text="Wishlist" />
          </items>
       </ToolBar>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="634.0" layoutX="-2.0" layoutY="51.0" stroke="WHITE" strokeType="INSIDE" width="120.0" />
       <Button fx:id="userlink" layoutX="-8.0" layoutY="79.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="User Profile" />
       <Button fx:id="maplink" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
-      <Button fx:id="codelink" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
+      <Button fx:id="codelink" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" onAction="#nextT" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
       <Button fx:id="prodlink" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
       <Button fx:id="consumegcoin" layoutX="522.0" layoutY="415.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Buy products!" />
       <Circle fill="#4ba675db" layoutX="685.0" layoutY="541.0" radius="63.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
@@ -47,8 +47,8 @@
       </TextArea>
       <Text layoutX="537.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h6" text="Total:" wrappingWidth="43.96563720703125" />
       <StackPane fx:id="stack" layoutX="181.0" layoutY="93.0" prefHeight="386.0" prefWidth="318.0" />
-      <Button fx:id="logout" layoutX="666.0" layoutY="9.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Logout" />
+      <Button fx:id="logout" layoutX="666.0" layoutY="9.0" mnemonicParsing="false" onAction="#nextT" style="-fx-background-color: #47a67353" text="Logout" />
       
-            <Button fx:id="log" layoutX="613.0" layoutY="9.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Login or Register" />
+            <Button fx:id="log" layoutX="613.0" layoutY="9.0" mnemonicParsing="false" onAction="#nextT" style="-fx-background-color: #47a67353" text="Login or Register" />
    </children>
 </AnchorPane>

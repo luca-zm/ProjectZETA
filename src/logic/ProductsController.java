@@ -239,35 +239,7 @@ public class ProductsController extends Application {
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         
 
-        
-        if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
-			a.openWin("view/login_registerPage.fxml");
-        }
-        
-        
-        
-        if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
-        	//pagina carrello
-        	if(sg.getUser() != null) {
-            	a.openWin("view/shopcartPage.fxml");
-        	}else {
-        		a.openWarning(oldWin);
-        		return;
-        	}
-        }
-        
-        
-        if (eventClicked.contentEquals("Button[id=wishlist, styleClass=button]'Wishlist'")) {
-        	//pagina wishlist
-        	if(sg.getUser() != null) {
-        		a.openWin("view/wishlistPage.fxml");
-        	}else {
-        		a.openWarning(oldWin);
-        		return;
-        	}
-        }
-        
-        
+
         if (eventClicked.contentEquals("Button[id=userlink, styleClass=button]'User Profile'")) {
         	//pagina del profilo utente
         	if(sg.getUser() != null) {
@@ -296,32 +268,57 @@ public class ProductsController extends Application {
         }
                
         
+        oldWin.close();
+    }
+    
+    
+    
+    
+    
+    @FXML
+    private void nextT(ActionEvent event) throws IOException {
+        WinNext a = new WinNext();
+        
+        String eventClicked = event.getSource().toString();
+        
+        Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        
+        
         
         if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login or Register'")) {
             //pagina login
         	a.openWin("view/login_registerPage.fxml");
         }
         
-
-        if (eventClicked.contentEquals("Button[id=info, styleClass=button]''")) {
-        	a.openWin("view/info.fxml");
+        
+        if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
+			a.openWin("view/login_registerPage.fxml");
         }
         
-        if (eventClicked.contentEquals("Button[id=like, styleClass=button btn-default]'Wish'")) {
-        	//metodo che aggiunge elemento alla wishlist senza andarci
+        
+        if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
+        	//pagina carrello
         	if(sg.getUser() != null) {
-            	//metodo
-        		
+            	a.openWin("view/shopcartPage.fxml");
         	}else {
         		a.openWarning(oldWin);
         		return;
         	}
         }
-       
+        
+        
+        if (eventClicked.contentEquals("Button[id=wishlist, styleClass=button]'Wishlist'")) {
+        	//pagina wishlist
+        	if(sg.getUser() != null) {
+        		a.openWin("view/wishlistPage.fxml");
+        	}else {
+        		a.openWarning(oldWin);
+        		return;
+        	}
+        }
         
         oldWin.close();
     }
-    
 }
 
 

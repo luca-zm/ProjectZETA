@@ -16,14 +16,16 @@ public class WinNext{
 
     Singleton sg = Singleton.getInstance(); 
     private Scene myscene;
+    String title;
 
     public WinNext() {
     	myscene = sg.getScene();
+    	title="EcoClean";
     }
     
 	public void openWin(String neWin) throws IOException{
 		Stage currentWin = new Stage();
-        currentWin.setTitle("EcoClean");
+        currentWin.setTitle(title);
         Parent root = FXMLLoader.load(getClass().getResource(neWin));
         Scene scene = new Scene(root);
         currentWin.setScene(scene);
@@ -33,7 +35,7 @@ public class WinNext{
 	
 	public void goBack(ActionEvent event) throws IOException{
 		Stage backWin = new Stage();
-        backWin.setTitle("EcoClean");
+        backWin.setTitle(title);
         backWin.setScene(myscene);
         backWin.show();
         Stage change = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -42,7 +44,7 @@ public class WinNext{
 	
 	public void openWarning(Stage k) throws IOException{
 		Stage currentWin = new Stage();
-        currentWin.setTitle("EcoClean");
+        currentWin.setTitle(title);
         currentWin.initModality(Modality.APPLICATION_MODAL);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("view/warningmessage.fxml"));
         Parent root = (Parent)loader.load();
@@ -59,7 +61,7 @@ public class WinNext{
 		sg.saveDescription(p.getDescription());
     	sg.saveImage(p.getImage());
 		Stage currentWin = new Stage();
-        currentWin.setTitle("EcoClean");
+        currentWin.setTitle(title);
         Parent root = FXMLLoader.load(getClass().getResource(neWin));
         Scene scene = new Scene(root);
         sg.saveScene(scene);

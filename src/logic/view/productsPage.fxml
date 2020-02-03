@@ -12,11 +12,11 @@
       <ToolBar prefHeight="51.0" prefWidth="862.0">
          <items>
             <Text fx:id="wb" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back!   " />
-            <Button fx:id="shop" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Shopcart" />
-            <Button fx:id="wishlist" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Wishlist" />
+            <Button fx:id="shop" mnemonicParsing="false" onAction="#nextT" style="-fx-background-color: #47a67353" text="Shopcart" />
+            <Button fx:id="wishlist" mnemonicParsing="false" onAction="#nextT" style="-fx-background-color: #47a67353" text="Wishlist" />
          </items>
       </ToolBar>
-      <Button fx:id="log" layoutX="615.0" layoutY="10.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Login or Register" />
+      <Button fx:id="log" layoutX="615.0" layoutY="10.0" mnemonicParsing="false" onAction="#nextT" style="-fx-background-color: #47a67353" text="Login or Register" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="634.0" layoutX="-2.0" layoutY="51.0" stroke="WHITE" strokeType="INSIDE" width="120.0" />
       <Button fx:id="userlink" layoutX="-8.0" layoutY="79.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="User Profile" />
       <Button fx:id="maplink" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
@@ -24,6 +24,6 @@
       <Button fx:id="prodlink" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
       <Button fx:id="userp" layoutX="23.0" layoutY="5.0" mnemonicParsing="false" onAction="#next" prefHeight="40.0" prefWidth="38.0" styleClass="hbox" stylesheets="@fextile.css" />
       <StackPane fx:id="base" layoutX="134.0" layoutY="79.0" prefHeight="459.0" prefWidth="603.0" />
-      <Button fx:id="logout" layoutX="676.0" layoutY="11.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Logout" />
+      <Button fx:id="logout" layoutX="676.0" layoutY="11.0" mnemonicParsing="false" onAction="#nextT" style="-fx-background-color: #47a67353" text="Logout" />
    </children>
 </AnchorPane>

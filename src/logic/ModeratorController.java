@@ -73,7 +73,7 @@ public class ModeratorController extends Application {
     }
 
     @FXML
-    private void next(ActionEvent event) throws IOException {
+    private void nextT(ActionEvent event) throws IOException {
         WinNext a = new WinNext();
         String eventClicked = event.getSource().toString();
         
@@ -102,6 +102,20 @@ public class ModeratorController extends Application {
             JOptionPane.showMessageDialog(null, "Incorrect data, try again please");
         	return;
         }
+        
+        Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        oldWin.close();
+    }
+    
+    
+    
+ 
+    
+    @FXML
+    private void next(ActionEvent event) throws IOException {
+        WinNext a = new WinNext();
+        String eventClicked = event.getSource().toString();
+        
         
         if (eventClicked.contentEquals("Button[id=confirm, styleClass=button]'Confirm'")) {
         	int id= Integer.parseInt(idcol.getText());

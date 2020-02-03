@@ -19,7 +19,6 @@ public class UserDAO {
    public static Boolean insert(AbstractUser user)throws SQLException {
 	   try {        
 		   
-		   /////////mail, name, surname, pass, type, cart, history, boards, greenCoin, address) VALUES (?,?,?,?,?,?,?,?,?,?)";
            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.INSERT_USER, Statement.RETURN_GENERATED_KEYS);
            preparedStatement.setString(1, user.getMail());
            preparedStatement.setString(2, user.getName());
@@ -46,7 +45,6 @@ public class UserDAO {
    public static Boolean delete(AbstractUser user) throws SQLException{
 	   try {        
 		   
-		   /////////mail, name, surname, pass, type, cart, history, boards, greenCoin, address) VALUES (?,?,?,?,?,?,?,?,?,?)";
            PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.DELETE_USER);
            preparedStatement.setInt(1, user.getId());          
            int resultSet = preparedStatement.executeUpdate();
@@ -139,7 +137,6 @@ public class UserDAO {
     public static Boolean update(AbstractUser user) throws SQLException{
  	   try {        
  		   
- 		   /////////mail, name, surname, pass, type, cart, history, boards, greenCoin, address) VALUES (?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.UPDATE_USER);
             preparedStatement.setString(1, user.getMail());
             preparedStatement.setString(2, user.getName());

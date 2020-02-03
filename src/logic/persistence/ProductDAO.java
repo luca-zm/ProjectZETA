@@ -15,7 +15,7 @@ public class ProductDAO {
 
 	private ProductDAO() {
 		super();
-		// TODO Auto-generated constructor stub
+		//empty
 	}
 
 

@@ -47,7 +47,6 @@ public class ModeratorController extends Application {
     public TextField idcol;
 
     List<CollectionPoint> list;
-    CollectionPointDAO cdao = new CollectionPointDAO();
     ControllerManageCollPoint cmc = new ControllerManageCollPoint();
     StringBuilder bld = new StringBuilder();
     
@@ -65,7 +64,7 @@ public class ModeratorController extends Application {
     
     public void initialize() throws SQLException {
     	area.setEditable(false);
-    	list= cdao.select();
+    	list= CollectionPointDAO.select();
     	for(CollectionPoint p: list) {
     		bld.append(p.getId() + " - " + p.getName() + "\n\n");
     	}

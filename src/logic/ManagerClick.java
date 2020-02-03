@@ -10,10 +10,12 @@ import logic.model.AbstractUser;
 public class ManagerClick {
 
 	WinNext a = new WinNext();
+	String first="Button[id=";
+	String second=", styleClass=";
 	
 	public void goToPath(String event, String id, String style, String label, String path) {
 		
-		if(event.contentEquals("Button[id="+ id +", styleClass="+ style +"]'"+ label +"'")){
+		if(event.contentEquals(first + id + second + style +"]'"+ label +"'")){
 			try {
 				a.openWin(path);
 			} catch (IOException e) {
@@ -26,7 +28,7 @@ public class ManagerClick {
 	
 	public Boolean check(String event, String id, String style, String label) {
 		
-		return event.contentEquals("Button[id="+ id +", styleClass="+ style +"]'"+ label +"'");
+		return event.contentEquals(first + id + second + style +"]'"+ label +"'");
 	}	
 	
 	
@@ -37,14 +39,12 @@ public class ManagerClick {
         String eventClicked = event.getSource().toString();
 
 		Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		if(eventClicked.contentEquals("Button[id="+ id +", styleClass="+ style +"]'"+ label +"'")){
+		if(eventClicked.contentEquals(first + id + second + style +"]'"+ label +"'")){
 			if(user != null) {
 				a.openWin(path);
 			}else {
 				a.openWarning(oldWin);
-				return;
 			}
-			return;
 		}
 	}
 	

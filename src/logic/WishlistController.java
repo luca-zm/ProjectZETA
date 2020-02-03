@@ -64,8 +64,8 @@ public class WishlistController extends Application {
     public StackPane stack;
     
     Singleton sg = Singleton.getInstance(); 
-    ControllerWishList CWL = new ControllerWishList();
-    ControllerShopCartCheckOut CSC = new ControllerShopCartCheckOut();
+    ControllerWishList cwl = new ControllerWishList();
+    ControllerShopCartCheckOut csc = new ControllerShopCartCheckOut();
     
 
 
@@ -130,8 +130,8 @@ public class WishlistController extends Application {
                 @Override
                 public void handle(MouseEvent event) {              
                     try {
-						CSC.addProduct(product.getId());
-						CWL.deleteProductfromWishList(product.getId());
+						csc.addProduct(product.getId());
+						cwl.deleteProductfromWishList(product.getId());
 						initialize();
 
 					} catch (SQLException e ) {
@@ -145,7 +145,7 @@ public class WishlistController extends Application {
                 @Override
                 public void handle(MouseEvent event) {              
                     try {
-						CWL.deleteProductfromWishList(product.getId());
+						cwl.deleteProductfromWishList(product.getId());
 						initialize();
 
 					} catch (SQLException e) {
@@ -191,7 +191,7 @@ public class WishlistController extends Application {
         }
 
 
-        final ListView<Product> listView = new ListView<Product>(data);
+        final ListView<Product> listView = new ListView<>(data);
         listView.setCellFactory(new Callback<ListView<Product>, ListCell<Product>>() {
             @Override
             public ListCell<Product> call(ListView<Product> listView) {
@@ -206,7 +206,6 @@ public class WishlistController extends Application {
         winNext a = new winNext();
         
         String eventClicked = event.getSource().toString();
-        System.out.println(eventClicked);
         
         if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
 			a.openWin("view/login_registerPage.fxml");

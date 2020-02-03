@@ -54,7 +54,7 @@ public class ProductsController extends Application {
     @FXML
     public Button codelink;
     @FXML
-    public Button prod_link;
+    public Button prodlink;
     @FXML
     public Button userlink;
     
@@ -71,8 +71,8 @@ public class ProductsController extends Application {
     
     Singleton sg = Singleton.getInstance(); 
     ControllerLogin cl = new  ControllerLogin();
-    ControllerShopCartCheckOut CSC = new ControllerShopCartCheckOut();
-    ControllerWishList CWL = new ControllerWishList();
+    ControllerShopCartCheckOut csc = new ControllerShopCartCheckOut();
+    ControllerWishList cwl = new ControllerWishList();
     
 
     @Override
@@ -130,7 +130,7 @@ public class ProductsController extends Application {
                 @Override
                 public void handle(MouseEvent event) {              
                     try {
-						CSC.addProduct(product.getId());
+						csc.addProduct(product.getId());
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}             
@@ -146,7 +146,7 @@ public class ProductsController extends Application {
                 			JOptionPane.showMessageDialog(null, "Product is already in your wishlist "+ sg.getUser().getName());
 
                     	}else {
-                    		CWL.addProductinWishList(product.getId());
+                    		cwl.addProductinWishList(product.getId());
                     	}
 					} catch (SQLException e) {
 						e.printStackTrace();
@@ -219,7 +219,7 @@ public class ProductsController extends Application {
         }
 
 
-        final ListView<Product> listView = new ListView<Product>(data);
+        final ListView<Product> listView = new ListView<>(data);
         listView.setCellFactory(new Callback<ListView<Product>, ListCell<Product>>() {
             @Override
             public ListCell<Product> call(ListView<Product> listView) {

@@ -56,9 +56,8 @@ public class MapController extends Application implements ActionListener{
     public TextArea maptext;
     
     Singleton sg = Singleton.getInstance(); 
+    StringBuilder bld = new StringBuilder();
 
-    @FXML
-    public Label mapHolder;
     
     
     @Override
@@ -83,19 +82,17 @@ public class MapController extends Application implements ActionListener{
         frame.pack();
         frame.setVisible(true);
         
-        System.out.println(maptext);
         maptext.setEditable(false);
         
         ArrayList<CollectionPoint> list = CollectionPointDAO.select();
         
-        String string = "";
         int count = 1;
         for(CollectionPoint point: list) {
-        	string = string + Integer.toString(count) + " " +  point.getName() + ": " + point.getAddress() + " (hours of service: " + point.getOpeningTime() + " - " + point.getClosingTime() + ")\n\n";
+        	bld.append(Integer.toString(count) + " " +  point.getName() + ": " + point.getAddress() + " (hours of service: " + point.getOpeningTime() + " - " + point.getClosingTime() + ")\n\n");
         	count += 1;
         }
         
-        maptext.setText(string);
+        maptext.setText(bld.toString());
         
 		maplink.setDisable(true);
 		//-----
@@ -161,7 +158,8 @@ public class MapController extends Application implements ActionListener{
         	}else {
         		a.openWarning(oldWin);
         		return;
-        	}        }
+        	}        
+        }
                
         
         
@@ -182,7 +180,7 @@ public class MapController extends Application implements ActionListener{
 
 	@Override
 	public void actionPerformed(java.awt.event.ActionEvent e) {
-		// TODO Auto-generated method stub
+		// empty
 		
 	}
 }

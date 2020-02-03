@@ -68,7 +68,7 @@ public class ShopcartController extends Application {
     
     Singleton sg =Singleton.getInstance();
 	AbstractUser user = sg.getUser();
-	ControllerShopCartCheckOut CSC = new ControllerShopCartCheckOut();
+	ControllerShopCartCheckOut csc = new ControllerShopCartCheckOut();
 	
 
 
@@ -114,7 +114,7 @@ public class ShopcartController extends Application {
                 @Override
                 public void handle(MouseEvent event) {              
                     try {
-						CSC.deleteProduct(product.getId());
+						csc.deleteProduct(product.getId());
 						initialize();
 
 					} catch (SQLException e) {
@@ -180,7 +180,7 @@ public class ShopcartController extends Application {
         }
 
 
-        final ListView<Product> listView = new ListView<Product>(data);
+        final ListView<Product> listView = new ListView<>(data);
         listView.setCellFactory(new Callback<ListView<Product>, ListCell<Product>>() {
             @Override
             public ListCell<Product> call(ListView<Product> listView) {
@@ -252,8 +252,7 @@ public class ShopcartController extends Application {
 
         //methods buy and remove from Wishlist ----------
         if (eventClicked.contentEquals("Button[id=consumegcoin, styleClass=button]'Buy products!'")) {
-        	CSC.buyShopCart();
-        	//initialize();
+        	csc.buyShopCart();
 			Stage k = (Stage) ((Node) event.getSource()).getScene().getWindow();
         	a.openWin("view/shopcartPage.fxml");
         	k.close();

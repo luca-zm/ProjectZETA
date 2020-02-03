@@ -78,26 +78,27 @@ public class LoginController extends Application {
 
         if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login!'")) {
         	
-        		if(mail.getText().contentEquals("") || psw.getText().contentEquals("")) {
+        		if(mail.getText().contentEquals(null) || psw.getText().contentEquals(null)) {
+    				JOptionPane.showMessageDialog(null, "fill in both fields please");
         			return;
         		}
         		
         		UserBean ub = new UserBean(0,  mail.getText() , null, null , psw.getText(), null);
         		
-        	
-        	
-        		
+
         		//METODO che verifica se l'utente si e' loggato o meno con RUOLO
         		if(cl.login(ub)) {
-        			if(cl.giveUserForRole(ub).getType().equals(Roles.ADMIN)) {
+        			String type= cl.giveUserForRole(ub).getType();
+        			if(type.equals(Roles.ADMIN)) {
         				a.openWin("view/adminPage.fxml");
+        				return;
         			}
-        			else if(cl.giveUserForRole(ub).getType().equals(Roles.COLLECTIONPOINTMAN)) {
+        			if(type.equals(Roles.COLLECTIONPOINTMAN)) {
         				a.openWin("view/modPage.fxml");
+        				return;
         			}
-        				
-        			else { a.openWin("view/productsPage.fxml");}
         			
+        			a.openWin("view/productsPage.fxml");
         		}
         		else {
         			return;

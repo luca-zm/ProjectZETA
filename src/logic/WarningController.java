@@ -33,7 +33,6 @@ public class WarningController extends Application {
         
         
         String eventClicked = event.getSource().toString();
-        System.out.println(eventClicked);
         if (eventClicked.contentEquals("Button[id=log, styleClass=button btn-success]'Go to Login!'")) {
         	a.openWin("view/login_registerPage.fxml");
         	Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();

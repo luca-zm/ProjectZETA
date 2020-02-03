@@ -62,30 +62,30 @@ public class AdminController extends Application {
     
     UserDAO user = new UserDAO();
     ProductDAO prod = new ProductDAO();
-    ArrayList<AbstractUser> listUSERS;
+    ArrayList<AbstractUser> aUser;
     ArrayList<Product> listPRODUCTS;
-
+    
+    StringBuilder bld1 = new StringBuilder();
+    StringBuilder bld2 = new StringBuilder();
 
 
     public void initialize() throws SQLException {
     	listprod.setEditable(false);	
     	listusers.setEditable(false);
+
     	
-    	String prods="";
-    	String users="";
-    	
-    	listUSERS= user.findUsers();
+    	aUser= user.findUsers();
     	listPRODUCTS = prod.select();
 
     	for(Product p: listPRODUCTS) {
-    		prods = prods + p.getId() + " - " + p.getName() + "\n\n";
+    		bld1.append(prods + p.getId() + " - " + p.getName() + "\n\n");
     	}
-    	for(AbstractUser ut: listUSERS) {
-    		users = users + ut.getId() + " - " + ut.getName() + "\n\n";
+    	for(AbstractUser ut: aUser) {
+    		bld2.append(ut.getId() +" - "+ ut.getName() +"\n\n");
     	}
-    	
-    	listprod.setText(prods);
-    	listusers.setText(users);
+    	listprod.setText(bld1.toString());
+    	listusers.setText(bld2.toString());
+
     }
     
     
@@ -98,6 +98,7 @@ public class AdminController extends Application {
     private void next(ActionEvent event) throws IOException, SQLException {
         winNext a = new winNext();
         String eventClicked = event.getSource().toString();
+        String sonaradmin="view/adminPage.fxml";
 
         
         if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
@@ -116,9 +117,11 @@ public class AdminController extends Application {
         		prod.insert(product);
         		JOptionPane.showMessageDialog(null, "Product correctly insert!");
                 Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                a.openWin("view/adminPage.fxml");
+                a.openWin(sonaradmin);
                 oldWin.close();
         		
+        	}else {
+        		JOptionPane.showMessageDialog(null, "Invalid"); 
         	}
         	
         }
@@ -127,7 +130,7 @@ public class AdminController extends Application {
         		
         		JOptionPane.showMessageDialog(null, "Product correctly deleted!");
                 Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                a.openWin("view/adminPage.fxml");
+                a.openWin(sonaradmin);
                 oldWin.close();
         }
         
@@ -140,7 +143,7 @@ public class AdminController extends Application {
     		
     		JOptionPane.showMessageDialog(null, "BAAAAAAN HAMMEEER!!!");
             Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            a.openWin("view/adminPage.fxml");
+            a.openWin(sonaradmin);
             oldWin.close();
         }
         

@@ -44,7 +44,6 @@ public class InfoProductController extends Application {
     }
     @FXML
     private void next(ActionEvent event) throws IOException {
-        //winNext a = new winNext();
         
         String eventClicked = event.getSource().toString();
         

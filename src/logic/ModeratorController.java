@@ -45,7 +45,8 @@ public class ModeratorController extends Application {
 
     ArrayList<CollectionPoint> list;
     CollectionPointDAO cdao = new CollectionPointDAO();
-    ControllerManageCollPoint CMC = new ControllerManageCollPoint();
+    ControllerManageCollPoint cmc = new ControllerManageCollPoint();
+    StringBuilder bld = new StringBuilder();
     
     public ModeratorController() {
     	name = null;
@@ -61,16 +62,15 @@ public class ModeratorController extends Application {
     
     public void initialize() throws SQLException {
     	area.setEditable(false);
-    	String s="";
     	list= cdao.select();
     	for(CollectionPoint p: list) {
-    		s = s + p.getId() + " - " + p.getName() + "\n\n";
+    		bld.append(p.getId() + " - " + p.getName() + "\n\n");
     	}
-    	area.setText(s);
+    	area.setText(bld.toString());
     }
 
     @FXML
-    private void next(ActionEvent event) throws Exception {
+    private void next(ActionEvent event) throws IOException {
         winNext a = new winNext();
         String eventClicked = event.getSource().toString();
         
@@ -85,7 +85,7 @@ public class ModeratorController extends Application {
         	if (name != null && address != null && opening != null && closing != null) {
                 CollectionPointBean cb = new CollectionPointBean(0, name.getText(), address.getText(),
                 		Integer.parseInt(opening.getText()), Integer.parseInt(closing.getText()));
-                CMC.insert(cb);
+                cmc.insert(cb);
                 JOptionPane.showMessageDialog(null, "EcoPoint correctly insert!");
                 Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 a.openWin("view/modPage.fxml");
@@ -100,7 +100,7 @@ public class ModeratorController extends Application {
         	int id= Integer.parseInt(idcol.getText());
         	for (CollectionPoint p: list) {
         		if (p.getId() == id) {
-                	CMC.delete(p);
+                	cmc.delete(p);
                     JOptionPane.showMessageDialog(null, "EcoPoint correctly deleted");
                     Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     a.openWin("view/modPage.fxml");

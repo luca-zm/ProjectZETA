@@ -102,7 +102,7 @@ public class UserProfileController extends Application {
     	series.getData().add(new XYChart.Data(250, 15)); 
     	series.getData().add(new XYChart.Data(340, 30)); 
     	series.getData().add(new XYChart.Data(720, 60));     	
-    	//}
+
     	chart.getData().add(series);
 
     	//-------------
@@ -114,7 +114,6 @@ public class UserProfileController extends Application {
     private void next(ActionEvent event) throws IOException, SQLException {
 		winNext a = new winNext();
         String eventClicked = event.getSource().toString();
-        System.out.println(eventClicked);
         
         
         if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
@@ -167,7 +166,7 @@ public class UserProfileController extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub
+		// empty
 	}
 
 }

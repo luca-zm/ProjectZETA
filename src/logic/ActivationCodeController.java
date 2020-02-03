@@ -79,11 +79,14 @@ public class ActivationCodeController extends Application {
     
     @FXML
     private void next(ActionEvent event) throws IOException, SQLException {
-    	WinNext a = new WinNext();
-
+    	ManagerClick m = new ManagerClick();
+    	String style="button";
         String eventClicked = event.getSource().toString();
         
-        if (eventClicked.contentEquals("Button[id=confirm, styleClass=button]'OK'")) {
+        if (m.check(eventClicked, "confirm", style, "OK")) {
+        
+
+
         	String actCodeString = addgc.getText();
         	if(!BeanValidate.isInteger(actCodeString)) {
         		addgc.setText("");
@@ -104,35 +107,18 @@ public class ActivationCodeController extends Application {
         }
         
         
-        if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
-			a.openWin("view/login_registerPage.fxml");
-        }
+        m.goToPath(eventClicked, "logout", style, "Logout", "view/login_registerPage.fxml");
+        
         
         
         //Toolbar
-        if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
-        	//pagina carrello
-        	a.openWin("view/shopcartPage.fxml");
-        }
-        if (eventClicked.contentEquals("Button[id=wish, styleClass=button]'Wishlist'")) {
-        	//pagina wishlist
-        	a.openWin("view/wishlistPage.fxml");
-        }
+        m.goToPath(eventClicked, "shop", style, "Shopcart", "view/shopcartPage.fxml");
         
-        //Hyperlink
-        if (eventClicked.contentEquals("Button[id=maplink, styleClass=button]'Map'")) {
-        	//pagina mappe
-        	a.openWin("view/mapPage.fxml");
-        }
-        if (eventClicked.contentEquals("Button[id=prodlink, styleClass=button]'Products'")) {
-        	//pagina prodotti
-        	a.openWin("view/productsPage.fxml");
-        }
-        if (eventClicked.contentEquals("Button[id=userlink, styleClass=button]'User Profile'")) {
-        	//pagina prodotti
-        	a.openWin("view/userprofilePage.fxml");
-        }               
-        Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        oldWin.close();
+        m.goToPath(eventClicked, "wish", style, "Wishlist", "view/wishlistPage.fxml");
     }
 }
+
+
+
+
+

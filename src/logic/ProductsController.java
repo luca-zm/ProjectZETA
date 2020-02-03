@@ -39,25 +39,25 @@ public class ProductsController extends Application {
 
 	
 	@FXML
-	private Button logout;
+    public Button logout;
 	
     @FXML
-    private Button userp;
+    public Button userp;
     @FXML
-    private Button wishlist;
+    public Button wishlist;
     @FXML
-    private Button shop;
+    public Button shop;
     @FXML
-    private Button log;
+    public Button log;
 
     @FXML
-    private Button map;
+    public Button map;
     @FXML
-    private Button codelink;
+    public Button codelink;
     @FXML
-    private Button prodlink;
+    public Button prodlink;
     @FXML
-    private Button userlink;
+    public Button userlink;
     
     
     
@@ -74,7 +74,7 @@ public class ProductsController extends Application {
     ControllerLogin cl = new  ControllerLogin();
     ControllerShopCartCheckOut csc = new ControllerShopCartCheckOut();
     ControllerWishList cwl = new ControllerWishList();
-    
+    ManagerClick m = new ManagerClick();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -232,41 +232,18 @@ public class ProductsController extends Application {
 
     @FXML
     private void next(ActionEvent event) throws IOException {
-        WinNext a = new WinNext();
-        
         String eventClicked = event.getSource().toString();
         
+        String style = "button";
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         
 
+        m.checkWarn(event, "userlink", style, "User Profile", "view/userprofilePage.fxml", sg.getUser());
+ 
+        m.goToPath(eventClicked, "maplink", style, "Map", "view/mapPage.fxml");
+       
+        m.checkWarn(event, "codelink", style, "Activation Code", "view/activationcodePage.fxml", sg.getUser());
 
-        if (eventClicked.contentEquals("Button[id=userlink, styleClass=button]'User Profile'")) {
-        	//pagina del profilo utente
-        	if(sg.getUser() != null) {
-        		a.openWin("view/userprofilePage.fxml");
-        	}else {
-        		a.openWarning(oldWin);
-        		return;
-        	}	
-        }
-        
-        
-        if (eventClicked.contentEquals("Button[id=maplink, styleClass=button]'Map'")) {
-        	//pagina mappe
-        	a.openWin("view/mapPage.fxml");
-        }
-        
-        
-        if (eventClicked.contentEquals("Button[id=codelink, styleClass=button]'Activation Code'")) {
-        	//pagina activation code
-        	if(sg.getUser() != null) {
-            	a.openWin("view/activationcodePage.fxml");
-        	}else {
-        		a.openWarning(oldWin);
-        		return;
-        	}
-        }
-               
         
         oldWin.close();
     }
@@ -277,49 +254,25 @@ public class ProductsController extends Application {
     
     @FXML
     private void nextT(ActionEvent event) throws IOException {
-        WinNext a = new WinNext();
         
         String eventClicked = event.getSource().toString();
+        String style = "button";
         
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         
         
-        
-        if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login or Register'")) {
-            //pagina login
-        	a.openWin("view/login_registerPage.fxml");
-        }
+        m.goToPath(eventClicked, "log", style, "Login or Register" , "view/login_registerPage.fxml");
         
         
-        if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
-			a.openWin("view/login_registerPage.fxml");
-        }
+        m.goToPath(eventClicked, "logout", style, "Logout", "view/login_registerPage.fxml");
         
         
-        if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
-        	//pagina carrello
-        	if(sg.getUser() != null) {
-            	a.openWin("view/shopcartPage.fxml");
-        	}else {
-        		a.openWarning(oldWin);
-        		return;
-        	}
-        }
+        m.checkWarn(event, "shop", style, "Shopcart", "view/shopcartPage.fxml", sg.getUser());
         
         
-        if (eventClicked.contentEquals("Button[id=wishlist, styleClass=button]'Wishlist'")) {
-        	//pagina wishlist
-        	if(sg.getUser() != null) {
-        		a.openWin("view/wishlistPage.fxml");
-        	}else {
-        		a.openWarning(oldWin);
-        		return;
-        	}
-        }
+        m.checkWarn(event, "wishlist", style, "Wishlist", "view/wishlistPage.fxml", sg.getUser());
+        
         
         oldWin.close();
     }
 }
-
-
-

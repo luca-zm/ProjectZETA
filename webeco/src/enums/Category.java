@@ -1,6 +1,6 @@
 package enums;
 
 public enum Category {
-	Default,
-	utility
+	DEFAULT,
+	UTILITY
 }

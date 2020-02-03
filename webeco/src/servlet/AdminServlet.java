@@ -61,7 +61,7 @@ public class AdminServlet extends HttpServlet {
 				String path=request.getParameter("imgpath");
 				String descr=request.getParameter("descr");
 
-				ProductBean cb = new ProductBean(0, name, price, 0, Category.utility , path, descr, true);
+				ProductBean cb = new ProductBean(0, name, price, 0, Category.UTILITY , path, descr, true);
 				
 				try {
 					conmod.addProduct(cb);

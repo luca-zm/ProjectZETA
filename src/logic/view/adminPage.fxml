@@ -12,7 +12,6 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="754.0" style="-fx-border-color: #48aa77;" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.AdminController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="771.0" layoutX="5.0" layoutY="-102.0" stroke="WHITE" strokeType="INSIDE" width="18.0" />
-      <TextField fx:id="prodid" layoutX="190.0" layoutY="124.0" prefHeight="34.0" prefWidth="48.0" promptText="ID" styleClass="text-area" />
       <Button fx:id="add" layoutX="427.0" layoutY="214.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Add" />
       <Text layoutX="45.0" layoutY="53.0" stroke="#aaa8a8" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h1" text="ADMIN" wrappingWidth="119.19992675781259">
          <effect>

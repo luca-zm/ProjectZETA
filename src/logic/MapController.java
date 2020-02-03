@@ -78,7 +78,7 @@ public class MapController extends Application implements ActionListener{
 		}
 		
         List<CollectionPoint> list = CollectionPointDAO.select();
-		if(list.size() >= 4) {
+		if(list.size() > 4) {
 			JOptionPane.showMessageDialog(null, "You can't visualize the map !");
 			return;
 		}

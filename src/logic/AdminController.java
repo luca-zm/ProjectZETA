@@ -43,8 +43,6 @@ public class AdminController extends Application {
 
     //products
     @FXML
-    private TextField prodid;
-    @FXML
     private TextField prodname;
     @FXML
     private TextField proddisc;
@@ -106,9 +104,12 @@ public class AdminController extends Application {
         
         if (eventClicked.contentEquals("Button[id=add, styleClass=button]'Add'")) {
         	//metodo opzioni prodotti
-        	if(prodid != null && prodname != null && proddisc != null && prodimg != null && prodgc != null && proddescr != null) {
-        	
-        		Product product = new Product(Integer.parseInt(prodid.getText()),prodname.getText(),
+        	if(prodname.getText().equals("") || proddisc.getText().equals("") || prodimg.getText().equals("") ||
+        										prodgc.getText().equals("") || proddescr.getText().equals("")) {
+        		JOptionPane.showMessageDialog(null, "Invalid"); 
+        		return;
+        	}else {
+        		Product product = new Product(0 ,prodname.getText(),
         				Integer.parseInt(prodgc.getText()), Integer.parseInt(proddisc.getText()),
         				utility, prodimg.getText(), proddescr.getText());
         		
@@ -118,9 +119,6 @@ public class AdminController extends Application {
                 a.openWin(sonaradmin);
                 oldWin.close();
         		
-        	}else {
-        		JOptionPane.showMessageDialog(null, "Invalid"); 
-        		return;
         	}
         }
         if (eventClicked.contentEquals("Button[id=delete, styleClass=button]'Delete'")) {

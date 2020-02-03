@@ -26,7 +26,7 @@ public class ControllerRegistration {
 		
 		AbstractUser user = FactoryUsers.get(0, mail, name, surname, pass, "USER");
 		
-		Address addr = new Address(0, addrBean.getAddressBean(), addrBean.getCityBean(), addrBean.getPostalCodeBean(), addrBean.getTelephoneBean(), addrBean.getStateBean(),  addrBean.getZoneBean());
+		Address addr = new Address(0, addrBean.getAddrBean(), addrBean.getCityBean(), addrBean.getPostalCodeBean(), addrBean.getTelephoneBean(), addrBean.getStateBean(),  addrBean.getZoneBean());
 		AddressDAO.insert(addr);
 	
 		user.setAddress(addr);

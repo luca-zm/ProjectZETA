@@ -1,6 +1,7 @@
 package controller;
 
 import java.sql.SQLException;
+
 import java.util.ArrayList;
 import bean.UserBean;
 import logic.model.AbstractUser;
@@ -13,7 +14,6 @@ import logic.model.Message;
 import logic.model.NoticeBoard;
 import logic.model.Product;
 import logic.model.ShipmentTran;
-import logic.model.ShopCart;
 import logic.model.Singleton;
 import logic.model.Transaction;
 import logic.model.WishList;
@@ -41,7 +41,7 @@ public class ControllerLogin {
 		ArrayList<ActivationCodeTran> actcodeTranList = TransactionDAO.selectActivationCodeTra(user);
 		ArrayList<BonusTran> bonusTranList = TransactionDAO.selectBonusTran(user);
 		ArrayList<ShipmentTran> shipmentList = TransactionDAO.selectShipment(user);
-		ArrayList<Transaction> list = new ArrayList<Transaction>();
+		ArrayList<Transaction> list = new ArrayList<>();
 		list.addAll(actcodeTranList);
 		list.addAll(bonusTranList);
 		list.addAll(shipmentList);

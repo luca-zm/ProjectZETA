@@ -27,7 +27,7 @@ public class ControllerManageCollPoint {
 	
 	private String placeaddres = "https://maps.googleapis.com/maps/api/geocode/json?address=";
 	private String apikey = "&key=AIzaSyDWaK_dXLPOBO43oLeAkMTrgkh-6qSlnuc";
-	
+	StringBuilder bld = new StringBuilder();
 	
 	public URL getFinalUrl(String oldurl, double markerlat, double markerlon) throws MalformedURLException {
 		
@@ -40,16 +40,14 @@ public class ControllerManageCollPoint {
 		urlbox.add(oldurl);
 		urlbox.add(apikey);
 		urlbox.add(urlbox.size()-1, markcoord );
-		String betaurl="";
 		
 		for(int i=0;i<urlbox.size();i++){
-		betaurl = betaurl + urlbox.get(i) + " ";
+		bld.append(urlbox.get(i) + " ");
 		}
 		
-		String url = betaurl.replace(" ", "");
+		String url = bld.toString().replace(" ", "");
 		
-		URL urlfin = new URL(url);
-		return urlfin;
+		return new URL(url);
 		
 	}
 	
@@ -73,8 +71,8 @@ public class ControllerManageCollPoint {
 	
 	public String compositore(String indirizzo) {
 		String addressin = placeaddres + indirizzo + apikey;
-		String addressfin = addressin.replace(" ","%20");
-		return addressfin;
+		return addressin.replace(" ","%20");
+	
 	}
 	
 	

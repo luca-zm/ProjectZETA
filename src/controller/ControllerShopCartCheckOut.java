@@ -152,7 +152,7 @@ public class ControllerShopCartCheckOut {
 		
 		AbstractUser user = singleton.getUser();
 
-		ActivationCode cod = ActivationCodeDAO.select(code.getActivationCodeBean());
+		ActivationCode cod = ActivationCodeDAO.select(code.getActCodeBean());
 		
 		
 		if( cod != null) {
@@ -166,7 +166,7 @@ public class ControllerShopCartCheckOut {
 		
 			UserDAO.update(user);
 		
-			ActivationCodeTran a = new ActivationCodeTran(0, time(), code.getActivationCodeBean(), val);
+			ActivationCodeTran a = new ActivationCodeTran(0, time(), code.getActCodeBean(), val);
 		
 			TransactionDAO.insertActivationCodeTran(a, user);
 		

@@ -25,12 +25,8 @@ public class NoticeBoard {
 	}
 	
 	public Boolean deleteMessage(Message message) {
-		if(list.remove(message)){
-			return true;
-		}
-		else {
-			return false;
-		}
+		return list.remove(message);
+		
 	}
 
 	public void clear() {

@@ -72,7 +72,8 @@ public class ShopcartController extends Application {
     Singleton sg =Singleton.getInstance();
 	AbstractUser user = sg.getUser();
 	ControllerShopCartCheckOut csc = new ControllerShopCartCheckOut();
-	
+	StringBuilder bld = new StringBuilder();
+
 
 
     @Override
@@ -150,16 +151,15 @@ public class ShopcartController extends Application {
     
     
     public void initialize() {
-    
-    	String result = "";
-    	
+    	   	
     	for(Product p: user.getCart().getProductList()) {
-    		if (result.contains(p.getName())) {
+    		if (bld.toString().contains(p.getName())) {
     			continue;
     		}
-    		result = result + p.getName() + ": " +p.getPrice() + "\n\n";
+    		bld.append(p.getName() + ": " +p.getPrice() + "\n\n");
     	}
-    	pricetext.setText(result);
+    	pricetext.setText(bld.toString());
+    	
     	total.setText(Integer.toString(user.getCart().getTotalPrice()));
     	gcointext.setText(Integer.toString(user.getGreenCoin()));
     	shop.setDisable(true);

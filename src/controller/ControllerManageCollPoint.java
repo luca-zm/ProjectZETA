@@ -1,12 +1,11 @@
 package controller;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.JOptionPane;
 
 import bean.CollectionPointBean;
 import logic.URLReader;
@@ -95,7 +94,7 @@ public class ControllerManageCollPoint {
 	}
 	
 
-	public Boolean insert(CollectionPointBean collPointBean) throws Exception { //Vuole eccezione personale
+	public Boolean insert(CollectionPointBean collPointBean) throws IOException, SQLException { //Vuole eccezione personale
 		List<CollectionPoint> listaCollPoint = CollectionPointDAO.select();
 		if(listaCollPoint.size() >= 4) {
 			return false;

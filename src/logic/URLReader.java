@@ -13,7 +13,7 @@ public class URLReader {
         this.url = url;
     }
 
-    public String read() throws Exception {
+    public String read() throws IOException {
         StringBuilder sb = new StringBuilder();
         URL u = new URL(this.url);
         InputStreamReader in = new InputStreamReader(u.openStream());

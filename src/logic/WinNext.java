@@ -50,7 +50,6 @@ public class WinNext{
         Parent root = (Parent)loader.load();
         WarningController controll = loader.getController();
         controll.setStage(k);
-        System.out.println(controll.getStage());
         Scene scene = new Scene(root);
         currentWin.setScene(scene);
         currentWin.showAndWait();

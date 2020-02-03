@@ -15,7 +15,7 @@ public class Guest extends AbstractUser{
     }
 
 	public void setValid(boolean b) {
-		
+		//empty
 	}
 	
 	

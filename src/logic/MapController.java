@@ -5,14 +5,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
+
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 import logic.model.CollectionPoint;
@@ -84,7 +84,7 @@ public class MapController extends Application implements ActionListener{
         
         maptext.setEditable(false);
         
-        ArrayList<CollectionPoint> list = CollectionPointDAO.select();
+        List<CollectionPoint> list = CollectionPointDAO.select();
         
         int count = 1;
         for(CollectionPoint point: list) {

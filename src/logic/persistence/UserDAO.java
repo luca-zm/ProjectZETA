@@ -16,8 +16,8 @@ public class UserDAO {
 	
 	private static String s = "surname";
 	
-   private UserDAO() {
-	    throw new IllegalStateException("Utility class");
+   public UserDAO() {
+	   	super();
    }
 
    public static Boolean insert(AbstractUser user)throws SQLException {

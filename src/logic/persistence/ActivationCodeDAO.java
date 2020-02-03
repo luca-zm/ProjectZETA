@@ -11,7 +11,7 @@ public class ActivationCodeDAO {
 	
 	
     private ActivationCodeDAO()  {
-        throw new IllegalStateException("Utility class");
+    	super();
     }
 
 

@@ -11,8 +11,8 @@ import logic.model.CollectionPoint;
 
 public class CollectionPointDAO {
 	
-    private CollectionPointDAO() {
-        throw new IllegalStateException("Utility class");
+    public CollectionPointDAO() {
+    	super();
     }
 
 	public static Boolean insert(CollectionPoint collPoint)throws SQLException{                 

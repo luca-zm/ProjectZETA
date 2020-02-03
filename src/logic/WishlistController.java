@@ -16,7 +16,8 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
+
 import javafx.scene.control.ListCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -91,8 +92,6 @@ public class WishlistController extends Application {
         
         private Product product;
         
-        winNext a = new winNext();
-
         
         public CustomListCell() {
             super();
@@ -184,7 +183,7 @@ public class WishlistController extends Application {
 	
         ObservableList<Product> data = FXCollections.observableArrayList();
         
-        ArrayList<Product> list = WishListDAO.select(user);
+        List<Product> list = WishListDAO.select(user);
 
         for(Product p: list) {	
         	data.add(p);

@@ -78,7 +78,7 @@ public class LoginController extends Application {
 
         if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login!'")) {
         	
-        		if(mail.getText().contentEquals(null) || psw.getText().contentEquals(null)) {
+        		if(mail.getText().contentEquals("") || psw.getText().contentEquals("")) {
     				JOptionPane.showMessageDialog(null, "fill in both fields please");
         			return;
         		}
@@ -88,13 +88,17 @@ public class LoginController extends Application {
 
         		//METODO che verifica se l'utente si e' loggato o meno con RUOLO
         		if(cl.login(ub)) {
-        			String type= cl.giveUserForRole(ub).getType();
+        			Roles type= cl.giveUserForRole(ub).getType();
         			if(type.equals(Roles.ADMIN)) {
+        				Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         				a.openWin("view/adminPage.fxml");
+        				oldWin.close();
         				return;
         			}
         			if(type.equals(Roles.COLLECTIONPOINTMAN)) {
+        				Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         				a.openWin("view/modPage.fxml");
+        				oldWin.close();
         				return;
         			}
         			

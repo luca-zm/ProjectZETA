@@ -3,6 +3,8 @@ package controller;
 import java.sql.SQLException;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import bean.UserBean;
 import logic.model.AbstractUser;
 import logic.model.ActivationCodeTran;
@@ -34,13 +36,13 @@ public class ControllerLogin {
 		if (user == null || !user.getPass().equals(pass)) {
 			return false;
 		}
-		ArrayList<Product> productList = WishListDAO.select(user);
+		List<Product> productList = WishListDAO.select(user);
 		WishList wishList = new WishList(productList);
 		user.setWishList(wishList);
 		
-		ArrayList<ActivationCodeTran> actcodeTranList = TransactionDAO.selectActivationCodeTra(user);
-		ArrayList<BonusTran> bonusTranList = TransactionDAO.selectBonusTran(user);
-		ArrayList<ShipmentTran> shipmentList = TransactionDAO.selectShipment(user);
+		List<ActivationCodeTran> actcodeTranList = TransactionDAO.selectActivationCodeTra(user);
+		List<BonusTran> bonusTranList = TransactionDAO.selectBonusTran(user);
+		List<ShipmentTran> shipmentList = TransactionDAO.selectShipment(user);
 		ArrayList<Transaction> list = new ArrayList<>();
 		list.addAll(actcodeTranList);
 		list.addAll(bonusTranList);
@@ -48,7 +50,7 @@ public class ControllerLogin {
 		History history = new History(list);
 		user.setHistory(history);
 		
-		ArrayList<Message> messageList = MessageDAO.select(user);
+		List<Message> messageList = MessageDAO.select(user);
 		NoticeBoard noticeBoard = new NoticeBoard(messageList);
 		user.setBoards(noticeBoard);
 

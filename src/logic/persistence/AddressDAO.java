@@ -13,7 +13,7 @@ public class AddressDAO {
 	
 	
 	private AddressDAO() {
-	    throw new IllegalStateException("Utility class");
+	    super();
 	  }
 
     public static Boolean insert(Address address) throws SQLException{                 

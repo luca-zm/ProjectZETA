@@ -3,7 +3,7 @@ package logic.persistence;
 public class Query {
 	
 	private Query()  {
-	    throw new IllegalStateException("Utility class");
+	    super();
 	  }
 
 	public static final String SCOPE_IDENTITY = "SELECT LAST_INSERT_ID()";

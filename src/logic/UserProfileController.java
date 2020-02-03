@@ -1,7 +1,8 @@
 package logic;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 import controller.ControllerLogin;
 import javafx.application.Application;
@@ -91,7 +92,7 @@ public class UserProfileController extends Application {
     	tmail.setText(user.getMail());
     	ttel.setText(user.getAddress().getTelephone());
     	tgreencoin.setText(Integer.toString(user.getGreenCoin()));
-    	taddress.setText(user.getAddress().getAddress()+" "+user.getAddress().getPostalCode()+" "+
+    	taddress.setText(user.getAddress().getAddr()+" "+user.getAddress().getPostalCode()+" "+
     	user.getAddress().getCity()+" "+user.getAddress().getState());
     	
     	
@@ -136,7 +137,7 @@ public class UserProfileController extends Application {
         
         if (eventClicked.contentEquals("Button[id=message, styleClass=button btn-info]'MSG'")) {
         	String messaggi = "";
-        	ArrayList<Message> messages = MessageDAO.selectBroadcast();
+        	List<Message> messages = MessageDAO.selectBroadcast();
         	messages.addAll(user.getBoards().getList());
         	for(Message m : messages) {
         		messaggi = messaggi + m.getTitle() + ": " + m.getBodymessage() + "\n";

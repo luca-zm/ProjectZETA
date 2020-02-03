@@ -16,7 +16,8 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
+
 import javafx.scene.control.ListCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -212,7 +213,7 @@ public class ProductsController extends Application {
 		
         ObservableList<Product> data = FXCollections.observableArrayList();
         
-        ArrayList<Product> list = ProductDAO.select();
+        List<Product> list = ProductDAO.select();
 
         for(Product p: list) {		
         	data.add(p);
@@ -244,20 +245,15 @@ public class ProductsController extends Application {
         }
         
         
-        if (eventClicked.contentEquals("Button[id=userp, styleClass=button hbox]''")) {
-        	//pagina profilo utente da icona
+        
+        if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
+        	//pagina carrello
         	if(sg.getUser() != null) {
-        		a.openWin("view/userprofilePage.fxml");
+            	a.openWin("view/shopcartPage.fxml");
         	}else {
         		a.openWarning(oldWin);
         		return;
         	}
-        }
-        
-        
-        if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
-        	//pagina carrello
-        	a.openWin("view/shopcartPage.fxml");
         }
         
         

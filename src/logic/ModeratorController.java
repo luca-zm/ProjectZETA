@@ -7,8 +7,11 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
+
 import javafx.scene.control.TextArea;
 import logic.model.CollectionPoint;
 import logic.persistence.CollectionPointDAO;
@@ -43,7 +46,7 @@ public class ModeratorController extends Application {
     @FXML
     public TextField idcol;
 
-    ArrayList<CollectionPoint> list;
+    List<CollectionPoint> list;
     CollectionPointDAO cdao = new CollectionPointDAO();
     ControllerManageCollPoint cmc = new ControllerManageCollPoint();
     StringBuilder bld = new StringBuilder();
@@ -85,7 +88,11 @@ public class ModeratorController extends Application {
         	if (name != null && address != null && opening != null && closing != null) {
                 CollectionPointBean cb = new CollectionPointBean(0, name.getText(), address.getText(),
                 		Integer.parseInt(opening.getText()), Integer.parseInt(closing.getText()));
-                cmc.insert(cb);
+                try {
+					cmc.insert(cb);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
                 JOptionPane.showMessageDialog(null, "EcoPoint correctly insert!");
                 Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 a.openWin("view/modPage.fxml");
@@ -100,7 +107,11 @@ public class ModeratorController extends Application {
         	int id= Integer.parseInt(idcol.getText());
         	for (CollectionPoint p: list) {
         		if (p.getId() == id) {
-                	cmc.delete(p);
+                	try {
+						cmc.delete(p);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
                     JOptionPane.showMessageDialog(null, "EcoPoint correctly deleted");
                     Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     a.openWin("view/modPage.fxml");

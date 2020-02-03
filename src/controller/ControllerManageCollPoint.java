@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import bean.CollectionPointBean;
 import logic.URLReader;
@@ -54,7 +55,7 @@ public class ControllerManageCollPoint {
 	
 	
 	public URL startUrl() throws SQLException, MalformedURLException {
-		ArrayList<CollectionPoint> listCollPoint = CollectionPointDAO.select();
+		List<CollectionPoint> listCollPoint = CollectionPointDAO.select();
 		URL url = new URL("https://maps.googleapis.com/maps/api/staticmap?center=Rome,Italy&zoom=11&size=600x500&maptype=roadmap&key=AIzaSyDWaK_dXLPOBO43oLeAkMTrgkh-6qSlnuc");
 		
 		count = 0;

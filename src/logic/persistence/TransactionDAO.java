@@ -19,7 +19,7 @@ public class TransactionDAO {
 
 
 	private TransactionDAO()  {
-	    throw new IllegalStateException("Utility class");
+	    super();
 	  }
 
 

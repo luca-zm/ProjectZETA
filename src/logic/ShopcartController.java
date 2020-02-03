@@ -16,6 +16,9 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
+
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
@@ -87,7 +90,6 @@ public class ShopcartController extends Application {
         private VBox content;
         private HBox maxi;        
         private Product product;
-        winNext a = new winNext();
 
 
         
@@ -252,10 +254,15 @@ public class ShopcartController extends Application {
 
         //methods buy and remove from Wishlist ----------
         if (eventClicked.contentEquals("Button[id=consumegcoin, styleClass=button]'Buy products!'")) {
-        	csc.buyShopCart();
-			Stage k = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        	a.openWin("view/shopcartPage.fxml");
-        	k.close();
+        		if (csc.buyShopCart()) {
+        			JOptionPane.showMessageDialog(null, "Successfull purchase!");
+        			Stage k = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                	a.openWin("view/shopcartPage.fxml");
+                	k.close();
+                	
+        		}else {
+        			JOptionPane.showMessageDialog(null, "Purchasing error");
+        		}			
         	return;
         }
       //methods buy and remove from Wishlist ----------

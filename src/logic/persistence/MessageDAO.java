@@ -16,7 +16,7 @@ public class MessageDAO {
 	
 
     private MessageDAO()  {
-        throw new IllegalStateException("Utility class");
+        super();
     }
 
 

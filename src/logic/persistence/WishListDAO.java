@@ -13,7 +13,7 @@ import logic.model.Product;
 public class WishListDAO { 
 	
 	private WishListDAO()  {
-        throw new IllegalStateException("Utility class");
+        super();
     }
 
 	public static Boolean insert(AbstractUser user, Product product) throws SQLException {                    

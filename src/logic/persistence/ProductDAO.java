@@ -14,10 +14,7 @@ public class ProductDAO {
 	
 	
 
-    private ProductDAO() {
-        throw new IllegalStateException("Utility class");
-    }
-
+    
 
 
 	public static Boolean insert(Product product) throws SQLException{      

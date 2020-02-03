@@ -9,7 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
+
 import javafx.scene.control.TextArea;
 import logic.enums.Category;
 import logic.model.AbstractUser;
@@ -62,8 +63,8 @@ public class AdminController extends Application {
     
     UserDAO user = new UserDAO();
     ProductDAO prod = new ProductDAO();
-    ArrayList<AbstractUser> aUser;
-    ArrayList<Product> listPRODUCTS;
+    List<AbstractUser> aUser;
+    List<Product> listPRODUCTS;
     
     StringBuilder bld1 = new StringBuilder();
     StringBuilder bld2 = new StringBuilder();
@@ -78,7 +79,7 @@ public class AdminController extends Application {
     	listPRODUCTS = prod.select();
 
     	for(Product p: listPRODUCTS) {
-    		bld1.append(prods + p.getId() + " - " + p.getName() + "\n\n");
+    		bld1.append(p.getId() + " - " + p.getName() + "\n\n");
     	}
     	for(AbstractUser ut: aUser) {
     		bld2.append(ut.getId() +" - "+ ut.getName() +"\n\n");

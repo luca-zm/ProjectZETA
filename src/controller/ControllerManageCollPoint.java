@@ -80,6 +80,7 @@ public class ControllerManageCollPoint {
 	public double searchlat(String addr) {
 		int pos1 = addr.indexOf("\"lat\" : ");
 		String newlat = addr.substring(pos1+8, pos1+18);
+		newlat.replace(",", "0");
 		return Double.parseDouble(newlat);
 		
 	}
@@ -87,7 +88,7 @@ public class ControllerManageCollPoint {
 	public double searchlon(String addr) {
 		int pos2 = addr.indexOf("\"lng\" : ");
 		String newlng = addr.substring(pos2+8, pos2+18);
-
+		newlng.replace(",", "0");
 		return Double.parseDouble(newlng);
 		
 	}

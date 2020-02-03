@@ -27,6 +27,6 @@ public class URLReader {
 
     public static void main(String[] args) throws Exception {
         URLReader rd = new URLReader("http://192.168.1.130");
-        System.out.println(rd.read());
+        rd.read();
     }
 }

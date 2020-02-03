@@ -114,6 +114,8 @@ public class UserProfileController extends Application {
 	@FXML
     private void next(ActionEvent event) throws IOException, SQLException {
 		winNext a = new winNext();
+		StringBuilder bld = new StringBuilder();
+
         String eventClicked = event.getSource().toString();
         
         
@@ -140,9 +142,9 @@ public class UserProfileController extends Application {
         	List<Message> messages = MessageDAO.selectBroadcast();
         	messages.addAll(user.getBoards().getList());
         	for(Message m : messages) {
-        		messaggi = messaggi + m.getTitle() + ": " + m.getBodymessage() + "\n";
+        		bld.append(m.getTitle() + ": " + m.getBodymessage() + "\n");
         	}
-			JOptionPane.showMessageDialog(null, messaggi);
+			JOptionPane.showMessageDialog(null, bld.toString());
 			return;
         }
         //hyperlink----------------

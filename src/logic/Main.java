@@ -15,9 +15,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{ 
-    	
-    	System.out.println(CollectionPointDAO.select());
-    	
+    	   	
 
     	
         Parent root = FXMLLoader.load(getClass().getResource("view/homePage.fxml"));

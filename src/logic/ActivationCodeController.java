@@ -40,8 +40,6 @@ public class ActivationCodeController extends Application {
     @FXML
     public Button userlink;
     
-    public winNext a;
-    
     @FXML
     public Text wb;
     
@@ -61,12 +59,7 @@ public class ActivationCodeController extends Application {
 
 	AbstractUser user = sg.getUser();
 
-    
-    public ActivationCodeController() {
-    	
-    	a = new winNext();
 
-    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -85,7 +78,8 @@ public class ActivationCodeController extends Application {
     
     @FXML
     private void next(ActionEvent event) throws IOException, SQLException {
-        
+    	winNext a = new winNext();
+
         String eventClicked = event.getSource().toString();
         
         if (eventClicked.contentEquals("Button[id=confirm, styleClass=button]'OK'")) {

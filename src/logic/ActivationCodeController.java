@@ -15,6 +15,7 @@ import logic.model.AbstractUser;
 import logic.model.Singleton;
 import javax.swing.*;
 import bean.ActivationCodeBean;
+import bean.BeanValidate;
 import controller.ControllerLogin;
 import controller.ControllerShopCartCheckOut;
 
@@ -83,8 +84,13 @@ public class ActivationCodeController extends Application {
         String eventClicked = event.getSource().toString();
         
         if (eventClicked.contentEquals("Button[id=confirm, styleClass=button]'OK'")) {
-
-        	ActivationCodeBean acb = new ActivationCodeBean(Integer.parseInt(addgc.getText()), 0);
+        	String actCodeString = addgc.getText();
+        	if(!BeanValidate.isInteger(actCodeString)) {
+        		addgc.setText("");
+        		JOptionPane.showMessageDialog(null, "ActicationCode must be a number ! Try again");
+        		return;
+        	}
+        	ActivationCodeBean acb = new ActivationCodeBean(Integer.parseInt(actCodeString), 0);
         	int val = ac.enabledActivationCode(acb);
         	if ( val == 0) { //code inesistente
         		JOptionPane.showMessageDialog(null, "Code does not exist, try with another code please");

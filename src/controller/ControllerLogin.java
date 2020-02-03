@@ -56,7 +56,8 @@ public class ControllerLogin {
 
 		Address address = AddressDAO.select(user);
 		user.setAddress(address);		
-		BonusMachine machine = new BonusMachine(user);		
+		BonusMachine machine = new BonusMachine(user);
+		machine.getClass();
 		singleton.setUser(user);	
 		return true;
 	}
@@ -64,4 +65,7 @@ public class ControllerLogin {
 	public AbstractUser giveUserForRole(UserBean u) throws SQLException {		
 		return UserDAO.findRegisteredUser(u.getMail());
 	}
+	
 }
+
+

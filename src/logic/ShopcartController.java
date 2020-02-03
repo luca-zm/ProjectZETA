@@ -279,5 +279,6 @@ public class ShopcartController extends Application {
         		return;
         	}
         }
+        oldWin.close();
     }
 }

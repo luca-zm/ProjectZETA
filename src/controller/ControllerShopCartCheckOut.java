@@ -10,9 +10,6 @@ import logic.model.ActivationCodeTran;
 import logic.model.Message;
 import java.security.SecureRandom;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 import bean.ActivationCodeBean;
 import logic.model.Product;

@@ -27,19 +27,6 @@ public class ControllerManageProduct {
 	}
 	
 	
-	public Boolean setProductAvailability(ProductBean productBean, Boolean av) throws SQLException {
-		int id = productBean.getIdProductBean();
-		String name = productBean.getNameProductBean();
-		int price = productBean.getPriceBean();
-		int discount = productBean.getDiscountPercentageBean();
-		Category cat = productBean.getCategoryBean();
-		String image = productBean.getImageProductBean();
-		String descr = productBean.getDescriptionProductBean();
-		Product p = new Product(id, name, price, discount, cat, image, descr);
-		ProductDAO.update(p);
-		return true;
-	}
-	
 	public Boolean updateProduct(ProductBean productBean) throws SQLException {
 		int id = productBean.getIdProductBean();
 		String name = productBean.getNameProductBean();

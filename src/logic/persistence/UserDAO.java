@@ -14,6 +14,8 @@ import logic.model.FactoryUsers;
 
 public class UserDAO {
 	
+	private static String s = "surname";
+	
    private UserDAO() {
 	    throw new IllegalStateException("Utility class");
    }
@@ -68,7 +70,7 @@ public class UserDAO {
             if (resultSet.next()) { 
             	int id = resultSet.getInt("id");
             	String name = resultSet.getString("name");
-                String surname = resultSet.getString("surname");
+                String surname = resultSet.getString(s);
                 String type = resultSet.getString("type"); 
                 String pass = resultSet.getString("pass"); 
                 int greenCoin = resultSet.getInt("greenCoin");
@@ -93,7 +95,7 @@ public class UserDAO {
             while (resultSet.next()) { 
             	int id = resultSet.getInt("id");
             	String name = resultSet.getString("name");
-                String surname = resultSet.getString("surname");
+                String surname = resultSet.getString(s);
                 String type = resultSet.getString("type"); 
                 String pass = resultSet.getString("pass"); 
                 String mail = resultSet.getString("mail"); 
@@ -123,12 +125,11 @@ public class UserDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) { 
             	String name = resultSet.getString("name");
-                String surname = resultSet.getString("surname");
+                String surname = resultSet.getString(s);
                 String type = resultSet.getString("type");       
                 String mail = resultSet.getString("mail");
                 String pass = resultSet.getString("pass");
-                AbstractUser user = FactoryUsers.get(id, mail, name, surname , pass, type);
-                return user;
+                return FactoryUsers.get(id, mail, name, surname , pass, type);
             }
         } catch (SQLException e) {
             e.printStackTrace();

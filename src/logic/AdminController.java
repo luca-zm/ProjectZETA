@@ -61,11 +61,6 @@ public class AdminController extends Application {
     public TextField userid1;
 
     
-    UserDAO user = new UserDAO();
-    ProductDAO prod = new ProductDAO();
-    List<AbstractUser> aUser;
-    List<Product> listPRODUCTS;
-    
     StringBuilder bld1 = new StringBuilder();
     StringBuilder bld2 = new StringBuilder();
 
@@ -75,8 +70,8 @@ public class AdminController extends Application {
     	listusers.setEditable(false);
 
     	
-    	aUser= user.findUsers();
-    	listPRODUCTS = prod.select();
+    	List<AbstractUser> aUser= UserDAO.findUsers();
+    	List<Product> listPRODUCTS = ProductDAO.select();
 
     	for(Product p: listPRODUCTS) {
     		bld1.append(p.getId() + " - " + p.getName() + "\n\n");
@@ -97,7 +92,7 @@ public class AdminController extends Application {
 
     @FXML
     private void next(ActionEvent event) throws IOException, SQLException {
-        winNext a = new winNext();
+        WinNext a = new WinNext();
         String eventClicked = event.getSource().toString();
         String sonaradmin="view/adminPage.fxml";
 
@@ -113,9 +108,9 @@ public class AdminController extends Application {
         	
         		Product product = new Product(Integer.parseInt(prodid.getText()),prodname.getText(),
         				Integer.parseInt(prodgc.getText()), Integer.parseInt(proddisc.getText()),
-        				utility, prodimg.getText(), proddescr.getText(), true);
+        				utility, prodimg.getText(), proddescr.getText());
         		
-        		prod.insert(product);
+        		ProductDAO.insert(product);
         		JOptionPane.showMessageDialog(null, "Product correctly insert!");
                 Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 a.openWin(sonaradmin);
@@ -127,7 +122,7 @@ public class AdminController extends Application {
         	
         }
         if (eventClicked.contentEquals("Button[id=delete, styleClass=button]'Delete'")) {
-        		prod.delete(Integer.parseInt(prodid2.getText()));
+        		ProductDAO.delete(Integer.parseInt(prodid2.getText()));
         		
         		JOptionPane.showMessageDialog(null, "Product correctly deleted!");
                 Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -140,7 +135,7 @@ public class AdminController extends Application {
         
         
         if (eventClicked.contentEquals("Button[id=ban, styleClass=button]'Remove'")) {
-        	user.delete(user.findUserById(Integer.parseInt(userid1.getText())));
+        	UserDAO.delete(UserDAO.findUserById(Integer.parseInt(userid1.getText())));
     		
     		JOptionPane.showMessageDialog(null, "BAAAAAAN HAMMEEER!!!");
             Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();

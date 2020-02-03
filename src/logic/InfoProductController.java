@@ -24,7 +24,7 @@ public class InfoProductController extends Application {
     public ImageView image;
         
 
-    winNext a = new winNext();
+    WinNext a = new WinNext();
     Singleton sg = Singleton.getInstance();
 
 

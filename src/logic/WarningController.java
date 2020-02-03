@@ -29,7 +29,7 @@ public class WarningController extends Application {
 
     @FXML
     private void next(ActionEvent event) throws IOException {
-        winNext a = new winNext();
+        WinNext a = new WinNext();
         
         
         String eventClicked = event.getSource().toString();

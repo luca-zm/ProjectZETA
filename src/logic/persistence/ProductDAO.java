@@ -12,9 +12,12 @@ import logic.model.Product;
 
 public class ProductDAO {
 	
-	
 
-    
+	private ProductDAO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 
 
 	public static Boolean insert(Product product) throws SQLException{      
@@ -26,7 +29,6 @@ public class ProductDAO {
             preparedStatement.setString(4, String.valueOf(product.getCategory()));
             preparedStatement.setString(5, product.getImage());
             preparedStatement.setString(6, product.getDescription());
-            preparedStatement.setBoolean(7, product.isAvailability()); 
             
             int resultSet = preparedStatement.executeUpdate();
             if (resultSet > 0) {
@@ -74,9 +76,8 @@ public class ProductDAO {
             	Category category = Category.valueOf(catString);
             	String image = resultSet.getString("image");
             	String description = resultSet.getString("description");
-            	Boolean availability = resultSet.getBoolean("availability");
             	
-            	list.add(new Product(id, name, price, discountPercentage, category, image, description, availability));
+            	list.add(new Product(id, name, price, discountPercentage, category, image, description));
 
             }
         } catch (SQLException e) {
@@ -101,9 +102,8 @@ public class ProductDAO {
             	Category category = Category.valueOf(catString);
             	String image = resultSet.getString("image");
             	String description = resultSet.getString("description");
-            	Boolean availability = resultSet.getBoolean("availability");
             	
-            	return new Product(id, name, price, discountPercentage, category, image, description, availability);
+            	return new Product(id, name, price, discountPercentage, category, image, description);
 
             }
         } catch (SQLException e) {
@@ -121,7 +121,6 @@ public class ProductDAO {
             preparedStatement.setString(4, String.valueOf(product.getCategory()));
             preparedStatement.setString(5, product.getImage());
             preparedStatement.setString(6, product.getDescription());
-            preparedStatement.setBoolean(7, product.isAvailability()); 
             preparedStatement.setInt(8, product.getId());
             
             int resultSet = preparedStatement.executeUpdate();

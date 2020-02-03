@@ -12,12 +12,12 @@ import javafx.stage.Stage;
 import logic.model.Product;
 import logic.model.Singleton;
 
-public class winNext{
+public class WinNext{
 
     Singleton sg = Singleton.getInstance(); 
     private Scene myscene;
 
-    public winNext() {
+    public WinNext() {
     	myscene = sg.getScene();
     }
     

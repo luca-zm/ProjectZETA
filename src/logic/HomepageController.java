@@ -32,7 +32,7 @@ public class HomepageController extends Application implements Initializable{
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		myplayer= new MediaPlayer(new Media(this.getClass().getResource("view\\images\\video.mp4").toExternalForm()));
+		myplayer= new MediaPlayer(new Media(this.getClass().getResource("view//images//video.mp4").toExternalForm()));
 
     	myplayer.setAutoPlay(true);
     	myvideo.setMediaPlayer(myplayer);
@@ -49,7 +49,7 @@ public class HomepageController extends Application implements Initializable{
 	
 	@FXML
     private void next(ActionEvent event) throws IOException {
-        winNext a = new winNext();
+        WinNext a = new WinNext();
 
         String eventClicked = event.getSource().toString();
 

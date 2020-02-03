@@ -16,7 +16,7 @@ public class UserDAO {
 	
 	private static String s = "surname";
 	
-   public UserDAO() {
+   private UserDAO() {
 	   	super();
    }
 

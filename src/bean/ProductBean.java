@@ -10,12 +10,11 @@ public class ProductBean {
 	private Category categoryBean;
 	private String imageProductBean;
 	private String descriptionProductBean;
-	private boolean availabilityBean;
 	
 	
 	
 	public ProductBean(int id, String name, int price, int discountPercentage, Category category, String image,
-			String description, boolean availability) {
+			String description) {
 		super();
 		this.idProductBean = id;
 		this.nameProductBean = name;
@@ -24,7 +23,6 @@ public class ProductBean {
 		this.categoryBean = category;
 		this.imageProductBean = image;
 		this.descriptionProductBean = description;
-		this.availabilityBean = availability;
 	}
 	public int getIdProductBean() {
 		return idProductBean;
@@ -68,18 +66,13 @@ public class ProductBean {
 	public void setDescriptionProductBean(String description) {
 		this.descriptionProductBean = description;
 	}
-	public boolean isAvailabilityBean() {
-		return availabilityBean;
-	}
-	public void setAvailabilityBean(boolean availability) {
-		this.availabilityBean = availability;
-	}
 	@Override
 	public String toString() {
-		return "ProductBean [id=" + idProductBean + ", name=" + nameProductBean + ", price=" + priceBean + ", discountPercentage="
-				+ discountPercentageBean + ", category=" + categoryBean + ", image=" + imageProductBean + ", description=" + descriptionProductBean
-				+ ", availability=" + availabilityBean + "]";
+		return "ProductBean [idProductBean=" + idProductBean + ", nameProductBean=" + nameProductBean + ", priceBean="
+				+ priceBean + ", discountPercentageBean=" + discountPercentageBean + ", categoryBean=" + categoryBean
+				+ ", imageProductBean=" + imageProductBean + ", descriptionProductBean=" + descriptionProductBean + "]";
 	}
+
 	
 	
 }

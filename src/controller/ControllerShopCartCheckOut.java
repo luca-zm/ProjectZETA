@@ -2,6 +2,7 @@ package controller;
 
 import logic.enums.DeliveryStatus;
 
+
 import logic.enums.MesType;
 import logic.model.AbstractUser;
 import logic.model.ActivationCode;
@@ -75,30 +76,6 @@ public class ControllerShopCartCheckOut {
 		user.getCart().deleteProduct(product);
 		return true;
 	}
-	
-	public List<Product> checkCart() throws SQLException{
-		
-		AbstractUser user = singleton.getUser();
-		if (user == null) {
-			return Collections.emptyList();
-		}
-		
-		ArrayList<Product> list = new ArrayList<>();
-		for( Product product : user.getCart().getProductList()) {
-			
-			
-			Product prod = ProductDAO.selectProduct(product.getId());
-			if ( !prod.isAvailability()) {
-				
-				list.add(product);
-				user.getCart().deleteProduct(product);
-			}
-				
-		}
-		return list;
-		
-	}
-	
 	
 	
 	public boolean buyShopCart() throws SQLException{

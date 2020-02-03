@@ -96,7 +96,7 @@ public class ProductsController extends Application {
         
         private Product product;
         
-        winNext a = new winNext();
+        WinNext a = new WinNext();
 
         
         public CustomListCell() {
@@ -232,7 +232,7 @@ public class ProductsController extends Application {
 
     @FXML
     private void next(ActionEvent event) throws IOException {
-        winNext a = new winNext();
+        WinNext a = new WinNext();
         
         String eventClicked = event.getSource().toString();
         

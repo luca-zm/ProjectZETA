@@ -15,8 +15,7 @@ public class ControllerManageProduct {
 		Category cat = productBean.getCategoryBean();
 		String image = productBean.getImageProductBean();
 		String descr = productBean.getDescriptionProductBean();
-		Boolean avail = productBean.isAvailabilityBean();
-		Product p = new Product(id, name, price, discount, cat, image, descr, avail);
+		Product p = new Product(id, name, price, discount, cat, image, descr);
 		ProductDAO.insert(p);
 		return true;
 	}
@@ -36,7 +35,7 @@ public class ControllerManageProduct {
 		Category cat = productBean.getCategoryBean();
 		String image = productBean.getImageProductBean();
 		String descr = productBean.getDescriptionProductBean();
-		Product p = new Product(id, name, price, discount, cat, image, descr, av);
+		Product p = new Product(id, name, price, discount, cat, image, descr);
 		ProductDAO.update(p);
 		return true;
 	}
@@ -49,8 +48,7 @@ public class ControllerManageProduct {
 		Category cat = productBean.getCategoryBean();
 		String image = productBean.getImageProductBean();
 		String descr = productBean.getDescriptionProductBean();
-		Boolean avail = productBean.isAvailabilityBean();
-		Product p = new Product(id, name, price, discount, cat, image, descr, avail);
+		Product p = new Product(id, name, price, discount, cat, image, descr);
 		ProductDAO.update(p);
 		return true;
 	}

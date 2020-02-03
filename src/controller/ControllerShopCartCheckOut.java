@@ -10,6 +10,9 @@ import logic.model.Message;
 import java.security.SecureRandom;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import bean.ActivationCodeBean;
 import logic.model.Product;
 import logic.model.ShipmentTran;
@@ -70,18 +73,17 @@ public class ControllerShopCartCheckOut {
 		Product product = ProductDAO.selectProduct(productId);
 		
 		user.getCart().deleteProduct(product);
-		//System.out.println(user.getCart().getProductList().remove(product));
 		return true;
 	}
 	
-	public ArrayList<Product> checkCart() throws SQLException{
+	public List<Product> checkCart() throws SQLException{
 		
 		AbstractUser user = singleton.getUser();
 		if (user == null) {
-			return null;
+			return Collections.emptyList();
 		}
 		
-		ArrayList<Product> list = new ArrayList<Product>();
+		ArrayList<Product> list = new ArrayList<>();
 		for( Product product : user.getCart().getProductList()) {
 			
 			
@@ -109,7 +111,6 @@ public class ControllerShopCartCheckOut {
 		
 		
 		if(user.getCart().getTotalPrice() > user.getGreenCoin()) {
-			System.out.println("Errore, non hai abbastanza Coin");
 			return false;
 		}	
 		
@@ -151,7 +152,7 @@ public class ControllerShopCartCheckOut {
 		
 		AbstractUser user = singleton.getUser();
 
-		ActivationCode cod = ActivationCodeDAO.select(code.getActivationCode());
+		ActivationCode cod = ActivationCodeDAO.select(code.getActivationCodeBean());
 		
 		
 		if( cod != null) {
@@ -165,7 +166,7 @@ public class ControllerShopCartCheckOut {
 		
 			UserDAO.update(user);
 		
-			ActivationCodeTran a = new ActivationCodeTran(0, time(), code.getActivationCode(), val);
+			ActivationCodeTran a = new ActivationCodeTran(0, time(), code.getActivationCodeBean(), val);
 		
 			TransactionDAO.insertActivationCodeTran(a, user);
 		
@@ -177,9 +178,7 @@ public class ControllerShopCartCheckOut {
 			MessageDAO.insert(m, user);
 		
 			user.getBoards().addMessage(m);
-			
-			System.out.println(user.getGreenCoin());
-			
+						
 			return val;
 			
 			

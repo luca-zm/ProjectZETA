@@ -2,24 +2,24 @@ package bean;
 
 public class ActivationCodeBean {
 	
-	private int activationCode;
+	private int activationCodeBean;
 	private int greenCoinVal;
 	
 	
 	public ActivationCodeBean(int activationCode, int grenCoinVal) {
 		super();
-		this.activationCode = activationCode;
+		this.activationCodeBean = activationCode;
 		this.greenCoinVal = grenCoinVal;
 	}
 
 
-	public int getActivationCode() {
-		return activationCode;
+	public int getActivationCodeBean() {
+		return activationCodeBean;
 	}
 
 
-	public void setActivationCode(int activationCode) {
-		this.activationCode = activationCode;
+	public void setActivationCodeBean(int activationCode) {
+		this.activationCodeBean = activationCode;
 	}
 
 
@@ -35,7 +35,7 @@ public class ActivationCodeBean {
 
 	@Override
 	public String toString() {
-		return "ActivationCode [activationCode=" + activationCode + ", grenCoinVal=" + greenCoinVal + "]";
+		return "ActivationCode [activationCode=" + activationCodeBean + ", grenCoinVal=" + greenCoinVal + "]";
 	}
 	
 	

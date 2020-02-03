@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 import bean.CollectionPointBean;
 import logic.URLReader;
 import logic.enums.MesType;
@@ -17,11 +18,10 @@ import logic.persistence.MessageDAO;
 public class ControllerManageCollPoint {
 	AbstractUser user = Singleton.getInstance().getUser();
 	
-	private String placeRome = "https://maps.googleapis.com/maps/api/staticmap?center=Rome,Italy&zoom=11&size=600x400&maptype=roadmap";
 	private String markerLayout1 = "&markers=color:green%7Clabel:";
 	private String markerLayout2 = "%7C";
 	
-	private ArrayList<String> urlbox = new ArrayList<String>();
+	private ArrayList<String> urlbox = new ArrayList<>();
 	private int count = 0;
 	
 	
@@ -48,7 +48,6 @@ public class ControllerManageCollPoint {
 		
 		String url = betaurl.replace(" ", "");
 		
-		System.out.println(url);
 		URL urlfin = new URL(url);
 		return urlfin;
 		
@@ -74,8 +73,7 @@ public class ControllerManageCollPoint {
 	
 	public String compositore(String indirizzo) {
 		String addressin = placeaddres + indirizzo + apikey;
-		String addressfin = addressin.replaceAll(" ","%20");
-		System.out.println(addressfin);
+		String addressfin = addressin.replace(" ","%20");
 		return addressfin;
 	}
 	
@@ -83,42 +81,36 @@ public class ControllerManageCollPoint {
 	public double searchlat(String addr) {
 		int pos1 = addr.indexOf("\"lat\" : ");
 		String newlat = addr.substring(pos1+8, pos1+18);
-		System.out.println(newlat);
-		double lat = Double.parseDouble(newlat);
+		return Double.parseDouble(newlat);
 		
-		return lat;
 	}
 		
 	public double searchlon(String addr) {
 		int pos2 = addr.indexOf("\"lng\" : ");
 		String newlng = addr.substring(pos2+8, pos2+18);
-		System.out.println(newlng);
 
-		double lng = Double.parseDouble(newlng);
+		return Double.parseDouble(newlng);
 		
-		return lng;
 	}
 	
 
-	public Boolean insert(CollectionPointBean collPointBean) throws Exception {
-		String s = compositore(collPointBean.getAddress());
+	public Boolean insert(CollectionPointBean collPointBean) throws Exception { //Vuole eccezione personale
+		String s = compositore(collPointBean.getAddressCollPointBean());
 		URLReader x = new URLReader(s);
 		
 		
 		double lon = searchlon(x.read());
 		double lat = searchlat(x.read());
-		int id = collPointBean.getId();
-		String name = collPointBean.getName();
-		String addr = collPointBean.getAddress();
+		int id = collPointBean.getIdCollPointBean();
+		String name = collPointBean.getNameCollPointBean();
+		String addr = collPointBean.getAddressCollPointBean();
 		
-		int opening = collPointBean.getOpeningTime();
-		int closing = collPointBean.getClosingTime();
+		int opening = collPointBean.getOpeningTimeBean();
+		int closing = collPointBean.getClosingTimeBean();
 		CollectionPoint collPoint = new CollectionPoint(id, name, lon, lat, addr, opening, closing);
-		System.out.println(collPoint);
-	    CollectionPointDAO.insert(collPoint);
-	    //getFinalUrl("https://maps.googleapis.com/maps/api/staticmap?center=Rome,Italy&zoom=11&size=600x500&maptype=roadmap&key=AIzaSyDWaK_dXLPOBO43oLeAkMTrgkh-6qSlnuc", lon,lat);
+		CollectionPointDAO.insert(collPoint);
 	    
-	    Message m = new Message(0,getDate(), "Nuovo Punto di raccolta", "C'è un nuovo punto di raccolta sulla mappa: " + name, MesType.COLLPOINTBROAD);
+	    Message m = new Message(0,getDate(), "Nuovo Punto di raccolta", "C'ï¿½ un nuovo punto di raccolta sulla mappa: " + name, MesType.COLLPOINTBROAD);
 		
 	    MessageDAO.insertBroad(m);
 	    
@@ -139,14 +131,14 @@ public class ControllerManageCollPoint {
 	}
 	
 	public Boolean update(CollectionPointBean collPointBean) throws SQLException {
-		int id = collPointBean.getId();
-		String name = collPointBean.getName();
-		double lon = searchlon(compositore(collPointBean.getAddress()));
-		double lat = searchlat(compositore(collPointBean.getAddress()));
-		String addr = collPointBean.getAddress();
+		int id = collPointBean.getIdCollPointBean();
+		String name = collPointBean.getNameCollPointBean();
+		double lon = searchlon(compositore(collPointBean.getAddressCollPointBean()));
+		double lat = searchlat(compositore(collPointBean.getAddressCollPointBean()));
+		String addr = collPointBean.getAddressCollPointBean();
 		
-		int opening = collPointBean.getOpeningTime();
-		int closing = collPointBean.getClosingTime();
+		int opening = collPointBean.getOpeningTimeBean();
+		int closing = collPointBean.getClosingTimeBean();
 		CollectionPoint collPoint = new CollectionPoint(id, name, lon, lat, addr, opening, closing);
 	    CollectionPointDAO.update(collPoint);
 		return true;

@@ -3,82 +3,82 @@ package bean;
 import logic.enums.Category;
 
 public class ProductBean {
-	private int id;
-	private String name;
-	private int price;
-	private int discountPercentage;
-	private Category category;
-	private String image;
-	private String description;
-	private boolean availability;
+	private int idProductBean;
+	private String nameProductBean;
+	private int priceBean;
+	private int discountPercentageBean;
+	private Category categoryBean;
+	private String imageProductBean;
+	private String descriptionProductBean;
+	private boolean availabilityBean;
 	
 	
 	
 	public ProductBean(int id, String name, int price, int discountPercentage, Category category, String image,
 			String description, boolean availability) {
 		super();
-		this.id = id;
-		this.name = name;
-		this.price = price;
-		this.discountPercentage = discountPercentage;
-		this.category = category;
-		this.image = image;
-		this.description = description;
-		this.availability = availability;
+		this.idProductBean = id;
+		this.nameProductBean = name;
+		this.priceBean = price;
+		this.discountPercentageBean = discountPercentage;
+		this.categoryBean = category;
+		this.imageProductBean = image;
+		this.descriptionProductBean = description;
+		this.availabilityBean = availability;
 	}
-	public int getId() {
-		return id;
+	public int getIdProductBean() {
+		return idProductBean;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setIdProductBean(int id) {
+		this.idProductBean = id;
 	}
-	public String getName() {
-		return name;
+	public String getNameProductBean() {
+		return nameProductBean;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setNameProductBean(String name) {
+		this.nameProductBean = name;
 	}
-	public int getPrice() {
-		return price;
+	public int getPriceBean() {
+		return priceBean;
 	}
-	public void setPrice(int price) {
-		this.price = price;
+	public void setPriceBean(int price) {
+		this.priceBean = price;
 	}
-	public int getDiscountPercentage() {
-		return discountPercentage;
+	public int getDiscountPercentageBean() {
+		return discountPercentageBean;
 	}
-	public void setDiscountPercentage(int discountPercentage) {
-		this.discountPercentage = discountPercentage;
+	public void setDiscountPercentageBean(int discountPercentage) {
+		this.discountPercentageBean = discountPercentage;
 	}
-	public Category getCategory() {
-		return category;
+	public Category getCategoryBean() {
+		return categoryBean;
 	}
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setCategoryBean(Category category) {
+		this.categoryBean = category;
 	}
-	public String getImage() {
-		return image;
+	public String getImageProductBean() {
+		return imageProductBean;
 	}
-	public void setImage(String image) {
-		this.image = image;
+	public void setImageProductBean(String image) {
+		this.imageProductBean = image;
 	}
-	public String getDescription() {
-		return description;
+	public String getDescriptionProductBean() {
+		return descriptionProductBean;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDescriptionProductBean(String description) {
+		this.descriptionProductBean = description;
 	}
-	public boolean isAvailability() {
-		return availability;
+	public boolean isAvailabilityBean() {
+		return availabilityBean;
 	}
-	public void setAvailability(boolean availability) {
-		this.availability = availability;
+	public void setAvailabilityBean(boolean availability) {
+		this.availabilityBean = availability;
 	}
 	@Override
 	public String toString() {
-		return "ProductBean [id=" + id + ", name=" + name + ", price=" + price + ", discountPercentage="
-				+ discountPercentage + ", category=" + category + ", image=" + image + ", description=" + description
-				+ ", availability=" + availability + "]";
+		return "ProductBean [id=" + idProductBean + ", name=" + nameProductBean + ", price=" + priceBean + ", discountPercentage="
+				+ discountPercentageBean + ", category=" + categoryBean + ", image=" + imageProductBean + ", description=" + descriptionProductBean
+				+ ", availability=" + availabilityBean + "]";
 	}
 	
 	

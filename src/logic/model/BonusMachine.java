@@ -15,7 +15,6 @@ public class BonusMachine implements Observer{
 	private int greenCoinMemo;
 	private int greenCoinTarget;
 	private int bonus;
-	private int activationGreenCoin;
 	public BonusMachine(AbstractUser user) throws SQLException {
 		super();
 		this.user = user;

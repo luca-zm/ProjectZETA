@@ -2,8 +2,14 @@ package logic.model;
 
 
 public class FactoryUsers {
+	
+	
 
-    public static AbstractUser get( int id,String mail,String name ,String surname, String pass, String type) {
+    public FactoryUsers() {
+        throw new IllegalStateException("Utility class");
+    }
+
+	public static AbstractUser get( int id,String mail,String name ,String surname, String pass, String type) {
 
         switch (type) {
 

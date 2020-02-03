@@ -7,7 +7,7 @@ public class ShopCart {
 	private int totalPrice;
 	
 	public ShopCart() {
-		this.productList = new ArrayList<Product>();
+		this.productList = new ArrayList<>();
 		this.totalPrice = 0;
 	}
 	
@@ -42,7 +42,7 @@ public class ShopCart {
 	
 	
 	public Boolean deleteProduct(Product product) {
-		ArrayList<Product> appoggio = new ArrayList<Product>();
+		ArrayList<Product> appoggio = new ArrayList<>();
 		int c = 0;
 		for (Product p: this.productList) {
 			if(p.getId() != product.getId()){
@@ -66,11 +66,6 @@ public class ShopCart {
 	     	return true;
 		}
 		return false;
-//		if(this.productList.remove(product)) {
-//			this.totalPrice -= product.getPrice();
-//			return true;
-//		}
-//		return false;
 	}
 	
 	public void clear() {

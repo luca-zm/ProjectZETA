@@ -1,66 +1,66 @@
 package bean;
 
 public class AddressBean {
-	private String address;
-	private String city;
-	private String postalCode;
-	private String telephone;
-	private String state;
-	private String zone;
+	private String addressBean;
+	private String cityBean;
+	private String postalCodeBean;
+	private String telephoneBean;
+	private String stateBean;
+	private String zoneBean;
 	
 	
 	
 	public AddressBean(String address, String city, String postalCode, String telephone, String state,
 			String zone) {
-		this.address = address;
-		this.city = city;
-		this.postalCode = postalCode;
-		this.telephone = telephone;
-		this.state = state;
-		this.zone = zone;
+		this.addressBean = address;
+		this.cityBean = city;
+		this.postalCodeBean = postalCode;
+		this.telephoneBean = telephone;
+		this.stateBean = state;
+		this.zoneBean = zone;
 	}
-	public String getAddress() {
-		return address;
+	public String getAddressBean() {
+		return addressBean;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAddressBean(String address) {
+		this.addressBean = address;
 	}
-	public String getCity() {
-		return city;
+	public String getCityBean() {
+		return cityBean;
 	}
-	public void setCity(String city) {
-		this.city = city;
+	public void setCityBean(String city) {
+		this.cityBean = city;
 	}
-	public String getPostalCode() {
-		return postalCode;
+	public String getPostalCodeBean() {
+		return postalCodeBean;
 	}
-	public void setPostalCode(String postalCode) {
-		this.postalCode = postalCode;
+	public void setPostalCodeBean(String postalCode) {
+		this.postalCodeBean = postalCode;
 	}
-	public String getTelephone() {
-		return telephone;
+	public String getTelephoneBean() {
+		return telephoneBean;
 	}
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
+	public void setTelephoneBean(String telephone) {
+		this.telephoneBean = telephone;
 	}
-	public String getState() {
-		return state;
+	public String getStateBean() {
+		return stateBean;
 	}
-	public void setState(String state) {
-		this.state = state;
+	public void setStateBean(String state) {
+		this.stateBean = state;
 	}
 
 	
-	public String getZone() {
-		return zone;
+	public String getZoneBean() {
+		return zoneBean;
 	}
-	public void setZone(String zone) {
-		this.zone = zone;
+	public void setZoneBean(String zone) {
+		this.zoneBean = zone;
 	}
 	@Override
 	public String toString() {
-		return "AddressBean [address=" + address + ", city=" + city + ", postalCode=" + postalCode + ", telephone="
-				+ telephone + ", state=" + state + ", zone=" + zone + "]";
+		return "AddressBean [address=" + addressBean + ", city=" + cityBean + ", postalCode=" + postalCodeBean + ", telephone="
+				+ telephoneBean + ", state=" + stateBean + ", zone=" + zoneBean + "]";
 	}
 	
 	

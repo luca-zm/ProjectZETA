@@ -109,34 +109,55 @@ public class MapController extends Application implements ActionListener{
 		
 	}
 
+	
+	//navbar top
+	 @FXML
+	 private void nextT(ActionEvent event) throws IOException {
+	        WinNext a = new WinNext();
+	        
+	        String eventClicked = event.getSource().toString();
+	        
+	        Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
+	
+	        if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
+				a.openWin("view/login_registerPage.fxml");
+	        }
+	        
+	        if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
+	        	//pagina carrello
+	        	a.openWin("view/shopcartPage.fxml");
+	        }
+	        
+	        
+	        if (eventClicked.contentEquals("Button[id=wishlist, styleClass=button]'Wishlist'")) {
+	        	//pagina wishlist
+	        	if(sg.getUser() != null) {
+	        		a.openWin("view/wishlistPage.fxml");
+	        	}else {
+	        		a.openWarning(oldWin);
+	        		return;
+	        	}
+	        }
+	
+	        
+	        oldWin.close();
+	 }
+	
+	
+	
+	
+	
+	//navbar left
     @FXML
     private void next(ActionEvent event) throws IOException {
-        winNext a = new winNext();
+        WinNext a = new WinNext();
         
         String eventClicked = event.getSource().toString();
         
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         
         
-        if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
-			a.openWin("view/login_registerPage.fxml");
-        }
         
-        if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
-        	//pagina carrello
-        	a.openWin("view/shopcartPage.fxml");
-        }
-        
-        
-        if (eventClicked.contentEquals("Button[id=wishlist, styleClass=button]'Wishlist'")) {
-        	//pagina wishlist
-        	if(sg.getUser() != null) {
-        		a.openWin("view/wishlistPage.fxml");
-        	}else {
-        		a.openWarning(oldWin);
-        		return;
-        	}
-        }
         
         
         if (eventClicked.contentEquals("Button[id=userlink, styleClass=button]'User Profile'")) {

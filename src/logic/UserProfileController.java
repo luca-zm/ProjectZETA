@@ -113,7 +113,7 @@ public class UserProfileController extends Application {
 	
 	@FXML
     private void next(ActionEvent event) throws IOException, SQLException {
-		winNext a = new winNext();
+		WinNext a = new WinNext();
 		StringBuilder bld = new StringBuilder();
 
         String eventClicked = event.getSource().toString();

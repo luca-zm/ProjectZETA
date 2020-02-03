@@ -15,8 +15,7 @@ public class DataSource {
         if (connection != null)
             return connection;
         try {
-            Object o = Class.forName("com.mysql.jdbc.Driver"); 
-            o.getClass();
+            Class.forName("com.mysql.jdbc.Driver").getClass(); 
             String user = "root";
             String password = "";
             connection = DriverManager.getConnection(JDBC_CONNECTION_URL, user, password);

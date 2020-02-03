@@ -23,10 +23,10 @@
          </items>
       </ToolBar>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="634.0" layoutX="-2.0" layoutY="51.0" stroke="WHITE" strokeType="INSIDE" width="120.0" />
-      <Button fx:id="user_p_link" layoutX="-8.0" layoutY="79.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="User Profile" />
-      <Button fx:id="map_link" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
-      <Button fx:id="a_code_link" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
-      <Button fx:id="prod_link" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
+      <Button fx:id="userlink" layoutX="-8.0" layoutY="79.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="User Profile" />
+      <Button fx:id="maplink" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
+      <Button fx:id="codelink" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
+      <Button fx:id="prodlink" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
       <Text layoutX="130.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="63.732907708734274" />
       <Text layoutX="473.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="57.10400390625" />
       <Text layoutX="126.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname:" wrappingWidth="71.99999999999989" />
@@ -63,5 +63,6 @@
       <Line endX="-98.0" endY="39.00000762939453" layoutX="441.0" layoutY="65.0" startX="-66.0" startY="20.00000762939453" />
       <Line endX="-63.0" endY="13.000007629394531" layoutX="408.0" layoutY="91.0" startX="-95.0" startY="-5.999992370605469" />
       <Button fx:id="message" layoutX="313.0" layoutY="84.0" mnemonicParsing="false" onAction="#next" opacity="0.0" prefHeight="38.0" prefWidth="64.0" styleClass="btn-info" text="MSG" />
+      <Button fx:id="logout" layoutX="661.0" layoutY="10.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Logout" />
    </children>
 </AnchorPane>

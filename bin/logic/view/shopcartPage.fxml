@@ -21,26 +21,25 @@
       <ToolBar prefHeight="51.0" prefWidth="862.0">
          <items>
             <Text fx:id="wb" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back   " />
-            <Button fx:id="shop" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Shopcart" />
-            <Button fx:id="wish" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Wishlist" />
+            <Button fx:id="shopcart" mnemonicParsing="false" style="-fx-background-color: #47a67353" text="Shopcart" />
+            <Button fx:id="wishlist" mnemonicParsing="false" onAction="#nextT" style="-fx-background-color: #47a67353" text="Wishlist" />
          </items>
       </ToolBar>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="634.0" layoutX="-2.0" layoutY="51.0" stroke="WHITE" strokeType="INSIDE" width="120.0" />
-      <Button fx:id="user_p_link" layoutX="-8.0" layoutY="79.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="User Profile" />
-      <Button fx:id="map_link" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
-      <Button fx:id="a_code_link" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
-      <Button fx:id="prod_link" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
-      <Button fx:id="consume_gcoin" layoutX="522.0" layoutY="415.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Buy products!" />
+      <Button fx:id="userlinker" layoutX="-8.0" layoutY="79.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="User Profile" />
+      <Button fx:id="maplinker" layoutX="-8.0" layoutY="125.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Map" />
+      <Button fx:id="codelinker" layoutX="-8.0" layoutY="171.0" mnemonicParsing="false" onAction="#nextT" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Activation Code" />
+      <Button fx:id="prodlinker" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: white" text="Products" />
+      <Button fx:id="consumegcoin" layoutX="522.0" layoutY="415.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Buy products!" />
       <Circle fill="#4ba675db" layoutX="685.0" layoutY="541.0" radius="63.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
       <Circle fill="#4ca67534" layoutX="766.0" layoutY="431.0" radius="63.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-      <TextArea fx:id="price_text" editable="false" layoutX="534.0" layoutY="125.0" prefHeight="226.0" prefWidth="154.0" styleClass="text-area" text="&#10;" />
-      <TextArea fx:id="gcoin_text" editable="false" layoutX="595.0" layoutY="70.0" prefHeight="40.0" prefWidth="94.0" styleClass="text-area" text="a">
+      <TextArea fx:id="pricetext" editable="false" layoutX="534.0" layoutY="125.0" prefHeight="226.0" prefWidth="154.0" styleClass="text-area" text="&#10;" />
+      <TextArea fx:id="gcointext" editable="false" layoutX="595.0" layoutY="70.0" prefHeight="40.0" prefWidth="94.0" styleClass="text-area" text="a">
          <font>
             <Font size="21.0" />
          </font>
       </TextArea>
       <Text layoutX="534.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h6" text="Your greencoin" wrappingWidth="55.96563720703125" />
-      <Button fx:id="log" layoutX="615.0" layoutY="9.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Login or Register" />
       <TextArea fx:id="total" editable="false" layoutX="595.0" layoutY="358.0" prefHeight="40.0" prefWidth="94.0" styleClass="text-success">
          <font>
             <Font size="21.0" />
@@ -48,5 +47,8 @@
       </TextArea>
       <Text layoutX="537.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h6" text="Total:" wrappingWidth="43.96563720703125" />
       <StackPane fx:id="stack" layoutX="181.0" layoutY="93.0" prefHeight="386.0" prefWidth="318.0" />
+      <Button fx:id="logout" layoutX="666.0" layoutY="9.0" mnemonicParsing="false" onAction="#nextT" style="-fx-background-color: #47a67353" text="Logout" />
+      
+            <Button fx:id="log" layoutX="613.0" layoutY="9.0" mnemonicParsing="false" onAction="#nextT" style="-fx-background-color: #47a67353" text="Login or Register" />
    </children>
 </AnchorPane>

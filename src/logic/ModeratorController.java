@@ -92,7 +92,7 @@ public class ModeratorController extends Application {
 		                JOptionPane.showMessageDialog(null, "EcoPoint correctly insert!");
 					}
 					else {
-						JOptionPane.showMessageDialog(null, "Maximum limit of points has been reached !");
+						JOptionPane.showMessageDialog(null, "Insert error");
 					}
 				} catch (Exception e) {
 					e.printStackTrace();

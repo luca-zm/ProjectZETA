@@ -195,34 +195,24 @@ public class ShopcartController extends Application {
     @FXML
     private void next(ActionEvent event) throws IOException, SQLException {
         WinNext a = new WinNext();
-        
+        ManagerClick m = new ManagerClick();
         String eventClicked = event.getSource().toString();
-
+        String style="button";
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         
         //Hyperlink ------------------
-        if (eventClicked.contentEquals("Button[id=userlink, styleClass=button]'User Profile'")) {
-        	//pagina del profilo utente
-        	if(sg.getUser() != null) {
-            	a.openWin("view/userprofilePage.fxml");
-        	}else {
-        		a.openWarning(oldWin);
-        		return;
-        	}
-        }
-        if (eventClicked.contentEquals("Button[id=maplink, styleClass=button]'Map'")) {
-        	//pagina mappe
-        	a.openWin("view/mapPage.fxml");
-        }
         
-        if (eventClicked.contentEquals("Button[id=prodlink, styleClass=button]'Products'")) {
-        	a.openWin("view/productsPage.fxml");
-        }
+        m.checkWarn(event, "userlink", style, "User Profile", "view/userprofilePage.fxml", sg.getUser());
+
+        m.goToPath(eventClicked, "maplink", style, "Map", "view/mapPage.fxml");
+
+        m.goToPath(eventClicked, "prodlink", style, "Products", "view/productsPage.fxml");
+
         //Hyper link ------------------
 
         //methods buy and remove from Wishlist ----------
-        if (eventClicked.contentEquals("Button[id=consumegcoin, styleClass=button]'Buy products!'")) {
+        if(m.check(eventClicked, "consumegcoin", style, "Buy products!")){
         		if (csc.buyShopCart()) {
         			JOptionPane.showMessageDialog(null, "Successfull purchase!");
         			Stage k = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -243,42 +233,24 @@ public class ShopcartController extends Application {
     
     @FXML
     private void nextT(ActionEvent event) throws IOException, SQLException {
-        WinNext a = new WinNext();
-        
+        ManagerClick m = new ManagerClick();
         String eventClicked = event.getSource().toString();
+        String style="button";
 
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         
-        if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
-			a.openWin("view/login_registerPage.fxml");
-        }
+        m.goToPath(eventClicked, "logout", style, "Logout", "view/login_registerPage.fxml");
+
         
         //Barra ----------------------
-        if (eventClicked.contentEquals("Button[id=wish, styleClass=button]'Wishlist'")) {
-        	//pagina carrello
-        	if(sg.getUser() != null) {
-            	a.openWin("view/wishlistPage.fxml");
-        	}else {
-        		a.openWarning(oldWin);
-        		return;
-        	}
-        }
+        m.checkWarn(event, "wish", style, "Wishlist", "view/wishlistPage.fxml", sg.getUser());
         
-        if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login or Register'")) {
-            //pagina login
-        	a.openWin("view/login_registerPage.fxml");
-        }  
+        m.goToPath(eventClicked, "log", style, "Login or Register", "view/login_registerPage.fxml");
+       
+        m.checkWarn(event, "codelink", style, "Activation Code", "view/activationcodePage.fxml", sg.getUser());
         
-        if (eventClicked.contentEquals("Button[id=codelink, styleClass=button]'Activation Code'")) {
-        	//pagina activation code
-        	if(sg.getUser() != null) {
-            	a.openWin("view/activationcodePage.fxml");
-        	}else {
-        		a.openWarning(oldWin);
-        		return;
-        	}
-        }
+        
         oldWin.close();
     }
 }

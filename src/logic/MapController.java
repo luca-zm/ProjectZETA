@@ -119,33 +119,18 @@ public class MapController extends Application implements ActionListener{
 	//navbar top
 	 @FXML
 	 private void nextT(ActionEvent event) throws IOException {
-	        WinNext a = new WinNext();
-	        
+	        ManagerClick m = new ManagerClick();
+	        String style="button";
 	        String eventClicked = event.getSource().toString();
 	        
 	        Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
 	
-	        if (eventClicked.contentEquals("Button[id=logout, styleClass=button]'Logout'")) {
-				a.openWin("view/login_registerPage.fxml");
-	        }
-	        
-	        if (eventClicked.contentEquals("Button[id=shop, styleClass=button]'Shopcart'")) {
-	        	//pagina carrello
-	        	a.openWin("view/shopcartPage.fxml");
-	        }
-	        
-	        
-	        if (eventClicked.contentEquals("Button[id=wishlist, styleClass=button]'Wishlist'")) {
-	        	//pagina wishlist
-	        	if(sg.getUser() != null) {
-	        		a.openWin("view/wishlistPage.fxml");
-	        	}else {
-	        		a.openWarning(oldWin);
-	        		return;
-	        	}
-	        }
-	
-	        
+	        m.goToPath(eventClicked, "logout", style, "Logout", "view/login_registerPage.fxml");
+
+	        m.goToPath(eventClicked, "shop", style, "Shopcart", "view/shopcartPage.fxml");
+      
+	        m.checkWarn(event, "wishlist", style, "Wishlist", "view/wishlistPage.fxml", sg.getUser());
+
 	        oldWin.close();
 	 }
 	
@@ -156,51 +141,20 @@ public class MapController extends Application implements ActionListener{
 	//navbar left
     @FXML
     private void next(ActionEvent event) throws IOException {
-        WinNext a = new WinNext();
-        
+        ManagerClick m = new ManagerClick();
+
         String eventClicked = event.getSource().toString();
+        String style="button";
+
+        Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow(); 
         
-        Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        
-        
-        
-        
-        
-        if (eventClicked.contentEquals("Button[id=userlink, styleClass=button]'User Profile'")) {
-        	//pagina del profilo utente
-        	if(sg.getUser() != null) {
-        		a.openWin("view/userprofilePage.fxml");
-        	}else {
-        		a.openWarning(oldWin);
-        		return;
-        	}	
-        }
-        
-                
-        
-        if (eventClicked.contentEquals("Button[id=codelink, styleClass=button]'Activation Code'")) {
-        	//pagina activation code
-        	if(sg.getUser() != null) {
-            	a.openWin("view/activationcodePage.fxml");
-        	}else {
-        		a.openWarning(oldWin);
-        		return;
-        	}        
-        }
-               
-        
-        
-        if (eventClicked.contentEquals("Button[id=log, styleClass=button]'Login or Register'")) {
-            //pagina login
-        	a.openWin("view/login_registerPage.fxml");
-        }    
-        
-        
-        
-        if (eventClicked.contentEquals("Button[id=prodlink, styleClass=button]'Products'")) {
-        	//pagina prodotti
-        	a.openWin("view/productsPage.fxml");
-        }
+        m.checkWarn(event, "userlink", style, "User Profile", "view/userprofilePage.fxml", sg.getUser());
+              
+        m.checkWarn(event, "codelink", style, "Activation Code", "view/activationcodePage.fxml", sg.getUser());
+   
+        m.goToPath(eventClicked, "log", style, "Login or Register", "view/login_registerPage.fxml");
+
+        m.goToPath(eventClicked, "prodlink", style, "Products", "view/productsPage.fxml");
         
         oldWin.close();
     }

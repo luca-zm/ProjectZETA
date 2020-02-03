@@ -129,6 +129,7 @@ public class UserProfileController extends Application {
 
         
         if (m.check(eventClicked, "message", "button btn-info", "MSG")) {
+        	
         	List<Message> messages = MessageDAO.selectBroadcast();
         	messages.addAll(user.getBoards().getList());
         	for(Message msg : messages) {
@@ -136,7 +137,9 @@ public class UserProfileController extends Application {
         	}
 			JOptionPane.showMessageDialog(null, bld.toString());
 			return;
+			
         }
+        
         //hyperlink----------------
         m.goToPath(eventClicked, "maplink", style, "Map", "view/mapPage.fxml");
 

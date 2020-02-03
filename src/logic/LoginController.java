@@ -21,43 +21,43 @@ import controller.ControllerRegistration;
 public class LoginController extends Application {
 
     @FXML
-    public Button log;
+    private Button log;
     
     @FXML
-    public Button conf;
+    private Button conf;
     
     @FXML
-    public Button back;
+    private Button back;
     
     
     @FXML
-    public TextField mail;
+    private TextField mail;
     @FXML
-    public TextField passr;
+    private TextField passr;
     @FXML
-    public TextField pass2r;
+    private TextField pass2r;
     @FXML
-    public TextField mailr;
+    private TextField mailr;
     @FXML
-    public TextField surr;
+    private TextField surr;
     @FXML
-    public TextField namer;
+    private TextField namer;
     
     @FXML
-    public TextField addr;
+    private TextField addr;
     @FXML
-    public TextField cityr;
+    private TextField cityr;
     @FXML
-    public TextField zipr;
+    private TextField zipr;
     @FXML
-    public TextField telr;
+    private TextField telr;
     @FXML
-    public TextField stater;
+    private TextField stater;
     @FXML
-    public TextField zoner;
+    private TextField zoner;
 
     @FXML
-    public PasswordField psw;
+    private PasswordField psw;
     
     Singleton sg = Singleton.getInstance(); 
     

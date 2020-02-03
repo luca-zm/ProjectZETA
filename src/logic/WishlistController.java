@@ -37,32 +37,32 @@ public class WishlistController extends Application {
 	
 	
 	@FXML
-    public Button logout;
+	private Button logout;
 	
     @FXML
-    public Button shop;
+    private Button shop;
 
     @FXML
-    public Button maplink;
+    private Button maplink;
     @FXML
-    public Button codelink;
+    private Button codelink;
     @FXML
-    public Button prodlink;
+    private Button prodlink;
     @FXML
-    public Button userlink;
+    private Button userlink;
     @FXML
-    public Button wish;
+    private Button wish;
     
     @FXML
-    public Button buy;
+    private Button buy;
     @FXML
-    public Button del;
+    private Button del;
     
     @FXML
-    public Text wb;
+    private Text wb;
     
     @FXML
-    public StackPane stack;
+    private StackPane stack;
     
     Singleton sg = Singleton.getInstance(); 
     ControllerWishList cwl = new ControllerWishList();

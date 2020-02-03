@@ -35,39 +35,39 @@ public class ShopcartController extends Application {
 
 	
 	@FXML
-    public Button logout;
+	private Button logout;
 	
     @FXML
-    public Button wish;
+    private Button wish;
     @FXML
-    public Button log;
+    private Button log;
     @FXML
-    public Button shop;
+    private Button shop;
 
     @FXML
-    public Button maplink;
+    private Button maplink;
     @FXML
-    public Button codelink;
+    private Button codelink;
     @FXML
-    public Button prodlink;
+    private Button prodlink;
     @FXML
-    public Button userlink;
+    private Button userlink;
     
     @FXML
-    public Button consumegcoin;
+    private Button consumegcoin;
     
     @FXML
-    public Text wb;
+    private Text wb;
     
     @FXML
-    public TextArea pricetext;
+    private TextArea pricetext;
     @FXML
-    public TextArea gcointext;
+    private TextArea gcointext;
     @FXML
-    public TextArea total;
+    private TextArea total;
     
     @FXML
-    public StackPane stack;
+    private StackPane stack;
     
     Singleton sg =Singleton.getInstance();
 	AbstractUser user = sg.getUser();

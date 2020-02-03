@@ -21,10 +21,6 @@ public class ManagerClick {
 	
 	public Boolean check(String event, String id, String style, String label) {
 		
-		if(event.contentEquals("Button[id="+ id +", styleClass="+ style +"]'"+ label +"'")){
-			return true;
-		}
-		return false;
-	}
-
+		return event.contentEquals("Button[id="+ id +", styleClass="+ style +"]'"+ label +"'");
+	}	
 }

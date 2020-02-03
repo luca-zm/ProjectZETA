@@ -27,43 +27,43 @@ public class UserProfileController extends Application {
 	
 	
 	@FXML
-    public Button logout;
+	private Button logout;
 	
 	@FXML
-    private ImageView avatarImage;
+	private ImageView avatarImage;
 	
 	@FXML
-    public Button wish;
+	private Button wish;
 	@FXML
-    public Button shop;
+	private Button shop;
 	@FXML
-    public Button message;
+	private Button message;
 
     @FXML
-    public Button map;
+    private Button map;
     @FXML
-    public Button codelink;
+    private Button codelink;
     @FXML
-    public Button prodlink;
+    private Button prodlink;
     @FXML
-    public Button userlink;
+    private Button userlink;
     
     @FXML
-    public Text tname;
+    private Text tname;
     
     @FXML
-    public Text tsurname;
+    private Text tsurname;
     @FXML
-    public Text tmail;
+    private Text tmail;
     @FXML
-    public Text ttel;
+    private Text ttel;
     @FXML
-    public Text taddress;
+    private Text taddress;
     @FXML
-    public Text tgreencoin;
+    private Text tgreencoin;
     
     @FXML
-    public TextArea story;
+    private TextArea story;
 
     
     public NumberAxis xAxis = new NumberAxis(1960, 2020, 10); 

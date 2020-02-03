@@ -19,15 +19,15 @@ import javafx.stage.Stage;
 public class HomepageController extends Application implements Initializable{
 
     @FXML
-    public MediaView myvideo;
+    private MediaView myvideo;
     
     @FXML
-    public MediaPlayer myplayer;
+    private MediaPlayer myplayer;
     
     @FXML
-    public Button log;
+    private Button log;
     @FXML
-    public Button hop;
+    private Button hop;
 
     
 	@Override

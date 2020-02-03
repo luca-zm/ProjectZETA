@@ -24,41 +24,41 @@ public class AdminController extends Application {
 
 	
 	@FXML
-    public Button logout;
+	private Button logout;
 	
 	
     @FXML
-    public Button add;
+    private Button add;
     @FXML
-    public Button delete;
+    private Button delete;
     @FXML
-    public Button ban;
+    private Button ban;
 
     @FXML
-    public TextArea listprod;
+    private TextArea listprod;
     @FXML
-    public TextArea listusers;
+    private TextArea listusers;
 	private Category utility;
 
     //products
     @FXML
-    public TextField prodid;
+    private TextField prodid;
     @FXML
-    public TextField prodname;
+    private TextField prodname;
     @FXML
-    public TextField proddisc;
+    private TextField proddisc;
     @FXML
-    public TextField prodimg;
+    private TextField prodimg;
     @FXML
-    public TextField prodgc;
+    private TextField prodgc;
     @FXML
-    public TextField proddescr;
+    private TextField proddescr;
     @FXML
-    public TextField prodid2;
+    private TextField prodid2;
     
     //users
     @FXML
-    public TextField userid1;
+    private TextField userid1;
 
     
     StringBuilder bld1 = new StringBuilder();

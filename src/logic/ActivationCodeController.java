@@ -23,35 +23,35 @@ public class ActivationCodeController extends Application {
 
 	
 	@FXML
-    public Button logout;
+	private Button logout;
 	
     @FXML
-    public Button confirm;
+    private Button confirm;
     @FXML
-    public Button shop;
+    private Button shop;
     @FXML
-    public Button wish;
+    private Button wish;
     
     @FXML
-    public Button map;
+    private Button map;
     @FXML
-    public Button codelink;
+    private Button codelink;
     @FXML
-    public Button prodlink;
+    private Button prodlink;
     @FXML
-    public Button userlink;
+    private Button userlink;
     
     @FXML
-    public Text wb;
+    private Text wb;
     
     @FXML
-    public TextArea upgc;
+    private TextArea upgc;
     
     @FXML
-    public TextArea mygc;
+    private TextArea mygc;
     
     @FXML
-    public TextField addgc;
+    private TextField addgc;
     
     Singleton sg =Singleton.getInstance();
     ControllerShopCartCheckOut ac = new ControllerShopCartCheckOut();
@@ -111,10 +111,21 @@ public class ActivationCodeController extends Application {
         
         
         
-        //Toolbar
+      //Toolbar
         m.goToPath(eventClicked, "shop", style, "Shopcart", "view/shopcartPage.fxml");
         
         m.goToPath(eventClicked, "wish", style, "Wishlist", "view/wishlistPage.fxml");
+        
+        //Hyperlink
+        m.goToPath(eventClicked, "maplink", style, "Map", "view/mapPage.fxml");
+
+        m.goToPath(eventClicked, "prodlink", style, "Products", "view/productsPage.fxml");
+
+        m.goToPath(eventClicked, "userlink", style, "User Profile", "view/userprofilePage.fxml");
+   
+        Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        oldWin.close();
+        
     }
 }
 

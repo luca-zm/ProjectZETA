@@ -29,31 +29,31 @@ public class MapController extends Application implements ActionListener{
 
 	
 	@FXML
-    public Button logout;
+	private Button logout;
 	
     @FXML
-    public Button wishlist;
+    private Button wishlist;
     
     @FXML
-    public Button shop;
+    private Button shop;
 
     @FXML
-    public Button log;
+    private Button log;
 
     @FXML
-    public Button maplink;
+    private Button maplink;
     @FXML
-    public Button codelink;
+    private Button codelink;
     @FXML
-    public Button prodlink;
+    private Button prodlink;
     @FXML
-    public Button userlink;
+    private Button userlink;
     
     @FXML
-    public Text wb;
+    private Text wb;
     
     @FXML
-    public TextArea maptext;
+    private TextArea maptext;
     
     Singleton sg = Singleton.getInstance(); 
     StringBuilder bld = new StringBuilder();

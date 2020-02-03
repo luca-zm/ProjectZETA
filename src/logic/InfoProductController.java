@@ -15,13 +15,13 @@ import logic.model.Singleton;
 public class InfoProductController extends Application {
 
     @FXML
-    public Button back;
+    private Button back;
     
     @FXML
-    public TextArea description;
+    private TextArea description;
 
     @FXML
-    public ImageView image;
+    private ImageView image;
         
 
     WinNext a = new WinNext();

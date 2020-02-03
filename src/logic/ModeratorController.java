@@ -23,28 +23,28 @@ public class ModeratorController extends Application {
 
 	
 	@FXML
-    public Button logout;
+	private Button logout;
 	
 	
     @FXML
-    public Button confirm;
+    private Button confirm;
     @FXML
-    public Button add;
+    private Button add;
     
     @FXML
-    public TextField name;
+    private TextField name;
     @FXML
-    public TextField address;
+    private TextField address;
     @FXML
-    public TextField opening;
+    private TextField opening;
     @FXML
-    public TextField closing;
+    private TextField closing;
     
     @FXML
-    public TextArea area;
+    private TextArea area;
     
     @FXML
-    public TextField idcol;
+    private TextField idcol;
 
     List<CollectionPoint> list;
     ControllerManageCollPoint cmc = new ControllerManageCollPoint();

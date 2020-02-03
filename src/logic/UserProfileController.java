@@ -138,7 +138,6 @@ public class UserProfileController extends Application {
         }
         
         if (eventClicked.contentEquals("Button[id=message, styleClass=button btn-info]'MSG'")) {
-        	String messaggi = "";
         	List<Message> messages = MessageDAO.selectBroadcast();
         	messages.addAll(user.getBoards().getList());
         	for(Message m : messages) {

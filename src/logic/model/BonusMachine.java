@@ -2,6 +2,7 @@ package logic.model;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import logic.enums.MesType;
 import logic.persistence.MessageDAO;
@@ -44,7 +45,7 @@ public class BonusMachine implements Observer{
 	}
 	
 	public int getHistoryPrice() throws SQLException {
-		ArrayList<ActivationCodeTran> listActCodeTran = TransactionDAO.selectActivationCodeTra(user);
+		List<ActivationCodeTran> listActCodeTran = TransactionDAO.selectActivationCodeTra(user);
 		int activationGreenCoin = 0;
 		
 		for (ActivationCodeTran actCodeTran : listActCodeTran) {

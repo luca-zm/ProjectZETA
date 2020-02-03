@@ -12,7 +12,7 @@ public class Query {
 	
 	public static final String INSERT_MESSAGE = "INSERT INTO message(date, title, bodymessage, type, userId) VALUES (?,?,?,?,?)";
 	
-	public static final String INSERT_PRODUCT = "INSERT INTO product(name, price, discountPercentage, category, image, description, availability) VALUES (?,?,?,?,?,?,?)";
+	public static final String INSERT_PRODUCT = "INSERT INTO product(name, price, discountPercentage, category, image, description) VALUES (?,?,?,?,?,?)";
 
 	public static final String INSERT_BONUSTRAN = "INSERT INTO bonustran(date, description, greenCoinAdded, userId) VALUES (?,?,?,?)";
 	
@@ -76,7 +76,7 @@ public class Query {
 	
 	public static final String UPDATE_COLLECTIONPOINT = "UPDATE collectionpoint SET name = ?, longitude = ?, latitude = ?, address = ?, openingTime = ?, closingTime = ? WHERE ID = ? ";
 	
-	public static final String UPDATE_PRODUCT = "UPDATE product SET name = ?, price = ?, discountPercentage = ?, category = ?, image = ?, description = ?, availability = ? WHERE ID = ? ";
+	public static final String UPDATE_PRODUCT = "UPDATE product SET name = ?, price = ?, discountPercentage = ?, category = ?, image = ?, description = ? WHERE ID = ? ";
 	
 	public static final String UPDATE_USER = "UPDATE user SET mail = ?, name = ?, surname = ?, pass = ?, type = ?, greenCoin = ?, address = ? WHERE id = ?";
 	

@@ -3,7 +3,7 @@ package logic.model;
 public class Address {
 
 	private int id;
-	private String address;
+	private String addr;
 	private String city;
 	private String postalCode;
 	private String telephone;
@@ -17,7 +17,7 @@ public class Address {
 	public Address(int id, String address, String city, String postalCode, String telephone, String state, String zone) {
 		super();
 		this.id = id;
-		this.address = address;
+		this.addr = address;
 		this.city = city;
 		this.postalCode = postalCode;
 		this.telephone = telephone;
@@ -39,12 +39,12 @@ public class Address {
 
 
 
-	public String getAddress() {
-		return address;
+	public String getAddr() {
+		return addr;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAddr(String address) {
+		this.addr = address;
 	}
 
 	public String getCity() {
@@ -91,7 +91,7 @@ public class Address {
 
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ", address=" + address + ", city=" + city + ", postalCode=" + postalCode
+		return "Address [id=" + id + ", address=" + addr + ", city=" + city + ", postalCode=" + postalCode
 				+ ", telephone=" + telephone + ", state=" + state + ", zone=" + zone + "]";
 	}
 	

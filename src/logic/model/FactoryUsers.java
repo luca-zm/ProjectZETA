@@ -5,7 +5,7 @@ public class FactoryUsers {
 	
 	
 
-    public FactoryUsers() {
+    private FactoryUsers() {
         throw new IllegalStateException("Utility class");
     }
 

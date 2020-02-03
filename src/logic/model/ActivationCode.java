@@ -2,24 +2,24 @@ package logic.model;
 
 public class ActivationCode {
 	
-	private int activationCode;
+	private int actCode;
 	private int greenCoinVal;
 	
 	
 	public ActivationCode(int activationCode, int grenCoinVal) {
 		super();
-		this.activationCode = activationCode;
+		this.actCode = activationCode;
 		this.greenCoinVal = grenCoinVal;
 	}
 
 
-	public int getActivationCode() {
-		return activationCode;
+	public int getActCode() {
+		return actCode;
 	}
 
 
-	public void setActivationCode(int activationCode) {
-		this.activationCode = activationCode;
+	public void setActCode(int activationCode) {
+		this.actCode = activationCode;
 	}
 
 
@@ -35,7 +35,7 @@ public class ActivationCode {
 
 	@Override
 	public String toString() {
-		return "ActivationCode: " + activationCode + ", Greencoin value: " + greenCoinVal;
+		return "ActivationCode: " + actCode + ", Greencoin value: " + greenCoinVal;
 	}
 	
 	

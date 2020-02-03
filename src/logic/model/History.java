@@ -40,7 +40,7 @@ public class History {
 	
 
 
-	public ArrayList<Transaction> getTranList() {
+	public List<Transaction> getTranList() {
 		return tranList;
 	}
 

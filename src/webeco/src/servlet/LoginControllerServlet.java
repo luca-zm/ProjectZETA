@@ -1,6 +1,5 @@
 package webeco.src.servlet;
 
-import java.awt.image.BufferedImage;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,7 +8,6 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -50,7 +48,9 @@ public class LoginControllerServlet extends HttpServlet {
 		HttpSession session = request.getSession(); 
 		String action = request.getParameter("action");
 		PrintWriter out = response.getWriter();
-
+		String script = "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>";
+		String scriptcloud = "<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>"
+		String index = "index.jsp";
 		
 		ControllerManageCollPoint c = new ControllerManageCollPoint();
 		URL mapUrl = null;
@@ -73,16 +73,16 @@ public class LoginControllerServlet extends HttpServlet {
 			try {
 				if(CL.login(ub, session))
 				{
-					//ShopCart s = new ShopCart();
+				
 					AbstractUser user = (AbstractUser) session.getAttribute("user");
 					if(user.getType().equals(Roles.USER)) {
 						ArrayList<Product> catalogo = ProductDAO.select();
-						ArrayList<Product> catalogo_mini = new ArrayList<Product>();
+						ArrayList<Product> catalogo_mini = new ArrayList<>();
 						ArrayList<CollectionPoint> collpoint = CollectionPointDAO.select();
 						for(Product p: catalogo) {
 							if(p.getPrice() > 100) {
 								catalogo_mini.add(p);
-								//s.addProduct(p);
+						
 							}
 						}
 						session.setAttribute("mapImage", mapUrl);
@@ -114,44 +114,27 @@ public class LoginControllerServlet extends HttpServlet {
 						return;
 					}
 					
-//					session.setAttribute("carrello", s.getProductList());
-//					session.setAttribute("totale", s.getTotalPrice());
 
 				}
 				else {
-					out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
-					out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
+					out.println(scriptcloud);
+					out.println(script);
 					out.println("<script>");
 					out.println("$(document).ready(function(){");
 					out.println("swal ( 'Wrong email or password' ,  'Try again !' ,  'error' );");
 					out.println("});");
 					out.println("</script>");
-					RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher(index);
 					rd.include(request, response);
 				}
 
 			} catch (SQLException | ServletException | IOException e) {
-				// TODO Auto-generated catch block
+		
 				e.printStackTrace();
 			}
 		}
 		
-//		else if("registration".contentEquals(action)) {
-//			ControllerRegistration CR = new ControllerRegistration();
-//			
-//			<input type="text" placeholder="Name"><br><br>
-//			<input type="text" placeholder="Surname"><br><br>
-//			<input type="text" placeholder="Email"><br><br>
-//			<input type="text" placeholder="Address with zip code"><br><br>
-//			<input type="password" placeholder="Password"><br><br>
-//			<input type="password" placeholder="Confirm password"><br><br>
-//			
-//			String name = request.getParameter("name");
-//			
-//            CR.register(userBean);
-//			request.getRequestDispatcher("index.jsp").forward(request, response);
-//			return;
-//		}
+
 		if("register".equals(action)) {
 			ControllerRegistration cr = new ControllerRegistration();
 			String name = request.getParameter("name");
@@ -174,41 +157,41 @@ public class LoginControllerServlet extends HttpServlet {
 				
 					try {
 						if(cr.register(ub)) {
-							out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
-							out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
+							out.println(scriptcloud);
+							out.println(script);
 							out.println("<script>");
 							out.println("$(document).ready(function(){");
 							out.println("swal ( 'Successfull Registration !' ,  'Login in ' ,  'success' );");
 							out.println("});");
 							out.println("</script>");
-							RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+							RequestDispatcher rd = request.getRequestDispatcher(index);
 							rd.include(request, response);
 						}
 						else {
-							out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
-							out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
+							out.println(scriptcloud);
+							out.println(script);
 							out.println("<script>");
 							out.println("$(document).ready(function(){");
 							out.println("swal ( 'User already Registered' ,  'Try Again !' ,  'error' );");
 							out.println("});");
 							out.println("</script>");
-							RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+							RequestDispatcher rd = request.getRequestDispatcher(index);
 							rd.include(request, response);
 						}
 					} catch (SQLException | ServletException | IOException e) {
-						// TODO Auto-generated catch block
+						// empty
 						e.printStackTrace();
 					}
 			}
 			else {
-				out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
-				out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
+				out.println(scriptcloud);
+				out.println(script);
 				out.println("<script>");
 				out.println("$(document).ready(function(){");
 				out.println("swal ( 'Password and confirm password are different' ,  'Try again !' ,  'error' );");
 				out.println("});");
 				out.println("</script>");
-				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher(index);
 				rd.include(request, response);
 			}
 
@@ -217,25 +200,11 @@ public class LoginControllerServlet extends HttpServlet {
 		
 		if("logout".equals(action)) {
 			session.invalidate(); 
-			response.sendRedirect("index.jsp");
+			response.sendRedirect(index);
 		}
 
 	}
 	
-	
-//	AddressBean newadd = new AddressBean(add_r.getText(), city_r.getText(), zip_r.getText(), tel_r.getText(),
-//			state_r.getText(), country_r.getText(), zone_r.getText());
-//
-//UserBean ub = new UserBean(0, name_r.getText(), sur_r.getText(), pass_r.getText(), mail_r.getText(), newadd);
-//
-//if(pass_r.getText().contentEquals(pass2_r.getText())) {
-//if(cr.register(ub)) {
-//JOptionPane.showMessageDialog(null, "Registration succesfully!\nPlease login now");
-//a.openWin("view/login_registerPage.fxml");
-//}else {
-//JOptionPane.showMessageDialog(null, "User already registered, please change your email");
-//}	
-//}
 	
 
 }

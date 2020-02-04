@@ -3,9 +3,9 @@ package webeco.src.servlet;
 import java.io.IOException;
 
 
+
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.swing.JOptionPane;
 
 import webeco.src.controller.ControllerShopCartCheckOut;
 import webeco.src.controller.ControllerWishList;
@@ -34,7 +33,6 @@ public class HomePageServlet extends HttpServlet {
      */
     public HomePageServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -52,6 +50,7 @@ public class HomePageServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession(); 
 		String action = request.getParameter("action");
+		String h = "homepage";
 		int productId = Integer.parseInt(request.getParameter("productId"));
 		if("wish".equals(action)) {
 			ControllerWishList controller = new ControllerWishList();
@@ -67,17 +66,17 @@ public class HomePageServlet extends HttpServlet {
 						out.println("swal ( 'Product already inserted in Wish List!' ,  '' ,  '' );");
 						out.println("});");
 						out.println("</script>");
-						RequestDispatcher rd = request.getRequestDispatcher("homepage.jsp");
+						RequestDispatcher rd = request.getRequestDispatcher(h);
 						rd.include(request, response);
 						return;
 					}
 					
 				}
 				controller.addProductinWishList(productId, session);
-				RequestDispatcher rd = request.getRequestDispatcher("homepage.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher(h);
 				rd.include(request, response);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				// empty
 				e.printStackTrace();
 			}
 			
@@ -86,11 +85,11 @@ public class HomePageServlet extends HttpServlet {
 			ControllerShopCartCheckOut controller = new ControllerShopCartCheckOut();
 			try {
 				controller.addProduct(productId, session);
-				RequestDispatcher rd = request.getRequestDispatcher("homepage.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher(h);
 				rd.include(request, response);
 				return;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				// empty
 				e.printStackTrace();
 			}
 		}
@@ -100,7 +99,7 @@ public class HomePageServlet extends HttpServlet {
 			try {
 				p = ProductDAO.selectProduct(productId);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				// empty
 				e.printStackTrace();
 			}
 			session.setAttribute("product", p);

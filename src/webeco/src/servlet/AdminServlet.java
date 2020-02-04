@@ -3,6 +3,7 @@ package webeco.src.servlet;
 import java.io.IOException;
 
 
+
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -12,15 +13,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import laptopeco.bean.AddressBean;
-import laptopeco.bean.CollectionPointBean;
+
 import laptopeco.bean.ProductBean;
 import laptopeco.bean.UserBean;
-import webeco.src.controller.ControllerManageCollPoint;
+
 import webeco.src.controller.ControllerManageProduct;
 import webeco.src.controller.ControllerManageUser;
 import laptopeco.logic.enums.Category;
-import laptopeco.logic.model.CollectionPoint;
+
 
 /**
  * Servlet implementation class AdminServlet
@@ -34,14 +34,14 @@ public class AdminServlet extends HttpServlet {
      */
     public AdminServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        //empty
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// empty
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -49,10 +49,10 @@ public class AdminServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			HttpSession session = request.getSession();
 			String action = request.getParameter("action");
 			ControllerManageProduct conmod = new ControllerManageProduct(); 
 			ControllerManageUser cmu = new ControllerManageUser();
+			String a = "admin.jsp";
 			
 			
 			
@@ -68,11 +68,11 @@ public class AdminServlet extends HttpServlet {
 				try {
 					conmod.addProduct(cb);
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
+					// empty
 					e.printStackTrace();
 				}
 				
-				response.sendRedirect("admin.jsp");
+				response.sendRedirect(a);
 							
 			}
 			
@@ -85,11 +85,10 @@ public class AdminServlet extends HttpServlet {
 				try {
 					conmod.deleteProduct(pb);
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
-				response.sendRedirect("admin.jsp");
+				response.sendRedirect(a);
 				
 			}
 			
@@ -102,12 +101,11 @@ public class AdminServlet extends HttpServlet {
 				try {
 					cmu.delete(pb);
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
 				
-				response.sendRedirect("admin.jsp");
+				response.sendRedirect(a);
 				
 			}
 				

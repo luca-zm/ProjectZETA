@@ -1,7 +1,8 @@
 package laptopeco.logic.model;
 
-import static logic.enums.Roles.COLLECTIONPOINTMAN;
-import logic.enums.Roles;
+import static laptopeco.logic.enums.Roles.COLLECTIONPOINTMAN;
+
+import laptopeco.logic.enums.Roles;
 
 public class CollectionPointMan extends AbstractUser {
 

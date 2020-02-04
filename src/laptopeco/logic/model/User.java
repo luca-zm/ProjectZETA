@@ -1,7 +1,8 @@
 package laptopeco.logic.model;
 import laptopeco.logic.enums.Roles;
 
-import static logic.enums.Roles.USER;
+
+import static laptopeco.logic.enums.Roles.USER;
 
 public class User extends AbstractUser {
 

@@ -1,12 +1,13 @@
 package laptopeco.logic.model;
 
 import java.sql.SQLException;
+
 import java.util.List;
 
-import logic.enums.MesType;
-import logic.persistence.MessageDAO;
-import logic.persistence.TransactionDAO;
-import logic.persistence.UserDAO;
+import laptopeco.logic.enums.MesType;
+import laptopeco.logic.persistence.MessageDAO;
+import laptopeco.logic.persistence.TransactionDAO;
+import laptopeco.logic.persistence.UserDAO;
 
 public class BonusMachine implements Observer{
 	

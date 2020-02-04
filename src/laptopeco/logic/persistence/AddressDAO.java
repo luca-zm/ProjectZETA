@@ -1,11 +1,12 @@
-package logic.persistence;
+package laptopeco.logic.persistence;
 
 import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import logic.model.AbstractUser;
-import logic.model.Address;
+import laptopeco.logic.model.AbstractUser;
+import laptopeco.logic.model.Address;
 
 
 

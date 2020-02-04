@@ -1,4 +1,4 @@
-package logic.persistence;
+package laptopeco.logic.persistence;
 
 import java.sql.Connection;
 

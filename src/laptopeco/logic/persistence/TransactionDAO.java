@@ -1,18 +1,19 @@
-package logic.persistence;
+package laptopeco.logic.persistence;
 
 import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import logic.enums.DeliveryStatus;
-import logic.model.AbstractUser;
-import logic.model.ActivationCodeTran;
-import logic.model.BonusTran;
-import logic.model.Product;
-import logic.model.ShipmentTran;
+import laptopeco.logic.enums.DeliveryStatus;
+import laptopeco.logic.model.AbstractUser;
+import laptopeco.logic.model.ActivationCodeTran;
+import laptopeco.logic.model.BonusTran;
+import laptopeco.logic.model.Product;
+import laptopeco.logic.model.ShipmentTran;
 
 public class TransactionDAO {
 	

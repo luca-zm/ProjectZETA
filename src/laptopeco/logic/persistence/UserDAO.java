@@ -1,6 +1,7 @@
-package logic.persistence;
+package laptopeco.logic.persistence;
 
 import java.sql.PreparedStatement;
+
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,8 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import logic.model.AbstractUser;
-import logic.model.FactoryUsers;
+import laptopeco.logic.model.AbstractUser;
+import laptopeco.logic.model.FactoryUsers;
 
 
 public class UserDAO {

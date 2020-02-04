@@ -4,14 +4,12 @@ import java.io.IOException;
 
 
 import java.sql.SQLException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import webeco.src.controller.ControllerShopCartCheckOut;
 import webeco.src.controller.ControllerWishList;
 import laptopeco.logic.model.AbstractUser;
@@ -28,7 +26,6 @@ public class WishlistServlet extends HttpServlet {
      */
     public WishlistServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -49,7 +46,6 @@ public class WishlistServlet extends HttpServlet {
 				controller.addProduct(productId, session);
 				response.sendRedirect("wishlist.jsp");
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -62,7 +58,6 @@ public class WishlistServlet extends HttpServlet {
 				response.sendRedirect("wishlist.jsp");
 
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

@@ -3,23 +3,15 @@ package webeco.src.servlet;
 import java.io.IOException;
 
 import java.sql.SQLException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import laptopeco.bean.CollectionPointBean;
-import laptopeco.bean.UserBean;
 import webeco.src.controller.ControllerManageCollPoint;
-import webeco.src.controller.ControllerShopCartCheckOut;
-import webeco.src.controller.ControllerWishList;
-import laptopeco.logic.model.AbstractUser;
 import laptopeco.logic.model.CollectionPoint;
-import laptopeco.logic.model.Product;
-import laptopeco.logic.persistence.ProductDAO;
 
 /**
  * Servlet implementation class ModeratorServlet
@@ -33,14 +25,12 @@ public class ModeratorServlet extends HttpServlet {
      */
     public ModeratorServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -63,7 +53,6 @@ public class ModeratorServlet extends HttpServlet {
 			try {
 				conmod.insert(cb);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			response.sendRedirect("moderator.jsp");
@@ -78,7 +67,6 @@ public class ModeratorServlet extends HttpServlet {
 			try {
 				conmod.delete(cp);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			response.sendRedirect("moderator.jsp");

@@ -2,9 +2,9 @@ package webeco.src.controller;
 
 import java.security.SecureRandom;
 import java.sql.SQLException;
+import javax.servlet.http.HttpSession;
 import laptopeco.logic.model.AbstractUser;
 import laptopeco.logic.model.Product;
-import laptopeco.logic.model.Singleton;
 import laptopeco.logic.persistence.ProductDAO;
 import laptopeco.logic.persistence.WishListDAO;
 
@@ -30,12 +30,9 @@ public class ControllerWishList {
 	String currentTime = sdf.format(dt);
 	
 	
-	Singleton singleton = Singleton.getInstance();
-	
-	
-	public boolean addProductinWishList(int productId) throws SQLException{
+	public boolean addProductinWishList(int productId, HttpSession session) throws SQLException{
 
-		AbstractUser user = singleton.getUser();
+		AbstractUser user = (AbstractUser) session.getAttribute("user");
 		if (user == null) {
 			return false;
 		}
@@ -51,9 +48,9 @@ public class ControllerWishList {
 	}
 	
 	
-	public boolean deleteProductfromWishList(int productId) throws SQLException{
+	public boolean deleteProductfromWishList(int productId, HttpSession session) throws SQLException{
 
-		AbstractUser user = singleton.getUser();
+		AbstractUser user = (AbstractUser) session.getAttribute("user");
 		if (user == null) {
 			return false;
 		}
@@ -70,9 +67,9 @@ public class ControllerWishList {
 	}
 	
 	
-	public boolean clearWishList() throws SQLException {
+	public boolean clearWishList(HttpSession session) throws SQLException {
 		
-		AbstractUser user = singleton.getUser();
+		AbstractUser user = (AbstractUser) session.getAttribute("user");
 		if (user == null) {
 			return false;
 		}

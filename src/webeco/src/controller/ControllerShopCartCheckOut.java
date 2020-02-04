@@ -10,10 +10,10 @@ import laptopeco.logic.model.ActivationCodeTran;
 import laptopeco.logic.model.Message;
 import java.security.SecureRandom;
 import java.sql.SQLException;
+import javax.servlet.http.HttpSession;
 import laptopeco.bean.ActivationCodeBean;
 import laptopeco.logic.model.Product;
 import laptopeco.logic.model.ShipmentTran;
-import laptopeco.logic.model.Singleton;
 import laptopeco.logic.persistence.ActivationCodeDAO;
 import laptopeco.logic.persistence.MessageDAO;
 import laptopeco.logic.persistence.ProductDAO;
@@ -42,12 +42,9 @@ public class ControllerShopCartCheckOut {
 	   return sdf.format(dt);
 	}
 	
-	
-	Singleton singleton = Singleton.getInstance();
-	
-	public boolean addProduct(int productId) throws SQLException{
+	public boolean addProduct(int productId, HttpSession session) throws SQLException{
 
-		AbstractUser user = singleton.getUser();
+		AbstractUser user = (AbstractUser) session.getAttribute("user");
 		if (user == null) {
 			return false;
 		}
@@ -60,9 +57,9 @@ public class ControllerShopCartCheckOut {
 	}
 	
 	
-	public boolean deleteProduct(int productId) throws SQLException{
+	public boolean deleteProduct(int productId, HttpSession session) throws SQLException{
 
-		AbstractUser user = singleton.getUser();
+		AbstractUser user = (AbstractUser) session.getAttribute("user");
 		if (user == null) {
 			return false;
 		}
@@ -74,10 +71,10 @@ public class ControllerShopCartCheckOut {
 	}
 	
 	
-	public boolean buyShopCart() throws SQLException{
+	public boolean buyShopCart(HttpSession session) throws SQLException{
 		
 		
-		AbstractUser user = singleton.getUser();
+		AbstractUser user = (AbstractUser) session.getAttribute("user");
 		if (user == null) {
 			return false;
 		}
@@ -120,10 +117,10 @@ public class ControllerShopCartCheckOut {
 	}
 	
 	
-	public int enabledActivationCode(ActivationCodeBean code) throws SQLException {
+	public int enabledActivationCode(ActivationCodeBean code, HttpSession session) throws SQLException {
 		
 		
-		AbstractUser user = singleton.getUser();
+		AbstractUser user = (AbstractUser) session.getAttribute("user");
 
 		ActivationCode cod = ActivationCodeDAO.select(code.getActCodeBean());
 		

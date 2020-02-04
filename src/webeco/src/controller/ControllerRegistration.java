@@ -1,15 +1,12 @@
 package webeco.src.controller;
 
 import java.sql.SQLException;
-
 import javax.servlet.http.HttpSession;
-
 import laptopeco.bean.AddressBean;
 import laptopeco.bean.UserBean;
 import laptopeco.logic.model.AbstractUser;
 import laptopeco.logic.model.Address;
 import laptopeco.logic.model.FactoryUsers;
-import laptopeco.logic.model.Singleton;
 import laptopeco.logic.persistence.AddressDAO;
 import laptopeco.logic.persistence.UserDAO;
 

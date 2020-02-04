@@ -1,10 +1,10 @@
-package logic;
+package laptopeco.logic;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
 import javax.swing.JOptionPane;
-import controller.ControllerLogin;
+import laptopeco.controller.ControllerLogin;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,10 +17,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import logic.model.AbstractUser;
-import logic.model.Message;
-import logic.model.Singleton;
-import logic.persistence.MessageDAO;
+import laptopeco.logic.model.AbstractUser;
+import laptopeco.logic.model.Message;
+import laptopeco.logic.model.Singleton;
+import laptopeco.logic.persistence.MessageDAO;
 
 public class UserProfileController extends Application {
 

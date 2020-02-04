@@ -1,4 +1,4 @@
-package logic;
+package laptopeco.logic;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -27,10 +27,10 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
-import logic.model.AbstractUser;
-import logic.model.Product;
-import logic.model.Singleton;
-import controller.ControllerShopCartCheckOut;
+import laptopeco.logic.model.AbstractUser;
+import laptopeco.logic.model.Product;
+import laptopeco.logic.model.Singleton;
+import laptopeco.controller.ControllerShopCartCheckOut;
 public class ShopcartController extends Application {
 
 	

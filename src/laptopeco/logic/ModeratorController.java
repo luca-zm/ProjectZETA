@@ -1,4 +1,4 @@
-package logic;
+package laptopeco.logic;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -13,11 +13,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javafx.scene.control.TextArea;
-import logic.model.CollectionPoint;
-import logic.persistence.CollectionPointDAO;
+import laptopeco.logic.model.CollectionPoint;
+import laptopeco.logic.persistence.CollectionPointDAO;
 import javax.swing.*;
-import bean.CollectionPointBean;
-import controller.ControllerManageCollPoint;
+import laptopeco.bean.CollectionPointBean;
+import laptopeco.controller.ControllerManageCollPoint;
 
 public class ModeratorController extends Application {
 

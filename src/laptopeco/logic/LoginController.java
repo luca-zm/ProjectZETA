@@ -1,4 +1,4 @@
-package logic;
+package laptopeco.logic;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -10,13 +10,13 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
-import logic.enums.Roles;
-import logic.model.Singleton;
+import laptopeco.logic.enums.Roles;
+import laptopeco.logic.model.Singleton;
 import javax.swing.*;
-import bean.AddressBean;
-import bean.UserBean;
-import controller.ControllerLogin;
-import controller.ControllerRegistration;
+import laptopeco.bean.AddressBean;
+import laptopeco.bean.UserBean;
+import laptopeco.controller.ControllerLogin;
+import laptopeco.controller.ControllerRegistration;
 
 public class LoginController extends Application {
 

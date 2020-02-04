@@ -1,4 +1,4 @@
-package logic;
+package laptopeco.logic;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -15,12 +15,12 @@ import java.util.List;
 
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
-import logic.model.CollectionPoint;
-import logic.model.Singleton;
-import logic.persistence.CollectionPointDAO;
+import laptopeco.logic.model.CollectionPoint;
+import laptopeco.logic.model.Singleton;
+import laptopeco.logic.persistence.CollectionPointDAO;
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import controller.ControllerManageCollPoint;
+import laptopeco.controller.ControllerManageCollPoint;
 
 public class MapController extends Application implements ActionListener{
 	

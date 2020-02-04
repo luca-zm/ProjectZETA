@@ -1,4 +1,4 @@
-package logic;
+package laptopeco.logic;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -12,11 +12,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javafx.scene.control.TextArea;
-import logic.enums.Category;
-import logic.model.AbstractUser;
-import logic.model.Product;
-import logic.persistence.ProductDAO;
-import logic.persistence.UserDAO;
+import laptopeco.logic.enums.Category;
+import laptopeco.logic.model.AbstractUser;
+import laptopeco.logic.model.Product;
+import laptopeco.logic.persistence.ProductDAO;
+import laptopeco.logic.persistence.UserDAO;
 
 import javax.swing.*;
 

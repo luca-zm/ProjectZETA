@@ -1,4 +1,4 @@
-package logic;
+package laptopeco.logic;
 
 
 import javafx.application.Application;

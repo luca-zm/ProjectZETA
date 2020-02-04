@@ -1,4 +1,4 @@
-package logic;
+package laptopeco.logic;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -25,12 +25,12 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
-import logic.model.AbstractUser;
-import logic.model.Product;
-import logic.model.Singleton;
-import logic.persistence.WishListDAO;
-import controller.ControllerShopCartCheckOut;
-import controller.ControllerWishList;
+import laptopeco.logic.model.AbstractUser;
+import laptopeco.logic.model.Product;
+import laptopeco.logic.model.Singleton;
+import laptopeco.logic.persistence.WishListDAO;
+import laptopeco.controller.ControllerShopCartCheckOut;
+import laptopeco.controller.ControllerWishList;
 
 public class WishlistController extends Application {
 

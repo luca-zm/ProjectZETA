@@ -1,4 +1,4 @@
-package logic;
+package laptopeco.logic;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -7,7 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import java.io.IOException;
-import logic.model.Singleton;
+import laptopeco.logic.model.Singleton;
 
 
 public class WarningController extends Application {

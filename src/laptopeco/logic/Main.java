@@ -1,4 +1,4 @@
-package logic;
+package laptopeco.logic;
 import java.sql.SQLException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

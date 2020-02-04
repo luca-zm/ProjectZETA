@@ -1,4 +1,4 @@
-package logic;
+package laptopeco.logic;
 
 
 import java.io.IOException;
@@ -9,8 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import logic.model.Product;
-import logic.model.Singleton;
+import laptopeco.logic.model.Product;
+import laptopeco.logic.model.Singleton;
 
 public class WinNext{
 

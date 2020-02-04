@@ -1,4 +1,4 @@
-package logic;
+package laptopeco.logic;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -10,7 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.IOException;
 import javafx.scene.control.TextArea;
-import logic.model.Singleton;
+import laptopeco.logic.model.Singleton;
 
 public class InfoProductController extends Application {
 

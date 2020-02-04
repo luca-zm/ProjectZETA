@@ -1,11 +1,11 @@
-package logic;
+package laptopeco.logic;
 
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.stage.Stage;
-import logic.model.AbstractUser;
+import laptopeco.logic.model.AbstractUser;
 
 public class ManagerClick {
 

@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Text?>
 <?scenebuilder-stylesheet fextile.css?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="754.0" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="754.0" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laptopeco.logic.LoginController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e6f5eb" height="160.0" layoutX="354.0" layoutY="278.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="347.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#48aa77" height="771.0" layoutX="313.0" layoutY="-88.0" stroke="WHITE" strokeType="INSIDE" width="18.0" />

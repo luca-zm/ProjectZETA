@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="188.0" prefWidth="357.0" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.WarningController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="188.0" prefWidth="357.0" stylesheets="@fextile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laptopeco.logic.WarningController">
    <children>
       <Button id="log" layoutX="41.0" layoutY="118.0" mnemonicParsing="false" onAction="#next" styleClass="btn-success" text="Go to Login!" />
       <Button id="cancel" layoutX="177.0" layoutY="118.0" mnemonicParsing="false" onAction="#next" styleClass="btn-danger" text="Continue as guest" />

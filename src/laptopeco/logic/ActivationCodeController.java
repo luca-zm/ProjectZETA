@@ -1,4 +1,4 @@
-package logic;
+package laptopeco.logic;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -11,13 +11,13 @@ import java.io.IOException;
 import java.sql.SQLException;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
-import logic.model.AbstractUser;
-import logic.model.Singleton;
+import laptopeco.logic.model.AbstractUser;
+import laptopeco.logic.model.Singleton;
 import javax.swing.*;
-import bean.ActivationCodeBean;
-import bean.BeanValidate;
-import controller.ControllerLogin;
-import controller.ControllerShopCartCheckOut;
+import laptopeco.bean.ActivationCodeBean;
+import laptopeco.bean.BeanValidate;
+import laptopeco.controller.ControllerLogin;
+import laptopeco.controller.ControllerShopCartCheckOut;
 
 public class ActivationCodeController extends Application {
 

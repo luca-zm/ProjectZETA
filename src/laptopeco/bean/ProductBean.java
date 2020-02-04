@@ -1,6 +1,6 @@
 package laptopeco.bean;
 
-import logic.enums.Category;
+import laptopeco.logic.enums.Category;
 
 public class ProductBean {
 	private int idProductBean;

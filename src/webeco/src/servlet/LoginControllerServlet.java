@@ -3,6 +3,7 @@ package webeco.src.servlet;
 
 import java.io.IOException;
 
+
 import java.io.PrintWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,7 +18,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.swing.JOptionPane;
 
 import laptopeco.bean.AddressBean;
 import laptopeco.bean.UserBean;
@@ -28,7 +28,6 @@ import laptopeco.logic.enums.Roles;
 import laptopeco.logic.model.AbstractUser;
 import laptopeco.logic.model.CollectionPoint;
 import laptopeco.logic.model.Product;
-import laptopeco.logic.model.ShopCart;
 import laptopeco.logic.persistence.AddressDAO;
 import laptopeco.logic.persistence.CollectionPointDAO;
 import laptopeco.logic.persistence.ProductDAO;
@@ -50,46 +49,45 @@ public class LoginControllerServlet extends HttpServlet {
 		HttpSession session = request.getSession(); 
 		String action = request.getParameter("action");
 		PrintWriter out = response.getWriter();
+		String scr = "<script>";
+		String scr2 = "</script>";
+		String scr3 = "$(document).ready(function(){";
 		String script = "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>";
 		String scriptcloud = "<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>";
 		String index = "index.jsp";
 		
 		ControllerManageCollPoint c = new ControllerManageCollPoint();
 		URL mapUrl = null;
-		try {
-			
-			mapUrl = c.startUrl();
-			
-		} catch (MalformedURLException e1) {e1.printStackTrace();} catch (SQLException e1) {e1.printStackTrace();}
-		
+		mapUrl = c.startUrl();
+					
 		
 		
 		
 		
 		if("login".equals(action)) {
-			ControllerLogin CL = new ControllerLogin();
+			ControllerLogin cl = new ControllerLogin();
 			String mail=request.getParameter("username");
 			String pw=request.getParameter("password");
 			UserBean ub = new UserBean(0, mail, null, null, pw, null);
 			
 			try {
-				if(CL.login(ub, session))
+				if(cl.login(ub, session))
 				{
 				
 					AbstractUser user = (AbstractUser) session.getAttribute("user");
 					if(user.getType().equals(Roles.USER)) {
 						List<Product> catalogo = ProductDAO.select();
-						List<Product> catalogo_mini = new ArrayList<>();
+						List<Product> catalogomini = new ArrayList<>();
 						List<CollectionPoint> collpoint = CollectionPointDAO.select();
 						for(Product p: catalogo) {
 							if(p.getPrice() > 100) {
-								catalogo_mini.add(p);
+								catalogomini.add(p);
 						
 							}
 						}
 						session.setAttribute("mapImage", mapUrl);
 						session.setAttribute("collpoint", collpoint);
-						session.setAttribute("catalogomini", catalogo_mini);
+						session.setAttribute("catalogomini", catalogomini);
 						session.setAttribute("catalogo", catalogo);
 						
 						session.setAttribute("indirizzo", AddressDAO.findAddressById(user.getId()));
@@ -121,11 +119,11 @@ public class LoginControllerServlet extends HttpServlet {
 				else {
 					out.println(scriptcloud);
 					out.println(script);
-					out.println("<script>");
-					out.println("$(document).ready(function(){");
+					out.println(scr);
+					out.println(scr3);
 					out.println("swal ( 'Wrong email or password' ,  'Try again !' ,  'error' );");
 					out.println("});");
-					out.println("</script>");
+					out.println(scr2);
 					RequestDispatcher rd = request.getRequestDispatcher(index);
 					rd.include(request, response);
 				}
@@ -161,22 +159,22 @@ public class LoginControllerServlet extends HttpServlet {
 						if(cr.register(ub)) {
 							out.println(scriptcloud);
 							out.println(script);
-							out.println("<script>");
-							out.println("$(document).ready(function(){");
+							out.println(scr);
+							out.println(scr3);
 							out.println("swal ( 'Successfull Registration !' ,  'Login in ' ,  'success' );");
 							out.println("});");
-							out.println("</script>");
+							out.println(scr2);
 							RequestDispatcher rd = request.getRequestDispatcher(index);
 							rd.include(request, response);
 						}
 						else {
 							out.println(scriptcloud);
 							out.println(script);
-							out.println("<script>");
-							out.println("$(document).ready(function(){");
+							out.println(scr);
+							out.println(scr3);
 							out.println("swal ( 'User already Registered' ,  'Try Again !' ,  'error' );");
 							out.println("});");
-							out.println("</script>");
+							out.println(scr2);
 							RequestDispatcher rd = request.getRequestDispatcher(index);
 							rd.include(request, response);
 						}
@@ -188,11 +186,11 @@ public class LoginControllerServlet extends HttpServlet {
 			else {
 				out.println(scriptcloud);
 				out.println(script);
-				out.println("<script>");
-				out.println("$(document).ready(function(){");
+				out.println(scr);
+				out.println(scr3);
 				out.println("swal ( 'Password and confirm password are different' ,  'Try again !' ,  'error' );");
 				out.println("});");
-				out.println("</script>");
+				out.println(scr2);
 				RequestDispatcher rd = request.getRequestDispatcher(index);
 				rd.include(request, response);
 			}
@@ -206,6 +204,8 @@ public class LoginControllerServlet extends HttpServlet {
 		}
 
 	}
+	
+	
 	
 	
 

@@ -1,7 +1,6 @@
 package webeco.src.controller;
 
 import java.sql.SQLException;
-import javax.servlet.http.HttpSession;
 import laptopeco.bean.AddressBean;
 import laptopeco.bean.UserBean;
 import laptopeco.logic.model.AbstractUser;

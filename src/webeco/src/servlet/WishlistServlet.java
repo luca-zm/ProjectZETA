@@ -54,7 +54,6 @@ public class WishlistServlet extends HttpServlet {
 				ControllerWishList controller2 = new ControllerWishList();
 				controller2.deleteProductfromWishList(productId, session);
 				AbstractUser user = (AbstractUser) session.getAttribute("user");
-				System.out.println(user.getWishList().getList());
 				response.sendRedirect("wishlist.jsp");
 
 			} catch (SQLException e) {

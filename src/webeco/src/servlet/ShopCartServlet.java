@@ -2,9 +2,9 @@ package webeco.src.servlet;
 
 import java.io.IOException;
 
+
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,7 +16,6 @@ import webeco.src.controller.ControllerShopCartCheckOut;
 import webeco.src.controller.ControllerWishList;
 import laptopeco.logic.model.AbstractUser;
 import laptopeco.logic.model.Product;
-import laptopeco.logic.persistence.ProductDAO;
 
 /**
  * Servlet implementation class ShopCartServlet
@@ -37,6 +36,8 @@ public class ShopCartServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			HttpSession session = request.getSession(); 
+			
+			String c = "cart.jsp";
 
 			String action = request.getParameter("action");
 			ControllerShopCartCheckOut controller = new ControllerShopCartCheckOut();
@@ -45,7 +46,7 @@ public class ShopCartServlet extends HttpServlet {
 				int productId = Integer.parseInt(request.getParameter("productId"));
 				try {
 					controller.deleteProduct(productId, session);
-					response.sendRedirect("cart.jsp");
+					response.sendRedirect(c);
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
@@ -70,14 +71,14 @@ public class ShopCartServlet extends HttpServlet {
 							out.println("swal ( 'Product already inserted in Wish List!' ,  '' ,  '' );");
 							out.println("});");
 							out.println("</script>");
-							RequestDispatcher rd = request.getRequestDispatcher("cart.jsp");
+							RequestDispatcher rd = request.getRequestDispatcher(c);
 							rd.include(request, response);
 							return;
 						}
 						
 					}
 					cwish.addProductinWishList(productIddown, session);
-					response.sendRedirect("cart.jsp");
+					response.sendRedirect(c);
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
@@ -88,7 +89,7 @@ public class ShopCartServlet extends HttpServlet {
 
 				try {
 					controller.addProduct(productIddown, session);
-					response.sendRedirect("cart.jsp");
+					response.sendRedirect(c);
 					return;
 				} catch (SQLException e) {
 					e.printStackTrace();
@@ -119,7 +120,7 @@ public class ShopCartServlet extends HttpServlet {
 					out.println("swal ( 'Shop Cart is empty' ,  'Add products !' ,  'error' );");
 					out.println("});");
 					out.println("</script>");
-					RequestDispatcher rd = request.getRequestDispatcher("cart.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher(c);
 					rd.include(request, response);
 					return;
 				}

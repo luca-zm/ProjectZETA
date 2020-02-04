@@ -87,7 +87,6 @@ public class HomePageServlet extends HttpServlet {
 				controller.addProduct(productId, session);
 				RequestDispatcher rd = request.getRequestDispatcher(h);
 				rd.include(request, response);
-				return;
 			} catch (SQLException e) {
 				// empty
 				e.printStackTrace();
@@ -104,7 +103,6 @@ public class HomePageServlet extends HttpServlet {
 			}
 			session.setAttribute("product", p);
 			request.getRequestDispatcher("product.jsp").forward(request, response);
-			return;
 		}
 	}
 

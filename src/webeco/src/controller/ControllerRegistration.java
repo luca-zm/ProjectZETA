@@ -1,6 +1,9 @@
 package webeco.src.controller;
 
 import java.sql.SQLException;
+
+import javax.servlet.http.HttpSession;
+
 import laptopeco.bean.AddressBean;
 import laptopeco.bean.UserBean;
 import laptopeco.logic.model.AbstractUser;
@@ -11,7 +14,7 @@ import laptopeco.logic.persistence.AddressDAO;
 import laptopeco.logic.persistence.UserDAO;
 
 public class ControllerRegistration {
-	public Boolean register(UserBean userBean, ) throws SQLException {
+	public Boolean register(UserBean userBean, HttpSession session) throws SQLException {
 		String mail = userBean.getMail();
 		String pass = userBean.getPass();
 		String name = userBean.getName();
@@ -29,7 +32,6 @@ public class ControllerRegistration {
 		AddressDAO.insert(addr);
 	
 		user.setAddress(addr);
-		singleton.setUser(user);
 		
 		UserDAO.insert(user);
 		return true;

@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import webeco.src.controller.ControllerShopCartCheckOut;
 import webeco.src.controller.ControllerWishList;
-import laptopeco.logic.model.AbstractUser;
 
 /**
  * Servlet implementation class WIshlistServlet
@@ -53,7 +52,6 @@ public class WishlistServlet extends HttpServlet {
 			try {
 				ControllerWishList controller2 = new ControllerWishList();
 				controller2.deleteProductfromWishList(productId, session);
-				AbstractUser user = (AbstractUser) session.getAttribute("user");
 				response.sendRedirect("wishlist.jsp");
 
 			} catch (SQLException e) {

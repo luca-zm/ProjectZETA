@@ -1,5 +1,4 @@
-package bean;
-
+package laptopeco.bean;
 public class CollectionPointBean {
 	private int idCollPointBean;
 	private String nameCollPointBean;

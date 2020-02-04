@@ -1,4 +1,4 @@
-package bean;
+package laptopeco.bean;
 
 public class BeanValidate {
 	

@@ -1,4 +1,4 @@
-package bean;
+package laptopeco.bean;
 public class UserBean {
 	protected int id;
 	protected String name;

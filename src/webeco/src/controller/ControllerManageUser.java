@@ -1,10 +1,10 @@
-package controller;
+package laptopeco.controller;
 
 import java.sql.SQLException;
 
-import bean.UserBean;
-import model.AbstractUser;
-import persistence.UserDAO;
+import laptopeco.bean.UserBean;
+import laptopeco.logic.model.AbstractUser;
+import laptopeco.logic.persistence.UserDAO;
 
 public class ControllerManageUser {
 	public Boolean update(UserBean userBean) throws SQLException {
@@ -15,7 +15,7 @@ public class ControllerManageUser {
 	
 	public Boolean delete(UserBean userBean) throws SQLException {
 		AbstractUser user = UserDAO.findUserById(userBean.getId());
-		UserDAO.delete(user);
+		UserDAO.update(user);
 		return true;
 	}
 

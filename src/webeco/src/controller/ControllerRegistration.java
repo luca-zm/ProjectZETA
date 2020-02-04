@@ -1,19 +1,14 @@
-package controller;
+package laptopeco.controller;
 
 import java.sql.SQLException;
-
-import javax.servlet.http.HttpSession;
-import javax.swing.JOptionPane;
-
-import bean.AddressBean;
-import bean.UserBean;
-import enums.Roles;
-import model.AbstractUser;
-import model.Address;
-import model.FactoryUsers;
-import model.Singleton;
-import persistence.AddressDAO;
-import persistence.UserDAO;
+import laptopeco.bean.AddressBean;
+import laptopeco.bean.UserBean;
+import laptopeco.logic.model.AbstractUser;
+import laptopeco.logic.model.Address;
+import laptopeco.logic.model.FactoryUsers;
+import laptopeco.logic.model.Singleton;
+import laptopeco.logic.persistence.AddressDAO;
+import laptopeco.logic.persistence.UserDAO;
 
 public class ControllerRegistration {
 	Singleton singleton = Singleton.getInstance();
@@ -31,11 +26,11 @@ public class ControllerRegistration {
 		
 		AbstractUser user = FactoryUsers.get(0, mail, name, surname, pass, "USER");
 		
-		Address addr = new Address(0, addrBean.getAddress(), addrBean.getCity(), addrBean.getPostalCode(), addrBean.getTelephone(), addrBean.getState(), addrBean.getZone());
+		Address addr = new Address(0, addrBean.getAddrBean(), addrBean.getCityBean(), addrBean.getPostalCodeBean(), addrBean.getTelephoneBean(), addrBean.getStateBean(),  addrBean.getZoneBean());
 		AddressDAO.insert(addr);
 	
 		user.setAddress(addr);
-
+		singleton.setUser(user);
 		
 		UserDAO.insert(user);
 		return true;

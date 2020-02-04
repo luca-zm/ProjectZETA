@@ -1,14 +1,14 @@
-package controller;
+package laptopeco.controller;
 
 import java.sql.SQLException;
-import bean.AddressBean;
-import bean.UserBean;
-import logic.model.AbstractUser;
-import logic.model.Address;
-import logic.model.FactoryUsers;
-import logic.model.Singleton;
-import logic.persistence.AddressDAO;
-import logic.persistence.UserDAO;
+import laptopeco.bean.AddressBean;
+import laptopeco.bean.UserBean;
+import laptopeco.logic.model.AbstractUser;
+import laptopeco.logic.model.Address;
+import laptopeco.logic.model.FactoryUsers;
+import laptopeco.logic.model.Singleton;
+import laptopeco.logic.persistence.AddressDAO;
+import laptopeco.logic.persistence.UserDAO;
 
 public class ControllerRegistration {
 	Singleton singleton = Singleton.getInstance();

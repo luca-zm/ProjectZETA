@@ -1,25 +1,25 @@
-package controller;
+package laptopeco.controller;
 
-import logic.enums.DeliveryStatus;
+import laptopeco.logic.enums.DeliveryStatus;
 
 
-import logic.enums.MesType;
-import logic.model.AbstractUser;
-import logic.model.ActivationCode;
-import logic.model.ActivationCodeTran;
-import logic.model.Message;
+import laptopeco.logic.enums.MesType;
+import laptopeco.logic.model.AbstractUser;
+import laptopeco.logic.model.ActivationCode;
+import laptopeco.logic.model.ActivationCodeTran;
+import laptopeco.logic.model.Message;
 import java.security.SecureRandom;
 import java.sql.SQLException;
 
-import bean.ActivationCodeBean;
-import logic.model.Product;
-import logic.model.ShipmentTran;
-import logic.model.Singleton;
-import logic.persistence.ActivationCodeDAO;
-import logic.persistence.MessageDAO;
-import logic.persistence.ProductDAO;
-import logic.persistence.TransactionDAO;
-import logic.persistence.UserDAO;
+import laptopeco.bean.ActivationCodeBean;
+import laptopeco.logic.model.Product;
+import laptopeco.logic.model.ShipmentTran;
+import laptopeco.logic.model.Singleton;
+import laptopeco.logic.persistence.ActivationCodeDAO;
+import laptopeco.logic.persistence.MessageDAO;
+import laptopeco.logic.persistence.ProductDAO;
+import laptopeco.logic.persistence.TransactionDAO;
+import laptopeco.logic.persistence.UserDAO;
 
 public class ControllerShopCartCheckOut {
 	

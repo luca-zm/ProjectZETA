@@ -1,13 +1,12 @@
-package model;
+package logic.model;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
-import enums.DeliveryStatus;
-import enums.MesType;
-import persistence.MessageDAO;
-import persistence.TransactionDAO;
-import persistence.UserDAO;
+import logic.enums.MesType;
+import logic.persistence.MessageDAO;
+import logic.persistence.TransactionDAO;
+import logic.persistence.UserDAO;
 
 public class BonusMachine implements Observer{
 	
@@ -16,7 +15,6 @@ public class BonusMachine implements Observer{
 	private int greenCoinMemo;
 	private int greenCoinTarget;
 	private int bonus;
-	private int activationGreenCoin;
 	public BonusMachine(AbstractUser user) throws SQLException {
 		super();
 		this.user = user;
@@ -46,7 +44,7 @@ public class BonusMachine implements Observer{
 	}
 	
 	public int getHistoryPrice() throws SQLException {
-		ArrayList<ActivationCodeTran> listActCodeTran = TransactionDAO.selectActivationCodeTra(user);
+		List<ActivationCodeTran> listActCodeTran = TransactionDAO.selectActivationCodeTra(user);
 		int activationGreenCoin = 0;
 		
 		for (ActivationCodeTran actCodeTran : listActCodeTran) {

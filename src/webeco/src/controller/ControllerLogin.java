@@ -1,74 +1,71 @@
-package controller;
+package webeco.src.controller;
 
 import java.sql.SQLException;
+
 import java.util.ArrayList;
+import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
-import bean.AddressBean;
-import bean.UserBean;
-import model.AbstractUser;
-import model.ActivationCodeTran;
-import model.Address;
-import model.BonusMachine;
-import model.BonusTran;
-import model.History;
-import model.Message;
-import model.NoticeBoard;
-import model.Product;
-import model.ShipmentTran;
-import model.ShopCart;
-import model.Singleton;
-import model.Transaction;
-import model.WishList;
-import persistence.ActivationCodeDAO;
-import persistence.AddressDAO;
-import persistence.MessageDAO;
-import persistence.ProductDAO;
-import persistence.TransactionDAO;
-import persistence.UserDAO;
-import persistence.WishListDAO;
+import laptopeco.bean.UserBean;
+import laptopeco.logic.model.AbstractUser;
+import laptopeco.logic.model.ActivationCodeTran;
+import laptopeco.logic.model.Address;
+import laptopeco.logic.model.BonusMachine;
+import laptopeco.logic.model.BonusTran;
+import laptopeco.logic.model.History;
+import laptopeco.logic.model.Message;
+import laptopeco.logic.model.NoticeBoard;
+import laptopeco.logic.model.Product;
+import laptopeco.logic.model.ShipmentTran;
+import laptopeco.logic.model.Singleton;
+import laptopeco.logic.model.Transaction;
+import laptopeco.logic.model.WishList;
+import laptopeco.logic.persistence.AddressDAO;
+import laptopeco.logic.persistence.MessageDAO;
+import laptopeco.logic.persistence.TransactionDAO;
+import laptopeco.logic.persistence.UserDAO;
+import laptopeco.logic.persistence.WishListDAO;
 
 public class ControllerLogin {
+	Singleton singleton = Singleton.getInstance();
 	
-	public Boolean login(UserBean userBean, HttpSession session) throws SQLException {		
+	public Boolean login(UserBean userBean) throws SQLException {
+		
 		String mail = userBean.getMail();
 		String pass = userBean.getPass();
 		AbstractUser user = UserDAO.findRegisteredUser(mail);
 		if (user == null || !user.getPass().equals(pass)) {
 			return false;
 		}
-		
-		ShopCart shopcart = new ShopCart();
-		ArrayList<Product> productList = WishListDAO.select(user);
+		List<Product> productList = WishListDAO.select(user);
 		WishList wishList = new WishList(productList);
 		user.setWishList(wishList);
 		
-		ArrayList<ActivationCodeTran> actcodeTranList = TransactionDAO.selectActivationCodeTra(user);
-		ArrayList<BonusTran> bonusTranList = TransactionDAO.selectBonusTran(user);
-		ArrayList<ShipmentTran> shipmentList = TransactionDAO.selectShipment(user);
-		ArrayList<Transaction> list = new ArrayList<Transaction>();
+		List<ActivationCodeTran> actcodeTranList = TransactionDAO.selectActivationCodeTra(user);
+		List<BonusTran> bonusTranList = TransactionDAO.selectBonusTran(user);
+		List<ShipmentTran> shipmentList = TransactionDAO.selectShipment(user);
+		ArrayList<Transaction> list = new ArrayList<>();
 		list.addAll(actcodeTranList);
 		list.addAll(bonusTranList);
 		list.addAll(shipmentList);
 		History history = new History(list);
 		user.setHistory(history);
 		
-		ArrayList<Message> messageList = MessageDAO.select(user);
+		List<Message> messageList = MessageDAO.select(user);
 		NoticeBoard noticeBoard = new NoticeBoard(messageList);
 		user.setBoards(noticeBoard);
 
 		Address address = AddressDAO.select(user);
-		user.setAddress(address);
-		
-		BonusMachine machine = new BonusMachine(user);		
-		
-		session.setAttribute("user", user);
-		
-		System.out.println(user);
-		
+		user.setAddress(address);		
+		BonusMachine machine = new BonusMachine(user);
+		machine.getClass();
+		singleton.setUser(user);	
 		return true;
 	}
-
-
+	
+	public AbstractUser giveUserForRole(UserBean u) throws SQLException {		
+		return UserDAO.findRegisteredUser(u.getMail());
+	}
+	
 }
+
+

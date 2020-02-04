@@ -1,10 +1,10 @@
-package controller;
+package laptopeco.controller;
 
 import java.sql.SQLException;
 
-import bean.UserBean;
-import logic.model.AbstractUser;
-import logic.persistence.UserDAO;
+import laptopeco.bean.UserBean;
+import laptopeco.logic.model.AbstractUser;
+import laptopeco.logic.persistence.UserDAO;
 
 public class ControllerManageUser {
 	public Boolean update(UserBean userBean) throws SQLException {

@@ -1,4 +1,4 @@
-package bean;
+package laptopeco.bean;
 
 import logic.enums.Category;
 

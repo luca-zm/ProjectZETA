@@ -1,23 +1,12 @@
-package controller;
+package laptopeco.controller;
 
 import java.security.SecureRandom;
 import java.sql.SQLException;
-
-import javax.servlet.http.HttpSession;
-
-import bean.ProductBean;
-import enums.DeliveryStatus;
-import enums.MesType;
-import model.AbstractUser;
-import model.Message;
-import model.Product;
-import model.ShipmentTran;
-import model.Singleton;
-import model.User;
-import persistence.ProductDAO;
-import persistence.TransactionDAO;
-import persistence.UserDAO;
-import persistence.WishListDAO;
+import laptopeco.logic.model.AbstractUser;
+import laptopeco.logic.model.Product;
+import laptopeco.logic.model.Singleton;
+import laptopeco.logic.persistence.ProductDAO;
+import laptopeco.logic.persistence.WishListDAO;
 
 public class ControllerWishList {
 	
@@ -41,11 +30,12 @@ public class ControllerWishList {
 	String currentTime = sdf.format(dt);
 	
 	
+	Singleton singleton = Singleton.getInstance();
 	
 	
-	public boolean addProductinWishList(int productId, HttpSession session) throws SQLException{
+	public boolean addProductinWishList(int productId) throws SQLException{
 
-		AbstractUser user = (AbstractUser) session.getAttribute("user");
+		AbstractUser user = singleton.getUser();
 		if (user == null) {
 			return false;
 		}
@@ -61,9 +51,9 @@ public class ControllerWishList {
 	}
 	
 	
-	public boolean deleteProductfromWishList(int productId, HttpSession session) throws SQLException{
+	public boolean deleteProductfromWishList(int productId) throws SQLException{
 
-		AbstractUser user = (AbstractUser) session.getAttribute("user");
+		AbstractUser user = singleton.getUser();
 		if (user == null) {
 			return false;
 		}
@@ -75,13 +65,14 @@ public class ControllerWishList {
 		user.getWishList().deleteProduct(product);
 		
 		
+		
 		return true;
 	}
 	
 	
-	public boolean clearWishList(HttpSession session) throws SQLException {
+	public boolean clearWishList() throws SQLException {
 		
-		AbstractUser user = (AbstractUser) session.getAttribute("user");
+		AbstractUser user = singleton.getUser();
 		if (user == null) {
 			return false;
 		}

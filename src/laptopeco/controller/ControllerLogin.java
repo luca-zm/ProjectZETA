@@ -1,29 +1,29 @@
-package controller;
+package laptopeco.controller;
 
 import java.sql.SQLException;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import bean.UserBean;
-import logic.model.AbstractUser;
-import logic.model.ActivationCodeTran;
-import logic.model.Address;
-import logic.model.BonusMachine;
-import logic.model.BonusTran;
-import logic.model.History;
-import logic.model.Message;
-import logic.model.NoticeBoard;
-import logic.model.Product;
-import logic.model.ShipmentTran;
-import logic.model.Singleton;
-import logic.model.Transaction;
-import logic.model.WishList;
-import logic.persistence.AddressDAO;
-import logic.persistence.MessageDAO;
-import logic.persistence.TransactionDAO;
-import logic.persistence.UserDAO;
-import logic.persistence.WishListDAO;
+import laptopeco.bean.UserBean;
+import laptopeco.logic.model.AbstractUser;
+import laptopeco.logic.model.ActivationCodeTran;
+import laptopeco.logic.model.Address;
+import laptopeco.logic.model.BonusMachine;
+import laptopeco.logic.model.BonusTran;
+import laptopeco.logic.model.History;
+import laptopeco.logic.model.Message;
+import laptopeco.logic.model.NoticeBoard;
+import laptopeco.logic.model.Product;
+import laptopeco.logic.model.ShipmentTran;
+import laptopeco.logic.model.Singleton;
+import laptopeco.logic.model.Transaction;
+import laptopeco.logic.model.WishList;
+import laptopeco.logic.persistence.AddressDAO;
+import laptopeco.logic.persistence.MessageDAO;
+import laptopeco.logic.persistence.TransactionDAO;
+import laptopeco.logic.persistence.UserDAO;
+import laptopeco.logic.persistence.WishListDAO;
 
 public class ControllerLogin {
 	Singleton singleton = Singleton.getInstance();

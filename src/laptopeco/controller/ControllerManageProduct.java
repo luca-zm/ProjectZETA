@@ -1,10 +1,10 @@
-package controller;
+package laptopeco.controller;
 
 import java.sql.SQLException;
-import bean.ProductBean;
-import logic.enums.Category;
-import logic.model.Product;
-import logic.persistence.ProductDAO;
+import laptopeco.bean.ProductBean;
+import laptopeco.logic.enums.Category;
+import laptopeco.logic.model.Product;
+import laptopeco.logic.persistence.ProductDAO;
 
 public class ControllerManageProduct {
 	public Boolean addProduct(ProductBean productBean) throws SQLException {

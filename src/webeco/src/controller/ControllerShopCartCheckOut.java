@@ -1,29 +1,25 @@
-package controller;
+package laptopeco.controller;
 
-import enums.DeliveryStatus;
+import laptopeco.logic.enums.DeliveryStatus;
 
-import enums.MesType;
-import model.AbstractUser;
-import model.ActivationCode;
-import model.ActivationCodeTran;
-import model.Message;
 
+import laptopeco.logic.enums.MesType;
+import laptopeco.logic.model.AbstractUser;
+import laptopeco.logic.model.ActivationCode;
+import laptopeco.logic.model.ActivationCodeTran;
+import laptopeco.logic.model.Message;
 import java.security.SecureRandom;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
-import javax.servlet.http.HttpSession;
-
-import bean.ActivationCodeBean;
-import bean.ProductBean;
-import model.Product;
-import model.ShipmentTran;
-import model.Singleton;
-import persistence.ActivationCodeDAO;
-import persistence.MessageDAO;
-import persistence.ProductDAO;
-import persistence.TransactionDAO;
-import persistence.UserDAO;
+import laptopeco.bean.ActivationCodeBean;
+import laptopeco.logic.model.Product;
+import laptopeco.logic.model.ShipmentTran;
+import laptopeco.logic.model.Singleton;
+import laptopeco.logic.persistence.ActivationCodeDAO;
+import laptopeco.logic.persistence.MessageDAO;
+import laptopeco.logic.persistence.ProductDAO;
+import laptopeco.logic.persistence.TransactionDAO;
+import laptopeco.logic.persistence.UserDAO;
 
 public class ControllerShopCartCheckOut {
 	
@@ -47,9 +43,12 @@ public class ControllerShopCartCheckOut {
 	   return sdf.format(dt);
 	}
 	
-	public boolean addProduct(int productId, HttpSession session) throws SQLException{
+	
+	Singleton singleton = Singleton.getInstance();
+	
+	public boolean addProduct(int productId) throws SQLException{
 
-		AbstractUser user = (AbstractUser) session.getAttribute("user");
+		AbstractUser user = singleton.getUser();
 		if (user == null) {
 			return false;
 		}
@@ -62,9 +61,9 @@ public class ControllerShopCartCheckOut {
 	}
 	
 	
-	public boolean deleteProduct(int productId,  HttpSession session) throws SQLException{
+	public boolean deleteProduct(int productId) throws SQLException{
 
-		AbstractUser user = (AbstractUser) session.getAttribute("user");
+		AbstractUser user = singleton.getUser();
 		if (user == null) {
 			return false;
 		}
@@ -72,24 +71,20 @@ public class ControllerShopCartCheckOut {
 		Product product = ProductDAO.selectProduct(productId);
 		
 		user.getCart().deleteProduct(product);
-		//System.out.println(user.getCart().getProductList().remove(product));
 		return true;
 	}
-
 	
 	
-	
-	public boolean buyShopCart( HttpSession session) throws SQLException{
+	public boolean buyShopCart() throws SQLException{
 		
 		
-		AbstractUser user = (AbstractUser) session.getAttribute("user");
+		AbstractUser user = singleton.getUser();
 		if (user == null) {
 			return false;
 		}
 		
 		
 		if(user.getCart().getTotalPrice() > user.getGreenCoin()) {
-			System.out.println("Errore, non hai abbastanza Coin");
 			return false;
 		}	
 		
@@ -126,12 +121,12 @@ public class ControllerShopCartCheckOut {
 	}
 	
 	
-	public int enabledActivationCode(ActivationCodeBean code,  HttpSession session) throws SQLException {
+	public int enabledActivationCode(ActivationCodeBean code) throws SQLException {
 		
 		
-		AbstractUser user = (AbstractUser) session.getAttribute("user");
+		AbstractUser user = singleton.getUser();
 
-		ActivationCode cod = ActivationCodeDAO.select(code.getActivationCode());
+		ActivationCode cod = ActivationCodeDAO.select(code.getActCodeBean());
 		
 		
 		if( cod != null) {
@@ -145,7 +140,7 @@ public class ControllerShopCartCheckOut {
 		
 			UserDAO.update(user);
 		
-			ActivationCodeTran a = new ActivationCodeTran(0, time(), code.getActivationCode(), val);
+			ActivationCodeTran a = new ActivationCodeTran(0, time(), code.getActCodeBean(), val);
 		
 			TransactionDAO.insertActivationCodeTran(a, user);
 		
@@ -157,9 +152,7 @@ public class ControllerShopCartCheckOut {
 			MessageDAO.insert(m, user);
 		
 			user.getBoards().addMessage(m);
-			
-			System.out.println(user.getGreenCoin());
-			
+						
 			return val;
 			
 			

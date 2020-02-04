@@ -2,11 +2,13 @@ package webeco.src.servlet;
 
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -49,7 +51,7 @@ public class LoginControllerServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		PrintWriter out = response.getWriter();
 		String script = "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>";
-		String scriptcloud = "<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>"
+		String scriptcloud = "<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>";
 		String index = "index.jsp";
 		
 		ControllerManageCollPoint c = new ControllerManageCollPoint();
@@ -76,9 +78,9 @@ public class LoginControllerServlet extends HttpServlet {
 				
 					AbstractUser user = (AbstractUser) session.getAttribute("user");
 					if(user.getType().equals(Roles.USER)) {
-						ArrayList<Product> catalogo = ProductDAO.select();
-						ArrayList<Product> catalogo_mini = new ArrayList<>();
-						ArrayList<CollectionPoint> collpoint = CollectionPointDAO.select();
+						List<Product> catalogo = ProductDAO.select();
+						List<Product> catalogo_mini = new ArrayList<>();
+						List<CollectionPoint> collpoint = CollectionPointDAO.select();
 						for(Product p: catalogo) {
 							if(p.getPrice() > 100) {
 								catalogo_mini.add(p);
@@ -98,7 +100,7 @@ public class LoginControllerServlet extends HttpServlet {
 					}
 					
 					if(user.getType().equals(Roles.COLLECTIONPOINTMAN)) {
-						ArrayList<CollectionPoint> collpoint = CollectionPointDAO.select();
+						List<CollectionPoint> collpoint = CollectionPointDAO.select();
 						session.setAttribute("collpoint", collpoint);
 						request.getRequestDispatcher("moderator.jsp").forward(request, response);
 						return;
@@ -106,8 +108,8 @@ public class LoginControllerServlet extends HttpServlet {
 					
 					
 					if(user.getType().equals(Roles.ADMIN)) {
-						ArrayList<Product> catalogo = ProductDAO.select();
-						ArrayList<AbstractUser> users = UserDAO.findUsers();
+						List<Product> catalogo = ProductDAO.select();
+						List<AbstractUser> users = UserDAO.findUsers();
 						session.setAttribute("catalogo", catalogo);
 						session.setAttribute("users", users);
 						request.getRequestDispatcher("admin.jsp").forward(request, response);

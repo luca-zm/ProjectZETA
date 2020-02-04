@@ -1,4 +1,4 @@
-package laptopeco.controller;
+package webeco.src.controller;
 
 import java.sql.SQLException;
 

@@ -1,4 +1,4 @@
-package laptopeco.controller;
+package webeco.src.controller;
 
 import java.security.SecureRandom;
 import java.sql.SQLException;

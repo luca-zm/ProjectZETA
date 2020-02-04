@@ -1,4 +1,4 @@
-package laptopeco.controller;
+package webeco.src.controller;
 
 import java.sql.SQLException;
 import laptopeco.bean.AddressBean;
@@ -11,8 +11,7 @@ import laptopeco.logic.persistence.AddressDAO;
 import laptopeco.logic.persistence.UserDAO;
 
 public class ControllerRegistration {
-	Singleton singleton = Singleton.getInstance();
-	public Boolean register(UserBean userBean) throws SQLException {
+	public Boolean register(UserBean userBean, ) throws SQLException {
 		String mail = userBean.getMail();
 		String pass = userBean.getPass();
 		String name = userBean.getName();

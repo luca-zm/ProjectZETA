@@ -1,4 +1,4 @@
-package laptopeco.controller;
+package webeco.src.controller;
 
 import laptopeco.logic.enums.DeliveryStatus;
 
@@ -10,7 +10,6 @@ import laptopeco.logic.model.ActivationCodeTran;
 import laptopeco.logic.model.Message;
 import java.security.SecureRandom;
 import java.sql.SQLException;
-
 import laptopeco.bean.ActivationCodeBean;
 import laptopeco.logic.model.Product;
 import laptopeco.logic.model.ShipmentTran;

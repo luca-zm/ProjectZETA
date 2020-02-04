@@ -1,22 +1,22 @@
 package webeco.src.controller;
 
 import java.sql.SQLException;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import laptopeco.bean.UserBean;
 import laptopeco.logic.model.AbstractUser;
 import laptopeco.logic.model.ActivationCodeTran;
 import laptopeco.logic.model.Address;
-import laptopeco.logic.model.BonusMachine;
+import webeco.src.model.BonusMachine;
 import laptopeco.logic.model.BonusTran;
 import laptopeco.logic.model.History;
 import laptopeco.logic.model.Message;
 import laptopeco.logic.model.NoticeBoard;
 import laptopeco.logic.model.Product;
 import laptopeco.logic.model.ShipmentTran;
-import laptopeco.logic.model.Singleton;
 import laptopeco.logic.model.Transaction;
 import laptopeco.logic.model.WishList;
 import laptopeco.logic.persistence.AddressDAO;
@@ -26,9 +26,8 @@ import laptopeco.logic.persistence.UserDAO;
 import laptopeco.logic.persistence.WishListDAO;
 
 public class ControllerLogin {
-	Singleton singleton = Singleton.getInstance();
 	
-	public Boolean login(UserBean userBean) throws SQLException {
+	public Boolean login(UserBean userBean, HttpSession session) throws SQLException {
 		
 		String mail = userBean.getMail();
 		String pass = userBean.getPass();
@@ -58,7 +57,7 @@ public class ControllerLogin {
 		user.setAddress(address);		
 		BonusMachine machine = new BonusMachine(user);
 		machine.getClass();
-		singleton.setUser(user);	
+		session.setAttribute("user", user);
 		return true;
 	}
 	

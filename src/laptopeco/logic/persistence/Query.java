@@ -87,4 +87,6 @@ public class Query {
 	//.............
 	public static final String FIND_PROD_IN_LIST = "SELECT * from wishlist WHERE productid = ?";
 
-}
+	public static final String SELECT_ADDRBYID = "SELECT * from address WHERE id = ?";
+
+	}

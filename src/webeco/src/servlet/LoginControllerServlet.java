@@ -1,4 +1,4 @@
-package servlet;
+package webeco.src.servlet;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

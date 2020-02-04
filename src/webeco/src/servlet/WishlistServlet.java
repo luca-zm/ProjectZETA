@@ -40,13 +40,9 @@ public class WishlistServlet extends HttpServlet {
 		int productId = Integer.parseInt(request.getParameter("productId"));
 
 		if("cart".equals(action)) {
-			try {
 				ControllerShopCartCheckOut controller = new ControllerShopCartCheckOut();
 				controller.addProduct(productId, session);
 				response.sendRedirect("wishlist.jsp");
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
 		}
 		else if("del".contentEquals(action)) {
 			try {

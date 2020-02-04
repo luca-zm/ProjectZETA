@@ -30,19 +30,22 @@ public class ControllerWishList {
 	String currentTime = sdf.format(dt);
 	
 	
-	public boolean addProductinWishList(int productId, HttpSession session) throws SQLException{
+	public boolean addProductinWishList(int productId, HttpSession session){
 
 		AbstractUser user = (AbstractUser) session.getAttribute("user");
 		if (user == null) {
 			return false;
 		}
 		
-		Product product = ProductDAO.selectProduct(productId);
-		WishListDAO.insert(user, product);
-
-		user.getWishList().addProduct(product);
-		 
-		
+		Product product;
+		try {
+			product = ProductDAO.selectProduct(productId);
+			WishListDAO.insert(user, product);
+			user.getWishList().addProduct(product);
+			 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
 		
 		return true;
 	}

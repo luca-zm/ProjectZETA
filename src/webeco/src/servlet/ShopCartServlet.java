@@ -44,12 +44,7 @@ public class ShopCartServlet extends HttpServlet {
 
 			if("del".equals(action)) {
 				int productId = Integer.parseInt(request.getParameter("productId"));
-				try {
 					controller.deleteProduct(productId, session);
-					response.sendRedirect(c);
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
 			}
 			
 			
@@ -59,7 +54,6 @@ public class ShopCartServlet extends HttpServlet {
 				int productIddown = Integer.parseInt(request.getParameter("productIddown"));
 
 				ControllerWishList cwish = new ControllerWishList();
-				try {
 					AbstractUser user = (AbstractUser)session.getAttribute("user");
 					for(Product p: user.getWishList().getList()) {
 						if(p.getId() == productIddown) {
@@ -79,34 +73,21 @@ public class ShopCartServlet extends HttpServlet {
 					}
 					cwish.addProductinWishList(productIddown, session);
 					response.sendRedirect(c);
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-				
+			
 			}
 			if("cart".equals(action)) {
 				int productIddown = Integer.parseInt(request.getParameter("productIddown"));
-
-				try {
 					controller.addProduct(productIddown, session);
 					response.sendRedirect(c);
 					return;
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
 			}
 			
 			//per schermata singolo prodotto
 			if("add to cart".equals(action)) {
 				int productIdup = Integer.parseInt(request.getParameter("productIdup"));
-
-				try {
 					controller.addProduct(productIdup, session);
 					response.sendRedirect("product.jsp");
 					return;
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
 			}
 			
 			if("proceed to checkout".equals(action)) {

@@ -54,7 +54,6 @@ public class HomePageServlet extends HttpServlet {
 		int productId = Integer.parseInt(request.getParameter("productId"));
 		if("wish".equals(action)) {
 			ControllerWishList controller = new ControllerWishList();
-			try {
 				AbstractUser user = (AbstractUser)session.getAttribute("user");
 				for(Product p: user.getWishList().getList()) {
 					if(p.getId() == productId) {
@@ -75,22 +74,13 @@ public class HomePageServlet extends HttpServlet {
 				controller.addProductinWishList(productId, session);
 				RequestDispatcher rd = request.getRequestDispatcher(h);
 				rd.include(request, response);
-			} catch (SQLException e) {
-				// empty
-				e.printStackTrace();
-			}
 			
 		}
 		else if("cart".equals(action)) {
 			ControllerShopCartCheckOut controller = new ControllerShopCartCheckOut();
-			try {
-				controller.addProduct(productId, session);
-				RequestDispatcher rd = request.getRequestDispatcher(h);
-				rd.include(request, response);
-			} catch (SQLException e) {
-				// empty
-				e.printStackTrace();
-			}
+			controller.addProduct(productId, session);
+			RequestDispatcher rd = request.getRequestDispatcher(h);
+			rd.include(request, response);
 		}
 		
 		else if("info".equals(action)) {

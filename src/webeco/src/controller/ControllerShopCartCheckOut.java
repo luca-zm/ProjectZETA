@@ -42,31 +42,42 @@ public class ControllerShopCartCheckOut {
 	   return sdf.format(dt);
 	}
 	
-	public boolean addProduct(int productId, HttpSession session) throws SQLException{
+	public boolean addProduct(int productId, HttpSession session){
 
 		AbstractUser user = (AbstractUser) session.getAttribute("user");
 		if (user == null) {
 			return false;
 		}
 		
-		Product product = ProductDAO.selectProduct(productId);
+		Product product;
+		try {
+			product = ProductDAO.selectProduct(productId);
+			user.getCart().addProduct(product);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
-		user.getCart().addProduct(product);
-		
+
 		return true;
 	}
 	
 	
-	public boolean deleteProduct(int productId, HttpSession session) throws SQLException{
+	public boolean deleteProduct(int productId, HttpSession session){
 
 		AbstractUser user = (AbstractUser) session.getAttribute("user");
 		if (user == null) {
 			return false;
 		}
 		
-		Product product = ProductDAO.selectProduct(productId);
-		
-		user.getCart().deleteProduct(product);
+		Product product;
+		try {
+			product = ProductDAO.selectProduct(productId);
+			user.getCart().deleteProduct(product);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	
 		return true;
 	}
 	

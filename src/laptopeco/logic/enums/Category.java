@@ -1,4 +1,4 @@
-package logic.enums;
+package laptopeco.logic.enums;
 
 public enum Category {
 	DEFAULT,

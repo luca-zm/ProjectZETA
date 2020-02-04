@@ -1,4 +1,4 @@
-package logic.model;
+package laptopeco.logic.model;
 
 public class ActivationCodeTran extends Transaction{
 	private int activationCode;

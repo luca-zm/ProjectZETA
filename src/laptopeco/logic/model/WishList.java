@@ -1,4 +1,4 @@
-package logic.model;
+package laptopeco.logic.model;
 
 import java.util.List;
 

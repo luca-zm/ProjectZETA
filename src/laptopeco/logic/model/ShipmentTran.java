@@ -1,6 +1,6 @@
-package logic.model;
+package laptopeco.logic.model;
 
-import logic.enums.DeliveryStatus;
+import laptopeco.logic.enums.DeliveryStatus;
 
 public class ShipmentTran extends Transaction{
 

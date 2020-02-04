@@ -1,4 +1,4 @@
-package logic.model;
+package laptopeco.logic.model;
 
 import static logic.enums.Roles.ADMIN;
 import logic.enums.Roles;

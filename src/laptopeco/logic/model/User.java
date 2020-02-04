@@ -1,5 +1,5 @@
-package logic.model;
-import logic.enums.Roles;
+package laptopeco.logic.model;
+import laptopeco.logic.enums.Roles;
 
 import static logic.enums.Roles.USER;
 

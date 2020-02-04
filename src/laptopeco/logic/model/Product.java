@@ -1,6 +1,6 @@
-package logic.model;
+package laptopeco.logic.model;
 
-import logic.enums.Category;
+import laptopeco.logic.enums.Category;
 
 public class Product {
 	

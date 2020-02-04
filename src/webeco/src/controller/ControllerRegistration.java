@@ -11,7 +11,7 @@ import laptopeco.logic.persistence.AddressDAO;
 import laptopeco.logic.persistence.UserDAO;
 
 public class ControllerRegistration {
-	public Boolean register(UserBean userBean, HttpSession session) throws SQLException {
+	public Boolean register(UserBean userBean) throws SQLException {
 		String mail = userBean.getMail();
 		String pass = userBean.getPass();
 		String name = userBean.getName();

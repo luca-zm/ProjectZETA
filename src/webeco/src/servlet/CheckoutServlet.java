@@ -2,6 +2,7 @@ package webeco.src.servlet;
 
 import java.io.IOException;
 
+
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
@@ -13,8 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import controller.ControllerShopCartCheckOut;
-import model.AbstractUser;
+import webeco.src.controller.ControllerShopCartCheckOut;
+import laptopeco.logic.model.AbstractUser;
 
 /**
  * Servlet implementation class CheckoutServlet

@@ -1,6 +1,7 @@
 package webeco.src.servlet;
 
 import java.awt.image.BufferedImage;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.MalformedURLException;
@@ -18,20 +19,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
-import bean.AddressBean;
-import bean.UserBean;
-import controller.ControllerLogin;
-import controller.ControllerManageCollPoint;
-import controller.ControllerRegistration;
-import enums.Roles;
-import model.AbstractUser;
-import model.CollectionPoint;
-import model.Product;
-import model.ShopCart;
-import persistence.AddressDAO;
-import persistence.CollectionPointDAO;
-import persistence.ProductDAO;
-import persistence.UserDAO;
+import laptopeco.bean.AddressBean;
+import laptopeco.bean.UserBean;
+import webeco.src.controller.ControllerLogin;
+import webeco.src.controller.ControllerManageCollPoint;
+import webeco.src.controller.ControllerRegistration;
+import laptopeco.logic.enums.Roles;
+import laptopeco.logic.model.AbstractUser;
+import laptopeco.logic.model.CollectionPoint;
+import laptopeco.logic.model.Product;
+import laptopeco.logic.model.ShopCart;
+import laptopeco.logic.persistence.AddressDAO;
+import laptopeco.logic.persistence.CollectionPointDAO;
+import laptopeco.logic.persistence.ProductDAO;
+import laptopeco.logic.persistence.UserDAO;
 
 /**
  * Servlet implementation class LoginController

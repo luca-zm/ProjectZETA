@@ -2,6 +2,7 @@ package webeco.src.servlet;
 
 import java.io.IOException;
 
+
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -11,15 +12,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import webeco.src.bean.AddressBean;
-import webeco.src.bean.CollectionPointBean;
-import webeco.src.bean.ProductBean;
-import webeco.src.bean.UserBean;
+import laptopeco.bean.AddressBean;
+import laptopeco.bean.CollectionPointBean;
+import laptopeco.bean.ProductBean;
+import laptopeco.bean.UserBean;
 import webeco.src.controller.ControllerManageCollPoint;
 import webeco.src.controller.ControllerManageProduct;
 import webeco.src.controller.ControllerManageUser;
-import webeco.src.enums.Category;
-import webeco.src.model.CollectionPoint;
+import laptopeco.logic.enums.Category;
+import laptopeco.logic.model.CollectionPoint;
 
 /**
  * Servlet implementation class AdminServlet

@@ -2,6 +2,7 @@ package webeco.src.servlet;
 
 import java.io.IOException;
 
+
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -15,11 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
-import controller.ControllerShopCartCheckOut;
-import controller.ControllerWishList;
-import model.AbstractUser;
-import model.Product;
-import persistence.ProductDAO;
+import webeco.src.controller.ControllerShopCartCheckOut;
+import webeco.src.controller.ControllerWishList;
+import laptopeco.logic.model.AbstractUser;
+import laptopeco.logic.model.Product;
+import laptopeco.logic.persistence.ProductDAO;
 
 /**
  * Servlet implementation class HomePageServlet

@@ -113,9 +113,8 @@ public class AddressDAO {
                 String state = resultSet.getString("state");
                 String zone = resultSet.getString("zone");
 
-                Address addr = new Address(id, address, city, postalCode, telephone, state, zone);
+                return new Address(id, address, city, postalCode, telephone, state, zone);
                 
-                return addr;
             }
         } catch (SQLException e) {
             e.printStackTrace();

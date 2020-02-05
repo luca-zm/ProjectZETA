@@ -31,6 +31,8 @@ import laptopeco.logic.model.Singleton;
 import laptopeco.logic.persistence.ProductDAO;
 import laptopeco.logic.persistence.WishListDAO;
 import javax.swing.*;
+
+import laptopeco.ExceptionEco.DuplicateWishElement;
 import laptopeco.controller.ControllerLogin;
 import laptopeco.controller.ControllerShopCartCheckOut;
 import laptopeco.controller.ControllerWishList;
@@ -144,13 +146,13 @@ public class ProductsController extends Application {
                 public void handle(MouseEvent event) {              
                     try {
                     	if (WishListDAO.checkProductByName(product.getId())) {
-                			JOptionPane.showMessageDialog(null, "Product is already in your wishlist "+ sg.getUser().getName());
-
+                    		throw new DuplicateWishElement();
                     	}else {
                     		cwl.addProductinWishList(product.getId());
                     	}
-					} catch (SQLException e) {
-						e.printStackTrace();
+					} catch (DuplicateWishElement | SQLException e) {
+            			JOptionPane.showMessageDialog(null, e.toString() + " " +sg.getUser().getName());
+
 					}
                 }
             }); 

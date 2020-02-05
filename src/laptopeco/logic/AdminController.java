@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javafx.scene.control.TextArea;
+import laptopeco.ExceptionEco.InvalidFieldsException;
 import laptopeco.logic.enums.Category;
 import laptopeco.logic.model.AbstractUser;
 import laptopeco.logic.model.Product;
@@ -104,22 +105,27 @@ public class AdminController extends Application {
         
         if (eventClicked.contentEquals("Button[id=add, styleClass=button]'Add'")) {
         	//metodo opzioni prodotti
-        	if(prodname.getText().equals("") || proddisc.getText().equals("") || prodimg.getText().equals("") ||
+        	try{
+        		if(prodname.getText().equals("") || proddisc.getText().equals("") || prodimg.getText().equals("") ||
         										prodgc.getText().equals("") || proddescr.getText().equals("")) {
-        		JOptionPane.showMessageDialog(null, "Invalid"); 
-        		return;
-        	}else {
+        			throw new InvalidFieldsException();
+        		}
         		Product product = new Product(0 ,prodname.getText(),
-        				Integer.parseInt(prodgc.getText()), Integer.parseInt(proddisc.getText()),
-        				utility, prodimg.getText(), proddescr.getText());
-        		
+        		Integer.parseInt(prodgc.getText()), Integer.parseInt(proddisc.getText()),
+        		utility, prodimg.getText(), proddescr.getText());
+	        		
         		ProductDAO.insert(product);
-        		JOptionPane.showMessageDialog(null, "Product correctly insert!");
-                Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                a.openWin(sonaradmin);
-                oldWin.close();
+	        	JOptionPane.showMessageDialog(null, "Product correctly insert!");
+	            Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
+	            a.openWin(sonaradmin);
+	            oldWin.close();
+        		
+        	}catch (InvalidFieldsException exc) {
+        		JOptionPane.showMessageDialog(null, exc.toString()); 
+        		return;
         		
         	}
+        		
         }
         if (eventClicked.contentEquals("Button[id=delete, styleClass=button]'Delete'")) {
         		ProductDAO.delete(Integer.parseInt(prodid2.getText()));

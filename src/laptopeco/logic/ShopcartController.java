@@ -30,6 +30,7 @@ import javafx.util.Callback;
 import laptopeco.logic.model.AbstractUser;
 import laptopeco.logic.model.Product;
 import laptopeco.logic.model.Singleton;
+import laptopeco.ExceptionEco.NotEnoughGCoinException;
 import laptopeco.controller.ControllerShopCartCheckOut;
 public class ShopcartController extends Application {
 
@@ -213,15 +214,31 @@ public class ShopcartController extends Application {
 
         //methods buy and remove from Wishlist ----------
         if(m.check(eventClicked, "consumegcoin", style, "Buy products!")){
-        		if (csc.buyShopCart()) {
+        		
+        	try {
+        		if (!csc.buyShopCart()) {
+        			throw new NotEnoughGCoinException();
+        		}else {
         			JOptionPane.showMessageDialog(null, "Successfull purchase!");
         			Stage k = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 	a.openWin("view/shopcartPage.fxml");
                 	k.close();
-                	
-        		}else {
-        			JOptionPane.showMessageDialog(null, "Purchasing error");
-        		}			
+        		}
+        	}catch(NotEnoughGCoinException exc) {
+    			JOptionPane.showMessageDialog(null, exc.toString());
+
+        	}
+        	
+//        	
+//        	if (csc.buyShopCart()) {
+//        			JOptionPane.showMessageDialog(null, "Successfull purchase!");
+//        			Stage k = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//                	a.openWin("view/shopcartPage.fxml");
+//                	k.close();
+//                	
+//        		}else {
+//        			JOptionPane.showMessageDialog(null, "Purchasing error");
+//        		}			
         	return;
         }
       //methods buy and remove from Wishlist ----------

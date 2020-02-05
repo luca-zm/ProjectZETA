@@ -14,6 +14,8 @@ import javafx.scene.text.Text;
 import laptopeco.logic.model.AbstractUser;
 import laptopeco.logic.model.Singleton;
 import javax.swing.*;
+
+import laptopeco.ExceptionEco.NotAnIntegerException;
 import laptopeco.bean.ActivationCodeBean;
 import laptopeco.bean.BeanValidate;
 import laptopeco.controller.ControllerLogin;
@@ -88,11 +90,17 @@ public class ActivationCodeController extends Application {
 
 
         	String actCodeString = addgc.getText();
-        	if(!BeanValidate.isInteger(actCodeString)) {
+        	try {
+        		if(!BeanValidate.isInteger(actCodeString)) {
+        			throw new NotAnIntegerException();
+        		}
+        		
+        	}catch(NotAnIntegerException exc) {
         		addgc.setText("");
-        		JOptionPane.showMessageDialog(null, "ActicationCode must be a number ! Try again");
+        		JOptionPane.showMessageDialog(null, exc.toString());
         		return;
         	}
+        	
         	ActivationCodeBean acb = new ActivationCodeBean(Integer.parseInt(actCodeString), 0);
         	int val = ac.enabledActivationCode(acb);
         	if ( val == 0) { //code inesistente

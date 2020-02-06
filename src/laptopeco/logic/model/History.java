@@ -1,10 +1,9 @@
 package laptopeco.logic.model;
 
 import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.List;
-import laptopeco.logic.model.Observer;
-import laptopeco.logic.model.Transaction;
 
 public class History {
 	private List<Transaction> tranList;

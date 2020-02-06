@@ -65,8 +65,8 @@ public class AdminController extends Application {
     
     StringBuilder bld1 = new StringBuilder();
     StringBuilder bld2 = new StringBuilder();
-    List<Product> listPRODUCTS = new ArrayList<Product>();
-    List<AbstractUser> aUser = new ArrayList<AbstractUser>();
+    List<Product> listPRODUCTS = new ArrayList<>();
+    List<AbstractUser> aUser = new ArrayList<>();
 
 
     public void initialize() throws SQLException {

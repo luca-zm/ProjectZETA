@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import laptopeco.ExceptionEco.AddressNotFoundException;
-import laptopeco.ExceptionEco.ElementNotFoundException;
 import laptopeco.bean.CollectionPointBean;
 import laptopeco.logic.URLReader;
 import laptopeco.logic.enums.MesType;

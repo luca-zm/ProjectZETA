@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import org.junit.Test;
+
+import laptopeco.ExceptionEco.AddressNotFoundException;
 import laptopeco.bean.CollectionPointBean;
 import laptopeco.controller.ControllerManageCollPoint;
 import laptopeco.logic.model.CollectionPoint;
@@ -21,7 +23,7 @@ public class testInsertCollPoint {
 	double testlon = 12.5525593; //Confirmed by Google API
 	
 	@Test
-	public void testInsertCollPointConfirm() throws SQLException, IOException { //Confirms the insertion of a collection point on the map
+	public void testInsertCollPointConfirm() throws SQLException, IOException, AddressNotFoundException { //Confirms the insertion of a collection point on the map
 		
 		assertEquals(c.insert(coltest),true); 
 		

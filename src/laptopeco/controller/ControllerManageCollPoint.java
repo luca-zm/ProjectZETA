@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import laptopeco.ExceptionEco.AddressNotFoundException;
+import laptopeco.ExceptionEco.ElementNotFoundException;
 import laptopeco.bean.CollectionPointBean;
 import laptopeco.logic.URLReader;
 import laptopeco.logic.enums.MesType;
@@ -98,7 +100,7 @@ public class ControllerManageCollPoint {
 	}
 	
 
-	public Boolean insert(CollectionPointBean collPointBean) throws IOException, SQLException { //Vuole eccezione personale
+	public Boolean insert(CollectionPointBean collPointBean) throws IOException, SQLException, AddressNotFoundException { //Vuole eccezione personale
 		List<CollectionPoint> listaCollPoint = CollectionPointDAO.select();
 		if(listaCollPoint.size() >= 4) {
 			return false;
@@ -106,8 +108,10 @@ public class ControllerManageCollPoint {
 		
 		String s = compositore(collPointBean.getAddressCollPointBean());
 		URLReader x = new URLReader(s);
-		
-		
+		if(x.read().contains("ZERO_RESULTS")){
+			throw new AddressNotFoundException();
+		}
+
 		double lon = searchlon(x.read());
 		if ( lon == 0 ) {
 			return false;

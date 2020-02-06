@@ -9,9 +9,11 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javafx.scene.control.TextArea;
+import laptopeco.ExceptionEco.ElementNotFoundException;
 import laptopeco.ExceptionEco.InvalidFieldsException;
 import laptopeco.logic.enums.Category;
 import laptopeco.logic.model.AbstractUser;
@@ -63,6 +65,8 @@ public class AdminController extends Application {
     
     StringBuilder bld1 = new StringBuilder();
     StringBuilder bld2 = new StringBuilder();
+    List<Product> listPRODUCTS = new ArrayList<Product>();
+    List<AbstractUser> aUser = new ArrayList<AbstractUser>();
 
 
     public void initialize() throws SQLException {
@@ -71,8 +75,8 @@ public class AdminController extends Application {
     	listusers.setEditable(false);
 
     	
-    	List<AbstractUser> aUser= UserDAO.findUsers();
-    	List<Product> listPRODUCTS = ProductDAO.select();
+    	aUser= UserDAO.findUsers();
+    	listPRODUCTS = ProductDAO.select();
 
     	for(Product p: listPRODUCTS) {
     		bld1.append(p.getId() + " - " + p.getName() + "\n\n");
@@ -128,12 +132,22 @@ public class AdminController extends Application {
         		
         }
         if (eventClicked.contentEquals("Button[id=delete, styleClass=button]'Delete'")) {
-        		ProductDAO.delete(Integer.parseInt(prodid2.getText()));
+        	
+        	try{// Da testare Stefano Costanzo
+        		if(!checkProduct()) {
+        			throw new ElementNotFoundException();
+        		}
+        	}catch(ElementNotFoundException exc) {
+        		JOptionPane.showMessageDialog(null, exc.toString()); 
+        		return;
+        	}
+        	
+        	ProductDAO.delete(Integer.parseInt(prodid2.getText()));
         		
-        		JOptionPane.showMessageDialog(null, "Product correctly deleted!");
-                Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                a.openWin(sonaradmin);
-                oldWin.close();
+        	JOptionPane.showMessageDialog(null, "Product correctly deleted!");
+            Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            a.openWin(sonaradmin);
+            oldWin.close();
         }
         
         
@@ -141,6 +155,17 @@ public class AdminController extends Application {
         
         
         if (eventClicked.contentEquals("Button[id=ban, styleClass=button]'Remove'")) {
+        	try{// Da testare Stefano Costanzo
+                if(!checkUser()) {
+                	throw new ElementNotFoundException();
+                }
+            }
+        	catch(ElementNotFoundException exc) {
+            	JOptionPane.showMessageDialog(null, exc.toString()); 
+            	return;
+            }
+        	
+        	
         	UserDAO.delete(UserDAO.findUserById(Integer.parseInt(userid1.getText())));
     		
     		JOptionPane.showMessageDialog(null, "BAAAAAAN HAMMEEER!!!");
@@ -152,5 +177,23 @@ public class AdminController extends Application {
         
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
         oldWin.close();
+    }
+    
+    private Boolean checkProduct() {
+    	for(Product p: listPRODUCTS) {
+    		if(prodid2.getText() == Integer.toString(p.getId())) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+    
+    private Boolean checkUser() {
+    	for(AbstractUser p: aUser) {
+    		if(userid1.getText()== Integer.toString(p.getId())) {
+    			return true;
+    		}
+    	}
+    	return false;
     }
 }

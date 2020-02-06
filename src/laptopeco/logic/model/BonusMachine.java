@@ -37,9 +37,13 @@ public class BonusMachine implements Observer{
 		
 	@Override
 	public void update() throws SQLException {
+		System.out.println("update");
 		int coin = getHistoryPrice();
+		System.out.println(coin);
+		System.out.println(greenCoinMemo);
 		if(coin - greenCoinMemo >= greenCoinTarget) {
 			greenCoinMemo += greenCoinTarget;
+			System.out.println("Bonus");
 			addBonus();
 		}
 	}

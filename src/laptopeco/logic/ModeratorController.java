@@ -16,6 +16,8 @@ import javafx.scene.control.TextArea;
 import laptopeco.logic.model.CollectionPoint;
 import laptopeco.logic.persistence.CollectionPointDAO;
 import javax.swing.*;
+
+import laptopeco.ExceptionEco.AddressNotFoundException;
 import laptopeco.bean.CollectionPointBean;
 import laptopeco.controller.ControllerManageCollPoint;
 
@@ -84,7 +86,7 @@ public class ModeratorController extends Application {
         
         
         if (eventClicked.contentEquals("Button[id=add, styleClass=button]'Add EcoPoint'")) {
-        	if (name != null && address != null && opening != null && closing != null) {
+        	if (!name.getText().equals("") && !address.getText().equals("") && !opening.getText().equals("") && !closing.getText().equals("")) {
                 CollectionPointBean cb = new CollectionPointBean(0, name.getText(), address.getText(),
                 		Integer.parseInt(opening.getText()), Integer.parseInt(closing.getText()));
                 try {
@@ -94,6 +96,11 @@ public class ModeratorController extends Application {
 					else {
 						JOptionPane.showMessageDialog(null, "Insert error");
 					}
+					
+                }catch (AddressNotFoundException exc) {
+            		JOptionPane.showMessageDialog(null, exc.toString()); 
+            		return;
+        	
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

@@ -134,7 +134,7 @@ public class AdminController extends Application {
         if (eventClicked.contentEquals("Button[id=delete, styleClass=button]'Delete'")) {
         	
         	try{// Da testare Stefano Costanzo
-        		if(checkProduct()) {
+        		if(checkProduct()==true) {
         			throw new ElementNotFoundException();
         		}
         	}catch(ElementNotFoundException exc) {
@@ -166,7 +166,7 @@ public class AdminController extends Application {
     
         if (eventClicked.contentEquals("Button[id=ban, styleClass=button]'Remove'")) {
         	try{// Da testare Stefano Costanzo
-                if(checkUser()) {
+                if(checkUser()==true) {
                 	throw new ElementNotFoundException();
                 }
             }

@@ -202,7 +202,7 @@ public class ShopcartController extends Application {
         Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         
-        //Hyperlink ------------------
+       
         
         m.checkWarn(event, "userlinker", style, "User Profile", "view/userprofilePage.fxml", sg.getUser());
 
@@ -210,9 +210,7 @@ public class ShopcartController extends Application {
 
         m.goToPath(eventClicked, "prodlinker", style, "Products", "view/productsPage.fxml");
 
-        //Hyper link ------------------
-
-        //methods buy and remove from Wishlist ----------
+      
         if(m.check(eventClicked, "consumegcoin", style, "Buy products!")){
         		
         	try {
@@ -229,19 +227,10 @@ public class ShopcartController extends Application {
 
         	}
         	
-//        	
-//        	if (csc.buyShopCart()) {
-//        			JOptionPane.showMessageDialog(null, "Successfull purchase!");
-//        			Stage k = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//                	a.openWin("view/shopcartPage.fxml");
-//                	k.close();
-//                	
-//        		}else {
-//        			JOptionPane.showMessageDialog(null, "Purchasing error");
-//        		}			
+	
         	return;
         }
-      //methods buy and remove from Wishlist ----------
+     
         
         oldWin.close();
     }
@@ -260,7 +249,7 @@ public class ShopcartController extends Application {
         m.goToPath(eventClicked, "logout", style, "Logout", "view/login_registerPage.fxml");
 
         
-        //Barra ----------------------
+        
         m.checkWarn(event, "wishlist", style, "Wishlist", "view/wishlistPage.fxml", sg.getUser());
         
         m.goToPath(eventClicked, "log", style, "Login or Register", "view/login_registerPage.fxml");

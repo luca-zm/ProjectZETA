@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import org.junit.Test;
+
+import laptopeco.ExceptionEco.AddressNotFoundException;
 import laptopeco.bean.CollectionPointBean;
 import laptopeco.controller.ControllerManageCollPoint;
 import laptopeco.logic.model.CollectionPoint;
@@ -13,7 +15,7 @@ import laptopeco.logic.persistence.CollectionPointDAO;
 //Davide Verardo Test ControllerManageCollPoint
 
 
-public class testManageCollPoint {
+public class testInsertCollPoint {
 
 	ControllerManageCollPoint c = new ControllerManageCollPoint();
 	CollectionPointBean coltest = new CollectionPointBean(2, "CollectionPointTest" , "Via del Quadraro 72", 10, 20);
@@ -23,7 +25,7 @@ public class testManageCollPoint {
 		
 	
 	@Test
-	public void testInsert() throws SQLException, IOException { //Confirms the insertion of a collection point on the map
+	public void testInsert() throws SQLException, IOException, AddressNotFoundException { //Confirms the insertion of a collection point on the map
 		
 		assertEquals(c.insert(coltest),true); 
 		

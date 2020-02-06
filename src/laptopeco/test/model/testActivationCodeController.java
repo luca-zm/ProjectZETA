@@ -12,6 +12,7 @@ import laptopeco.bean.UserBean;
 import laptopeco.controller.ControllerLogin;
 import laptopeco.controller.ControllerShopCartCheckOut;
 
+//Luca Zammariello
 public class testActivationCodeController {
 
 	ControllerLogin cl = new ControllerLogin();

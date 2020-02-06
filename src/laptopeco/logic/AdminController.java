@@ -134,7 +134,7 @@ public class AdminController extends Application {
         if (eventClicked.contentEquals("Button[id=delete, styleClass=button]'Delete'")) {
         	
         	try{// Da testare Stefano Costanzo
-        		if(!checkProduct()) {
+        		if(checkProduct()) {
         			throw new ElementNotFoundException();
         		}
         	}catch(ElementNotFoundException exc) {
@@ -152,11 +152,21 @@ public class AdminController extends Application {
         
         
         //------------------------------------------------------------------------------------
-        
-        
+
+        Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        oldWin.close();
+    }
+    
+    
+    @FXML
+    private void nextT(ActionEvent event) throws IOException, SQLException {
+        WinNext a = new WinNext();
+        String eventClicked = event.getSource().toString();
+        String sonaradmin="view/adminPage.fxml";
+    
         if (eventClicked.contentEquals("Button[id=ban, styleClass=button]'Remove'")) {
         	try{// Da testare Stefano Costanzo
-                if(!checkUser()) {
+                if(checkUser()) {
                 	throw new ElementNotFoundException();
                 }
             }
@@ -174,10 +184,11 @@ public class AdminController extends Application {
             oldWin.close();
         }
         
-        
-        Stage oldWin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        oldWin.close();
     }
+    
+    
+    
+    
     
     private Boolean checkProduct() {
     	for(Product p: listPRODUCTS) {

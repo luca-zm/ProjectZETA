@@ -25,7 +25,7 @@
       <Text layoutX="62.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h5" text="Delete product:" />
       <Text layoutX="54.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="________________________________________________________________" wrappingWidth="645.5999816894532" />
       <Text layoutX="51.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h5" text="Remove user:" />
-      <Button fx:id="ban" layoutX="303.0" layoutY="388.0" mnemonicParsing="false" onAction="#next" style="-fx-background-color: #47a67353" text="Remove" />
+      <Button fx:id="ban" layoutX="303.0" layoutY="388.0" mnemonicParsing="false" onAction="#nextT" style="-fx-background-color: #47a67353" text="Remove" />
       <TextField fx:id="userid1" layoutX="183.0" layoutY="387.0" prefHeight="34.0" prefWidth="95.0" promptText="User ID" styleClass="text-area" text=""/>
       <TextArea fx:id="listusers" layoutX="492.0" layoutY="341.0" prefHeight="190.0" prefWidth="200.0" />
       <TextField fx:id="prodname" layoutX="249.0" layoutY="124.0" prefHeight="34.0" prefWidth="74.0" promptText="Name" styleClass="text-area" />

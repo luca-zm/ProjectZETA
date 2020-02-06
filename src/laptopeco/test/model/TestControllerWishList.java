@@ -9,35 +9,37 @@ import java.util.List;
 import org.junit.Test;
 
 import laptopeco.controller.ControllerWishList;
+import laptopeco.logic.enums.Category;
 import laptopeco.logic.model.AbstractUser;
 import laptopeco.logic.model.FactoryUsers;
 import laptopeco.logic.model.Product;
 import laptopeco.logic.model.Singleton;
-import laptopeco.logic.persistence.ProductDAO;
+import laptopeco.logic.model.WishList;
 
 public class TestControllerWishList {
 	private ControllerWishList controller = new ControllerWishList();
 	Singleton sg = Singleton.getInstance();
 	AbstractUser user = FactoryUsers.get(0, "name", "surn", "pass", "mail", "USER");
-    int prodId = 267;
-	int p1 = 267;
-	int p2 = 342;
-	int p3 = 3535;
-
-	
+   
+	//Products for testing. They depends by database data
+	Product prod1 = new Product(267, "guanti", 80, 0, Category.UTILITY, ".\\img\\1.jpg", "guanti eco");
+	Product prod2 = new Product(342, "zaino", 80, 0, Category.UTILITY, ".\\img\\2.jpg", "zaino eco");
+	Product prod3 = new Product(3535, "borraccia", 80, 0, Category.UTILITY, ".\\img\\3.jpg", "borraccia eco");
 	
     @Test
     public void testAddProductWishListDef() throws SQLException{
     	sg.setUser(user);
     	
+    	int prodId = prod1.getId();
+    	user.setWishList(new WishList(new ArrayList<Product>()));
+    	
         //A new product is inserted
     	controller.addProductinWishList(prodId);
-    	
-    	Product p = ProductDAO.selectProduct(prodId);
+
     	Boolean verif = false;
     	for(Product wishP : user.getWishList().getList())
     	{
-    		if(wishP == p) {
+    		if(wishP.getName().contentEquals(prod1.getName())) {
     			verif = true;
     		}
     	}
@@ -47,26 +49,32 @@ public class TestControllerWishList {
     @Test
     public void testAddProductWishListMultiple() throws SQLException{
     	sg.setUser(user);
+    	user.setWishList(new WishList(new ArrayList<Product>()));
+
+    	int p1 = prod1.getId();
+    	int p2 = prod2.getId();
 
     	//Add a list of products
-    	int[] list = {p1, p2, p3};
+    	List<Integer> list = new ArrayList<Integer>();
+    	list.add(p1);
+    	list.add(p2);
+    	
+    	System.out.println(list);
     	for(int i : list) {
     		controller.addProductinWishList(i);
     	}
 
     	List<Product> listUser = user.getWishList().getList();
-    	Boolean verif = true;
+    	Boolean verif = true;	
     	
-    	
-    	//Verify if products are in WishList of User
-    	List<Product> listProduct = listProd(p1, p2, p3);
     	for(Product p: listUser) {
-    		if(p != listProduct.get(0) && p!= listProduct.get(1) && p != listProduct.get(2)) {
+    		if(p.getName().equals(prod1.getName()) || p.getName().equals(prod2.getName())) {
+    		}
+    		else {
     			verif = false;
     			break;
     		}
-    	}    	
-    		
+    	}
         assertEquals(verif, true);
     }
 
@@ -74,10 +82,12 @@ public class TestControllerWishList {
     @Test
 	public void testDeleteProductfromWishListDefault() throws SQLException {
 		sg.setUser(user);
+    	user.setWishList(new WishList(new ArrayList<Product>()));
+
+    	int p1 = prod1.getId();
 		
     	controller.deleteProductfromWishList(p1);
     	
-    	Product prod1 = ProductDAO.selectProduct(p1);
     	Boolean verif = true;
     	for(Product p: user.getWishList().getList())
     	{
@@ -87,16 +97,5 @@ public class TestControllerWishList {
     	}
         assertEquals(verif, true);
     }
-	
-	private List<Product> listProd(int p1, int p2, int p3) throws SQLException{
-		Product prod1 = ProductDAO.selectProduct(p1);
-		Product prod2 = ProductDAO.selectProduct(p2);
-		Product prod3 = ProductDAO.selectProduct(p3);
-        List<Product> list = new ArrayList<>();
-        list.add(prod1);
-        list.add(prod2);
-        list.add(prod3);
-        return list;
-	}
 
 }

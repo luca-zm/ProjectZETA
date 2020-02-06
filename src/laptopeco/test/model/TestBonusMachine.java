@@ -13,7 +13,9 @@ import laptopeco.logic.model.BonusTran;
 import laptopeco.logic.model.FactoryUsers;
 import laptopeco.logic.model.History;
 import laptopeco.logic.model.Message;
+import laptopeco.logic.model.NoticeBoard;
 import laptopeco.logic.model.Transaction;
+import laptopeco.logic.persistence.AddressDAO;
 import laptopeco.logic.persistence.MessageDAO;
 import laptopeco.logic.persistence.TransactionDAO;
 import laptopeco.logic.persistence.UserDAO;
@@ -29,6 +31,7 @@ public class TestBonusMachine {
 	int coin2 = 200;
 	int coin3 = 4000;
 	int coin4 = 700;
+	int addr = 3;
     private History history;
     private BonusMachine machine;
     private AbstractUser user;
@@ -36,13 +39,14 @@ public class TestBonusMachine {
 	//initialize parameter for testing
 	private void init() throws SQLException {
 		
-		//Bonus machine with default user
-		user = FactoryUsers.get(0, "name", "surn", "pass", "mail", "USER");
-		
+		user = FactoryUsers.get(3, "rrr", "rrr", "rrr", "rrr", "USER");
 		//Setting the user with empty history
 		history = new History(new ArrayList<Transaction>());
 		user.setHistory(history);
+		user.setBoards(new NoticeBoard(new ArrayList<Message>()));
+
 		
+		//Bonus machine with default user
 		machine = new BonusMachine(user);
 		
 
@@ -61,6 +65,7 @@ public class TestBonusMachine {
 	@Test
 	public void testUpdateOnDefault() throws SQLException {
 		init();
+		user.setAddress(AddressDAO.findAddressById(addr));
 		
 		//Bonus Machine is an Observer of user's history
 		TransactionDAO.insertActivationCodeTran(tran1, user);
@@ -72,101 +77,37 @@ public class TestBonusMachine {
 		//gives 200 more coins to user
 		// final user green coin will be 1400
 		int expectedCoin = 1400;
+		System.out.println(user);
 		int userCoin = user.getGreenCoin();
-		System.out.println(userCoin);
+      
 		assertEquals(expectedCoin, userCoin);
 		
 	}
 	
-//	
-//	@Test
-//	public void testUpdateWithoutBonus() throws SQLException {
-//		init();
-//		
-//		//Bonus Machine is an Observer of user's history
-//		TransactionDAO.insertActivationCodeTran(tran2, user);
-//		history.addTransaction(tran2);
-//		user.setGreenCoin(user.getGreenCoin() + coin2);
-//		
-//		//With a Activation Code Transaction of 200 coin the machine 
-//		//doesn't touch user's greencoin
-//		// final user green coin will be 200
-//		int expectedCoin = 200;
-//		int userCoin = user.getGreenCoin();
-//		System.out.println(userCoin);
-//		assertEquals(expectedCoin, userCoin);
-//		
-//	}
-//	
-//	
-//	@Test
-//	public void testUpdateWithBigTransaction() throws SQLException {
-//		init();
-//		
-//		//Bonus Machine is an Observer of user's history
-//		TransactionDAO.insertActivationCodeTran(tran2, user);
-//		history.addTransaction(tran3);
-//		user.setGreenCoin(user.getGreenCoin() + coin3);
-//		
-//		//With a Activation Code Transaction of 4000 coin the machine 
-//		//gives 8 bonus(800 greenCoin)
-//		// final user green coin will be 4800
-//		int expectedCoin = 4800;
-//		int userCoin = user.getGreenCoin();
-//		System.out.println(userCoin);
-//		assertEquals(expectedCoin, userCoin);
-//		
-//	}
-//	
-//	
-//	@Test
-//	public void testAddBonusTransaction() throws SQLException {
-//		init();
-//		
-//		//Bonus Machine is an Observer of user's history
-//		
-//		TransactionDAO.insertActivationCodeTran(tran4, user);
-//		history.addTransaction(tran4);
-//		user.setGreenCoin(user.getGreenCoin() + coin4);
-//		
-//		
-//		List<BonusTran> listTran = TransactionDAO.selectBonusTran(user);
-//		
-//		Boolean verif = false;
-//		for (Transaction tran : listTran) {
-//			for(Transaction userTran : user.getHistory().getTranList()) {
-//				if(tran == userTran) {
-//					verif = true;
-//				}
-//			}
-//		}
-//
-//		assertEquals(true, verif);
-//		
-//	}
-//	
-//	@Test
-//	public void testAddBonusMessage() throws SQLException {
-//		init();
-//		
-//		//Bonus Machine is an Observer of user's history
-//		TransactionDAO.insertActivationCodeTran(tran4, user);
-//		history.addTransaction(tran4);
-//		user.setGreenCoin(user.getGreenCoin() + coin4);
-//		
-//		List<Message> listMes = MessageDAO.select(user);
-//		
-//		Boolean verif = false;
-//		for (Message Mes : listMes) {
-//			for(Message userMes : user.getBoards().getList()) {
-//				if(Mes == userMes) {
-//					verif = true;
-//				}
-//			}
-//		}
-//		assertEquals(true, verif);
-//		
-//	}
+	@Test
+	public void testUpdateWithoutBonus() throws SQLException {
+		init();
+		user.setAddress(AddressDAO.findAddressById(addr));
+		
+		//Bonus Machine is an Observer of user's history
+		TransactionDAO.insertActivationCodeTran(tran2, user);
+		history.addTransaction(tran2);
+		user.setGreenCoin(user.getGreenCoin() + coin2);
+
+		
+//		With a Activation Code Transaction of 200 coin the machine 
+//		doesn't touch user's greencoin
+//	    final user green coin will be 200
+		
+		int expectedCoin = 200;
+		System.out.println(user);
+		int userCoin = user.getGreenCoin();
+        
+		assertEquals(expectedCoin, userCoin);
+		
+	}
+	
+	
 
 }
 
